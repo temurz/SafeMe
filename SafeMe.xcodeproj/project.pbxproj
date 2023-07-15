@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19F3001DA908FFE2BFC446E1 /* Pods_SafeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* ViewController.swift */; };
@@ -15,6 +16,8 @@
 		B8B0624E2A616FA90020339B /* SafeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0624D2A616FA90020339B /* SafeMeTests.swift */; };
 		B8B062582A616FA90020339B /* SafeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062572A616FA90020339B /* SafeMeUITests.swift */; };
 		B8B0625A2A616FA90020339B /* SafeMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062592A616FA90020339B /* SafeMeUITestsLaunchTests.swift */; };
+		B8B0626C2A618A5B0020339B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0626B2A618A5B0020339B /* GradientView.swift */; };
+		B8B0626E2A618D620020339B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0626D2A618D620020339B /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C4F5EF86CDBEF3A1FF6E366 /* Pods-SafeMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMe.debug.xcconfig"; path = "Target Support Files/Pods-SafeMe/Pods-SafeMe.debug.xcconfig"; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +52,9 @@
 		B8B062532A616FA90020339B /* SafeMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062572A616FA90020339B /* SafeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeMeUITests.swift; sourceTree = "<group>"; };
 		B8B062592A616FA90020339B /* SafeMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8B0626B2A618A5B0020339B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		B8B0626D2A618D620020339B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E0E7708B0F75FEBBF63FD539 /* Pods-SafeMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMe.release.xcconfig"; path = "Target Support Files/Pods-SafeMe/Pods-SafeMe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F3001DA908FFE2BFC446E1 /* Pods_SafeMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15E76A81CCA1243ACBEF6EC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D6AC226FF10BEE9654CFA38 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C4F5EF86CDBEF3A1FF6E366 /* Pods-SafeMe.debug.xcconfig */,
+				E0E7708B0F75FEBBF63FD539 /* Pods-SafeMe.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B8B0622A2A616FA70020339B = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +107,8 @@
 				B8B0624C2A616FA90020339B /* SafeMeTests */,
 				B8B062562A616FA90020339B /* SafeMeUITests */,
 				B8B062342A616FA70020339B /* Products */,
+				7D6AC226FF10BEE9654CFA38 /* Pods */,
+				15E76A81CCA1243ACBEF6EC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +125,7 @@
 		B8B062352A616FA70020339B /* SafeMe */ = {
 			isa = PBXGroup;
 			children = (
+				B8B0626A2A618A4A0020339B /* Views */,
 				B8B062692A6172AD0020339B /* Model */,
 				B8B062442A616FA90020339B /* Info.plist */,
 				B8B062682A6171780020339B /* Extensions */,
@@ -156,6 +185,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B8B0626A2A618A4A0020339B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8B0626B2A618A5B0020339B /* GradientView.swift */,
+				B8B0626D2A618D620020339B /* BaseViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8B0625D2A616FA90020339B /* Build configuration list for PBXNativeTarget "SafeMe" */;
 			buildPhases = (
+				C1C8FEBEDB79027347E42054 /* [CP] Check Pods Manifest.lock */,
 				B8B0622F2A616FA70020339B /* Sources */,
 				B8B062302A616FA70020339B /* Frameworks */,
 				B8B062312A616FA70020339B /* Resources */,
+				CE0328AE8932A36ECDCA519D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,7 +276,7 @@
 				};
 			};
 			buildConfigurationList = B8B0622E2A616FA70020339B /* Build configuration list for PBXProject "SafeMe" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -281,13 +321,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C1C8FEBEDB79027347E42054 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SafeMe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE0328AE8932A36ECDCA519D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SafeMe/Pods-SafeMe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SafeMe/Pods-SafeMe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SafeMe/Pods-SafeMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B8B0622F2A616FA70020339B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B0626E2A618D620020339B /* BaseViewController.swift in Sources */,
 				B8B0623B2A616FA70020339B /* ViewController.swift in Sources */,
 				B8B062372A616FA70020339B /* AppDelegate.swift in Sources */,
+				B8B0626C2A618A5B0020339B /* GradientView.swift in Sources */,
 				B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +536,7 @@
 		};
 		B8B0625E2A616FA90020339B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C4F5EF86CDBEF3A1FF6E366 /* Pods-SafeMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -461,7 +546,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -481,6 +566,7 @@
 		};
 		B8B0625F2A616FA90020339B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0E7708B0F75FEBBF63FD539 /* Pods-SafeMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -490,7 +576,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -511,7 +597,7 @@
 		B8B062612A616FA90020339B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -531,7 +617,7 @@
 		B8B062622A616FA90020339B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -551,7 +637,7 @@
 		B8B062642A616FA90020339B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B9QUW9Z84N;
@@ -569,7 +655,7 @@
 		B8B062652A616FA90020339B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B9QUW9Z84N;
