@@ -27,7 +27,7 @@ class GradientView: UIView {
         }
     }
     
-    @IBInspectable var isHorizontal: Bool = true {
+    @IBInspectable var isHorizontal: Bool = false {
         didSet {
             updateView()
         }

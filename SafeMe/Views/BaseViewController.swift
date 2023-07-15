@@ -8,20 +8,23 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    private let backgroundGradientView = GradientView()
+    let backgroundGradientView = GradientView()
+    
+    override func loadView() {
+        super.loadView()
+        backgroundGradientView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundGradientView.firstColor = UIColor(red: 0.1, green: 0.63, blue: 0.8, alpha: 1)
+        backgroundGradientView.secondColor = UIColor(red: 0.1, green: 0.8, blue: 0.67, alpha: 1)
+        self.view.addSubview(backgroundGradientView)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialize()
-    }
-    
-    func initialize() {
-        self.view.addSubview(backgroundGradientView)
-        
-        setupConstraints()
-    }
-    
-    func setupConstraints() {
-        
+        NSLayoutConstraint.activate([
+            backgroundGradientView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundGradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundGradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
