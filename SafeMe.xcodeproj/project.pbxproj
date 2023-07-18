@@ -49,11 +49,12 @@
 		B86ACA4E2A62F2BE00D04485 /* Button + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */; };
 		B86ACA4F2A62F2BE00D04485 /* Button + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */; };
 		B86ACA502A62F2BE00D04485 /* Button + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */; };
-		B86ACA762A65932000D04485 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA752A65932000D04485 /* TestViewController.swift */; };
+		B86ACA762A65932000D04485 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA752A65932000D04485 /* SideMenuViewController.swift */; };
 		B86ACA782A6667B900D04485 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA772A6667B900D04485 /* MainViewController.swift */; };
 		B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA7A2A66E88D00D04485 /* MenuCell.swift */; };
 		B86ACA7D2A66E8BB00D04485 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA7C2A66E8BB00D04485 /* MenuModel.swift */; };
 		B86ACA7F2A66ED9A00D04485 /* MenuControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA7E2A66ED9A00D04485 /* MenuControllerPresenter.swift */; };
+		B86ACA822A66F9B800D04485 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA812A66F9B800D04485 /* AboutViewController.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* ViewController.swift */; };
@@ -103,11 +104,12 @@
 		B86ACA452A62EBD100D04485 /* StackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extension.swift"; sourceTree = "<group>"; };
 		B86ACA492A62EC5A00D04485 /* SetupViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViews.swift; sourceTree = "<group>"; };
 		B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button + extension.swift"; sourceTree = "<group>"; };
-		B86ACA752A65932000D04485 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		B86ACA752A65932000D04485 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		B86ACA772A6667B900D04485 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B86ACA7A2A66E88D00D04485 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		B86ACA7C2A66E8BB00D04485 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		B86ACA7E2A66ED9A00D04485 /* MenuControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerPresenter.swift; sourceTree = "<group>"; };
+		B86ACA812A66F9B800D04485 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,11 +197,19 @@
 		B86ACA792A66E86C00D04485 /* SideMenuController */ = {
 			isa = PBXGroup;
 			children = (
-				B86ACA752A65932000D04485 /* TestViewController.swift */,
+				B86ACA752A65932000D04485 /* SideMenuViewController.swift */,
 				B86ACA7A2A66E88D00D04485 /* MenuCell.swift */,
 				B86ACA7E2A66ED9A00D04485 /* MenuControllerPresenter.swift */,
 			);
 			path = SideMenuController;
+			sourceTree = "<group>";
+		};
+		B86ACA802A66F9A300D04485 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACA812A66F9B800D04485 /* AboutViewController.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 		B8B0622A2A616FA70020339B = {
@@ -227,11 +237,11 @@
 		B8B062352A616FA70020339B /* SafeMe */ = {
 			isa = PBXGroup;
 			children = (
-				B8B0626A2A618A4A0020339B /* Views */,
-				B8B062692A6172AD0020339B /* Model */,
-				B8B062442A616FA90020339B /* Info.plist */,
 				B8B062682A6171780020339B /* Extensions */,
+				B8B062692A6172AD0020339B /* Model */,
+				B8B0626A2A618A4A0020339B /* Views */,
 				B8B062672A61716A0020339B /* Controllers List */,
+				B8B062442A616FA90020339B /* Info.plist */,
 				B8B062662A61714D0020339B /* Support */,
 			);
 			path = SafeMe;
@@ -270,6 +280,7 @@
 		B8B062672A61716A0020339B /* Controllers List */ = {
 			isa = PBXGroup;
 			children = (
+				B86ACA802A66F9A300D04485 /* About */,
 				B86ACA152A62D64000D04485 /* Registration */,
 				B8B0623A2A616FA70020339B /* ViewController.swift */,
 			);
@@ -506,7 +517,8 @@
 				B86ACA192A62DF8700D04485 /* UICustomTextField.swift in Sources */,
 				B86ACA422A62EB9E00D04485 /* Textfield+Extension.swift in Sources */,
 				B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */,
-				B86ACA762A65932000D04485 /* TestViewController.swift in Sources */,
+				B86ACA822A66F9B800D04485 /* AboutViewController.swift in Sources */,
+				B86ACA762A65932000D04485 /* SideMenuViewController.swift in Sources */,
 				B86ACA4A2A62EC5A00D04485 /* SetupViews.swift in Sources */,
 				B86ACA172A62D65300D04485 /* RegistrationViewController.swift in Sources */,
 				B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */,

@@ -26,7 +26,7 @@ class ViewController: BaseViewController {
     
     
     @objc private func leftSideMenuAction() {
-        let menu = SideMenuNavigationController(rootViewController: TestViewController())
+        let menu = SideMenuNavigationController(rootViewController: SideMenuViewController())
         menu.leftSide = true
         var menuSettings = SideMenuSettings()
         menuSettings.presentationStyle = .menuSlideIn

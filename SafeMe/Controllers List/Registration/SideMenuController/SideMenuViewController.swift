@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TestViewController: UIViewController {
+class SideMenuViewController: UIViewController {
     private let headerView = UIView()
     private let logoImageView = UIImageView()
     private let tableView = UITableView()
@@ -70,7 +70,7 @@ class TestViewController: UIViewController {
     }
 }
 
-extension TestViewController: UITableViewDataSource, UITableViewDelegate {
+extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as! MenuCell
         cell.updateModel(model: items[indexPath.row])
@@ -85,6 +85,8 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MenuCell
         cell.changeSelectedStyle(selected: true)
+        
+        self.dismiss(animated: true)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

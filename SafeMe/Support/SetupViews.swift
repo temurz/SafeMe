@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//Singleton
 class SetupViews {
     private init() {}
     static var shared = SetupViews()
