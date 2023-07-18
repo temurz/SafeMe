@@ -15,6 +15,7 @@ class BaseViewController: UIViewController {
         backgroundGradientView.translatesAutoresizingMaskIntoConstraints = false
         backgroundGradientView.firstColor = UIColor(red: 0.1, green: 0.63, blue: 0.8, alpha: 1)
         backgroundGradientView.secondColor = UIColor(red: 0.1, green: 0.8, blue: 0.67, alpha: 1)
+//        backgroundGradientView.isHidden = true
         self.view.addSubview(backgroundGradientView)
     }
     

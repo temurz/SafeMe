@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,9 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 //        window.rootViewController = ViewController()
         if UserDefaults.standard.string(forKey: "token") != nil {
-            window.rootViewController = ViewController()
-        }else {
             window.rootViewController = RegistrationViewController()
+        }else {
+            let sideController = SideMenuNavigationController(rootViewController: ViewController())
+            window.rootViewController = sideController
         }
         
         self.window = window

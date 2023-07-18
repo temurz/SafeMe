@@ -59,7 +59,7 @@ extension UIColor {
         var gray3:  UIColor { return UIColor(named: "gray3") ?? UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1)}
 
         //цвет фона контроллера
-        var backgroundColor:  UIColor { return UIColor(named: "backgroundColor") ?? UIColor(red: 0.9882352941, green: 0.9882352941, blue: 0.9882352941, alpha: 1)}
+//        var backgroundColor:  UIColor { return UIColor(named: "backgroundColor") ?? UIColor(red: 0.9882352941, green: 0.9882352941, blue: 0.9882352941, alpha: 1)}
         
         //
         var grayView:  UIColor { return UIColor(named: "grayView") ?? UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)}
@@ -74,6 +74,9 @@ extension UIColor {
         //#colorLiteral(red: 0.9960784314, green: 0.7568627451, blue: 0.01568627451, alpha: 1)
         
         //#colorLiteral(red: 0.7333333333, green: 0.231372549, blue: 0.231372549, alpha: 1)
+        
+        var mainBackgroundColor: UIColor { return UIColor(red: 0.08, green: 0.7, blue: 0.89, alpha: 1)}
+        var cellBackgroundColor: UIColor {return UIColor(red: 0.1, green: 0.79, blue: 1, alpha: 1)}
     }
 }
 
