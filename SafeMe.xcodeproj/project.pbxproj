@@ -50,11 +50,17 @@
 		B86ACA4F2A62F2BE00D04485 /* Button + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */; };
 		B86ACA502A62F2BE00D04485 /* Button + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */; };
 		B86ACA762A65932000D04485 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA752A65932000D04485 /* SideMenuViewController.swift */; };
-		B86ACA782A6667B900D04485 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA772A6667B900D04485 /* MainViewController.swift */; };
+		B86ACA782A6667B900D04485 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA772A6667B900D04485 /* BaseViewController.swift */; };
 		B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA7A2A66E88D00D04485 /* MenuCell.swift */; };
 		B86ACA7D2A66E8BB00D04485 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA7C2A66E8BB00D04485 /* MenuModel.swift */; };
 		B86ACA7F2A66ED9A00D04485 /* MenuControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA7E2A66ED9A00D04485 /* MenuControllerPresenter.swift */; };
 		B86ACA822A66F9B800D04485 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA812A66F9B800D04485 /* AboutViewController.swift */; };
+		B86ACA8B2A67C7BB00D04485 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA8A2A67C7BB00D04485 /* NewsViewController.swift */; };
+		B86ACA8D2A67C81100D04485 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA8C2A67C81100D04485 /* ChatViewController.swift */; };
+		B86ACA8F2A67C84400D04485 /* ConsultantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA8E2A67C84400D04485 /* ConsultantViewController.swift */; };
+		B86ACA912A67C92F00D04485 /* PollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA902A67C92F00D04485 /* PollViewController.swift */; };
+		B86ACA932A67C97100D04485 /* InspectorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA922A67C97100D04485 /* InspectorsViewController.swift */; };
+		B86ACA952A67C99300D04485 /* ApplicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA942A67C99300D04485 /* ApplicationsViewController.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* ViewController.swift */; };
@@ -64,7 +70,7 @@
 		B8B062582A616FA90020339B /* SafeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062572A616FA90020339B /* SafeMeUITests.swift */; };
 		B8B0625A2A616FA90020339B /* SafeMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062592A616FA90020339B /* SafeMeUITestsLaunchTests.swift */; };
 		B8B0626C2A618A5B0020339B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0626B2A618A5B0020339B /* GradientView.swift */; };
-		B8B0626E2A618D620020339B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0626D2A618D620020339B /* BaseViewController.swift */; };
+		B8B0626E2A618D620020339B /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0626D2A618D620020339B /* GradientViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,11 +111,17 @@
 		B86ACA492A62EC5A00D04485 /* SetupViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViews.swift; sourceTree = "<group>"; };
 		B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button + extension.swift"; sourceTree = "<group>"; };
 		B86ACA752A65932000D04485 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
-		B86ACA772A6667B900D04485 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B86ACA772A6667B900D04485 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B86ACA7A2A66E88D00D04485 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		B86ACA7C2A66E8BB00D04485 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		B86ACA7E2A66ED9A00D04485 /* MenuControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerPresenter.swift; sourceTree = "<group>"; };
 		B86ACA812A66F9B800D04485 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		B86ACA8A2A67C7BB00D04485 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		B86ACA8C2A67C81100D04485 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		B86ACA8E2A67C84400D04485 /* ConsultantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultantViewController.swift; sourceTree = "<group>"; };
+		B86ACA902A67C92F00D04485 /* PollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollViewController.swift; sourceTree = "<group>"; };
+		B86ACA922A67C97100D04485 /* InspectorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorsViewController.swift; sourceTree = "<group>"; };
+		B86ACA942A67C99300D04485 /* ApplicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsViewController.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,7 +135,7 @@
 		B8B062572A616FA90020339B /* SafeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeMeUITests.swift; sourceTree = "<group>"; };
 		B8B062592A616FA90020339B /* SafeMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B8B0626B2A618A5B0020339B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		B8B0626D2A618D620020339B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B8B0626D2A618D620020339B /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		E0E7708B0F75FEBBF63FD539 /* Pods-SafeMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMe.release.xcconfig"; path = "Target Support Files/Pods-SafeMe/Pods-SafeMe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,14 +182,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B86ACA152A62D64000D04485 /* Registration */ = {
+		B86ACA152A62D64000D04485 /* Registration Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B86ACA792A66E86C00D04485 /* SideMenuController */,
 				B86ACA162A62D65300D04485 /* RegistrationViewController.swift */,
-				B86ACA772A6667B900D04485 /* MainViewController.swift */,
 			);
-			path = Registration;
+			path = "Registration Controller";
 			sourceTree = "<group>";
 		};
 		B86ACA202A62EA3900D04485 /* Monserrat */ = {
@@ -204,12 +214,68 @@
 			path = SideMenuController;
 			sourceTree = "<group>";
 		};
-		B86ACA802A66F9A300D04485 /* About */ = {
+		B86ACA802A66F9A300D04485 /* About Controller */ = {
 			isa = PBXGroup;
 			children = (
 				B86ACA812A66F9B800D04485 /* AboutViewController.swift */,
 			);
-			path = About;
+			path = "About Controller";
+			sourceTree = "<group>";
+		};
+		B86ACA832A67C57C00D04485 /* Suggestions Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8B0623A2A616FA70020339B /* ViewController.swift */,
+			);
+			path = "Suggestions Controller";
+			sourceTree = "<group>";
+		};
+		B86ACA842A67C68900D04485 /* News Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACA8A2A67C7BB00D04485 /* NewsViewController.swift */,
+			);
+			path = "News Controller";
+			sourceTree = "<group>";
+		};
+		B86ACA852A67C69900D04485 /* Chat Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACA8C2A67C81100D04485 /* ChatViewController.swift */,
+			);
+			path = "Chat Controller";
+			sourceTree = "<group>";
+		};
+		B86ACA862A67C6A300D04485 /* Consultant Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACA8E2A67C84400D04485 /* ConsultantViewController.swift */,
+			);
+			path = "Consultant Controller";
+			sourceTree = "<group>";
+		};
+		B86ACA872A67C6AC00D04485 /* Poll Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACA902A67C92F00D04485 /* PollViewController.swift */,
+			);
+			path = "Poll Controller";
+			sourceTree = "<group>";
+		};
+		B86ACA882A67C6C000D04485 /* Inspectors Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACA922A67C97100D04485 /* InspectorsViewController.swift */,
+			);
+			path = "Inspectors Controller";
+			sourceTree = "<group>";
+		};
+		B86ACA892A67C6D800D04485 /* Applications Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACA942A67C99300D04485 /* ApplicationsViewController.swift */,
+			);
+			path = "Applications Controller";
 			sourceTree = "<group>";
 		};
 		B8B0622A2A616FA70020339B = {
@@ -280,9 +346,17 @@
 		B8B062672A61716A0020339B /* Controllers List */ = {
 			isa = PBXGroup;
 			children = (
-				B86ACA802A66F9A300D04485 /* About */,
-				B86ACA152A62D64000D04485 /* Registration */,
-				B8B0623A2A616FA70020339B /* ViewController.swift */,
+				B86ACA792A66E86C00D04485 /* SideMenuController */,
+				B86ACA772A6667B900D04485 /* BaseViewController.swift */,
+				B86ACA152A62D64000D04485 /* Registration Controller */,
+				B86ACA832A67C57C00D04485 /* Suggestions Controller */,
+				B86ACA842A67C68900D04485 /* News Controller */,
+				B86ACA852A67C69900D04485 /* Chat Controller */,
+				B86ACA862A67C6A300D04485 /* Consultant Controller */,
+				B86ACA872A67C6AC00D04485 /* Poll Controller */,
+				B86ACA882A67C6C000D04485 /* Inspectors Controller */,
+				B86ACA892A67C6D800D04485 /* Applications Controller */,
+				B86ACA802A66F9A300D04485 /* About Controller */,
 			);
 			path = "Controllers List";
 			sourceTree = "<group>";
@@ -313,7 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				B8B0626B2A618A5B0020339B /* GradientView.swift */,
-				B8B0626D2A618D620020339B /* BaseViewController.swift */,
+				B8B0626D2A618D620020339B /* GradientViewController.swift */,
 				B86ACA182A62DF8700D04485 /* UICustomTextField.swift */,
 			);
 			path = Views;
@@ -522,15 +596,21 @@
 				B86ACA4A2A62EC5A00D04485 /* SetupViews.swift in Sources */,
 				B86ACA172A62D65300D04485 /* RegistrationViewController.swift in Sources */,
 				B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */,
-				B8B0626E2A618D620020339B /* BaseViewController.swift in Sources */,
-				B86ACA782A6667B900D04485 /* MainViewController.swift in Sources */,
+				B8B0626E2A618D620020339B /* GradientViewController.swift in Sources */,
+				B86ACA782A6667B900D04485 /* BaseViewController.swift in Sources */,
 				B86ACA7D2A66E8BB00D04485 /* MenuModel.swift in Sources */,
 				B8B0623B2A616FA70020339B /* ViewController.swift in Sources */,
+				B86ACA8B2A67C7BB00D04485 /* NewsViewController.swift in Sources */,
 				B86ACA4E2A62F2BE00D04485 /* Button + extension.swift in Sources */,
 				B8B062372A616FA70020339B /* AppDelegate.swift in Sources */,
 				B86ACA7F2A66ED9A00D04485 /* MenuControllerPresenter.swift in Sources */,
+				B86ACA952A67C99300D04485 /* ApplicationsViewController.swift in Sources */,
+				B86ACA932A67C97100D04485 /* InspectorsViewController.swift in Sources */,
+				B86ACA8D2A67C81100D04485 /* ChatViewController.swift in Sources */,
 				B8B0626C2A618A5B0020339B /* GradientView.swift in Sources */,
 				B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */,
+				B86ACA912A67C92F00D04485 /* PollViewController.swift in Sources */,
+				B86ACA8F2A67C84400D04485 /* ConsultantViewController.swift in Sources */,
 				B86ACA1D2A62DFCF00D04485 /* UILabel+Extension.swift in Sources */,
 				B86ACA1F2A62E00400D04485 /* UIColor+Extension.swift in Sources */,
 				B86ACA462A62EBD100D04485 /* StackView+Extension.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class GradientViewController: UIViewController {
     let backgroundGradientView = GradientView()
     
     override func loadView() {

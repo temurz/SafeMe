@@ -23,6 +23,18 @@ class SideMenuViewController: UIViewController {
         MenuModel(id: 8, image: "exit", title: "Chiqish"),
     ]
     
+    var selectedRowAction: ((Int) -> ())?
+    var currentRow: Int
+    
+    init(currentRow: Int) {
+        self.currentRow = currentRow
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         super.loadView()
         initialize()
@@ -73,7 +85,7 @@ class SideMenuViewController: UIViewController {
 extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as! MenuCell
-        cell.updateModel(model: items[indexPath.row])
+        cell.updateModel(model: items[indexPath.row], currentRow: currentRow)
         cell.selectedBackgroundView = UIView(.custom.cellBackgroundColor)
         return cell
     }
@@ -85,7 +97,7 @@ extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MenuCell
         cell.changeSelectedStyle(selected: true)
-        
+        self.selectedRowAction?(items[indexPath.row].id)
         self.dismiss(animated: true)
     }
     

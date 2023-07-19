@@ -41,14 +41,17 @@ class MenuCell: UITableViewCell {
         ])
     }
     
-    func updateModel(model: MenuModel) {
+    func updateModel(model: MenuModel, currentRow: Int) {
         self.model = model
         if model.image == "suggestions" {
             iconImageView.image = UIImage(named: model.image)?.withTintColor(.black)
         }else {
             iconImageView.image = UIImage(named: model.image)
         }
-        
+        if currentRow == model.id {
+            self.contentView.backgroundColor = .custom.cellBackgroundColor
+            self.changeSelectedStyle(selected: true)
+        }
         titleLabel.text = model.title
     }
     

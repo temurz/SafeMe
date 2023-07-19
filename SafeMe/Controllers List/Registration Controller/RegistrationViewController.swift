@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationViewController: BaseViewController {
+class RegistrationViewController: GradientViewController {
     private let bgView = UIView()
     private let titleLabel = UILabel(text: "Ro'yxatdan o'tish", font: .systemFont(ofSize: 20), color: .custom.black)
     private let subtitleLabel = UILabel(text: "Ro'yxatdan o'tish uchun telefon raqamingizni kiriting", font: .systemFont(ofSize: 14),color: .custom.gray)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class AboutViewController: BaseViewController {
     private let backgroundView = UIView(.white)
@@ -17,6 +18,7 @@ class AboutViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        button.tag = 7
         self.title = "Biz haqqimizda"
         setupConstraints()
     }
