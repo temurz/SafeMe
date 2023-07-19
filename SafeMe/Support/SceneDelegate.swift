@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 //        window.rootViewController = ViewController()
         if UserDefaults.standard.string(forKey: "token") != nil {
-            window.rootViewController = RegistrationViewController()
+            window.rootViewController = AboutViewController()
         }else {
             let sideController = SideMenuNavigationController(rootViewController: ViewController())
             window.rootViewController = sideController

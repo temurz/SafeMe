@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19F3001DA908FFE2BFC446E1 /* Pods_SafeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */; };
+		3401D41B2A67E4FA00978130 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D41A2A67E4FA00978130 /* AboutCell.swift */; };
+		3401D41D2A68231B00978130 /* AboutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D41C2A68231B00978130 /* AboutModel.swift */; };
 		B86ACA172A62D65300D04485 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA162A62D65300D04485 /* RegistrationViewController.swift */; };
 		B86ACA192A62DF8700D04485 /* UICustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA182A62DF8700D04485 /* UICustomTextField.swift */; };
 		B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA1A2A62DFAF00D04485 /* UIView+Extension.swift */; };
@@ -91,6 +93,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3401D41A2A67E4FA00978130 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
+		3401D41C2A68231B00978130 /* AboutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModel.swift; sourceTree = "<group>"; };
 		5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C4F5EF86CDBEF3A1FF6E366 /* Pods-SafeMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMe.debug.xcconfig"; path = "Target Support Files/Pods-SafeMe/Pods-SafeMe.debug.xcconfig"; sourceTree = "<group>"; };
 		B86ACA162A62D65300D04485 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B86ACA812A66F9B800D04485 /* AboutViewController.swift */,
+				3401D41A2A67E4FA00978130 /* AboutCell.swift */,
 			);
 			path = "About Controller";
 			sourceTree = "<group>";
@@ -346,8 +351,8 @@
 		B8B062672A61716A0020339B /* Controllers List */ = {
 			isa = PBXGroup;
 			children = (
-				B86ACA792A66E86C00D04485 /* SideMenuController */,
 				B86ACA772A6667B900D04485 /* BaseViewController.swift */,
+				B86ACA792A66E86C00D04485 /* SideMenuController */,
 				B86ACA152A62D64000D04485 /* Registration Controller */,
 				B86ACA832A67C57C00D04485 /* Suggestions Controller */,
 				B86ACA842A67C68900D04485 /* News Controller */,
@@ -379,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				B86ACA7C2A66E8BB00D04485 /* MenuModel.swift */,
+				3401D41C2A68231B00978130 /* AboutModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -601,6 +607,8 @@
 				B86ACA7D2A66E8BB00D04485 /* MenuModel.swift in Sources */,
 				B8B0623B2A616FA70020339B /* ViewController.swift in Sources */,
 				B86ACA8B2A67C7BB00D04485 /* NewsViewController.swift in Sources */,
+				3401D41B2A67E4FA00978130 /* AboutCell.swift in Sources */,
+				3401D41D2A68231B00978130 /* AboutModel.swift in Sources */,
 				B86ACA4E2A62F2BE00D04485 /* Button + extension.swift in Sources */,
 				B8B062372A616FA70020339B /* AppDelegate.swift in Sources */,
 				B86ACA7F2A66ED9A00D04485 /* MenuControllerPresenter.swift in Sources */,
