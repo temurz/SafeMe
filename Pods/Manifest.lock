@@ -1,22 +1,26 @@
 PODS:
+  - Locksmith (4.0.0)
   - SDWebImage (5.15.8):
     - SDWebImage/Core (= 5.15.8)
   - SDWebImage/Core (5.15.8)
   - SideMenu (6.5.0)
 
 DEPENDENCIES:
+  - Locksmith
   - SDWebImage (~> 5.0)
   - SideMenu
 
 SPEC REPOS:
   trunk:
+    - Locksmith
     - SDWebImage
     - SideMenu
 
 SPEC CHECKSUMS:
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   SDWebImage: cb032eba469c54e0000e78bcb0a13cdde0a52798
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 2a516cc5b92fa13231fa89141c71eba2060154ca
+PODFILE CHECKSUM: 8e37f157a7408a8cd565438bcf4cb60233981df9
 
 COCOAPODS: 1.12.1

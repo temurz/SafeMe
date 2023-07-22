@@ -12,7 +12,7 @@ import UIKit
     @objc optional  func customTextField(_ customTextField:UICustomTextField, doneButton text: String?)
     @objc optional  func customTextField(_ customTextField:UICustomTextField, endEditing text: String?)
 }
-class UICustomTextField: UIView, UITextFieldDelegate {
+class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegate {
     weak var delegate: UICustomTextFieldDelegate?
     private lazy var view = UIView(.custom.lightGray)
     private lazy var typeLabel: UILabel = UILabel(text: "", ofSize: 10, weight: .regular, color: .custom.gray)
@@ -33,6 +33,8 @@ class UICustomTextField: UIView, UITextFieldDelegate {
         textField.delegate = self
         return textField
     }()
+    
+    var type: TypeMenu = .login
     
     var isOnPlacholderAnimation: Bool = false {
         willSet {
@@ -65,8 +67,25 @@ class UICustomTextField: UIView, UITextFieldDelegate {
         }
     }
     
-    convenience init(title: String, star:Bool, text: String?, placeholder: String?, height: CGFloat = 44.0) {
+    private lazy var imagViewEye:UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "eye"))
+        imageView.backgroundColor = .clear
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .customGray
+        return imageView
+    }()
+    
+    private var statusPasswordText:FilterStatus = .closed {
+        didSet {
+            if type != .pass {return}
+            textField.isSecureTextEntry = statusPasswordText == .closed
+            imagViewEye.image = statusPasswordText == .closed ? UIImage(systemName: "eye") : UIImage(systemName: "eye.slash")
+        }
+    }
+    
+    convenience init(title: String, star:Bool, text: String?, placeholder: String?, height: CGFloat = 44.0, type: TypeMenu = .login) {
         self.init(frame: .zero)
+        self.type = type
         setupView(height)
         self.typeLabel.text = title
         self.textField.placeholder = placeholder
@@ -74,6 +93,7 @@ class UICustomTextField: UIView, UITextFieldDelegate {
         textField.contentVerticalAlignment = .bottom
         textField.contentMode = .bottom
         self.starLabel.isHidden = !star
+        
     }
     
     override init(frame: CGRect) {
@@ -121,6 +141,30 @@ class UICustomTextField: UIView, UITextFieldDelegate {
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
+        
+        if type == .pass {
+            let view = UIView(.clear)
+            view.addSubview(imagViewEye)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(actionEye))
+            tap.delegate = self
+            view.addGestureRecognizer(tap)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            imagViewEye.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(view)
+            
+            NSLayoutConstraint.activate([
+                view.topAnchor.constraint(equalTo: textField.topAnchor),
+                view.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
+                view.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+                view.widthAnchor.constraint(equalToConstant: 32),
+                
+                imagViewEye.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
+                imagViewEye.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -4),
+                imagViewEye.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
+                imagViewEye.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -4),
+                
+            ])
+        }
     }
     
     internal func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -129,6 +173,10 @@ class UICustomTextField: UIView, UITextFieldDelegate {
             typeLabel.isHidden = string.isEmpty
             starLabel.isHidden = string.isEmpty
         }
+    }
+    
+    @objc private func actionEye() {
+        statusPasswordText = statusPasswordText == .open ? .closed : .open
     }
 }
 

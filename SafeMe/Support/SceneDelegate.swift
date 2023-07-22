@@ -7,6 +7,7 @@
 
 import UIKit
 import SideMenu
+import Locksmith
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,10 +23,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 //        window.rootViewController = ViewController()
         if UserDefaults.standard.string(forKey: "token") != nil {
-            window.rootViewController = AboutViewController()
-        }else {
-            let sideController = SideMenuNavigationController(rootViewController: ViewController())
+            let sideController = SideMenuNavigationController(rootViewController: SuggestionsViewController())
             window.rootViewController = sideController
+        }else {
+//            let sideController = SideMenuNavigationController(rootViewController: SuggestionsViewController())
+//            window.rootViewController = sideController
+            let navController = UINavigationController(rootViewController: LoginViewController())
+            window.rootViewController = navController
         }
         
         self.window = window

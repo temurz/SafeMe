@@ -12,7 +12,7 @@ class ConsultantViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "Konsultant"
-        button.tag = 3
+        navBarTitleLabel.text = "Konsultant"
+        leftMenuButton.tag = 3
     }
 }

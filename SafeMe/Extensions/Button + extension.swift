@@ -26,7 +26,7 @@ extension UIButton {
         self.setTitleColor(textColor, for: .normal)
         self.setTitleColor(.customDark, for: .focused)
         self.setTitleColor(.customDark, for: .highlighted)
-        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+//        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         self.clipsToBounds = true
         self.titleLabel?.font = .montserratFont(ofSize: 13, weight: .bold)
         self.layer.cornerRadius = radius
@@ -39,6 +39,13 @@ extension UIButton {
         self.tintColor = color
         self.setTitleColor(color, for: .normal)
 //        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        self.clipsToBounds = true
+    }
+    
+    convenience init(backgroundColor:UIColor,  image:UIImage?) {
+        self.init()
+        self.backgroundColor = backgroundColor
+        self.setImage(image, for: .normal)
         self.clipsToBounds = true
     }
     

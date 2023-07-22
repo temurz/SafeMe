@@ -7,6 +7,7 @@ target 'SafeMe' do
 
 pod 'SDWebImage', '~> 5.0'
 pod ‘SideMenu’
+pod 'Locksmith'
 
   # Pods for SafeMe
 

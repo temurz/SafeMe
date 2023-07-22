@@ -12,7 +12,7 @@ class InspectorsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "Inspektorlar"
-        button.tag = 5
+        navBarTitleLabel.text = "Inspektorlar"
+        leftMenuButton.tag = 5
     }
 }

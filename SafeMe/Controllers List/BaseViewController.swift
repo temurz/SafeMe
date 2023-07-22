@@ -8,16 +8,84 @@
 import UIKit
 import SideMenu
 class BaseViewController: GradientViewController {
-    let button = UIButton(backgroundColor: .clear, textColor: .blue, text: "Left menu")
+    let leftMenuButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(named: "leftMenuIcon"))
+    let navBarTitleLabel = UILabel()
+    let searchButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(systemName: "magnifyingglass"))
+    let sosButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(named: "sosIcon"))
+    let notificationsButton = UIButton(backgroundColor: .clear, image: UIImage(systemName: "bell.fill"))
+    let profileButton = UIButton(backgroundColor: .clear, image: UIImage(systemName: "person.crop.circle"))
+    let container = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let navController = self.navigationController as! SideMenuNavigationController
         navController.leftSide = true
         navController.navigationBar.backgroundColor = .clear
-        button.addTarget(self, action: #selector(leftSideMenuAction(_:)), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        
+        setNavBarContainer()
+        
+        navController.navigationBar.tintColor = .white
+        navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
+        leftMenuButton.addTarget(self, action: #selector(leftSideMenuAction(_:)), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftMenuButton)
     }
+    
+    
+    private func setNavBarContainer() {
+        let stackView = UIStackView()
+        stackView.frame = .init(x: 0, y: 0, width: 200, height: 50)
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.addArrangedSubview(searchButton)
+        stackView.addArrangedSubview(notificationsButton)
+        stackView.addArrangedSubview(sosButton)
+        stackView.addArrangedSubview(profileButton)
+        
+        
+        navBarTitleLabel.textAlignment = .left
+//        navBarTitleLabel.numberOfLines = 0
+        navBarTitleLabel.adjustsFontSizeToFitWidth = true
+        
+        container.addArrangedSubview(navBarTitleLabel)
+        container.addArrangedSubview(UIView(.clear))
+        container.addArrangedSubview(stackView)
+        container.alignment = .fill
+        container.distribution = .fillEqually
+        self.navigationItem.titleView = container
+        navBarTitleLabel.textColor = .custom.white
+        navBarTitleLabel.font = .boldSystemFont(ofSize: 20)
+        container.frame = container.superview?.frame ?? .init(x: 0, y: 0, width: 1000, height: 50)
+        
+        
+//        NSLayoutConstraint.activate([
+//
+//            profileButton.topAnchor.constraint(equalTo: testView.topAnchor),
+//            profileButton.heightAnchor.constraint(equalToConstant: 24),
+//            profileButton.widthAnchor.constraint(equalTo: searchButton.heightAnchor, multiplier: 1),
+//            profileButton.trailingAnchor.constraint(equalTo: testView.trailingAnchor, constant: -16),
+//
+//            sosButton.topAnchor.constraint(equalTo: testView.topAnchor),
+//            sosButton.heightAnchor.constraint(equalToConstant: 24),
+//            sosButton.widthAnchor.constraint(equalTo: searchButton.heightAnchor, multiplier: 1),
+//            sosButton.trailingAnchor.constraint(equalTo: profileButton.leadingAnchor, constant: -16),
+//
+//            notificationsButton.topAnchor.constraint(equalTo: testView.topAnchor),
+//            notificationsButton.heightAnchor.constraint(equalToConstant: 24),
+//            notificationsButton.widthAnchor.constraint(equalTo: searchButton.heightAnchor, multiplier: 1),
+//            notificationsButton.trailingAnchor.constraint(equalTo: sosButton.leadingAnchor, constant: -16),
+//
+//            searchButton.topAnchor.constraint(equalTo: testView.topAnchor),
+//            searchButton.heightAnchor.constraint(equalToConstant: 24),
+//            searchButton.widthAnchor.constraint(equalTo: searchButton.heightAnchor, multiplier: 1),
+//            searchButton.trailingAnchor.constraint(equalTo: notificationsButton.leadingAnchor, constant: -16),
+//
+//
+//        ])
+    }
+    
+    
     
     @objc public func leftSideMenuAction(_ sender: UIButton) {
         let vc = SideMenuViewController(currentRow: sender.tag)
@@ -32,7 +100,7 @@ class BaseViewController: GradientViewController {
         vc.selectedRowAction = { id in
             switch id {
             case 0:
-                menu.pushViewController(ViewController(), animated: true)
+                menu.pushViewController(SuggestionsViewController(), animated: true)
             case 1:
                 menu.pushViewController(NewsViewController(), animated: true)
             case 2:

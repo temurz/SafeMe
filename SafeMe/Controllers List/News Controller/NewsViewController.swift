@@ -12,7 +12,7 @@ class NewsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "E'lonlar"
-        button.tag = 1
+        navBarTitleLabel.text = "E'lonlar"
+        leftMenuButton.tag = 1
     }
 }

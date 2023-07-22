@@ -8,14 +8,15 @@
 import UIKit
 import SideMenu
 
-class ViewController: BaseViewController {
+class SuggestionsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .custom.mainBackgroundColor
-        self.title = "Tavsiyalar"
-        button.tag = 0
+//        self.title = "Tavsiyalar"
+        navBarTitleLabel.text = "Tavsiyalar"
+        leftMenuButton.tag = 0
     }
     
     

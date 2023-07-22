@@ -25,8 +25,8 @@ class AboutViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        button.tag = 7
-        self.title = "Biz haqimizda"
+        leftMenuButton.tag = 7
+        navBarTitleLabel.text = "Biz haqqimizda"
         setupConstraints()
     }
     
@@ -46,7 +46,7 @@ class AboutViewController: BaseViewController {
         unicefImageView.clipsToBounds = true
         self.view.addSubview(unicefImageView)
         
-        firstTitleLabel.text = "Biz haqimizda"
+        firstTitleLabel.text = "Biz haqqimizda"
         firstTitleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         firstTitleLabel.textAlignment = .center
         self.view.addSubview(firstTitleLabel)
