@@ -34,7 +34,7 @@ extension Network {
         let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
         
         print(String(data: body, encoding: .utf8)!)
-        push(api: api, body: body, headers: header, type: AuthToken.self) { result in
+        push(false, api: api, body: body, headers: header, type: AuthToken.self) { result in
             switch result {
             case .success(let model):
                 guard let token = model.body?.token, let refresh = model.body?.refresh else {

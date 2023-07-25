@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
 //        window.rootViewController = ViewController()
-        if UserDefaults.standard.string(forKey: "token") != nil {
+        if AuthApp.shared.token != nil {
             let sideController = SideMenuNavigationController(rootViewController: SuggestionsViewController())
             window.rootViewController = sideController
         }else {

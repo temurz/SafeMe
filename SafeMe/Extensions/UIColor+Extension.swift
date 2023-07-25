@@ -20,7 +20,7 @@ extension UIColor {
     class var customGray3: UIColor {return UIColor(named: "customGray3") ?? #colorLiteral(red: 0.8823529412, green: 0.9098039216, blue: 0.9098039216, alpha: 1)}
     class var customGray5: UIColor {return UIColor(named: "customGray5") ?? #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)}
     
-    class var buttonBackgroundColor: UIColor {return UIColor(red: 0.42, green: 0.74, blue: 0.96, alpha: 1)}
+    
 
 }
 
@@ -77,7 +77,32 @@ extension UIColor {
         
         var mainBackgroundColor: UIColor { return UIColor(red: 0.08, green: 0.7, blue: 0.89, alpha: 1)}
         var cellBackgroundColor: UIColor {return UIColor(red: 0.1, green: 0.79, blue: 1, alpha: 1)}
+        var buttonBackgroundColor: UIColor {return UIColor(red: 0.42, green: 0.74, blue: 0.96, alpha: 1)}
+        var buttonGreenBgColor: UIColor {return UIColor(red: 0.39, green: 0.84, blue: 0.53, alpha: 1)}
     }
 }
 
 
+extension UIColor {
+    static func hexStringToUIColor(hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+}

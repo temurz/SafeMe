@@ -12,9 +12,11 @@ class LoginViewController: GradientViewController {
     private let bgView = UIView()
     private let titleLabel = UILabel(text: "Kirish".localizedString, font: .systemFont(ofSize: 20), color: .custom.black)
     private let subtitleLabel = UILabel(text: "Kirish uchun telefon raqamingizni va parolingizni kiriting".localizedString, font: .systemFont(ofSize: 14),color: .custom.gray)
-    private let phoneTextField = UICustomTextField(title: "Username".localizedString, star: false, text: "+998", placeholder: "", height: 50)
-    private let passwordTextField = UICustomTextField(title: "Password".localizedString, star: false, text: nil, placeholder: "Password".localizedString, height: 50, type: .pass)
-    private let nextButton = UIButton(backgroundColor: UIColor.buttonBackgroundColor, textColor: .custom.white, text: "Davom ettirish".localizedString)
+    private let phoneTextField = UICustomTextField(title: "Username".localizedString, star: false, text: "998902307762", placeholder: "", height: 50)
+    private let passwordTextField = UICustomTextField(title: "Password".localizedString, star: false, text: "qwerty77", placeholder: "Password".localizedString, height: 50, type: .pass)
+    private let nextButton = UIButton(backgroundColor: UIColor.custom.buttonBackgroundColor, textColor: .custom.white, text: "Davom ettirish".localizedString)
+    private let forgotPasswordButton = UILabel(text: "Parol esingizdan chiqtimi?", ofSize: 12, weight: .regular, color: .blue)
+    private let registrationButton = UILabel(text: "Ro'yxatdan otish", ofSize: 12, weight: .regular, color: .blue)
     
     override init() {
         self.presenter = LoginPresenter()
@@ -52,6 +54,13 @@ class LoginViewController: GradientViewController {
         nextButton.layer.cornerRadius = 8
         nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         
+        forgotPasswordButton.font = .systemFont(ofSize: 14, weight: .regular)
+        forgotPasswordButton.adjustsFontSizeToFitWidth = true
+        
+        registrationButton.font = .systemFont(ofSize: 14, weight: .regular)
+        registrationButton.textAlignment = .right
+        registrationButton.adjustsFontSizeToFitWidth = true
+        
     }
     
     func setupConstraints() {
@@ -80,7 +89,15 @@ class LoginViewController: GradientViewController {
             nextButton.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
             nextButton.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
             nextButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
-            nextButton.heightAnchor.constraint(equalToConstant: 38)
+            nextButton.heightAnchor.constraint(equalToConstant: 38),
+            
+//            forgotPasswordButton.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -8),
+//            forgotPasswordButton.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
+//            forgotPasswordButton.trailingAnchor.constraint(equalTo: bgView.centerXAnchor, constant: -4),
+//            
+//            registrationButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+//            registrationButton.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -8),
+//            registrationButton.leadingAnchor.constraint(equalTo: bgView.centerXAnchor, constant: 4)
         ])
     }
     

@@ -1,0 +1,73 @@
+//
+//  CategoryCell.swift
+//  SafeMe
+//
+//  Created by Temur on 25/07/2023.
+//
+
+import UIKit
+
+class CategoryCell: UICollectionViewCell {
+    private let bgView = UIView(.clear, radius: 12)
+    private let imageView = UIImageView()
+    private let titleLabel = UILabel()
+    private let arrowImageView = UIImageView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func initialize() {
+        self.contentView.backgroundColor = .clear
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: self.contentView, view: bgView)
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [imageView, titleLabel, arrowImageView])
+        bgView.backgroundColor = .custom.green
+        bgView.layer.shadowColor = UIColor.gray.cgColor
+        bgView.layer.masksToBounds = true
+        bgView.clipsToBounds = false
+        bgView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        bgView.layer.shadowRadius = 7
+        bgView.layer.shadowOpacity = 0.5
+        
+        titleLabel.numberOfLines = 0
+        titleLabel.font = .systemFont(ofSize: 16)
+        
+        arrowImageView.image = UIImage(named: "chevron_right")
+        
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            bgView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2),
+            bgView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6),
+            bgView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            bgView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            
+            imageView.leadingAnchor.constraint(equalTo: bgView.leadingAnchor,  constant: 16),
+            imageView.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 16),
+            imageView.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
+            imageView.widthAnchor.constraint(equalToConstant: 24),
+            
+            arrowImageView.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 16),
+            arrowImageView.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
+            arrowImageView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -10),
+            arrowImageView.widthAnchor.constraint(equalToConstant: 24),
+            
+            titleLabel.centerYAnchor.constraint(equalTo: bgView.centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 14),
+            titleLabel.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor, constant: -16)
+        ])
+    }
+    
+    func updateModel(model: CategoryModel) {
+        self.imageView.image = UIImage(named: model.image)
+        self.titleLabel.text = model.title
+        self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: model.color)
+        
+    }
+}

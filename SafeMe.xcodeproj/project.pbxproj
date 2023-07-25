@@ -80,6 +80,15 @@
 		B86ACAC12A6C203000D04485 /* AuthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAC02A6C203000D04485 /* AuthCell.swift */; };
 		B86ACAC32A6C651D00D04485 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAC22A6C651D00D04485 /* IndicatorView.swift */; };
 		B86ACAC52A6C727400D04485 /* ApplicationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAC42A6C727400D04485 /* ApplicationCodeViewController.swift */; };
+		B86ACAC72A6EFD0A00D04485 /* AppEnterCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAC62A6EFD0A00D04485 /* AppEnterCodePresenter.swift */; };
+		B86ACACA2A6F1E9F00D04485 /* AgeFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAC92A6F1E9F00D04485 /* AgeFilterCell.swift */; };
+		B86ACACC2A6F861200D04485 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACACB2A6F861100D04485 /* CategoriesView.swift */; };
+		B86ACACE2A6F874300D04485 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACACD2A6F874300D04485 /* CategoryCell.swift */; };
+		B86ACAD02A6F903100D04485 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACACF2A6F903100D04485 /* CategoryModel.swift */; };
+		B86ACAD22A6FA69400D04485 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAD12A6FA69400D04485 /* NewsModel.swift */; };
+		B86ACAD42A6FA7A400D04485 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAD32A6FA7A400D04485 /* NewsCell.swift */; };
+		B86ACAD62A6FAF8F00D04485 /* InspectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAD52A6FAF8F00D04485 /* InspectorModel.swift */; };
+		B86ACAD82A6FAFC200D04485 /* InspectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAD72A6FAFC200D04485 /* InspectorCell.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */; };
@@ -168,6 +177,15 @@
 		B86ACAC02A6C203000D04485 /* AuthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCell.swift; sourceTree = "<group>"; };
 		B86ACAC22A6C651D00D04485 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		B86ACAC42A6C727400D04485 /* ApplicationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCodeViewController.swift; sourceTree = "<group>"; };
+		B86ACAC62A6EFD0A00D04485 /* AppEnterCodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnterCodePresenter.swift; sourceTree = "<group>"; };
+		B86ACAC92A6F1E9F00D04485 /* AgeFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeFilterCell.swift; sourceTree = "<group>"; };
+		B86ACACB2A6F861100D04485 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		B86ACACD2A6F874300D04485 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		B86ACACF2A6F903100D04485 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		B86ACAD12A6FA69400D04485 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		B86ACAD32A6FA7A400D04485 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		B86ACAD52A6FAF8F00D04485 /* InspectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorModel.swift; sourceTree = "<group>"; };
+		B86ACAD72A6FAFC200D04485 /* InspectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorCell.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -283,7 +301,7 @@
 		B86ACA832A67C57C00D04485 /* Suggestions Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */,
+				B86ACAC82A6F1E8400D04485 /* Views */,
 			);
 			path = "Suggestions Controller";
 			sourceTree = "<group>";
@@ -292,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				B86ACA8A2A67C7BB00D04485 /* NewsViewController.swift */,
+				B86ACAD32A6FA7A400D04485 /* NewsCell.swift */,
 			);
 			path = "News Controller";
 			sourceTree = "<group>";
@@ -324,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				B86ACA922A67C97100D04485 /* InspectorsViewController.swift */,
+				B86ACAD72A6FAFC200D04485 /* InspectorCell.swift */,
 			);
 			path = "Inspectors Controller";
 			sourceTree = "<group>";
@@ -379,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				B86ACABE2A6C1A5900D04485 /* LoginPresenter.swift */,
+				B86ACAC62A6EFD0A00D04485 /* AppEnterCodePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -391,6 +412,17 @@
 				B86ACAC42A6C727400D04485 /* ApplicationCodeViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B86ACAC82A6F1E8400D04485 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */,
+				B86ACAC92A6F1E9F00D04485 /* AgeFilterCell.swift */,
+				B86ACACB2A6F861100D04485 /* CategoriesView.swift */,
+				B86ACACD2A6F874300D04485 /* CategoryCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B8B0622A2A616FA70020339B = {
@@ -500,6 +532,9 @@
 			children = (
 				B86ACA7C2A66E8BB00D04485 /* MenuModel.swift */,
 				B86ACABA2A6C0F9C00D04485 /* AuthDataModel.swift */,
+				B86ACACF2A6F903100D04485 /* CategoryModel.swift */,
+				B86ACAD12A6FA69400D04485 /* NewsModel.swift */,
+				B86ACAD52A6FAF8F00D04485 /* InspectorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -781,23 +816,30 @@
 				B86ACAB32A6AD3B100D04485 /* Network.swift in Sources */,
 				B86ACAAC2A6AC5A100D04485 /* StatusCode.swift in Sources */,
 				B86ACA192A62DF8700D04485 /* UICustomTextField.swift in Sources */,
+				B86ACAD22A6FA69400D04485 /* NewsModel.swift in Sources */,
+				B86ACAD02A6F903100D04485 /* CategoryModel.swift in Sources */,
 				B86ACABB2A6C0F9C00D04485 /* AuthDataModel.swift in Sources */,
+				B86ACAD62A6FAF8F00D04485 /* InspectorModel.swift in Sources */,
 				B86ACA422A62EB9E00D04485 /* Textfield+Extension.swift in Sources */,
 				B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */,
 				B86ACAB92A6AD74700D04485 /* Date+Extension.swift in Sources */,
 				B86ACAC52A6C727400D04485 /* ApplicationCodeViewController.swift in Sources */,
 				B86ACA822A66F9B800D04485 /* AboutViewController.swift in Sources */,
 				B86ACA762A65932000D04485 /* SideMenuViewController.swift in Sources */,
+				B86ACAD42A6FA7A400D04485 /* NewsCell.swift in Sources */,
+				B86ACACE2A6F874300D04485 /* CategoryCell.swift in Sources */,
 				B86ACAAA2A6AC4AE00D04485 /* String+Localize.swift in Sources */,
 				B86ACA4A2A62EC5A00D04485 /* SetupViews.swift in Sources */,
 				B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */,
 				B86ACAC32A6C651D00D04485 /* IndicatorView.swift in Sources */,
 				B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */,
 				B86ACAB02A6ACF1500D04485 /* ResponseModel.swift in Sources */,
+				B86ACAD82A6FAFC200D04485 /* InspectorCell.swift in Sources */,
 				B8B0626E2A618D620020339B /* GradientViewController.swift in Sources */,
 				B86ACA9B2A6AC0EF00D04485 /* ResultNetwork.swift in Sources */,
 				B86ACA782A6667B900D04485 /* BaseViewController.swift in Sources */,
 				B86ACA7D2A66E8BB00D04485 /* MenuModel.swift in Sources */,
+				B86ACACC2A6F861200D04485 /* CategoriesView.swift in Sources */,
 				B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */,
 				B86ACA8B2A67C7BB00D04485 /* NewsViewController.swift in Sources */,
 				B86ACAC12A6C203000D04485 /* AuthCell.swift in Sources */,
@@ -814,6 +856,8 @@
 				B8B0626C2A618A5B0020339B /* GradientView.swift in Sources */,
 				B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */,
 				B86ACA912A67C92F00D04485 /* PollViewController.swift in Sources */,
+				B86ACACA2A6F1E9F00D04485 /* AgeFilterCell.swift in Sources */,
+				B86ACAC72A6EFD0A00D04485 /* AppEnterCodePresenter.swift in Sources */,
 				B86ACA8F2A67C84400D04485 /* ConsultantViewController.swift in Sources */,
 				B86ACA1D2A62DFCF00D04485 /* UILabel+Extension.swift in Sources */,
 				B86ACA1F2A62E00400D04485 /* UIColor+Extension.swift in Sources */,

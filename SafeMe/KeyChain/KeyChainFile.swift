@@ -14,6 +14,7 @@ class AuthApp {
     private var keyToken:String { "tokenKey" }
     private let keyTokenRefresh = "keyTokenRefreshKey"
     private var keyAuth:String { "MyAutorizationKey"}
+    private var keyAppEnterCode: String { "appEnterCodeKey" }
     
     //MARK: Token
     var token:String? {
@@ -91,8 +92,18 @@ class AuthApp {
         }
     }
     
+    var appEnterCode: String? {
+        get {
+            UserDefaults.standard.string(forKey: keyAppEnterCode)
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: keyAppEnterCode)
+        }
+    }
+    
     //MARK: - Token Action
-    private func removeTokens() {
+    func removeTokens() {
         guard  ((try? Locksmith.deleteDataForUserAccount(userAccount: keyToken)) != nil) else {return }
         guard  ((try? Locksmith.deleteDataForUserAccount(userAccount: keyTokenRefresh)) != nil) else {return }
     }
