@@ -89,6 +89,7 @@
 		B86ACAD42A6FA7A400D04485 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAD32A6FA7A400D04485 /* NewsCell.swift */; };
 		B86ACAD62A6FAF8F00D04485 /* InspectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAD52A6FAF8F00D04485 /* InspectorModel.swift */; };
 		B86ACAD82A6FAFC200D04485 /* InspectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAD72A6FAFC200D04485 /* InspectorCell.swift */; };
+		B86ACAFF2A725A2F00D04485 /* SosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAFE2A725A2F00D04485 /* SosViewController.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */; };
@@ -186,6 +187,7 @@
 		B86ACAD32A6FA7A400D04485 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		B86ACAD52A6FAF8F00D04485 /* InspectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorModel.swift; sourceTree = "<group>"; };
 		B86ACAD72A6FAFC200D04485 /* InspectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorCell.swift; sourceTree = "<group>"; };
+		B86ACAFE2A725A2F00D04485 /* SosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SosViewController.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -425,6 +427,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B86ACAFD2A725A2100D04485 /* SosViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACAFE2A725A2F00D04485 /* SosViewController.swift */,
+			);
+			path = SosViewController;
+			sourceTree = "<group>";
+		};
 		B8B0622A2A616FA70020339B = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +506,7 @@
 		B8B062672A61716A0020339B /* Controllers List */ = {
 			isa = PBXGroup;
 			children = (
+				B86ACAFD2A725A2100D04485 /* SosViewController */,
 				B86ACA772A6667B900D04485 /* BaseViewController.swift */,
 				B86ACA792A66E86C00D04485 /* SideMenuController */,
 				B86ACA152A62D64000D04485 /* Login Controller */,
@@ -838,6 +849,7 @@
 				B8B0626E2A618D620020339B /* GradientViewController.swift in Sources */,
 				B86ACA9B2A6AC0EF00D04485 /* ResultNetwork.swift in Sources */,
 				B86ACA782A6667B900D04485 /* BaseViewController.swift in Sources */,
+				B86ACAFF2A725A2F00D04485 /* SosViewController.swift in Sources */,
 				B86ACA7D2A66E8BB00D04485 /* MenuModel.swift in Sources */,
 				B86ACACC2A6F861200D04485 /* CategoriesView.swift in Sources */,
 				B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */,
