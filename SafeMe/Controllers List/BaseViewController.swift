@@ -44,6 +44,7 @@ class BaseViewController: GradientViewController {
         stackView.addArrangedSubview(profileButton)
         
         sosButton.addTarget(self, action: #selector(sosButtonAction), for: .touchUpInside)
+        profileButton.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
         
         navBarTitleLabel.textAlignment = .left
 //        navBarTitleLabel.numberOfLines = 0
@@ -136,6 +137,11 @@ class BaseViewController: GradientViewController {
     
     @objc private func sosButtonAction() {
         let vc = SosViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func profileButtonAction() {
+        let vc = ProfileViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
