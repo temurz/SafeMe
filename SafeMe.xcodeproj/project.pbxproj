@@ -10,6 +10,7 @@
 		0D6C230785D092A770458063 /* Pods_SafeMe_SafeMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1023CEE72500D1D1858DC2F /* Pods_SafeMe_SafeMeUITests.framework */; };
 		19F3001DA908FFE2BFC446E1 /* Pods_SafeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */; };
 		3401D41B2A67E4FA00978130 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D41A2A67E4FA00978130 /* AboutCell.swift */; };
+		349C9B232A73C59D00BC953A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C9B222A73C59D00BC953A /* ProfileViewController.swift */; };
 		B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA162A62D65300D04485 /* LoginViewController.swift */; };
 		B86ACA192A62DF8700D04485 /* UICustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA182A62DF8700D04485 /* UICustomTextField.swift */; };
 		B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA1A2A62DFAF00D04485 /* UIView+Extension.swift */; };
@@ -128,6 +129,7 @@
 		0A6D5790960C34F4E9CFA469 /* Pods_SafeMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		269951007BF025C8AE93720C /* Pods-SafeMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMeTests.release.xcconfig"; path = "Target Support Files/Pods-SafeMeTests/Pods-SafeMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		3401D41A2A67E4FA00978130 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
+		349C9B222A73C59D00BC953A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		39CB27B42F29719920A5959D /* Pods-SafeMe-SafeMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMe-SafeMeUITests.release.xcconfig"; path = "Target Support Files/Pods-SafeMe-SafeMeUITests/Pods-SafeMe-SafeMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C4F5EF86CDBEF3A1FF6E366 /* Pods-SafeMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMe.debug.xcconfig"; path = "Target Support Files/Pods-SafeMe/Pods-SafeMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +253,14 @@
 				0A6D5790960C34F4E9CFA469 /* Pods_SafeMeTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		349C9B212A73C50900BC953A /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				349C9B222A73C59D00BC953A /* ProfileViewController.swift */,
+			);
+			path = ProfileViewController;
 			sourceTree = "<group>";
 		};
 		7D6AC226FF10BEE9654CFA38 /* Pods */ = {
@@ -551,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				B86ACA772A6667B900D04485 /* BaseViewController.swift */,
+				349C9B212A73C50900BC953A /* ProfileViewController */,
 				B86ACAFD2A725A2100D04485 /* SosViewController */,
 				B86ACA792A66E86C00D04485 /* SideMenuController */,
 				B86ACA152A62D64000D04485 /* Login Controller */,
@@ -887,6 +898,7 @@
 				B86ACAD42A6FA7A400D04485 /* NewsCell.swift in Sources */,
 				B86ACACE2A6F874300D04485 /* CategoryCell.swift in Sources */,
 				B86ACAAA2A6AC4AE00D04485 /* String+Localize.swift in Sources */,
+				349C9B232A73C59D00BC953A /* ProfileViewController.swift in Sources */,
 				B86ACA4A2A62EC5A00D04485 /* SetupViews.swift in Sources */,
 				B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */,
 				B86ACAC32A6C651D00D04485 /* IndicatorView.swift in Sources */,
@@ -1118,7 +1130,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B9QUW9Z84N;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1148,7 +1160,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B9QUW9Z84N;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeMe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
