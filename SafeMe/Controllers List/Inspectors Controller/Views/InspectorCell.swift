@@ -7,6 +7,7 @@
 
 import UIKit
 import SideMenu
+import SDWebImage
 
 class InspectorCell: UITableViewCell {
     
@@ -133,10 +134,10 @@ class InspectorCell: UITableViewCell {
         ])
     }
     
-    func updateModel(item: InspectorModel) {
-        imageInspektor.image = UIImage(named: item.image)
-        fullnameTitle.text = item.fullname
-        subtitle.text = item.title
-        phoneNumber.text = item.phoneNumber
+    func updateModel(item: Inspector) {
+        imageInspektor.sd_setImage(with: URL(string: item.image))
+        fullnameTitle.text = "\(item.firstName) \(item.lastName) \(item.patranomic)"
+        subtitle.text = item.position
+        phoneNumber.text = item.phone
     }
 }

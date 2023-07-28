@@ -30,9 +30,13 @@ class NewsCell: UITableViewCell {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: contentView, array: [bgView, mainImageView, titleLabel, subtitleLabel, hexLabel])
         bgView.layer.borderWidth = 4
         bgView.backgroundColor = .white
+        bgView.layer.borderColor = UIColor.hexStringToUIColor(hex: "#63D586").cgColor
         bgView.layer.cornerRadius = 12
         
+        mainImageView.contentMode = .scaleAspectFit
+        
         titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        titleLabel.numberOfLines = 0
         
         subtitleLabel.textColor = .custom.gray
         subtitleLabel.font = .systemFont(ofSize: 12, weight: .regular)
@@ -72,11 +76,10 @@ class NewsCell: UITableViewCell {
         ])
     }
     
-    func updateModel(model: NewsModel) {
-        mainImageView.image = UIImage(named: model.image)
+    func updateModel(model: News) {
+        mainImageView.sd_setImage(with: URL(string: model.image))
         titleLabel.text = model.title
-        subtitleLabel.text = model.subtitle
-        hexLabel.text = model.hexTitle
-        bgView.layer.borderColor = UIColor.hexStringToUIColor(hex: model.borderColor).cgColor
+        subtitleLabel.text = model.shortText
+//        bgView.layer.borderColor = UIColor.hexStringToUIColor(hex: model.borderColor).cgColor
     }
 }

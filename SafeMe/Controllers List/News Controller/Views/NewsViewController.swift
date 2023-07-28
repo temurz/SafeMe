@@ -9,13 +9,12 @@ import UIKit
 
 class NewsViewController: BaseViewController {
     private let tableView = UITableView()
-    private var items: [NewsModel] = [
-        NewsModel(image: "elon1", title: "Videopodkat", subtitle: "Бухоро вилояти ёшлари итирокидаКибержиноятлардан химояланиш буйича очик мулокот", hexTitle: "#Биз_хар_бир_оила_билан_биршамиз /n Хештеги остида! Видеоподкаст", date: Date(), views: nil, borderColor: "#63D586"),
-        NewsModel(image: "elon2", title: "Videopodkat", subtitle: "Бухоро вилояти ёшлари итирокидаКибержиноятлардан химояланиш буйича очик мулокот", hexTitle: "#Биз_хар_бир_оила_билан_биршамиз /n Хештеги остида! Видеоподкаст", date: Date(), views: nil, borderColor: "#C7A9F5"),
-        NewsModel(image: "elon3", title: "Videopodkat", subtitle: "Бухоро вилояти ёшлари итирокидаКибержиноятлардан химояланиш буйича очик мулокот", hexTitle: "#Биз_хар_бир_оила_билан_биршамиз /n Хештеги остида! Видеоподкаст", date: Date(), views: nil, borderColor: "#FFA607"),
-    ]
+    private var items: [News] = []
+    private let presenter: NewsPresenter = NewsPresenter()
+    
     override func loadView() {
         super.loadView()
+        presenter.delegate = self
         initialize()
     }
     
@@ -25,6 +24,11 @@ class NewsViewController: BaseViewController {
         navBarTitleLabel.text = "E'lonlar"
         leftMenuButton.tag = 1
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.getNews()
     }
     
     private func initialize() {
@@ -57,4 +61,12 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.updateModel(model: items[indexPath.row])
         return cell
     }
+}
+
+extension NewsViewController: NewsPresenterProtocol {
+    func reloadData(news: [News]) {
+        self.items = news
+        self.tableView.reloadData()
+    }
+    
 }

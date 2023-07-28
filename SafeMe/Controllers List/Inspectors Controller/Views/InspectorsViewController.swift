@@ -9,22 +9,30 @@ import UIKit
 
 class InspectorsViewController: BaseViewController {
     
+    
+    
     private let tableView = UITableView()
-    private var items: [InspectorModel] = [InspectorModel(image: "inspector2", fullname: "Закиров Нуриддин Абдухамидович", title: "Кушбеги” MFY profilaktka inspektori", phoneNumber: "97-430-10-44"),
-                                              InspectorModel(image: "inspector1", fullname: "Закиров Нуриддин Абдухамидович", title: "Кушбеги” MFY profilaktka inspektori", phoneNumber: "97-430-10-44"),
-                                              InspectorModel(image: "inspector2", fullname: "Закиров Нуриддин Абдухамидович", title: "Кушбеги” MFY profilaktka inspektori", phoneNumber: "97-430-10-44")]
+    private var presenter: InspectorsPresenter?
+    private var inspectors = [Inspector]()
     
     override func loadView() {
         super.loadView()
+        presenter = InspectorsPresenter()
+        presenter?.delegate = self
         initialize()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        navBarTitleLabel.text = "Inspektorlar"
+        navBarTitleLabel.text = "Inspektorlar".localizedString
         leftMenuButton.tag = 5
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.getInspectors()
     }
     
     private func initialize() {
@@ -53,12 +61,12 @@ class InspectorsViewController: BaseViewController {
 extension InspectorsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InspektorCell") as! InspectorCell
-        cell.updateModel(item: items[indexPath.row])
+        cell.updateModel(item: inspectors[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return inspectors.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -68,3 +76,9 @@ extension InspectorsViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+extension InspectorsViewController: InspectorsPresenterProtocol {
+    func reloadData(inspectors: [Inspector]) {
+        self.inspectors = inspectors
+        self.tableView.reloadData()
+    }
+}
