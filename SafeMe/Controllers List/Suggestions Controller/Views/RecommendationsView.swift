@@ -1,17 +1,16 @@
 //
-//  CategoriesView.swift
+//  RecommendationsView.swift
 //  SafeMe
 //
-//  Created by Temur on 25/07/2023.
+//  Created by Temur on 29/07/2023.
 //
 
 import UIKit
 
-class CategoriesView: UIView {
+class RecommendationsView: UIView {
     private var collectionView: UICollectionView!
-    private var items: [Category] = []
-    
-    var selectAction: ((Category) -> ())?
+    private var items: [Recommendation] = []
+    var selectAction: ((Recommendation) -> ())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,13 +26,15 @@ class CategoriesView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: "CategoryCell")
+        collectionView.register(RecommendationCell.self, forCellWithReuseIdentifier: "RecommendationCell")
         
+        
+
         
         SetupViews.addViewEndRemoveAutoresizingMask(superView: self, array: [collectionView])
         setupConstraints()
@@ -50,31 +51,31 @@ class CategoriesView: UIView {
     
     func getHeight() -> CGFloat {
         if items.count % 2 == 0 {
-            return CGFloat(64 * (items.count / 2)) + 10
+            return CGFloat(224 * (items.count / 2)) + 10
         }else {
-            return CGFloat(64 * ((items.count / 2) + 1)) + 10
+            return CGFloat(224 * ((items.count / 2) + 1)) + 10
         }
     }
     
-    func updateItems(_ items: [Category]) {
+    func updateItems(_ items: [Recommendation]) {
         self.items = items
         self.collectionView.reloadData()
     }
 }
 
-extension CategoriesView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension RecommendationsView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendationCell", for: indexPath) as! RecommendationCell
         cell.updateModel(model: items[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width:(collectionView.bounds.width)/2, height: 64)
+        let size = CGSize(width:(collectionView.bounds.width)/2, height: self.bounds.width * 0.33)
         return size
     }
     

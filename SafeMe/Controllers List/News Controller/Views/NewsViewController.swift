@@ -61,6 +61,11 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.updateModel(model: items[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = NewsDetailViewController(news: items[indexPath.row])
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension NewsViewController: NewsPresenterProtocol {

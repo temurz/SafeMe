@@ -10,10 +10,14 @@ import SideMenu
 
 class SuggestionsViewController: BaseViewController {
     let bgFilterView = UIView(.clear)
-    private var ageFilterCollectionView: UICollectionView!
+    private var ageFilterCollectionView = AgeCategoriesView(.clear)
     private var separatorLine = UIView(.custom.gray)
     private var categoriesView = CategoriesView()
-    private var items = [("0-11 yoshlar", true), ("0-3 yoshlar", false),("0-5 yoshlar", false), ("0-7 yoshlar", false), ("0-9 yoshlar", false)]
+    private var recommendationsView = RecommendationsView()
+    private var presenter = SuggestionsPresenter()
+    
+    private var selectedAgeCategory: AgeCategory?
+    private var selectedCategory: Category?
     
     override func loadView() {
         super.loadView()
@@ -22,6 +26,7 @@ class SuggestionsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.delegate = self
         self.view.backgroundColor = .custom.mainBackgroundColor
         navBarTitleLabel.text = "Tavsiyalar"
         leftMenuButton.tag = 0
@@ -29,26 +34,38 @@ class SuggestionsViewController: BaseViewController {
         setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.getAgeCategories()
+        presenter.getCategories()
+        presenter.getRecommendations()
+    }
+    
     private func initialize() {
-        let ageFilterLayout = UICollectionViewFlowLayout()
-        ageFilterLayout.itemSize = CGSize(width: 120, height: 50)
-        ageFilterLayout.scrollDirection = .horizontal
-        ageFilterCollectionView = UICollectionView(frame: .zero, collectionViewLayout: ageFilterLayout)
-        ageFilterCollectionView.showsHorizontalScrollIndicator = false
-        
-        ageFilterCollectionView.dataSource = self
-        ageFilterCollectionView.delegate = self
-        
-        ageFilterCollectionView.register(AgeFilterCell.self, forCellWithReuseIdentifier: "AgeCell")
         SetupViews.addViewEndRemoveAutoresizingMask(superView: bgFilterView, view: ageFilterCollectionView)
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [bgFilterView, categoriesView])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [bgFilterView, categoriesView, recommendationsView])
         
-//        bgFilterView.layer.shadowColor = UIColor.black.cgColor
-//        bgFilterView.layer.shadowOpacity = 1
-//        bgFilterView.layer.shadowOffset = CGSize(width: 0, height: -3)
-//        bgFilterView.layer.shadowRadius = -15
-//        bgFilterView.clipsToBounds = true
-//        bgFilterView.layer.shadowPath = UIBezierPath(rect: bgFilterView.bounds).cgPath
+        ageFilterCollectionView.selectAction = { [weak self] ageCategory in
+            self?.selectedAgeCategory = ageCategory
+            self?.presenter.getRecommendations(ageCategory: ageCategory, category: self?.selectedCategory)
+        }
+        
+        categoriesView.selectAction = { [weak self] category in
+            self?.selectedCategory = category
+            self?.presenter.getRecommendations(ageCategory: self?.selectedAgeCategory,category: category)
+        }
+        
+        recommendationsView.selectAction = { [weak self] recommendation in
+            let vc = RecommendationDetailViewController(recommendation: recommendation)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        bgFilterView.layer.shadowColor = UIColor.black.cgColor
+        bgFilterView.layer.masksToBounds = true
+        bgFilterView.clipsToBounds = false
+        bgFilterView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        bgFilterView.layer.shadowRadius = 7
+        bgFilterView.layer.shadowOpacity = 0.5
 
     }
     
@@ -62,44 +79,31 @@ class SuggestionsViewController: BaseViewController {
             categoriesView.topAnchor.constraint(equalTo: bgFilterView.bottomAnchor, constant: 16),
             categoriesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             categoriesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            categoriesView.heightAnchor.constraint(equalToConstant: categoriesView.getHeight())
             
-//            separatorLine.topAnchor.constraint(equalTo: ageFilterCollectionView.bottomAnchor),
-//            separatorLine.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            separatorLine.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            separatorLine.heightAnchor.constraint(equalToConstant: 4)
+            recommendationsView.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 16),
+            recommendationsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            recommendationsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            recommendationsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
         ])
         
         ageFilterCollectionView.fullConstraint()
     }
 }
 
-extension SuggestionsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+extension SuggestionsViewController: SuggestionsPresenterProtocol {
+    func reloadAgeCategories(_ ageCategories: [AgeCategory]) {
+        self.ageFilterCollectionView.updateItems(items: ageCategories)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgeCell", for: indexPath) as! AgeFilterCell
-        let item = items[indexPath.row]
-        cell.updateModel(text: item.0)
-        cell.makeSelected(bool: item.1)
-        return cell
+    func reloadCategories(_ categories: [Category]) {
+        let filteredItems = categories.filter({$0.type == "recomendation"})
+        self.categoriesView.updateItems(filteredItems)
+        self.categoriesView.heightAnchor.constraint(equalToConstant: categoriesView.getHeight()).isActive = true
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let firstCell = collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as! AgeFilterCell
-        firstCell.makeSelected(bool: false)
-        let cell = collectionView.cellForItem(at: indexPath) as! AgeFilterCell
-        items[indexPath.row].1 = true
-        cell.makeSelected(bool: true)
+    func reloadRecommendations(_ recommendations: [Recommendation]) {
+        self.recommendationsView.updateItems(recommendations)
+//        self.recommendationsView.heightAnchor.constraint(equalToConstant: recommendationsView.getHeight()).isActive = true
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! AgeFilterCell
-        items[indexPath.row].1 = false
-        cell.makeSelected(bool: false)
-    }
-    
 }
 

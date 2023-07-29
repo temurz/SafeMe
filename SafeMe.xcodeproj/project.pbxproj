@@ -49,9 +49,9 @@
 		B86ACA4A2A62EC5A00D04485 /* SetupViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA492A62EC5A00D04485 /* SetupViews.swift */; };
 		B86ACA4B2A62EC5A00D04485 /* SetupViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA492A62EC5A00D04485 /* SetupViews.swift */; };
 		B86ACA4C2A62EC5A00D04485 /* SetupViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA492A62EC5A00D04485 /* SetupViews.swift */; };
-		B86ACA4E2A62F2BE00D04485 /* Button + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */; };
-		B86ACA4F2A62F2BE00D04485 /* Button + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */; };
-		B86ACA502A62F2BE00D04485 /* Button + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */; };
+		B86ACA4E2A62F2BE00D04485 /* Button + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + Extension.swift */; };
+		B86ACA4F2A62F2BE00D04485 /* Button + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + Extension.swift */; };
+		B86ACA502A62F2BE00D04485 /* Button + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA4D2A62F2BE00D04485 /* Button + Extension.swift */; };
 		B86ACA762A65932000D04485 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA752A65932000D04485 /* SideMenuViewController.swift */; };
 		B86ACA782A6667B900D04485 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA772A6667B900D04485 /* BaseViewController.swift */; };
 		B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA7A2A66E88D00D04485 /* MenuCell.swift */; };
@@ -95,6 +95,26 @@
 		B86ACB292A73D03400D04485 /* InspectorsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB282A73D03400D04485 /* InspectorsPresenter.swift */; };
 		B86ACB2F2A73E30800D04485 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB2E2A73E30800D04485 /* NewsPresenter.swift */; };
 		B86ACB312A73EFC500D04485 /* News+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB302A73EFC500D04485 /* News+Network.swift */; };
+		B86ACB332A741DEB00D04485 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB322A741DEB00D04485 /* String+Extension.swift */; };
+		B86ACB422A74312B00D04485 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86ACB352A74312B00D04485 /* Roboto-Medium.ttf */; };
+		B86ACB432A74312B00D04485 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86ACB362A74312B00D04485 /* Roboto-Light.ttf */; };
+		B86ACB442A74312B00D04485 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86ACB372A74312B00D04485 /* Roboto-Regular.ttf */; };
+		B86ACB492A74312B00D04485 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86ACB3C2A74312B00D04485 /* Roboto-Italic.ttf */; };
+		B86ACB4A2A74312B00D04485 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = B86ACB3D2A74312B00D04485 /* LICENSE.txt */; };
+		B86ACB4C2A74312B00D04485 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86ACB3F2A74312B00D04485 /* Roboto-Bold.ttf */; };
+		B86ACB4D2A74312B00D04485 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86ACB402A74312B00D04485 /* Roboto-Thin.ttf */; };
+		B86ACB4E2A74312B00D04485 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86ACB412A74312B00D04485 /* Roboto-Black.ttf */; };
+		B86ACB502A74398D00D04485 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB4F2A74398D00D04485 /* NewsDetailViewController.swift */; };
+		B86ACB532A744E5700D04485 /* SuggestionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB522A744E5700D04485 /* SuggestionsPresenter.swift */; };
+		B86ACB552A744EC400D04485 /* AgeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB542A744EC400D04485 /* AgeCategory.swift */; };
+		B86ACB592A74515F00D04485 /* AgeCategory+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB582A74515F00D04485 /* AgeCategory+Network.swift */; };
+		B86ACB5B2A74542C00D04485 /* Categories+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB5A2A74542C00D04485 /* Categories+Network.swift */; };
+		B86ACB5D2A7463E100D04485 /* Recommendations+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB5C2A7463E100D04485 /* Recommendations+Network.swift */; };
+		B86ACB5F2A74651100D04485 /* RecommendationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB5E2A74651100D04485 /* RecommendationModel.swift */; };
+		B86ACB612A7467DF00D04485 /* AgeCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB602A7467DF00D04485 /* AgeCategoriesView.swift */; };
+		B86ACB632A74EDB500D04485 /* RecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB622A74EDB500D04485 /* RecommendationsView.swift */; };
+		B86ACB652A74F07D00D04485 /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB642A74F07D00D04485 /* RecommendationCell.swift */; };
+		B86ACB672A74F6CA00D04485 /* RecommendationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACB662A74F6CA00D04485 /* RecommendationDetailViewController.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */; };
@@ -150,7 +170,7 @@
 		B86ACA412A62EB9E00D04485 /* Textfield+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Textfield+Extension.swift"; sourceTree = "<group>"; };
 		B86ACA452A62EBD100D04485 /* StackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+Extension.swift"; sourceTree = "<group>"; };
 		B86ACA492A62EC5A00D04485 /* SetupViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViews.swift; sourceTree = "<group>"; };
-		B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button + extension.swift"; sourceTree = "<group>"; };
+		B86ACA4D2A62F2BE00D04485 /* Button + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button + Extension.swift"; sourceTree = "<group>"; };
 		B86ACA752A65932000D04485 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		B86ACA772A6667B900D04485 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B86ACA7A2A66E88D00D04485 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -198,6 +218,26 @@
 		B86ACB282A73D03400D04485 /* InspectorsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorsPresenter.swift; sourceTree = "<group>"; };
 		B86ACB2E2A73E30800D04485 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
 		B86ACB302A73EFC500D04485 /* News+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "News+Network.swift"; sourceTree = "<group>"; };
+		B86ACB322A741DEB00D04485 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B86ACB352A74312B00D04485 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		B86ACB362A74312B00D04485 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		B86ACB372A74312B00D04485 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		B86ACB3C2A74312B00D04485 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		B86ACB3D2A74312B00D04485 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		B86ACB3F2A74312B00D04485 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		B86ACB402A74312B00D04485 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		B86ACB412A74312B00D04485 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		B86ACB4F2A74398D00D04485 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		B86ACB522A744E5700D04485 /* SuggestionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsPresenter.swift; sourceTree = "<group>"; };
+		B86ACB542A744EC400D04485 /* AgeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCategory.swift; sourceTree = "<group>"; };
+		B86ACB582A74515F00D04485 /* AgeCategory+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AgeCategory+Network.swift"; sourceTree = "<group>"; };
+		B86ACB5A2A74542C00D04485 /* Categories+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categories+Network.swift"; sourceTree = "<group>"; };
+		B86ACB5C2A7463E100D04485 /* Recommendations+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recommendations+Network.swift"; sourceTree = "<group>"; };
+		B86ACB5E2A74651100D04485 /* RecommendationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationModel.swift; sourceTree = "<group>"; };
+		B86ACB602A7467DF00D04485 /* AgeCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCategoriesView.swift; sourceTree = "<group>"; };
+		B86ACB622A74EDB500D04485 /* RecommendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsView.swift; sourceTree = "<group>"; };
+		B86ACB642A74F07D00D04485 /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
+		B86ACB662A74F6CA00D04485 /* RecommendationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailViewController.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -321,6 +361,7 @@
 		B86ACA832A67C57C00D04485 /* Suggestions Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B86ACB512A744E4400D04485 /* Presenter */,
 				B86ACAC82A6F1E8400D04485 /* Views */,
 			);
 			path = "Suggestions Controller";
@@ -391,6 +432,9 @@
 				B86ACAB62A6AD5DB00D04485 /* Auth+Network.swift */,
 				B86ACB242A73C6DA00D04485 /* Inspectors+Network.swift */,
 				B86ACB302A73EFC500D04485 /* News+Network.swift */,
+				B86ACB582A74515F00D04485 /* AgeCategory+Network.swift */,
+				B86ACB5A2A74542C00D04485 /* Categories+Network.swift */,
+				B86ACB5C2A7463E100D04485 /* Recommendations+Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -443,6 +487,10 @@
 				B86ACAC92A6F1E9F00D04485 /* AgeFilterCell.swift */,
 				B86ACACB2A6F861100D04485 /* CategoriesView.swift */,
 				B86ACACD2A6F874300D04485 /* CategoryCell.swift */,
+				B86ACB602A7467DF00D04485 /* AgeCategoriesView.swift */,
+				B86ACB622A74EDB500D04485 /* RecommendationsView.swift */,
+				B86ACB642A74F07D00D04485 /* RecommendationCell.swift */,
+				B86ACB662A74F6CA00D04485 /* RecommendationDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -485,8 +533,32 @@
 			children = (
 				B86ACA8A2A67C7BB00D04485 /* NewsViewController.swift */,
 				B86ACAD32A6FA7A400D04485 /* NewsCell.swift */,
+				B86ACB4F2A74398D00D04485 /* NewsDetailViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B86ACB342A74312B00D04485 /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACB352A74312B00D04485 /* Roboto-Medium.ttf */,
+				B86ACB362A74312B00D04485 /* Roboto-Light.ttf */,
+				B86ACB372A74312B00D04485 /* Roboto-Regular.ttf */,
+				B86ACB3C2A74312B00D04485 /* Roboto-Italic.ttf */,
+				B86ACB3D2A74312B00D04485 /* LICENSE.txt */,
+				B86ACB3F2A74312B00D04485 /* Roboto-Bold.ttf */,
+				B86ACB402A74312B00D04485 /* Roboto-Thin.ttf */,
+				B86ACB412A74312B00D04485 /* Roboto-Black.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+		B86ACB512A744E4400D04485 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACB522A744E5700D04485 /* SuggestionsPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		B8B0622A2A616FA70020339B = {
@@ -547,6 +619,7 @@
 		B8B062662A61714D0020339B /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				B86ACB342A74312B00D04485 /* Roboto */,
 				B86ACA202A62EA3900D04485 /* Monserrat */,
 				B8B062362A616FA70020339B /* AppDelegate.swift */,
 				B8B062382A616FA70020339B /* SceneDelegate.swift */,
@@ -586,9 +659,10 @@
 				B86ACA3D2A62EB6600D04485 /* UIFont+Extension.swift */,
 				B86ACA412A62EB9E00D04485 /* Textfield+Extension.swift */,
 				B86ACA452A62EBD100D04485 /* StackView+Extension.swift */,
-				B86ACA4D2A62F2BE00D04485 /* Button + extension.swift */,
+				B86ACA4D2A62F2BE00D04485 /* Button + Extension.swift */,
 				B86ACAA72A6AC47800D04485 /* Bundle+Extension.swift */,
 				B86ACAB82A6AD74700D04485 /* Date+Extension.swift */,
+				B86ACB322A741DEB00D04485 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -601,6 +675,8 @@
 				B86ACACF2A6F903100D04485 /* CategoryModel.swift */,
 				B86ACAD12A6FA69400D04485 /* NewsDataModel.swift */,
 				B86ACAD52A6FAF8F00D04485 /* Inspector.swift */,
+				B86ACB542A744EC400D04485 /* AgeCategory.swift */,
+				B86ACB5E2A74651100D04485 /* RecommendationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -727,15 +803,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86ACB492A74312B00D04485 /* Roboto-Italic.ttf in Resources */,
 				B86ACA2B2A62EA5D00D04485 /* Montserrat-Bold.ttf in Resources */,
 				B8B062432A616FA90020339B /* LaunchScreen.storyboard in Resources */,
+				B86ACB4D2A74312B00D04485 /* Roboto-Thin.ttf in Resources */,
+				B86ACB4A2A74312B00D04485 /* LICENSE.txt in Resources */,
+				B86ACB432A74312B00D04485 /* Roboto-Light.ttf in Resources */,
 				B86ACA282A62EA5D00D04485 /* Montserrat-ExtraLight.ttf in Resources */,
 				B86ACA3A2A62EA5D00D04485 /* Montserrat-Light.ttf in Resources */,
 				B86ACA342A62EA5D00D04485 /* Montserrat-SemiBold.ttf in Resources */,
 				B86ACAA02A6AC3B300D04485 /* Localizable.strings in Resources */,
 				B86ACA2E2A62EA5D00D04485 /* Montserrat-Regular.ttf in Resources */,
+				B86ACB4C2A74312B00D04485 /* Roboto-Bold.ttf in Resources */,
 				B86ACA312A62EA5D00D04485 /* Montserrat-Medium.ttf in Resources */,
+				B86ACB422A74312B00D04485 /* Roboto-Medium.ttf in Resources */,
+				B86ACB442A74312B00D04485 /* Roboto-Regular.ttf in Resources */,
 				B86ACA372A62EA5D00D04485 /* Montserrat-Thin.ttf in Resources */,
+				B86ACB4E2A74312B00D04485 /* Roboto-Black.ttf in Resources */,
 				B8B062402A616FA90020339B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -889,34 +973,43 @@
 				B86ACAD62A6FAF8F00D04485 /* Inspector.swift in Sources */,
 				B86ACA422A62EB9E00D04485 /* Textfield+Extension.swift in Sources */,
 				B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */,
+				B86ACB632A74EDB500D04485 /* RecommendationsView.swift in Sources */,
 				B86ACAB92A6AD74700D04485 /* Date+Extension.swift in Sources */,
 				B86ACAC52A6C727400D04485 /* ApplicationCodeViewController.swift in Sources */,
 				B86ACA822A66F9B800D04485 /* AboutViewController.swift in Sources */,
+				B86ACB532A744E5700D04485 /* SuggestionsPresenter.swift in Sources */,
 				B86ACB292A73D03400D04485 /* InspectorsPresenter.swift in Sources */,
 				B86ACB312A73EFC500D04485 /* News+Network.swift in Sources */,
 				B86ACA762A65932000D04485 /* SideMenuViewController.swift in Sources */,
 				B86ACAD42A6FA7A400D04485 /* NewsCell.swift in Sources */,
+				B86ACB5B2A74542C00D04485 /* Categories+Network.swift in Sources */,
 				B86ACACE2A6F874300D04485 /* CategoryCell.swift in Sources */,
+				B86ACB592A74515F00D04485 /* AgeCategory+Network.swift in Sources */,
 				B86ACAAA2A6AC4AE00D04485 /* String+Localize.swift in Sources */,
+				B86ACB552A744EC400D04485 /* AgeCategory.swift in Sources */,
 				349C9B232A73C59D00BC953A /* ProfileViewController.swift in Sources */,
+				B86ACB5D2A7463E100D04485 /* Recommendations+Network.swift in Sources */,
 				B86ACA4A2A62EC5A00D04485 /* SetupViews.swift in Sources */,
+				B86ACB652A74F07D00D04485 /* RecommendationCell.swift in Sources */,
 				B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */,
 				B86ACAC32A6C651D00D04485 /* IndicatorView.swift in Sources */,
 				B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */,
 				B86ACAB02A6ACF1500D04485 /* ResponseModel.swift in Sources */,
 				B86ACAD82A6FAFC200D04485 /* InspectorCell.swift in Sources */,
 				B8B0626E2A618D620020339B /* GradientViewController.swift in Sources */,
+				B86ACB332A741DEB00D04485 /* String+Extension.swift in Sources */,
 				B86ACA9B2A6AC0EF00D04485 /* ResultNetwork.swift in Sources */,
 				B86ACA782A6667B900D04485 /* BaseViewController.swift in Sources */,
 				B86ACAFF2A725A2F00D04485 /* SosViewController.swift in Sources */,
 				B86ACA7D2A66E8BB00D04485 /* MenuModel.swift in Sources */,
 				B86ACACC2A6F861200D04485 /* CategoriesView.swift in Sources */,
 				B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */,
+				B86ACB612A7467DF00D04485 /* AgeCategoriesView.swift in Sources */,
 				B86ACA8B2A67C7BB00D04485 /* NewsViewController.swift in Sources */,
 				B86ACAC12A6C203000D04485 /* AuthCell.swift in Sources */,
 				B86ACAB72A6AD5DB00D04485 /* Auth+Network.swift in Sources */,
 				3401D41B2A67E4FA00978130 /* AboutCell.swift in Sources */,
-				B86ACA4E2A62F2BE00D04485 /* Button + extension.swift in Sources */,
+				B86ACA4E2A62F2BE00D04485 /* Button + Extension.swift in Sources */,
 				B8B062372A616FA70020339B /* AppDelegate.swift in Sources */,
 				B86ACA982A6ABF6C00D04485 /* KeyChainFile.swift in Sources */,
 				B86ACAA82A6AC47800D04485 /* Bundle+Extension.swift in Sources */,
@@ -931,9 +1024,12 @@
 				B86ACACA2A6F1E9F00D04485 /* AgeFilterCell.swift in Sources */,
 				B86ACAC72A6EFD0A00D04485 /* AppEnterCodePresenter.swift in Sources */,
 				B86ACA8F2A67C84400D04485 /* ConsultantViewController.swift in Sources */,
+				B86ACB5F2A74651100D04485 /* RecommendationModel.swift in Sources */,
+				B86ACB672A74F6CA00D04485 /* RecommendationDetailViewController.swift in Sources */,
 				B86ACA1D2A62DFCF00D04485 /* UILabel+Extension.swift in Sources */,
 				B86ACA1F2A62E00400D04485 /* UIColor+Extension.swift in Sources */,
 				B86ACAB52A6AD4BC00D04485 /* DeviceHeader.swift in Sources */,
+				B86ACB502A74398D00D04485 /* NewsDetailViewController.swift in Sources */,
 				B86ACA462A62EBD100D04485 /* StackView+Extension.swift in Sources */,
 				B86ACA3E2A62EB6600D04485 /* UIFont+Extension.swift in Sources */,
 				B86ACAAE2A6AC5F900D04485 /* API.swift in Sources */,
@@ -945,7 +1041,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B86ACA3F2A62EB6600D04485 /* UIFont+Extension.swift in Sources */,
-				B86ACA4F2A62F2BE00D04485 /* Button + extension.swift in Sources */,
+				B86ACA4F2A62F2BE00D04485 /* Button + Extension.swift in Sources */,
 				B86ACA472A62EBD100D04485 /* StackView+Extension.swift in Sources */,
 				B86ACA4B2A62EC5A00D04485 /* SetupViews.swift in Sources */,
 				B86ACA432A62EB9E00D04485 /* Textfield+Extension.swift in Sources */,
@@ -959,7 +1055,7 @@
 			files = (
 				B86ACA402A62EB6600D04485 /* UIFont+Extension.swift in Sources */,
 				B86ACA442A62EB9E00D04485 /* Textfield+Extension.swift in Sources */,
-				B86ACA502A62F2BE00D04485 /* Button + extension.swift in Sources */,
+				B86ACA502A62F2BE00D04485 /* Button + Extension.swift in Sources */,
 				B8B062582A616FA90020339B /* SafeMeUITests.swift in Sources */,
 				B8B0625A2A616FA90020339B /* SafeMeUITestsLaunchTests.swift in Sources */,
 				B86ACA4C2A62EC5A00D04485 /* SetupViews.swift in Sources */,

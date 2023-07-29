@@ -8,17 +8,17 @@
 import UIKit
 
 extension UIColor {
-    class var customBlue: UIColor {return UIColor(named: "customBlue") ?? #colorLiteral(red: 0.168627451, green: 0.3254901961, blue: 0.8392156863, alpha: 1)}
-    class var customDarkBlue: UIColor { return UIColor(named: "customDarkBlue") ?? #colorLiteral(red: 0.02352941176, green: 0.2823529412, blue: 0.4274509804, alpha: 1)}
-    class var customDark: UIColor {return UIColor(named: "customDark") ?? #colorLiteral(red: 0.1347255707, green: 0.1347555816, blue: 0.1347216368, alpha: 1)}
-    class var customShadowColor: UIColor {return UIColor(named: "customShadowColor") ?? #colorLiteral(red: 0.7725490196, green: 0.7764705882, blue: 0.7843137255, alpha: 1)}
-    class var customLightGray: UIColor {return UIColor(named: "customLightGray") ?? #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)}
-    class var customGreen: UIColor {return UIColor(named: "customGreen") ?? #colorLiteral(red: 0.1450980392, green: 0.8588235294, blue: 0.1333333333, alpha: 1)}
-
-    class var customGray: UIColor {return UIColor(named: "customGray") ?? .systemGray}
-    class var customGray2: UIColor {return UIColor(named: "customGray2") ?? #colorLiteral(red: 0.7097328305, green: 0.7098537683, blue: 0.7097168565, alpha: 1)}
-    class var customGray3: UIColor {return UIColor(named: "customGray3") ?? #colorLiteral(red: 0.8823529412, green: 0.9098039216, blue: 0.9098039216, alpha: 1)}
-    class var customGray5: UIColor {return UIColor(named: "customGray5") ?? #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)}
+//    class var customBlue: UIColor {return UIColor(named: "customBlue") ?? #colorLiteral(red: 0.168627451, green: 0.3254901961, blue: 0.8392156863, alpha: 1)}
+//    class var customDarkBlue: UIColor { return UIColor(named: "customDarkBlue") ?? #colorLiteral(red: 0.02352941176, green: 0.2823529412, blue: 0.4274509804, alpha: 1)}
+//    class var customDark: UIColor {return UIColor(named: "customDark") ?? #colorLiteral(red: 0.1347255707, green: 0.1347555816, blue: 0.1347216368, alpha: 1)}
+//    class var customShadowColor: UIColor {return UIColor(named: "customShadowColor") ?? #colorLiteral(red: 0.7725490196, green: 0.7764705882, blue: 0.7843137255, alpha: 1)}
+//    class var customLightGray: UIColor {return UIColor(named: "customLightGray") ?? #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)}
+//    class var customGreen: UIColor {return UIColor(named: "customGreen") ?? #colorLiteral(red: 0.1450980392, green: 0.8588235294, blue: 0.1333333333, alpha: 1)}
+//
+//    class var customGray: UIColor {return UIColor(named: "customGray") ?? .systemGray}
+//    class var customGray2: UIColor {return UIColor(named: "customGray2") ?? #colorLiteral(red: 0.7097328305, green: 0.7098537683, blue: 0.7097168565, alpha: 1)}
+//    class var customGray3: UIColor {return UIColor(named: "customGray3") ?? #colorLiteral(red: 0.8823529412, green: 0.9098039216, blue: 0.9098039216, alpha: 1)}
+//    class var customGray5: UIColor {return UIColor(named: "customGray5") ?? #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)}
     
     
 
@@ -57,6 +57,9 @@ extension UIColor {
         
         //серый
         var gray3:  UIColor { return UIColor(named: "gray3") ?? UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1)}
+        
+        //Серый число календаря
+        var grayDate: UIColor {return UIColor.hexStringToUIColor(hex: "#7B7D81")}
 
         //цвет фона контроллера
 //        var backgroundColor:  UIColor { return UIColor(named: "backgroundColor") ?? UIColor(red: 0.9882352941, green: 0.9882352941, blue: 0.9882352941, alpha: 1)}
@@ -79,6 +82,7 @@ extension UIColor {
         var cellBackgroundColor: UIColor {return UIColor(red: 0.1, green: 0.79, blue: 1, alpha: 1)}
         var buttonBackgroundColor: UIColor {return UIColor(red: 0.42, green: 0.74, blue: 0.96, alpha: 1)}
         var buttonGreenBgColor: UIColor {return UIColor(red: 0.39, green: 0.84, blue: 0.53, alpha: 1)}
+        var dateBackgroundColor: UIColor { return UIColor.hexStringToUIColor(hex: "#E1F8F7")}
     }
 }
 

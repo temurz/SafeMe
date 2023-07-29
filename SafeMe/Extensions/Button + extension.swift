@@ -24,8 +24,8 @@ extension UIButton {
         self.backgroundColor = backgroundColor
         self.setTitle(text, for: .normal)
         self.setTitleColor(textColor, for: .normal)
-        self.setTitleColor(.customDark, for: .focused)
-        self.setTitleColor(.customDark, for: .highlighted)
+        self.setTitleColor(.custom.darkGray, for: .focused)
+        self.setTitleColor(.custom.darkGray, for: .highlighted)
 //        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         self.clipsToBounds = true
         self.titleLabel?.font = .montserratFont(ofSize: 13, weight: .bold)
@@ -50,8 +50,8 @@ extension UIButton {
     }
     
     
-    func leftImage() {
-        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+    func leftImage(left: CGFloat = 5, right: CGFloat = 5) {
+        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: left, bottom: 0, right: right)
         self.titleEdgeInsets.left = (self.imageView?.frame.width ?? 0)
         self.contentHorizontalAlignment = .left
         self.imageView?.contentMode = .scaleAspectFit

@@ -44,8 +44,8 @@ class AgeFilterCell: UICollectionViewCell {
         ])
     }
     
-    func updateModel(text: String) {
-        ageLabel.text = text
+    func updateModel(model: AgeCategory) {
+        ageLabel.text = model.title
     }
     
     func makeSelected(bool: Bool) {

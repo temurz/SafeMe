@@ -44,7 +44,7 @@ class UIIndicatorView: UIView {
         view = UIView(.custom.black)
         view.alpha = 0.1
         indicator = UIActivityIndicatorView()
-        label = UILabel(text: "", ofSize: 13, weight: .medium, color: .customGray)
+        label = UILabel(text: "", ofSize: 13, weight: .medium, color: .systemGray)
         super.init(frame: frame)
         setapView()
     }
@@ -55,8 +55,8 @@ class UIIndicatorView: UIView {
         label.backgroundColor = .clear
         label.contentMode = .center
         label.textAlignment = .center
-        indicator.style = .medium
-        indicator.color = .customDarkBlue
+        indicator.style = .large
+        indicator.color = .systemBlue
         indicator.hidesWhenStopped = true
         indicator.backgroundColor = .clear
         indicator.stopAnimating()

@@ -42,7 +42,7 @@ class UIAuthCell:UIView, UITextFieldDelegate, UIGestureRecognizerDelegate {
         let imageView = UIImageView(image: UIImage(systemName: "eye"))
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .customGray
+        imageView.tintColor = .systemGray
         return imageView
     }()
     
@@ -80,7 +80,7 @@ class UIAuthCell:UIView, UITextFieldDelegate, UIGestureRecognizerDelegate {
         textField.font = .systemFont(ofSize: 16, weight: .regular)
         textField.backgroundColor = .clear
         textField.autocorrectionType = .no
-        textField.placeholderColor = .customGray3
+        textField.placeholderColor = .systemGray
         textField.autocapitalizationType = .none
         return textField
     }()

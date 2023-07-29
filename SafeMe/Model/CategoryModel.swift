@@ -7,8 +7,17 @@
 
 import Foundation
 
-struct CategoryModel {
-    let image: String
+struct Category: Decodable {
+    let id: Int
     let title: String
-    let color: String
+    let type: String
+    let icon: String
+    let status: Bool
 }
+
+struct CategoryParsingModel: Decodable {
+//    let succes: Bool
+//    let message: String
+    let body: [Category]
+}
+

@@ -25,7 +25,7 @@ class CategoryCell: UICollectionViewCell {
         self.contentView.backgroundColor = .clear
         SetupViews.addViewEndRemoveAutoresizingMask(superView: self.contentView, view: bgView)
         SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [imageView, titleLabel, arrowImageView])
-        bgView.backgroundColor = .custom.green
+        bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#63D586")
         bgView.layer.shadowColor = UIColor.gray.cgColor
         bgView.layer.masksToBounds = true
         bgView.clipsToBounds = false
@@ -34,7 +34,7 @@ class CategoryCell: UICollectionViewCell {
         bgView.layer.shadowOpacity = 0.5
         
         titleLabel.numberOfLines = 0
-        titleLabel.font = .systemFont(ofSize: 16)
+        titleLabel.font = .robotoFont(ofSize: 14, weight: .medium)
         
         arrowImageView.image = UIImage(named: "chevron_right")
         
@@ -64,10 +64,15 @@ class CategoryCell: UICollectionViewCell {
         ])
     }
     
-    func updateModel(model: CategoryModel) {
-        self.imageView.image = UIImage(named: model.image)
+    func updateModel(model: Category) {
+        self.imageView.sd_setImage(with: URL(string: model.icon))
         self.titleLabel.text = model.title
-        self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: model.color)
+        if model.id % 2 == 0 {
+            self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#C7A9F5")
+        }else {
+            self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#63D586")
+        }
+        
         
     }
 }

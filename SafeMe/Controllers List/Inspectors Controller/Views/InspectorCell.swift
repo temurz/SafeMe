@@ -21,6 +21,9 @@ class InspectorCell: UITableViewCell {
     private let subtitle = UILabel()
     private let phoneNumber = UILabel()
     
+    var call: ((String) -> ())?
+    var redirectAction: (() -> ())?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -41,18 +44,23 @@ class InspectorCell: UITableViewCell {
         
         self.contentView.backgroundColor = .clear
         self.backgroundColor = .clear
+        self.selectionStyle = .none
         
         telegramButton.setTitle("Telegram", for: .normal)
         telegramButton.setTitleColor(.white, for: .normal)
         telegramButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         telegramButton.backgroundColor = .custom.buttonBackgroundColor
         telegramButton.layer.cornerRadius = 12
+        telegramButton.addTarget(self, action: #selector(telegramAction), for: .touchUpInside)
         
         callButton.setTitle("Qo’ng’iroq qilish", for: .normal)
         callButton.setTitleColor(.white, for: .normal)
-        callButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        callButton.titleLabel?.font = .robotoFont(ofSize: 14, weight: .medium)
         callButton.backgroundColor = .custom.buttonGreenBgColor
         callButton.layer.cornerRadius = 12
+        callButton.setImage(UIImage(named: "phonegreen")?.withTintColor(.white), for: .normal)
+        callButton.leftImage(left: 10)
+        callButton.addTarget(self, action: #selector(callAction), for: .touchUpInside)
         
         phoneGreen.image = UIImage(named: "phonegreen")
         phoneGreen.contentMode = .scaleAspectFit
@@ -139,5 +147,13 @@ class InspectorCell: UITableViewCell {
         fullnameTitle.text = "\(item.firstName) \(item.lastName) \(item.patranomic)"
         subtitle.text = item.position
         phoneNumber.text = item.phone
+    }
+    
+    @objc private func callAction() {
+        self.call?(phoneNumber.text ?? "")
+    }
+    
+    @objc private func telegramAction() {
+        self.redirectAction?()
     }
 }

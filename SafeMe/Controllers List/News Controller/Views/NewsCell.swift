@@ -12,9 +12,9 @@ class NewsCell: UITableViewCell {
     private let mainImageView = UIImageView()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
-    private let hexLabel = UILabel()
-    private let dateLabel = UILabel()
-    private let viewsLabel = UILabel()
+    private let dateView = UIButton(UIColor.custom.dateBackgroundColor)
+    private let eyeView = UIButton(UIColor.custom.dateBackgroundColor)
+    private let calendarImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,13 +27,15 @@ class NewsCell: UITableViewCell {
     
     private func initialize() {
         self.backgroundColor = .clear
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: contentView, array: [bgView, mainImageView, titleLabel, subtitleLabel, hexLabel])
+        self.selectionStyle = .none
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: contentView, array: [bgView, mainImageView, titleLabel, subtitleLabel, dateView, eyeView])
         bgView.layer.borderWidth = 4
         bgView.backgroundColor = .white
         bgView.layer.borderColor = UIColor.hexStringToUIColor(hex: "#63D586").cgColor
         bgView.layer.cornerRadius = 12
         
         mainImageView.contentMode = .scaleAspectFit
+        mainImageView.layer.cornerRadius = 6
         
         titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         titleLabel.numberOfLines = 0
@@ -41,10 +43,28 @@ class NewsCell: UITableViewCell {
         subtitleLabel.textColor = .custom.gray
         subtitleLabel.font = .systemFont(ofSize: 12, weight: .regular)
         subtitleLabel.numberOfLines = 0
+        subtitleLabel.textAlignment = .natural
         
-        hexLabel.font = .systemFont(ofSize: 12, weight: .regular)
-        hexLabel.textColor = .custom.gray
-        hexLabel.numberOfLines = 0
+        
+        dateView.setImage(UIImage(named: "calendar"), for: .normal)
+        
+        dateView.setTitle("23.08.2023", for: .normal)
+        dateView.setTitleColor(.custom.grayDate, for: .normal)
+        dateView.titleLabel?.font = .robotoFont(ofSize: 13, weight: .medium)
+        dateView.leftImage()
+        dateView.layer.cornerRadius = 5
+        dateView.isUserInteractionEnabled = false
+        
+        eyeView.isUserInteractionEnabled = false
+        eyeView.setImage(UIImage(named: "visibility"), for: .normal)
+        eyeView.setTitle("0", for: .normal)
+        eyeView.setTitleColor(.custom.grayDate, for: .normal)
+        eyeView.titleLabel?.font = .robotoFont(ofSize: 13, weight: .medium)
+        eyeView.leftImage(left: 10, right: 10)
+        eyeView.layer.cornerRadius = 5
+        eyeView.titleLabel?.textAlignment = .center
+        eyeView.titleLabel?.numberOfLines = 0
+        
         setupConstraints()
     }
     
@@ -67,10 +87,17 @@ class NewsCell: UITableViewCell {
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             subtitleLabel.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
             subtitleLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: dateView.topAnchor, constant: -12),
             
-            hexLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 12),
-            hexLabel.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
-            hexLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+            dateView.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
+            dateView.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
+            dateView.heightAnchor.constraint(equalToConstant: 30),
+            dateView.widthAnchor.constraint(equalToConstant: 100),
+            
+            eyeView.leadingAnchor.constraint(equalTo: dateView.trailingAnchor, constant: 12),
+            eyeView.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
+            eyeView.widthAnchor.constraint(equalToConstant: 60),
+            eyeView.heightAnchor.constraint(equalToConstant: 30)
 
             
         ])
@@ -80,6 +107,9 @@ class NewsCell: UITableViewCell {
         mainImageView.sd_setImage(with: URL(string: model.image))
         titleLabel.text = model.title
         subtitleLabel.text = model.shortText
+        dateView.setTitle(model.createdDate.convertToDateUS(), for: .normal) 
+        eyeView.setTitle("\(model.views)", for: .normal)
+        if model.views > 100 {eyeView.leftImage()}
 //        bgView.layer.borderColor = UIColor.hexStringToUIColor(hex: model.borderColor).cgColor
     }
 }

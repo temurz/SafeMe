@@ -9,6 +9,20 @@ import UIKit
 
 extension  UIFont {
     
+    enum Roboto: String {
+        case thin = "Roboto-Thin"
+        case regular = "Roboto-Regular"
+        case medium = "Roboto-Medium"
+        case light = "Roboto-Light"
+        case italic = "Roboto-Italic"
+        case bold = "Roboto-Bold"
+        case black = "Roboto-Black"
+    }
+    
+    class func robotoFont(ofSize fontSize: CGFloat, weight: Roboto = .regular) -> UIFont {
+        return UIFont(name: weight.rawValue, size: fontSize) ?? .systemFont(ofSize: fontSize)
+    }
+    
     enum Montserrat:String {
         case thin = "Montserrat-Thin"
         case thinItalic = "Montserrat-ExtraLight"

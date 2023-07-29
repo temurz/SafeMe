@@ -62,6 +62,15 @@ extension InspectorsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InspektorCell") as! InspectorCell
         cell.updateModel(item: inspectors[indexPath.row])
+        cell.call = { [weak self] number in
+            guard let self else { return }
+            self.presenter?.call(number)
+        }
+        
+        cell.redirectAction = { [weak self] in
+            guard let self else {return}
+            self.presenter?.telegram()
+        }
         return cell
     }
     

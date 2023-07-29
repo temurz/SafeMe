@@ -71,7 +71,7 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         let imageView = UIImageView(image: UIImage(systemName: "eye"))
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .customGray
+        imageView.tintColor = .systemGray
         return imageView
     }()
     
