@@ -40,6 +40,12 @@ class SosViewController: GradientViewController {
         firstCallButton.addTarget(self, action: #selector(firstCallButtonAction), for: .touchUpInside)
         firstCallButton.layer.cornerRadius = 12
         firstCallButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#6F2B15"), for: .normal)
+        firstCallButton.layer.shadowColor = UIColor.gray.cgColor
+        firstCallButton.layer.masksToBounds = true
+        firstCallButton.clipsToBounds = false
+        firstCallButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        firstCallButton.layer.shadowRadius = 7
+        firstCallButton.layer.shadowOpacity = 0.5
         
         secondCallButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#FFA607")
         secondCallButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
@@ -47,6 +53,12 @@ class SosViewController: GradientViewController {
         secondCallButton.layer.cornerRadius = 12
         secondCallButton.addTarget(self, action: #selector(secondCallButtonAction), for: .touchUpInside)
         secondCallButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#7A4E00"), for: .normal)
+        secondCallButton.layer.shadowColor = UIColor.gray.cgColor
+        secondCallButton.layer.masksToBounds = true
+        secondCallButton.clipsToBounds = false
+        secondCallButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        secondCallButton.layer.shadowRadius = 7
+        secondCallButton.layer.shadowOpacity = 0.5
         
         thirdCallButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#E15C2F")
         thirdCallButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
@@ -54,6 +66,13 @@ class SosViewController: GradientViewController {
         thirdCallButton.layer.cornerRadius = 12
         thirdCallButton.addTarget(self, action: #selector(thirdCallButtonAction), for:
                 .touchUpInside)
+        thirdCallButton.layer.shadowColor = UIColor.gray.cgColor
+        thirdCallButton.layer.masksToBounds = true
+        thirdCallButton.clipsToBounds = false
+        thirdCallButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        thirdCallButton.layer.shadowRadius = 7
+        thirdCallButton.layer.shadowOpacity = 0.5
+        
     }
     
     private func setupConstraints() {
