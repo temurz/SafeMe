@@ -60,12 +60,12 @@ class SuggestionsViewController: BaseViewController {
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         
-        bgFilterView.layer.shadowColor = UIColor.black.cgColor
-        bgFilterView.layer.masksToBounds = true
-        bgFilterView.clipsToBounds = false
-        bgFilterView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        bgFilterView.layer.shadowRadius = 7
-        bgFilterView.layer.shadowOpacity = 0.5
+//        bgFilterView.layer.shadowColor = UIColor.black.cgColor
+//        bgFilterView.layer.masksToBounds = true
+//        bgFilterView.clipsToBounds = false
+//        bgFilterView.layer.shadowOffset = CGSize(width: 0, height: 10)
+//        bgFilterView.layer.shadowRadius = 7
+//        bgFilterView.layer.shadowOpacity = 0.5
 
     }
     
@@ -97,7 +97,7 @@ extension SuggestionsViewController: SuggestionsPresenterProtocol {
     
     func reloadCategories(_ categories: [Category]) {
         let filteredItems = categories.filter({$0.type == "recomendation"})
-        self.categoriesView.updateItems(filteredItems)
+        self.categoriesView.updateItems(filteredItems, type: .recommendation)
         self.categoriesView.heightAnchor.constraint(equalToConstant: categoriesView.getHeight()).isActive = true
     }
     

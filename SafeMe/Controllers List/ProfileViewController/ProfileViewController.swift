@@ -35,6 +35,8 @@ class ProfileViewController: GradientViewController {
     private let streetLabel = UILabel()
     private let streetNameLabel = UILabel()
     
+    var model: User?
+    let presenter = ProfileViewPresenter()
     
     override func loadView() {
         super.loadView()
@@ -43,7 +45,13 @@ class ProfileViewController: GradientViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.delegate = self
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.getUser()
     }
     
     private func initialize() {
@@ -64,7 +72,7 @@ class ProfileViewController: GradientViewController {
         childLabel.font = .systemFont(ofSize: 14)
         childLabel.numberOfLines = 0
         
-        parentLabel.text = "Otasi"
+        parentLabel.text = ""
         parentLabel.textColor = .black
         parentLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
@@ -211,5 +219,18 @@ class ProfileViewController: GradientViewController {
     
     @objc private func secondButtonAction() {
         print("Parolni o'zgartiring!")
+    }
+}
+
+
+extension ProfileViewController: ProfileViewPresenterProtocol {
+    func reloadUser(_ user: User) {
+        self.model = user
+        profilePhoto.sd_setImage(with: URL(string: user.photo))
+        fullnameLabel.text = user.first_name + " " + user.last_name
+        birthLabel.text = user.birth_day
+        cityNameLabel.text = user.region
+        countryNameLabel.text = user.district
+        streetNameLabel.text = user.mahalla
     }
 }

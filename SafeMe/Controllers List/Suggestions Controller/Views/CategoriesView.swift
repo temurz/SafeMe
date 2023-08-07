@@ -10,6 +10,7 @@ import UIKit
 class CategoriesView: UIView {
     private var collectionView: UICollectionView!
     private var items: [Category] = []
+    private var type: CategoryType = .recommendation
     
     var selectAction: ((Category) -> ())?
     
@@ -56,8 +57,9 @@ class CategoriesView: UIView {
         }
     }
     
-    func updateItems(_ items: [Category]) {
+    func updateItems(_ items: [Category], type: CategoryType) {
         self.items = items
+        self.type = type
         self.collectionView.reloadData()
     }
 }
@@ -69,7 +71,7 @@ extension CategoriesView: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
-        cell.updateModel(model: items[indexPath.row])
+        cell.updateModel(model: items[indexPath.row], type: self.type)
         return cell
     }
     

@@ -6,12 +6,17 @@
 //
 
 import UIKit
+public enum CategoryType {
+    case game
+    case recommendation
+}
 
 class CategoryCell: UICollectionViewCell {
     private let bgView = UIView(.clear, radius: 12)
     private let imageView = UIImageView()
     private let titleLabel = UILabel()
     private let arrowImageView = UIImageView()
+    private var categoryType = CategoryType.recommendation
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -34,6 +39,7 @@ class CategoryCell: UICollectionViewCell {
         bgView.layer.shadowOpacity = 0.5
         
         titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
         titleLabel.font = .robotoFont(ofSize: 14, weight: .medium)
         
         arrowImageView.image = UIImage(named: "chevron_right")
@@ -64,13 +70,19 @@ class CategoryCell: UICollectionViewCell {
         ])
     }
     
-    func updateModel(model: Category) {
+    func updateModel(model: Category, type: CategoryType = .recommendation) {
         self.imageView.sd_setImage(with: URL(string: model.icon))
         self.titleLabel.text = model.title
         if model.id % 2 == 0 {
             self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#C7A9F5")
         }else {
             self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#63D586")
+        }
+        
+        if type == .game {
+            arrowImageView.isHidden = true
+            self.bgView.backgroundColor = .white
+            titleLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16).isActive = true
         }
         
         

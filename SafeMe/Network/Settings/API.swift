@@ -8,7 +8,7 @@
 import Foundation
 
 struct Base {
-    static let BASE_URL = "http://cyberpolice.uz"
+    static let BASE_URL = "https://cyberpolice.uz"
 }
 
 public enum HTTPMethod: String {
@@ -28,6 +28,8 @@ enum Api {
     case ageCategory
     case categories
     case recommendations
+    case games
+    case getUser
     
     //MARK: - METHOD
     var method: String {
@@ -36,7 +38,7 @@ enum Api {
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
-        case .inspectors, .news, .ageCategory, .categories, .recommendations:
+        case .games, .inspectors, .news, .ageCategory, .categories, .recommendations, .getUser:
             return HTTPMethod.get.rawValue
         default:
             return HTTPMethod.get.rawValue
@@ -48,6 +50,8 @@ enum Api {
         var api:String {return Base.BASE_URL}
             
         switch self {
+        case .getUser: return api + "/uz/user/"
+        case .games: return api + "/ru/api/v1.0/games/"
         case .recommendations: return api + "/uz/api/v1.0/recommendation/"
         case .categories: return api + "/sr/api/v1.0/category/"
         case .news: return api + "/ru/api/v1.0/news/"
