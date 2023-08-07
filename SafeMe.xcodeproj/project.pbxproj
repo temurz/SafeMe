@@ -123,6 +123,9 @@
 		B875C3792A7F08E8004FEA92 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C3782A7F08E8004FEA92 /* User.swift */; };
 		B875C37C2A7F09FC004FEA92 /* ProfileViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C37B2A7F09FC004FEA92 /* ProfileViewPresenter.swift */; };
 		B875C37E2A7F0A82004FEA92 /* User+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C37D2A7F0A82004FEA92 /* User+Network.swift */; };
+		B875C3802A80EF05004FEA92 /* Complaint+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C37F2A80EF05004FEA92 /* Complaint+Network.swift */; };
+		B875C3822A80F0B1004FEA92 /* ComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C3812A80F0B1004FEA92 /* ComplaintModel.swift */; };
+		B875C3862A80F23D004FEA92 /* ApplicationsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C3852A80F23D004FEA92 /* ApplicationsViewPresenter.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */; };
@@ -254,6 +257,9 @@
 		B875C3782A7F08E8004FEA92 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B875C37B2A7F09FC004FEA92 /* ProfileViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewPresenter.swift; sourceTree = "<group>"; };
 		B875C37D2A7F0A82004FEA92 /* User+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Network.swift"; sourceTree = "<group>"; };
+		B875C37F2A80EF05004FEA92 /* Complaint+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Complaint+Network.swift"; sourceTree = "<group>"; };
+		B875C3812A80F0B1004FEA92 /* ComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintModel.swift; sourceTree = "<group>"; };
+		B875C3852A80F23D004FEA92 /* ApplicationsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsViewPresenter.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -430,7 +436,8 @@
 		B86ACA892A67C6D800D04485 /* Applications Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B86ACA942A67C99300D04485 /* ApplicationsViewController.swift */,
+				B875C3842A80F229004FEA92 /* View */,
+				B875C3832A80F222004FEA92 /* Presenter */,
 			);
 			path = "Applications Controller";
 			sourceTree = "<group>";
@@ -455,6 +462,7 @@
 				B86ACB5C2A7463E100D04485 /* Recommendations+Network.swift */,
 				B86ACB722A75227100D04485 /* Games+Network.swift */,
 				B875C37D2A7F0A82004FEA92 /* User+Network.swift */,
+				B875C37F2A80EF05004FEA92 /* Complaint+Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -607,6 +615,22 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		B875C3832A80F222004FEA92 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B875C3852A80F23D004FEA92 /* ApplicationsViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B875C3842A80F229004FEA92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B86ACA942A67C99300D04485 /* ApplicationsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B8B0622A2A616FA70020339B = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +749,7 @@
 				B86ACB5E2A74651100D04485 /* RecommendationModel.swift */,
 				B86ACB6E2A751BD700D04485 /* GameModel.swift */,
 				B875C3782A7F08E8004FEA92 /* User.swift */,
+				B875C3812A80F0B1004FEA92 /* ComplaintModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1011,6 +1036,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B86ACABF2A6C1A5900D04485 /* LoginPresenter.swift in Sources */,
+				B875C3822A80F0B1004FEA92 /* ComplaintModel.swift in Sources */,
 				B86ACAB32A6AD3B100D04485 /* Network.swift in Sources */,
 				B86ACAAC2A6AC5A100D04485 /* StatusCode.swift in Sources */,
 				B86ACA192A62DF8700D04485 /* UICustomTextField.swift in Sources */,
@@ -1040,8 +1066,10 @@
 				349C9B232A73C59D00BC953A /* ProfileViewController.swift in Sources */,
 				B86ACB5D2A7463E100D04485 /* Recommendations+Network.swift in Sources */,
 				B86ACA4A2A62EC5A00D04485 /* SetupViews.swift in Sources */,
+				B875C3802A80EF05004FEA92 /* Complaint+Network.swift in Sources */,
 				B86ACB652A74F07D00D04485 /* RecommendationCell.swift in Sources */,
 				B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */,
+				B875C3862A80F23D004FEA92 /* ApplicationsViewPresenter.swift in Sources */,
 				B875C37C2A7F09FC004FEA92 /* ProfileViewPresenter.swift in Sources */,
 				B86ACB6A2A750BC200D04485 /* ChatPresenter.swift in Sources */,
 				B86ACAC32A6C651D00D04485 /* IndicatorView.swift in Sources */,

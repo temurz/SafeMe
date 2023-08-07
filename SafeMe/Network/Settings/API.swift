@@ -15,7 +15,7 @@ public enum HTTPMethod: String {
     case get    = "GET"
     case post   = "POST"
     case put    = "PUT"
-    case delate = "DELETE"
+    case delete = "DELETE"
 }
 
 enum Api {
@@ -30,11 +30,12 @@ enum Api {
     case recommendations
     case games
     case getUser
+    case sendComplaint
     
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login:
+        case .register, .login, .sendComplaint:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
@@ -47,20 +48,21 @@ enum Api {
     
     //MARK: - PATH
     var path:String {
-        var api:String {return Base.BASE_URL}
+        var baseURL:String {return Base.BASE_URL}
             
         switch self {
-        case .getUser: return api + "/uz/user/"
-        case .games: return api + "/ru/api/v1.0/games/"
-        case .recommendations: return api + "/uz/api/v1.0/recommendation/"
-        case .categories: return api + "/sr/api/v1.0/category/"
-        case .news: return api + "/ru/api/v1.0/news/"
-        case .inspectors: return api + "/uz/api/v1.0/police/"
-        case .register: return api + "/uz/user/login/"
-        case .editUser: return api + "/uz/user/update/"
-        case .login: return api + "/uz/user/login/"
-        case .authRefresh: return api + ""
-        case .ageCategory: return api + "/uz/api/v1.0/agecategory/"
+        case .getUser: return baseURL + "/uz/user/"
+        case .games: return baseURL + "/ru/api/v1.0/games/"
+        case .recommendations: return baseURL + "/uz/api/v1.0/recommendation/"
+        case .categories: return baseURL + "/sr/api/v1.0/category/"
+        case .news: return baseURL + "/ru/api/v1.0/news/"
+        case .inspectors: return baseURL + "/uz/api/v1.0/police/"
+        case .register: return baseURL + "/uz/user/login/"
+        case .editUser: return baseURL + "/uz/user/update/"
+        case .login: return baseURL + "/uz/user/login/"
+        case .authRefresh: return baseURL + ""
+        case .ageCategory: return baseURL + "/uz/api/v1.0/agecategory/"
+        case .sendComplaint: return baseURL + "/ru/api/v1.0/murojaat/"
         }
     }
 }

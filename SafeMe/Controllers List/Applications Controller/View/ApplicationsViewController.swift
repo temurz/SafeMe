@@ -24,6 +24,8 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
     
     private let arrowImage = UIImageView()
     
+    private let presenter = ApplicationsViewPresenter()
+    
     override func loadView() {
         super.loadView()
         initialize()
@@ -31,10 +33,7 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    let contextInteraction = UIContextMenuInteraction(delegate: self)
-        firstButton.addInteraction(contextInteraction)
-        
+        presenter.delegate = self
         secondTextField.delegate = self
         navBarTitleLabel.text = "Murojaatlar"
         leftMenuButton.tag = 6
@@ -77,8 +76,29 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
         thirdLabel.textColor = .systemGray
         thirdLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
+        let action1 = UIAction(title: "Ariza".localizedString, image: UIImage(named: "action1")) { action in
+            DispatchQueue.main.async {
+                self.firstButton.setTitle("Ariza".localizedString, for: .normal)
+            }
+        }
+        
+        let action2 = UIAction(title: "Shikoyat".localizedString, image: UIImage(named: "action2")) { action in
+            DispatchQueue.main.async {
+                self.firstButton.setTitle("Shikoyat".localizedString, for: .normal)
+            }
+        }
+        
+        let action3 = UIAction(title: "Taklif".localizedString, image: UIImage(named: "action3")) { action in
+            DispatchQueue.main.async {
+                self.firstButton.setTitle("Taklif".localizedString, for: .normal)
+            }
+        }
+        
+        let menu = UIMenu(title: "Murojaat turlari".localizedString, children: [action1, action2, action3])
+        
         firstButton.setTitleColor(.black, for: .normal)
-        firstButton.addTarget(self, action: #selector(firstButtonAction), for: .touchUpInside)
+        firstButton.menu = menu
+        firstButton.showsMenuAsPrimaryAction = true
         firstButton.layer.cornerRadius = 6
         firstButton.layer.borderWidth = 1
         firstButton.backgroundColor = .clear
@@ -151,10 +171,6 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
             sendButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
             sendButton.heightAnchor.constraint(equalTo: sendButton.widthAnchor, multiplier: 0.12),
             
-//            contextMenuView.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 8),
-//            contextMenuView.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
-//            contextMenuView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
-//            contextMenuView.heightAnchor.constraint(equalTo: contextMenuView.widthAnchor, multiplier: 0.33),
             
         ])
     }
@@ -173,14 +189,9 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
         }
     }
     
-    @objc private func firstButtonAction() {
-        
-        print("Murojat turini tanlang!")
-    }
     
     @objc private func thirdButtonAction() {
-        
-        print("Yuborish!")
+        presenter.sendComplaint(type: firstButton.titleLabel?.text ?? "", title: firstTextField.text, text: secondTextField.text)
     }
 }
 
@@ -227,3 +238,6 @@ extension ApplicationsViewController: UIContextMenuInteractionDelegate {
 //    }
 }
 
+extension ApplicationsViewController: ApplicationsViewPresenterProtocol {
+    
+}
