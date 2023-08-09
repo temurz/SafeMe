@@ -108,7 +108,8 @@ class BaseViewController: GradientViewController {
             case 2:
                 menu.pushViewController(ChatViewController(), animated: true)
             case 3:
-                menu.pushViewController(ConsultantViewController(), animated: true)
+                break
+//                menu.pushViewController(ConsultantViewController(), animated: true)
             case 4:
                 menu.pushViewController(PollViewController(), animated: true)
             case 5:

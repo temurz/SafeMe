@@ -55,6 +55,64 @@ extension Network {
         }
     }
     
+    func register(username:String, password:String, repeatPassword: String, completion: @escaping (StatusCode) -> ()) {
+        let api = Api.register
+        
+        let parameters = [
+            [
+                "key": "phone",
+                "value": username,
+                "type": "text"
+            ],
+            [
+                "key": "password1",
+                "value": password,
+                "type": "text"
+            ],
+            [
+                "key": "password2",
+                "value": repeatPassword,
+                "type": "text"
+            ]
+        ]
+        
+        let boundary = generateBoundaryString()
+        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
+        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+        
+        push(false, api: api, body: body, headers: header, type: Parsing.self) { result in
+            switch result {
+            case .success(let model):
+                completion(StatusCode(code: 0, message: model.message))
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
     
     
+    func checkPhoneVerificationCode(code: String, completion: @escaping (StatusCode) -> ()) {
+        
+        let api = Api.phoneVerification
+        
+        let parameters = [
+            [ "key": "verification_code",
+              "value": code,
+              "type" : "text"
+            ]
+        ]
+        
+        let boundary = generateBoundaryString()
+        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
+        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+        
+        push(false, api: api, body: body, headers: header, type: Parsing.self) { result in
+            switch result {
+            case .success(let model):
+                completion(StatusCode(code: 0, message: model.message))
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
 }

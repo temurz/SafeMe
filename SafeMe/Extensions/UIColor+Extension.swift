@@ -83,6 +83,7 @@ extension UIColor {
         var buttonBackgroundColor: UIColor {return UIColor(red: 0.42, green: 0.74, blue: 0.96, alpha: 1)}
         var buttonGreenBgColor: UIColor {return UIColor(red: 0.39, green: 0.84, blue: 0.53, alpha: 1)}
         var dateBackgroundColor: UIColor { return UIColor.hexStringToUIColor(hex: "#E1F8F7")}
+        var subtitleColor: UIColor { return UIColor.hexStringToUIColor(hex: "#6E7599")}
     }
 }
 

@@ -9,6 +9,8 @@ import Foundation
 
 protocol LoginPresenterProtocol: AnyObject {
     func successAutorization()
+    func successRegistration()
+    func successCodeVerification()
 }
 
 typealias LoginPresenterDelegate = LoginPresenterProtocol & LoginViewController
@@ -18,12 +20,12 @@ class LoginPresenter {
     weak var delegate: LoginPresenterDelegate?
     
     func loginAction(username:String, pass:String) {
+        
         if username.isEmpty || pass.isEmpty {delegate?.alert(title: nil, message: "Enter login/password".localizedString, url: nil); return}
+        let phone = username.removePlusFromPhoneNumber()
         delegate?.indicatorView.startAnimating(.auth)
         
-         guard let data = delegate?.login() else {return}
-        
-        Network.shared.authorization(username: data.username, password: data.password) { [weak self] status  in
+        Network.shared.authorization(username: phone, password: pass) { [weak self] status  in
 //            guard let _ = person else {
 //                AuthApp.shared.token = nil
 //                self?.pushAlert(status)
@@ -34,7 +36,42 @@ class LoginPresenter {
                 self?.pushAlert(status)
                 return
             }
-            self?.update()
+            self?.updateLogin()
+        }
+    }
+    
+    func register(username: String, pass: String, repeatPassword: String) {
+        if username.isEmpty || pass.isEmpty || repeatPassword.isEmpty {delegate?.alert(title: nil, message: "Enter login/password".localizedString, url: nil); return}
+        delegate?.indicatorView.startAnimating(.auth)
+        
+        Network.shared.register(username: username, password: pass, repeatPassword: repeatPassword) { statusCode in
+            self.delegate?.indicatorView.stopAnimating()
+            if statusCode.code != 0 {
+                self.pushAlert(statusCode)
+                return
+            }
+            
+            self.updateRegistration()
+            
+        }
+        
+    }
+    
+    func checkVerificationCode(code: String) {
+        if code.isEmpty {
+            delegate?.alert(title: nil, message: "Wrong code".localizedString, url: nil)
+            return
+        }
+        delegate?.indicatorView.startAnimating()
+        
+        Network.shared.checkPhoneVerificationCode(code: code) { statusCode in
+            
+            if statusCode.code != 0 {
+                self.pushAlert(statusCode)
+                return
+            }
+            
+            self.updateCodeVerification()
         }
     }
 }
@@ -46,9 +83,21 @@ extension LoginPresenter {
     
     
     //MARK: Output
-    private func update() {
+    private func updateLogin() {
         DispatchQueue.main.async {
             self.delegate?.successAutorization()
+        }
+    }
+    
+    private func updateRegistration() {
+        DispatchQueue.main.async {
+            self.delegate?.successRegistration()
+        }
+    }
+    
+    private func updateCodeVerification() {
+        DispatchQueue.main.async {
+            self.delegate?.successCodeVerification()
         }
     }
     

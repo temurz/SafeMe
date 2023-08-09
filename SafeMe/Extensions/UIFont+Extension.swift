@@ -35,22 +35,6 @@ extension  UIFont {
     
     class func montserratFont(ofSize fontSize: CGFloat, weight: Montserrat = .regular) -> UIFont {
         return UIFont(name: weight.rawValue, size: fontSize) ?? .systemFont(ofSize: fontSize)
-        
-    }
-    
-    enum Nunito:String {
-        case thin = "Nunito-Thin"
-        case thinItalic = "Nunito-ExtraLight"
-        case light = "Nunito-Light"
-        case regular = "Nunito-Regular"
-        case medium = "Nunito-Medium"
-        case semibold = "Nunito-SemiBold"
-        case bold = "Nunito-Bold"
-    }
-    
-    class func nunitoFont(ofSize fontSize: CGFloat, weight: Nunito  = .regular) -> UIFont {
-        return UIFont(name: weight.rawValue, size: fontSize) ?? .systemFont(ofSize: fontSize)
-        
     }
 }
 

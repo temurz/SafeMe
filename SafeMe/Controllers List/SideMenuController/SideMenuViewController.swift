@@ -14,8 +14,8 @@ class SideMenuViewController: UIViewController {
     private let items = [
         MenuModel(id: 0, image: "suggestions", title: "Tavsiyalar"),
         MenuModel(id: 1, image: "news", title: "E'lonlar"),
-        MenuModel(id: 2, image: "chat", title: "Chat"),
-        MenuModel(id: 3, image: "consultant", title: "Konsultant"),
+        MenuModel(id: 2, image: "chat", title: "Oyinlar"),
+//        MenuModel(id: 3, image: "consultant", title: "Konsultant"),
         MenuModel(id: 4, image: "poll", title: "So'rovnoma"),
         MenuModel(id: 5, image: "inspector", title: "Profilaktika inspektori"),
         MenuModel(id: 6, image: "application", title: "Murojaatlar"),

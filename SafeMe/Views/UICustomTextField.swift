@@ -90,8 +90,8 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         self.typeLabel.text = title
         self.textField.placeholder = placeholder
         self.textField.text = text
-        textField.contentVerticalAlignment = .bottom
-        textField.contentMode = .bottom
+        textField.contentVerticalAlignment = .center
+        textField.contentMode = .center
         self.starLabel.isHidden = !star
         
     }
@@ -116,27 +116,29 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         errorViewLabel.addSubview(errorLabel)
         errorLabel.fullConstraint(top: 0, bottom: 0, leading: 16, trailing: -16)
         
-        let stackView = UIStackView(.vertical, .fill, .fill, 8, [view, errorViewLabel])
+        let stackView = UIStackView(.vertical, .fill, .fill, 8, [typeLabel, view, errorViewLabel])
         errorViewLabel.isHidden = true
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [typeLabel, starLabel, textField])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [textField])
         self.addSubview(stackView)
         stackView.fullConstraint()
         errorLabel.numberOfLines = 0
+        typeLabel.font = .robotoFont(ofSize: 14)
+        typeLabel.textColor = UIColor.custom.subtitleColor
         
         NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: height),
+            view.heightAnchor.constraint(equalToConstant: 44.0),
             errorLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 12),
+            typeLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 18),
+//            typeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+//            typeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+//            typeLabel.heightAnchor.constraint(equalToConstant: 18),
+//
+//            starLabel.topAnchor.constraint(equalTo: typeLabel.topAnchor),
+//            starLabel.bottomAnchor.constraint(equalTo: typeLabel.bottomAnchor),
+//            starLabel.leadingAnchor.constraint(equalTo: typeLabel.trailingAnchor),
+//            starLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
             
-            typeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
-            typeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            typeLabel.heightAnchor.constraint(equalToConstant: 10),
-            
-            starLabel.topAnchor.constraint(equalTo: typeLabel.topAnchor),
-            starLabel.bottomAnchor.constraint(equalTo: typeLabel.bottomAnchor),
-            starLabel.leadingAnchor.constraint(equalTo: typeLabel.trailingAnchor),
-            starLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
-
-            textField.topAnchor.constraint(equalTo: typeLabel.topAnchor),
+            textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             textField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
@@ -153,12 +155,12 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
             self.addSubview(view)
             
             NSLayoutConstraint.activate([
-                view.topAnchor.constraint(equalTo: textField.topAnchor),
-                view.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
-                view.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+                view.topAnchor.constraint(equalTo: self.view.topAnchor),
+                view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -4),
                 view.widthAnchor.constraint(equalToConstant: 32),
                 
-                imagViewEye.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
+                imagViewEye.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
                 imagViewEye.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -4),
                 imagViewEye.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
                 imagViewEye.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -4),
