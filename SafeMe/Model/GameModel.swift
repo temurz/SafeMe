@@ -10,6 +10,7 @@ import Foundation
 struct Game: Decodable {
     let id: Int
     let name: String
+    let image: String?
     let agecategory: Int
     let category: Int
     let description: String?

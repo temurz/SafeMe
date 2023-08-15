@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct User: Decodable {
+struct User: Codable {
     let id: Int
     let phone: String
     let first_name: String
     let last_name: String
     let birth_day: String
     let gender: String
-    let region: String
-    let district: String
-    let mahalla: String
+    let region: String?
+    let district: String?
+    let mahalla: String?
     let adress: String
     let photo: String
 }
 
-struct UserParsingModel: Decodable {
+struct UserParsingModel: Codable {
     let success: Bool
     let message: String
     let body: User

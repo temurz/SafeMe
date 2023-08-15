@@ -10,8 +10,8 @@ import Foundation
 struct Recommendation: Decodable {
     let id: Int
     let title: String
-    let category: Int
-    let ageCategory: Int
+    let category: Int?
+    let ageCategory: Int?
     let image: String
     let shortText: String
     let text: String
@@ -26,8 +26,8 @@ struct Recommendation: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
         self.title = try container.decode(String.self, forKey: .title)
-        self.category = try container.decode(Int.self, forKey: .category)
-        self.ageCategory = try container.decode(Int.self, forKey: .ageCategory)
+        self.category = try container.decodeIfPresent(Int.self, forKey: .category)
+        self.ageCategory = try container.decodeIfPresent(Int.self, forKey: .ageCategory)
         self.image = try container.decode(String.self, forKey: .image)
         self.shortText = try container.decode(String.self, forKey: .shortText)
         self.text = try container.decode(String.self, forKey: .text)

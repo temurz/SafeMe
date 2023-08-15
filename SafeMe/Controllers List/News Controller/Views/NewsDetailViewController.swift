@@ -121,23 +121,6 @@ class NewsDetailViewController: GradientViewController {
         
     }
     
-    private func setHeightOfWebView() {
-        webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
-                if complete != nil {
-                    self.webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
-                        if let height = height as? CGFloat {
-                            // Update the height constraint of the web view
-                            let minHeight: CGFloat = 50
-                            
-                            let newHeight = max(minHeight, height)
-                            self.webView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
-                            
-                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.7)
-                        }
-                    })
-                }
-            })
-    }
 }
 
 
@@ -152,6 +135,7 @@ extension NewsDetailViewController: WKNavigationDelegate {
                             
                             let newHeight = max(minHeight, height)
                             self.webView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
+                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.7)
                         }
                     })
                 }

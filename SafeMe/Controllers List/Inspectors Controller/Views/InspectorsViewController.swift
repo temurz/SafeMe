@@ -32,7 +32,7 @@ class InspectorsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.getInspectors()
+        presenter?.getInspectors(mahalla: 1)
     }
     
     private func initialize() {

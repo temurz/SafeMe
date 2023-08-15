@@ -8,7 +8,8 @@
 import Foundation
 
 struct Base {
-    static let BASE_URL = "https://cyberpolice.uz"
+//    static let BASE_URL = "https://cyberpolice.uz"
+    static let BASE_URL = "https://back.cyberpolice.uz"
 }
 
 public enum HTTPMethod: String {
@@ -39,7 +40,7 @@ enum Api {
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
@@ -64,11 +65,11 @@ enum Api {
         case .recommendations: return baseURL + "/uz/api/v1.0/recommendation/"
         case .categories: return baseURL + "/sr/api/v1.0/category/"
         case .news: return baseURL + "/ru/api/v1.0/news/"
-        case .inspectors: return baseURL + "/uz/api/v1.0/police/"
+        case .inspectors: return baseURL + "/uz/api/v1.0/police/mahalla/"
         case .register: return baseURL + "/uz/user/signup/"
         case .editUser: return baseURL + "/uz/user/update/"
         case .login: return baseURL + "/uz/user/login/"
-        case .authRefresh: return baseURL + ""
+        case .authRefresh: return baseURL + "/uz/user/token/refresh/"
         case .ageCategory: return baseURL + "/uz/api/v1.0/agecategory/"
         case .sendComplaint: return baseURL + "/ru/api/v1.0/murojaat/"
         }

@@ -41,6 +41,8 @@ class CategoryCell: UICollectionViewCell {
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
         titleLabel.font = .robotoFont(ofSize: 14, weight: .medium)
+//        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.numberOfLines = 2
         
         arrowImageView.image = UIImage(named: "chevron_right")
         
@@ -71,7 +73,7 @@ class CategoryCell: UICollectionViewCell {
     }
     
     func updateModel(model: Category, type: CategoryType = .recommendation) {
-        self.imageView.sd_setImage(with: URL(string: model.icon))
+        self.imageView.sd_setImage(with: URL(string: model.icon ?? ""))
         self.titleLabel.text = model.title
         if model.id % 2 == 0 {
             self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#C7A9F5")

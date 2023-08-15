@@ -55,9 +55,18 @@ extension Network {
         }
     }
     
-    func register(username:String, password:String, repeatPassword: String, completion: @escaping (StatusCode) -> ()) {
+    func register(username:String, password:String, repeatPassword: String, completion: @escaping (StatusCode, String?) -> ()) {
         let api = Api.register
         
+        struct ParsingModel: Decodable {
+            let success: Bool
+            let message: String
+            let body: BodyModel
+        }
+        
+        struct BodyModel: Decodable {
+            let session_id: String
+        }
         let parameters = [
             [
                 "key": "phone",
@@ -80,25 +89,39 @@ extension Network {
         let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
         let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
         
-        push(false, api: api, body: body, headers: header, type: Parsing.self) { result in
+        push(false, api: api, body: body, headers: header, type: ParsingModel.self) { result in
             switch result {
             case .success(let model):
-                completion(StatusCode(code: 0, message: model.message))
+                completion(StatusCode(code: 0, message: model.message), model.body.session_id)
             case .failure(let error):
-                completion(error)
+                completion(error, nil)
             }
         }
     }
     
     
-    func checkPhoneVerificationCode(code: String, completion: @escaping (StatusCode) -> ()) {
+    func checkPhoneVerificationCode(code: String, session_id: String, completion: @escaping (StatusCode) -> ()) {
         
         let api = Api.phoneVerification
+        
+        struct ParsingModel: Decodable {
+            let message: String
+            let body: BodyModel?
+        }
+        
+        struct BodyModel: Decodable {
+            let token: String
+            let refresh: String
+        }
         
         let parameters = [
             [ "key": "verification_code",
               "value": code,
               "type" : "text"
+            ],
+            ["key": "session_id",
+             "value": session_id,
+             "type": "text"
             ]
         ]
         
@@ -106,9 +129,16 @@ extension Network {
         let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
         let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
         
-        push(false, api: api, body: body, headers: header, type: Parsing.self) { result in
+        push(false, api: api, body: body, headers: header, type: ParsingModel.self) { result in
             switch result {
             case .success(let model):
+                guard let token = model.body?.token, let refresh = model.body?.refresh else {
+                    completion(StatusCode(code: 403, message: model.message))
+                    return
+                }
+                let auth = AuthApp.shared
+                auth.token = token
+                auth.tokenRefresh = refresh
                 completion(StatusCode(code: 0, message: model.message))
             case .failure(let error):
                 completion(error)

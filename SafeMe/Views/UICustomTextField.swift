@@ -18,6 +18,7 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
     private lazy var typeLabel: UILabel = UILabel(text: "", ofSize: 10, weight: .regular, color: .custom.gray)
     private lazy var starLabel: UILabel = UILabel(text: "*", ofSize: 10, weight: .regular, color: .custom.red)
     private lazy var errorLabel: UILabel = UILabel(text: "", ofSize: 12, weight: .regular, color: .custom.red)
+    let button: UIButton = UIButton(backgroundColor: .clear, textColor: .black, text: "")
     private lazy var textField:UITextField! = {
         let textField = UITextField()
         textField.textColor = .black
@@ -118,12 +119,15 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         
         let stackView = UIStackView(.vertical, .fill, .fill, 8, [typeLabel, view, errorViewLabel])
         errorViewLabel.isHidden = true
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [textField])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [textField, button])
         self.addSubview(stackView)
         stackView.fullConstraint()
         errorLabel.numberOfLines = 0
         typeLabel.font = .robotoFont(ofSize: 14)
         typeLabel.textColor = UIColor.custom.subtitleColor
+        
+        button.showsMenuAsPrimaryAction = true
+        button.contentHorizontalAlignment = .left
         
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalToConstant: 44.0),
@@ -167,6 +171,10 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
                 
             ])
         }
+        
+        if type == .button {
+            button.fullConstraint(leading: 16)
+        }
     }
     
     internal func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -179,6 +187,10 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
     
     @objc private func actionEye() {
         statusPasswordText = statusPasswordText == .open ? .closed : .open
+    }
+    
+    func updateButtonMenu(menu: UIMenu) {
+        self.button.menu = menu
     }
 }
 

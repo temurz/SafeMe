@@ -131,6 +131,7 @@
 		B875C3822A80F0B1004FEA92 /* ComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C3812A80F0B1004FEA92 /* ComplaintModel.swift */; };
 		B875C3862A80F23D004FEA92 /* ApplicationsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C3852A80F23D004FEA92 /* ApplicationsViewPresenter.swift */; };
 		B875C38F2A817C1C004FEA92 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875C38E2A817C1C004FEA92 /* CodeView.swift */; };
+		B875D5552A891DE700A5929F /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875D5542A891DE700A5929F /* GameDetailViewController.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */; };
@@ -270,6 +271,7 @@
 		B875C3812A80F0B1004FEA92 /* ComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintModel.swift; sourceTree = "<group>"; };
 		B875C3852A80F23D004FEA92 /* ApplicationsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsViewPresenter.swift; sourceTree = "<group>"; };
 		B875C38E2A817C1C004FEA92 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		B875D5542A891DE700A5929F /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 				B86ACA8C2A67C81100D04485 /* ChatViewController.swift */,
 				B86ACB6C2A75179E00D04485 /* GamesTableView.swift */,
 				B86ACB702A751DCC00D04485 /* GameViewCell.swift */,
+				B875D5542A891DE700A5929F /* GameDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -696,8 +699,8 @@
 				B86ACA9C2A6AC24A00D04485 /* Localization */,
 				B86ACA992A6AC0DF00D04485 /* Network */,
 				B86ACA962A6ABF4800D04485 /* KeyChain */,
-				B8B062682A6171780020339B /* Extensions */,
 				B8B062692A6172AD0020339B /* Model */,
+				B8B062682A6171780020339B /* Extensions */,
 				B8B0626A2A618A4A0020339B /* Views */,
 				B8B062672A61716A0020339B /* Controllers List */,
 				B8B062442A616FA90020339B /* Info.plist */,
@@ -1135,6 +1138,7 @@
 				B86ACA982A6ABF6C00D04485 /* KeyChainFile.swift in Sources */,
 				B86ACAA82A6AC47800D04485 /* Bundle+Extension.swift in Sources */,
 				B86ACA7F2A66ED9A00D04485 /* MenuControllerPresenter.swift in Sources */,
+				B875D5552A891DE700A5929F /* GameDetailViewController.swift in Sources */,
 				B86ACA952A67C99300D04485 /* ApplicationsViewController.swift in Sources */,
 				B86ACB6D2A75179E00D04485 /* GamesTableView.swift in Sources */,
 				B875C38F2A817C1C004FEA92 /* CodeView.swift in Sources */,

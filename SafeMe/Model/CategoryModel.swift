@@ -11,7 +11,7 @@ struct Category: Decodable {
     let id: Int
     let title: String
     let type: String
-    let icon: String
+    let icon: String?
     let status: Bool
 }
 

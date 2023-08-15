@@ -12,11 +12,13 @@ import UIKit
 enum TypeMenu {
     case login
     case pass
+    case button
     
     var string: String {
         switch self {
         case .login: return "Login".localizedString
         case .pass: return String.localized.password
+        case .button: return "Choose".localizedString
         }
     }
 }

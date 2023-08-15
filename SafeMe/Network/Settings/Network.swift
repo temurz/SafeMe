@@ -53,8 +53,13 @@ class Network {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
  
-            guard let response = response as? HTTPURLResponse, let data = data else { return completion(Result.failure(error: StatusCode(error))) }
+            guard let response = response as? HTTPURLResponse, let data = data else { return
+                completion(Result.failure(error: StatusCode(error))) }
             let code = response.statusCode
+            
+            if code == 401 {
+                return self.refreshAuthorization(api: api, body: body, headers: headers, type: type, completion: completion)
+            }
             
             if let object = try? JSONDecoder().decode(Parsing.self, from: data), !object.success {
                 let errorCode = code == 200 ? 400 : code
@@ -75,7 +80,6 @@ class Network {
             
             
             switch code {
-            case 401: return self.refreshAuthorization(api: api, body: body, headers: headers, type: type, completion: completion)
             case ...499: return completion(Result.success(model: value))
             default: return completion(Result.failure(error: StatusCode(code: code, message: error?.localizedDescription)))
             }
@@ -93,36 +97,62 @@ class Network {
     )
     {
         let authApp = AuthApp.shared
-        guard let refresh = authApp.tokenRefresh else {return completion(Result.failure(error: StatusCode.init(code: 411, message: "Your authorization is outdated".localizedString)))}
+        guard let refresh = authApp.tokenRefresh else {return
+            completion(Result.failure(error: StatusCode.init(code: 411, message: "Your authorization is outdated".localizedString)))}
         
         //Api
         let apiRefresh = Api.authRefresh
         
-        //Header
-        let newHeader = [refresh : "token"]
+        let url = URL(string: apiRefresh.path)!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "POST"
+        let parameters: [String: Any] = [ "refresh": refresh ]
+        request.httpBody = parameters.percentEncoded()
         
-        self.finishPush(nil, api: apiRefresh, body: nil, headers: newHeader, type: AuthToken.self) { result in
-            
-            switch result {
-                
-            case.success(model: let model):
-                guard let token = model.body?.token else {
-                    authApp.token = nil
-                    authApp.tokenRefresh = nil
-                    return completion(Result.failure(error: StatusCode.init(code: 411, message: "Your authorization is outdated".localizedString)))
-                }
-                
-                authApp.token = token
-                authApp.tokenRefresh = model.body?.refresh
-                return self.finishPush(token, api: api, body: body, headers: headers, type: type, completion: completion)
-                
-            case .failure(error: let error):
-                authApp.token = nil
-                authApp.tokenRefresh = nil
-                return completion(Result.failure(error: error))
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard
+                let data = data,
+                let response = response as? HTTPURLResponse,
+                error == nil
+            else {                                                               // check for fundamental networking error
+                print("error", error ?? URLError(.badServerResponse))
+                return
             }
             
+            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+            
+            do {
+                let responseObject = try JSONDecoder().decode(AuthToken.self, from: data)
+                print(responseObject)
+                guard let token = responseObject.body?.token else {
+                    authApp.token = nil
+                    authApp.tokenRefresh = nil
+                    authApp.appEnterCode = nil
+                    return completion(Result.failure(error: StatusCode.init(code: 411, message: "Your authorization is outdated".localizedString)))
+                }
+                authApp.token = token
+                authApp.tokenRefresh = responseObject.body?.refresh
+                return self.finishPush(token, api: api, body: body, headers: headers, type: type, completion: completion)
+            } catch {
+                print(error) // parsing error
+                authApp.token = nil
+                authApp.tokenRefresh = nil
+                authApp.appEnterCode = nil
+                if let responseString = String(data: data, encoding: .utf8) {
+                    print("responseString = \(responseString)")
+                } else {
+                    print("unable to parse response as string")
+                }
+            }
         }
+        
+        task.resume()
     }
     
     
@@ -155,13 +185,14 @@ class Network {
             guard let response = response as? HTTPURLResponse, let data = data else { return completion(Result.failure(error: StatusCode(error))) }
             let code = response.statusCode
            
-//            print(String(data: data, encoding: .utf8)!)
+            print(String(data: data, encoding: .utf8)!)
  
             switch code {
             case 401: return completion(Result.failure(error: StatusCode(code: 401, message: "Your authorization is outdated".localizedString)))
             
             case 200...299:
-                if let string = self.parsing(data) {return completion(Result.failure(error: StatusCode(code: 400, message: string)))}
+                if let string = self.parsing(data) {
+                    return completion(Result.failure(error: StatusCode(code: 400, message: string)))}
                 guard let object = try? JSONDecoder().decode(type.self, from: data) else {
                     print(String(data: data, encoding: .utf8)!)
                     return completion(Result.failure(error: StatusCode(code: 404, message: "Error in the data received from the server".localizedString)))

@@ -18,10 +18,10 @@ class InspectorsPresenter {
     private var inspectors: [Inspector] = [Inspector]()
     weak var delegate: InspectorsPresenterDelegate?
     
-    func getInspectors() {
+    func getInspectors(mahalla: Int) {
         delegate?.indicatorView.startAnimating(.download)
         
-        Network.shared.getInspectors() { [weak self] statusCode, inspectors in
+        Network.shared.getInspectors(mahalla: mahalla) { [weak self] statusCode, inspectors in
             self?.delegate?.indicatorView.stopAnimating()
             guard let inspectors = inspectors else {
                 self?.pushAlert(statusCode)

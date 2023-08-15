@@ -11,6 +11,7 @@ class NewsViewController: BaseViewController {
     private let tableView = UITableView()
     private var items: [News] = []
     private let presenter: NewsPresenter = NewsPresenter()
+    private var firstLaunch = true
     
     override func loadView() {
         super.loadView()
@@ -28,7 +29,14 @@ class NewsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getNews()
+        if firstLaunch {
+            presenter.getNews()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        firstLaunch = false
     }
     
     private func initialize() {

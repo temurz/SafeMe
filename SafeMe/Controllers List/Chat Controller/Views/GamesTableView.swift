@@ -10,6 +10,7 @@ import UIKit
 class GamesTableView: UIView {
     private let tableView: UITableView = UITableView()
     private var items = [Game]()
+    var selectItem: ((Game) -> ())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,5 +56,9 @@ extension GamesTableView: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameViewCell
         cell.updateModel(model: items[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectItem?(items[indexPath.row])
     }
 }

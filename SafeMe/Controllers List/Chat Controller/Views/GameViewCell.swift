@@ -28,6 +28,7 @@ class GameViewCell: UITableViewCell {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: contentView, view: bgView)
         SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [mainImageView, subtitleLabel, titleLabel, shareButton, saveButton])
         self.backgroundColor = .clear
+        self.selectionStyle = .none
         bgView.layer.cornerRadius = 12
         
         mainImageView.layer.cornerRadius = 6
@@ -83,7 +84,7 @@ class GameViewCell: UITableViewCell {
     }
     
     func updateModel(model: Game) {
-        mainImageView.image = UIImage(named: "gameChild")
+        mainImageView.sd_setImage(with: URL(string: model.image ?? ""))
         subtitleLabel.text = model.description
         titleLabel.text = model.name
     }

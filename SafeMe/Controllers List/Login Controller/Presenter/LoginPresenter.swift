@@ -18,14 +18,14 @@ typealias LoginPresenterDelegate = LoginPresenterProtocol & LoginViewController
 
 class LoginPresenter {
     weak var delegate: LoginPresenterDelegate?
+    var sessionId: String = ""
     
     func loginAction(username:String, pass:String) {
         
         if username.isEmpty || pass.isEmpty {delegate?.alert(title: nil, message: "Enter login/password".localizedString, url: nil); return}
-        let phone = username.removePlusFromPhoneNumber()
         delegate?.indicatorView.startAnimating(.auth)
         
-        Network.shared.authorization(username: phone, password: pass) { [weak self] status  in
+        Network.shared.authorization(username: username, password: pass) { [weak self] status  in
 //            guard let _ = person else {
 //                AuthApp.shared.token = nil
 //                self?.pushAlert(status)
@@ -44,12 +44,18 @@ class LoginPresenter {
         if username.isEmpty || pass.isEmpty || repeatPassword.isEmpty {delegate?.alert(title: nil, message: "Enter login/password".localizedString, url: nil); return}
         delegate?.indicatorView.startAnimating(.auth)
         
-        Network.shared.register(username: username, password: pass, repeatPassword: repeatPassword) { statusCode in
+        Network.shared.register(username: username, password: pass, repeatPassword: repeatPassword) { statusCode, sessionId in
             self.delegate?.indicatorView.stopAnimating()
+            
             if statusCode.code != 0 {
                 self.pushAlert(statusCode)
                 return
             }
+            
+            guard let sessionId else {
+                return
+            }
+            self.sessionId = sessionId
             
             self.updateRegistration()
             
@@ -64,7 +70,7 @@ class LoginPresenter {
         }
         delegate?.indicatorView.startAnimating()
         
-        Network.shared.checkPhoneVerificationCode(code: code) { statusCode in
+        Network.shared.checkPhoneVerificationCode(code: code, session_id: self.sessionId) { statusCode in
             
             if statusCode.code != 0 {
                 self.pushAlert(statusCode)

@@ -17,6 +17,8 @@ class ChatViewController: BaseViewController {
     private var selectedAgeCategory: AgeCategory?
     private var selectedCategory: Category?
     
+    private var firstLaunch = true
+    
     override func loadView() {
         super.loadView()
         initialize()
@@ -25,16 +27,23 @@ class ChatViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         presenter.delegate = self
-        navBarTitleLabel.text = "Chat"
+        navBarTitleLabel.text = "Oyinlar"
         leftMenuButton.tag = 2
         setupConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getAgeCategories()
-        presenter.getCategories()
-        presenter.getGames()
+        if firstLaunch {
+            presenter.getAgeCategories()
+            presenter.getCategories()
+            presenter.getGames()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        firstLaunch = false
     }
     
     private func initialize() {
@@ -50,6 +59,11 @@ class ChatViewController: BaseViewController {
         categoriesView.selectAction = { [weak self] category in
             self?.selectedCategory = category
             self?.presenter.getGames(ageCategory: self?.selectedAgeCategory, category: category)
+        }
+        
+        gamesTableView.selectItem = { [weak self] game in
+            let vc = GameDetailViewController(game: game)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -69,6 +83,7 @@ class ChatViewController: BaseViewController {
             recommendedGamesLabel.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 16),
             recommendedGamesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             recommendedGamesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            recommendedGamesLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 20),
             
             gamesTableView.topAnchor.constraint(equalTo: recommendedGamesLabel.bottomAnchor, constant: 16),
             gamesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

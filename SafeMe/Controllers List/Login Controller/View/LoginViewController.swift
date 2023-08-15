@@ -76,6 +76,12 @@ class LoginViewController: GradientViewController {
         self.navigationController?.navigationBar.isHidden = true
         setupConstraints()
 //        showCodeConfirmation()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        goToUpdateProfile()
     }
     
     func initialize() {
@@ -257,6 +263,17 @@ class LoginViewController: GradientViewController {
         registrationButton.setTitle("Ro'yxatdan o'tish", for: .normal)
         
     }
+    
+    private func goToUpdateProfile() {
+        let vc = UpdateProfileViewController(user: nil)
+        let keyWindow = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .compactMap({$0 as? UIWindowScene})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+        let navController = UINavigationController(rootViewController: vc)
+        keyWindow?.rootViewController = navController
+    }
 }
 
 
@@ -271,6 +288,6 @@ extension LoginViewController: LoginPresenterProtocol {
     }
     
     func successCodeVerification() {
-        
+        goToUpdateProfile()
     }
 }

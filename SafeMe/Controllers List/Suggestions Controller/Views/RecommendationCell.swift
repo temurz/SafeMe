@@ -63,7 +63,7 @@ class RecommendationCell: UICollectionViewCell {
     }
     
     func updateModel(model: Recommendation) {
-        self.imageView.sd_setImage(with: URL(string: model.image))
+        self.imageView.sd_setImage(with: URL(string: model.image ?? ""))
         self.titleLabel.text = model.title
         
     }

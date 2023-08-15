@@ -1,23 +1,24 @@
 //
-//  RecommendationDetailView.swift
+//  GameDetailViewController.swift
 //  SafeMe
 //
-//  Created by Temur on 29/07/2023.
+//  Created by Temur on 13/08/2023.
 //
 
+import Foundation
 import UIKit
 import WebKit
 
-class RecommendationDetailViewController: GradientViewController {
+class GameDetailViewController: GradientViewController {
     private let scrollView = UIScrollView()
     private let mainImageView = UIImageView()
     private let titleLabel = UILabel()
     private let webView = WKWebView()
     private let dateView = UIButton(.custom.dateBackgroundColor)
-    let recommendation: Recommendation
+    let game: Game
     
-    init(recommendation: Recommendation) {
-        self.recommendation = recommendation
+    init(game: Game) {
+        self.game = game
         super.init()
     }
     
@@ -52,19 +53,19 @@ class RecommendationDetailViewController: GradientViewController {
 
 
         
-        mainImageView.sd_setImage(with: URL(string: recommendation.image ?? ""))
+        mainImageView.sd_setImage(with: URL(string: game.image ?? ""))
         mainImageView.layer.cornerRadius = 12
         mainImageView.clipsToBounds = true
         mainImageView.backgroundColor = .black
         mainImageView.contentMode = .scaleAspectFit
         
-        titleLabel.text = recommendation.title
+        titleLabel.text = game.description
         titleLabel.font = .robotoFont(ofSize: 16, weight: .medium)
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 0
         
         let headerString = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></head>"
-        webView.loadHTMLString(headerString + (recommendation.text ?? ""), baseURL: nil)
+        webView.loadHTMLString(headerString + (game.recommendation ?? ""), baseURL: nil)
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
 //        webView.scrollView.minimumZoomScale = 1.0
@@ -72,7 +73,7 @@ class RecommendationDetailViewController: GradientViewController {
 //        webView.scrollView.zoomScale = 150
         
         dateView.setImage(UIImage(named: "calendar"), for: .normal)
-        dateView.setTitle(recommendation.createdDate.convertToDateUS(), for: .normal)
+        dateView.setTitle(game.created_date.convertToDateUS(), for: .normal)
         dateView.setTitleColor(.custom.grayDate, for: .normal)
         dateView.titleLabel?.font = .robotoFont(ofSize: 13, weight: .medium)
         dateView.leftImage()
@@ -114,7 +115,7 @@ class RecommendationDetailViewController: GradientViewController {
 }
 
 
-extension RecommendationDetailViewController: WKNavigationDelegate {
+extension GameDetailViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
                 if complete != nil {
@@ -126,7 +127,7 @@ extension RecommendationDetailViewController: WKNavigationDelegate {
                             let newHeight = max(minHeight, height)
                             self.webView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
                             
-                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.7)
+                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.9)
                         }
                     })
                 }

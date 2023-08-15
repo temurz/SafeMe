@@ -18,6 +18,7 @@ class SuggestionsViewController: BaseViewController {
     
     private var selectedAgeCategory: AgeCategory?
     private var selectedCategory: Category?
+    private var firstLaunch = true
     
     override func loadView() {
         super.loadView()
@@ -36,9 +37,16 @@ class SuggestionsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getAgeCategories()
-        presenter.getCategories()
-        presenter.getRecommendations()
+        if firstLaunch {
+            presenter.getAgeCategories()
+            presenter.getCategories()
+            presenter.getRecommendations()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+         super.viewWillDisappear(animated)
+        firstLaunch = false
     }
     
     private func initialize() {

@@ -21,7 +21,7 @@ class ProfileViewController: GradientViewController {
     
     private let dateLabel = UILabel()
     private let birthLabel = UILabel()
-    private let lineBorder = UIImageView()
+    private let lineBorder = UIView()
     
     private let eduLabel = UILabel()
     private let eduNameLabel = UILabel()
@@ -58,7 +58,7 @@ class ProfileViewController: GradientViewController {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [backgroundView, firstButton, secondButton, profilePhoto, fullnameLabel, parentLabel, birthLabel, childLabel, dateLabel, lineBorder, eduLabel, eduNameLabel, cityLabel, cityNameLabel, countryLabel, countryNameLabel, streetLabel, streetNameLabel])
         
         profilePhoto.image = UIImage(named: "profileSample")
-        profilePhoto.contentMode = .scaleAspectFit
+        profilePhoto.contentMode = .scaleAspectFill
         profilePhoto.clipsToBounds = true
         profilePhoto.layer.cornerRadius = 4
         
@@ -70,24 +70,22 @@ class ProfileViewController: GradientViewController {
         childLabel.text = "Bolaning:"
         childLabel.textColor = .systemGray
         childLabel.font = .systemFont(ofSize: 14)
-        childLabel.numberOfLines = 0
+        childLabel.isHidden = true
         
         parentLabel.text = ""
         parentLabel.textColor = .black
         parentLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        birthLabel.text = "Tug’ulgan sanasi:"
+        birthLabel.text = "Tug’ilgan sanasi:"
         birthLabel.textColor = .systemGray
         birthLabel.font = .systemFont(ofSize: 14)
+        birthLabel.numberOfLines = 0
 
         dateLabel.text = "12.02.1993"
         dateLabel.textColor = .black
         dateLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        lineBorder.image = UIImage(named: "lineBorder")
         lineBorder.backgroundColor = .custom.lightGray
-        lineBorder.contentMode = .scaleAspectFit
-        lineBorder.clipsToBounds = true
         
         eduLabel.text = "Ta'lim:"
         eduLabel.textColor = .systemGray
@@ -145,56 +143,74 @@ class ProfileViewController: GradientViewController {
     }
     
     private func setupConstraints() {
+        let textWidth = self.view.frame.width * 0.15
         NSLayoutConstraint.activate([
             
             profilePhoto.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 16),
             profilePhoto.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
-            profilePhoto.heightAnchor.constraint(equalTo: profilePhoto.widthAnchor, multiplier: 1.2),
+            profilePhoto.widthAnchor.constraint(equalToConstant: 80),
+            profilePhoto.heightAnchor.constraint(equalToConstant: 96),
             
             fullnameLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 17),
             fullnameLabel.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
+            fullnameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
             childLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: 7),
             childLabel.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
+            childLabel.widthAnchor.constraint(equalToConstant: 60),
+            
             
             parentLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: 7),
-            parentLabel.leadingAnchor.constraint(equalTo: childLabel.trailingAnchor, constant: 10),
+            parentLabel.leadingAnchor.constraint(equalTo: childLabel.trailingAnchor, constant: 8),
+            parentLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
-            birthLabel.topAnchor.constraint(equalTo: parentLabel.bottomAnchor, constant: 7),
+            birthLabel.topAnchor.constraint(equalTo: childLabel.bottomAnchor, constant: 7),
             birthLabel.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
+            birthLabel.widthAnchor.constraint(equalToConstant: textWidth),
             
-            dateLabel.topAnchor.constraint(equalTo: parentLabel.bottomAnchor, constant: 7),
-            dateLabel.leadingAnchor.constraint(equalTo: birthLabel.trailingAnchor,constant: 10),
+            
+            dateLabel.topAnchor.constraint(equalTo: childLabel.bottomAnchor, constant: 7),
+            dateLabel.leadingAnchor.constraint(equalTo: birthLabel.trailingAnchor,constant: 8),
+            dateLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
             lineBorder.topAnchor.constraint(equalTo: profilePhoto.bottomAnchor, constant: 16),
             lineBorder.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
             lineBorder.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
+            lineBorder.heightAnchor.constraint(equalToConstant: 2),
             
             eduLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 20),
             eduLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            eduLabel.widthAnchor.constraint(equalToConstant: textWidth),
             
             eduNameLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 16),
-            eduNameLabel.leadingAnchor.constraint(equalTo: eduLabel.trailingAnchor, constant: 12),
+            eduNameLabel.leadingAnchor.constraint(equalTo: eduLabel.trailingAnchor, constant: 8),
+            eduNameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
             cityLabel.topAnchor.constraint(equalTo: eduLabel.bottomAnchor, constant: 13),
             cityLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            cityLabel.widthAnchor.constraint(equalToConstant: textWidth),
             
             cityNameLabel.topAnchor.constraint(equalTo: eduLabel.bottomAnchor, constant: 10),
-            cityNameLabel.leadingAnchor.constraint(equalTo: cityLabel.trailingAnchor, constant: 18),
+            cityNameLabel.leadingAnchor.constraint(equalTo: cityLabel.trailingAnchor, constant: 8),
+            cityNameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
             countryLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 10),
             countryLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            countryLabel.widthAnchor.constraint(equalToConstant: textWidth),
             
             countryNameLabel.topAnchor.constraint(equalTo: cityNameLabel.bottomAnchor, constant: 10),
-            countryNameLabel.leadingAnchor.constraint(equalTo: countryLabel.trailingAnchor, constant: 17),
+            countryNameLabel.leadingAnchor.constraint(equalTo: countryLabel.trailingAnchor, constant: 8),
+            countryNameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
             streetLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 10),
             streetLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            streetLabel.widthAnchor.constraint(equalToConstant: textWidth),
             
             streetNameLabel.topAnchor.constraint(equalTo: countryNameLabel.bottomAnchor, constant: 10),
-            streetNameLabel.leadingAnchor.constraint(equalTo: streetLabel.trailingAnchor, constant: 11),
+            streetNameLabel.leadingAnchor.constraint(equalTo: streetLabel.trailingAnchor, constant: 8),
+            streetNameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
-            backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             backgroundView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             backgroundView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -228,7 +244,7 @@ extension ProfileViewController: ProfileViewPresenterProtocol {
         self.model = user
         profilePhoto.sd_setImage(with: URL(string: user.photo))
         fullnameLabel.text = user.first_name + " " + user.last_name
-        birthLabel.text = user.birth_day
+        dateLabel.text = user.birth_day
         cityNameLabel.text = user.region
         countryNameLabel.text = user.district
         streetNameLabel.text = user.mahalla
