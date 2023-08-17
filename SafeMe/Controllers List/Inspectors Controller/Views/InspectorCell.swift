@@ -143,9 +143,9 @@ class InspectorCell: UITableViewCell {
     }
     
     func updateModel(item: Inspector) {
-        imageInspektor.sd_setImage(with: URL(string: item.image))
-        fullnameTitle.text = "\(item.firstName) \(item.lastName) \(item.patranomic)"
-        subtitle.text = item.position
+        imageInspektor.sd_setImage(with: URL(string: item.image ?? ""))
+        fullnameTitle.text = "\(item.firstName) \(item.lastName)"
+        subtitle.text = item.mahalla + " " + item.position
         phoneNumber.text = item.phone
     }
     

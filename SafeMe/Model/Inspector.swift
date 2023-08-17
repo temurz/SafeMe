@@ -15,10 +15,10 @@ struct Inspector: Decodable {
     let position: String
     let rank: String
     let phone: String
-    let image: String
-    let region: Int
-    let district: Int
-    let mahalla: Int
+    let image: String?
+    let region: String
+    let district: String
+    let mahalla: String
     
     private enum CodingKeys : String, CodingKey {
         case id, firstName = "first_name", lastName = "last_name", patranomic, position = "lavozimi", rank = "unvoni" , phone, image, region, district, mahalla
@@ -35,10 +35,10 @@ struct Inspector: Decodable {
         position = try keys.decode(String.self, forKey: .position)
         rank = try keys.decode(String.self, forKey: .rank)
         phone = try keys.decode(String.self, forKey: .phone)
-        image = try keys.decode(String.self, forKey: .image)
-        region = try keys.decode(Int.self, forKey: .region)
-        district = try keys.decode(Int.self, forKey: .district)
-        mahalla = try keys.decode(Int.self, forKey: .mahalla)
+        image = try keys.decodeIfPresent(String.self, forKey: .image)
+        region = try keys.decode(String.self, forKey: .region)
+        district = try keys.decode(String.self, forKey: .district)
+        mahalla = try keys.decode(String.self, forKey: .mahalla)
     }
 }
 

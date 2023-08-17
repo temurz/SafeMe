@@ -23,6 +23,7 @@ class ProfileViewPresenter {
             self?.delegate?.indicatorView.stopAnimating()
             
             guard let user else {
+                self?.pushAlert(statusCode)
                 return
             }
             
@@ -38,6 +39,12 @@ extension ProfileViewPresenter {
     func reloadUser(_ user: User) {
         DispatchQueue.main.async {
             self.delegate?.reloadUser(user)
+        }
+    }
+    
+    private func pushAlert(_ error:StatusCode) {
+        DispatchQueue.main.async {
+            self.delegate?.alert(error: error, action: nil)
         }
     }
 }

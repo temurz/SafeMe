@@ -23,8 +23,8 @@ class ProfileViewController: GradientViewController {
     private let birthLabel = UILabel()
     private let lineBorder = UIView()
     
-    private let eduLabel = UILabel()
-    private let eduNameLabel = UILabel()
+//    private let eduLabel = UILabel()
+//    private let eduNameLabel = UILabel()
     
     private let cityLabel = UILabel()
     private let cityNameLabel = UILabel()
@@ -55,7 +55,7 @@ class ProfileViewController: GradientViewController {
     }
     
     private func initialize() {
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [backgroundView, firstButton, secondButton, profilePhoto, fullnameLabel, parentLabel, birthLabel, childLabel, dateLabel, lineBorder, eduLabel, eduNameLabel, cityLabel, cityNameLabel, countryLabel, countryNameLabel, streetLabel, streetNameLabel])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [backgroundView, firstButton, secondButton, profilePhoto, fullnameLabel, parentLabel, birthLabel, childLabel, dateLabel, lineBorder, cityLabel, cityNameLabel, countryLabel, countryNameLabel, streetLabel, streetNameLabel])
         
         profilePhoto.image = UIImage(named: "profileSample")
         profilePhoto.contentMode = .scaleAspectFill
@@ -86,14 +86,6 @@ class ProfileViewController: GradientViewController {
         dateLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
         lineBorder.backgroundColor = .custom.lightGray
-        
-        eduLabel.text = "Ta'lim:"
-        eduLabel.textColor = .systemGray
-        eduLabel.font = .systemFont(ofSize: 14)
-
-        eduNameLabel.text = "Toshkent Arxitektura Qurilish Instituti"
-        eduNameLabel.textColor = .black
-        eduNameLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
         cityLabel.text = "Viloyat:"
         cityLabel.textColor = .systemGray
@@ -178,19 +170,19 @@ class ProfileViewController: GradientViewController {
             lineBorder.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             lineBorder.heightAnchor.constraint(equalToConstant: 2),
             
-            eduLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 20),
-            eduLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
-            eduLabel.widthAnchor.constraint(equalToConstant: textWidth),
+//            eduLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 20),
+//            eduLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+//            eduLabel.widthAnchor.constraint(equalToConstant: textWidth),
+//
+//            eduNameLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 16),
+//            eduNameLabel.leadingAnchor.constraint(equalTo: eduLabel.trailingAnchor, constant: 8),
+//            eduNameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
-            eduNameLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 16),
-            eduNameLabel.leadingAnchor.constraint(equalTo: eduLabel.trailingAnchor, constant: 8),
-            eduNameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
-            
-            cityLabel.topAnchor.constraint(equalTo: eduLabel.bottomAnchor, constant: 13),
+            cityLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 12),
             cityLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
             cityLabel.widthAnchor.constraint(equalToConstant: textWidth),
             
-            cityNameLabel.topAnchor.constraint(equalTo: eduLabel.bottomAnchor, constant: 10),
+            cityNameLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 12),
             cityNameLabel.leadingAnchor.constraint(equalTo: cityLabel.trailingAnchor, constant: 8),
             cityNameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
@@ -230,7 +222,8 @@ class ProfileViewController: GradientViewController {
     }
     
     @objc private func firstButtonAction() {
-        print("Profilni tahrirlash!")
+        let vc = UpdateProfileViewController(user: model)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func secondButtonAction() {
@@ -242,7 +235,7 @@ class ProfileViewController: GradientViewController {
 extension ProfileViewController: ProfileViewPresenterProtocol {
     func reloadUser(_ user: User) {
         self.model = user
-        profilePhoto.sd_setImage(with: URL(string: user.photo))
+        profilePhoto.sd_setImage(with: URL(string: user.photo ?? ""))
         fullnameLabel.text = user.first_name + " " + user.last_name
         dateLabel.text = user.birth_day
         cityNameLabel.text = user.region

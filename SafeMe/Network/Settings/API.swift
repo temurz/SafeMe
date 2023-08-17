@@ -57,7 +57,7 @@ enum Api {
             
         switch self {
         case .mahalla: return baseURL + "/uz/api/v1.0/mahalla/"  
-        case .districts: return baseURL + "/uz/api/v1.0/districts"
+        case .districts: return baseURL + "/uz/api/v1.0/districts/"
         case .regions: return baseURL + "/ru/api/v1.0/regions/"
         case .phoneVerification: return baseURL + "/uz/user/verification/"
         case .getUser: return baseURL + "/uz/user/"
@@ -65,7 +65,7 @@ enum Api {
         case .recommendations: return baseURL + "/uz/api/v1.0/recommendation/"
         case .categories: return baseURL + "/sr/api/v1.0/category/"
         case .news: return baseURL + "/ru/api/v1.0/news/"
-        case .inspectors: return baseURL + "/uz/api/v1.0/police/mahalla/"
+        case .inspectors: return baseURL + "/uz/api/v1.0/police/"
         case .register: return baseURL + "/uz/user/signup/"
         case .editUser: return baseURL + "/uz/user/update/"
         case .login: return baseURL + "/uz/user/login/"

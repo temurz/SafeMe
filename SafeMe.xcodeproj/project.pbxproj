@@ -625,8 +625,8 @@
 		B870ED762A83733000C1D0E3 /* Update Profile List */ = {
 			isa = PBXGroup;
 			children = (
-				B870ED782A83734000C1D0E3 /* Views */,
 				B870ED772A83733B00C1D0E3 /* Presenter */,
+				B870ED782A83734000C1D0E3 /* Views */,
 			);
 			path = "Update Profile List";
 			sourceTree = "<group>";

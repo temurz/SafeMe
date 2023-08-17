@@ -66,7 +66,8 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
-        cell.updateModel(model: items[indexPath.row])
+        let color = UIColor.arrayOfBorderColors[indexPath.row % UIColor.arrayOfBorderColors.count]
+        cell.updateModel(model: items[indexPath.row], borderColor: color)
         return cell
     }
     

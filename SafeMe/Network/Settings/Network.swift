@@ -98,7 +98,7 @@ class Network {
     {
         let authApp = AuthApp.shared
         guard let refresh = authApp.tokenRefresh else {return
-            completion(Result.failure(error: StatusCode.init(code: 411, message: "Your authorization is outdated".localizedString)))}
+            completion(Result.failure(error: StatusCode.init(code: 411, message: "Your authorization is outdated. Login again to the app".localizedString)))}
         
         //Api
         let apiRefresh = Api.authRefresh
@@ -124,6 +124,7 @@ class Network {
             guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
                 print("statusCode should be 2xx, but is \(response.statusCode)")
                 print("response = \(response)")
+                completion(Result.failure(error: StatusCode.init(code: response.statusCode, message: "Reenter to the app. Your authorization is expired".localizedString)))
                 return
             }
             
@@ -172,8 +173,7 @@ class Network {
             headers.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
         }
         if let token = token {
-            let authorization = "Bearer " + token
-            request.addValue(authorization, forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer " + token, forHTTPHeaderField: "Authorization")
         }
         
         for value in DeviceHeader.headerArray {
@@ -201,7 +201,7 @@ class Network {
             case 500...: return completion(Result.failure(error: StatusCode(code: code)))
                 
             default:
-                return completion(Result.failure(error: StatusCode(code: code)))
+                return completion(Result.failure(error: StatusCode(code: code, message: error?.localizedDescription)))
             }
         }
         task.resume()

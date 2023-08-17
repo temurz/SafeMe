@@ -103,13 +103,13 @@ class NewsCell: UITableViewCell {
         ])
     }
     
-    func updateModel(model: News) {
+    func updateModel(model: News, borderColor: UIColor) {
         mainImageView.sd_setImage(with: URL(string: model.image))
         titleLabel.text = model.title
         subtitleLabel.text = model.shortText
         dateView.setTitle(model.createdDate.convertToDateUS(), for: .normal) 
         eyeView.setTitle("\(model.views)", for: .normal)
         if model.views > 100 {eyeView.leftImage()}
-//        bgView.layer.borderColor = UIColor.hexStringToUIColor(hex: model.borderColor).cgColor
+        bgView.layer.borderColor = borderColor.cgColor
     }
 }

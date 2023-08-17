@@ -14,3 +14,5 @@
 "Username" = "Номер телефона";
 "Password" = "Пароль";
 "Close" = "Закрыть";
+"Your authorization is outdated. Login again to the app" = "Истек срок авторизации. Перезайдите в систему";
+"Choose a photo" = "Выберите фото";

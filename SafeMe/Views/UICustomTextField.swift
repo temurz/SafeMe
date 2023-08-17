@@ -37,6 +37,8 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
     
     var type: TypeMenu = .login
     
+    var didSelectCalendar: (() -> ())?
+    
     var isOnPlacholderAnimation: Bool = false {
         willSet {
             let string = textField.text ?? ""
@@ -50,6 +52,7 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         }
     }
     
+    var hasCalendarImageView: Bool = false
     var isSecureTextField: Bool = false {
         willSet {
             if newValue {
@@ -76,6 +79,14 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         return imageView
     }()
     
+    private lazy var calendarImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "calendar"))
+        imageView.backgroundColor = .clear
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .systemGray
+        return imageView
+    }()
+    
     private var statusPasswordText:FilterStatus = .closed {
         didSet {
             if type != .pass {return}
@@ -84,17 +95,18 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         }
     }
     
-    convenience init(title: String, star:Bool, text: String?, placeholder: String?, height: CGFloat = 44.0, type: TypeMenu = .login) {
+    convenience init(title: String, star:Bool, text: String?, placeholder: String?, height: CGFloat = 44.0, type: TypeMenu = .login, hasCalendar: Bool = false) {
         self.init(frame: .zero)
         self.type = type
-        setupView(height)
+        
         self.typeLabel.text = title
         self.textField.placeholder = placeholder
         self.textField.text = text
         textField.contentVerticalAlignment = .center
         textField.contentMode = .center
         self.starLabel.isHidden = !star
-        
+        self.hasCalendarImageView = hasCalendar
+        setupView(height)
     }
     
     override init(frame: CGRect) {
@@ -117,7 +129,7 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         errorViewLabel.addSubview(errorLabel)
         errorLabel.fullConstraint(top: 0, bottom: 0, leading: 16, trailing: -16)
         
-        let stackView = UIStackView(.vertical, .fill, .fill, 8, [typeLabel, view, errorViewLabel])
+        let stackView = UIStackView(.vertical, .fill, .fill, 8, [UIView(), typeLabel, view, errorViewLabel])
         errorViewLabel.isHidden = true
         SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [textField, button])
         self.addSubview(stackView)
@@ -128,7 +140,7 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         
         button.showsMenuAsPrimaryAction = true
         button.contentHorizontalAlignment = .left
-        
+        button.titleLabel?.font = .robotoFont(ofSize: 16, weight: .regular)
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalToConstant: 44.0),
             errorLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 12),
@@ -172,6 +184,30 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
             ])
         }
         
+        if hasCalendarImageView {
+            let view = UIView(.clear)
+            view.addSubview(calendarImageView)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(calendarAction))
+            tap.delegate = self
+            view.addGestureRecognizer(tap)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            calendarImageView.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(view)
+            
+            NSLayoutConstraint.activate([
+                view.topAnchor.constraint(equalTo: self.view.topAnchor),
+                view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -4),
+                view.widthAnchor.constraint(equalToConstant: 32),
+                
+                calendarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+                calendarImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -4),
+                calendarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
+                calendarImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -4),
+                
+            ])
+        }
+        
         if type == .button {
             button.fullConstraint(leading: 16)
         }
@@ -187,6 +223,10 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
     
     @objc private func actionEye() {
         statusPasswordText = statusPasswordText == .open ? .closed : .open
+    }
+    
+    @objc private func calendarAction() {
+        didSelectCalendar?()
     }
     
     func updateButtonMenu(menu: UIMenu) {

@@ -28,26 +28,26 @@ extension Network {
         
         let api = Api.districts
         
-        let parameters = [
-            ["key": "region",
-             "value": "\(region)",
-             "type": "text"
-            ],
-            ["key" : "page",
-             "value": "\(page)",
-             "type": "text"
-            ],
-            ["key": "size",
-             "value": "\(size)",
-             "type": "text"
-            ]
-        ]
+//        let parameters = [
+//            ["key": "region",
+//             "value": "\(region)",
+//             "type": "text"
+//            ]
+//            ["key" : "page",
+//             "value": "\(page)",
+//             "type": "text"
+//            ],
+//            ["key": "size",
+//             "value": "\(size)",
+//             "type": "text"
+//            ]
+//        ]
         
-        let boundary = generateBoundaryString()
-        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
-        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+//        let boundary = generateBoundaryString()
+//        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
+//        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
         
-        push(api: api, body: body, headers: header, type: DistrictParsingModel.self
+        push(api: api, body: nil, headers: nil, type: DistrictParsingModel.self
         ) { result in
             switch result {
             case .success(let model):
@@ -61,30 +61,30 @@ extension Network {
     func getMahallas(region: Int, district: Int, page: Int, size: Int, completion: @escaping (StatusCode, [Mahalla]?) -> ()) {
         let api = Api.mahalla
         
-        let parameters = [
-            ["key": "region",
-             "value": "\(region)",
-             "type": "text"
-            ],
-            ["key": "district",
-             "value": "\(district)",
-             "type": "text"
-            ],
-            ["key" : "page",
-             "value": "\(page)",
-             "type": "text"
-            ],
-            ["key": "size",
-             "value": "\(size)",
-             "type": "text"
-            ]
-        ]
+//        let parameters = [
+//            ["key": "region",
+//             "value": "\(region)",
+//             "type": "text"
+//            ],
+//            ["key": "district",
+//             "value": "\(district)",
+//             "type": "text"
+//            ]
+//            ["key" : "page",
+//             "value": "\(page)",
+//             "type": "text"
+//            ],
+//            ["key": "size",
+//             "value": "\(size)",
+//             "type": "text"
+//            ]
+//        ]
         
-        let boundary = generateBoundaryString()
-        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
-        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+//        let boundary = generateBoundaryString()
+//        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
+//        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
         
-        push(api: api, body: body, headers: header, type: MahallaParsingModel.self
+        push(api: api, body: nil, headers: nil, type: MahallaParsingModel.self
         ) { result in
             switch result {
             case .success(let model):

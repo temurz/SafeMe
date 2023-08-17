@@ -85,6 +85,20 @@ extension UIColor {
         var dateBackgroundColor: UIColor { return UIColor.hexStringToUIColor(hex: "#E1F8F7")}
         var subtitleColor: UIColor { return UIColor.hexStringToUIColor(hex: "#6E7599")}
     }
+    
+    
+    static let arrayOfBorderColors = [UIColor.hexStringToUIColor(hex: "#63D586"),
+                               UIColor.hexStringToUIColor(hex: "#C7A9F5"),
+                               UIColor.hexStringToUIColor(hex: "#FFA607"),
+                               UIColor.hexStringToUIColor(hex: "#6CDDFF"),
+                               UIColor.hexStringToUIColor(hex: "#FFC600"),
+                               UIColor.hexStringToUIColor(hex: "#F09272"),
+                               UIColor.hexStringToUIColor(hex: "#1E90FF"),
+                               UIColor.hexStringToUIColor(hex: "#FEF6DC"),
+                               UIColor.hexStringToUIColor(hex: "#D3E2EC"),
+                               UIColor.hexStringToUIColor(hex: "#3796B3")
+    ]
+    
 }
 
 
