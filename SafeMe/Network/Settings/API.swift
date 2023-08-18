@@ -20,6 +20,9 @@ public enum HTTPMethod: String {
 }
 
 enum Api {
+    case saveAnswer
+    case poll
+    case pollAnswers
     case regions
     case districts
     case mahalla
@@ -40,7 +43,7 @@ enum Api {
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
@@ -53,25 +56,35 @@ enum Api {
     
     //MARK: - PATH
     var path:String {
-        var baseURL:String {return Base.BASE_URL}
+        
+        get {
+            var baseURL:String {return Base.BASE_URL}
+                
+            switch self {
+            case .saveAnswer: return baseURL + "/uz/api/v1.0/polling/answer"
+            case .poll: return baseURL + "/uz/api/v1.0/polling/all"
+            case .pollAnswers: return baseURL + "/uz/api/v1.0/polling/view/"
+            case .mahalla: return baseURL + "/uz/api/v1.0/mahalla/"
+            case .districts: return baseURL + "/uz/api/v1.0/districts/"
+            case .regions: return baseURL + "/ru/api/v1.0/regions/"
+            case .phoneVerification: return baseURL + "/uz/user/verification/"
+            case .getUser: return baseURL + "/uz/user/"
+            case .games: return baseURL + "/ru/api/v1.0/games/"
+            case .recommendations: return baseURL + "/uz/api/v1.0/recommendation/"
+            case .categories: return baseURL + "/sr/api/v1.0/category/"
+            case .news: return baseURL + "/ru/api/v1.0/news/"
+            case .inspectors: return baseURL + "/uz/api/v1.0/police/"
+            case .register: return baseURL + "/uz/user/signup/"
+            case .editUser: return baseURL + "/uz/user/update/"
+            case .login: return baseURL + "/uz/user/login/"
+            case .authRefresh: return baseURL + "/uz/user/token/refresh/"
+            case .ageCategory: return baseURL + "/uz/api/v1.0/agecategory/"
+            case .sendComplaint: return baseURL + "/ru/api/v1.0/murojaat/"
+            }
+        }
+        
+        set {
             
-        switch self {
-        case .mahalla: return baseURL + "/uz/api/v1.0/mahalla/"  
-        case .districts: return baseURL + "/uz/api/v1.0/districts/"
-        case .regions: return baseURL + "/ru/api/v1.0/regions/"
-        case .phoneVerification: return baseURL + "/uz/user/verification/"
-        case .getUser: return baseURL + "/uz/user/"
-        case .games: return baseURL + "/ru/api/v1.0/games/"
-        case .recommendations: return baseURL + "/uz/api/v1.0/recommendation/"
-        case .categories: return baseURL + "/sr/api/v1.0/category/"
-        case .news: return baseURL + "/ru/api/v1.0/news/"
-        case .inspectors: return baseURL + "/uz/api/v1.0/police/"
-        case .register: return baseURL + "/uz/user/signup/"
-        case .editUser: return baseURL + "/uz/user/update/"
-        case .login: return baseURL + "/uz/user/login/"
-        case .authRefresh: return baseURL + "/uz/user/token/refresh/"
-        case .ageCategory: return baseURL + "/uz/api/v1.0/agecategory/"
-        case .sendComplaint: return baseURL + "/ru/api/v1.0/murojaat/"
         }
     }
 }

@@ -40,8 +40,10 @@ class CategoryCell: UICollectionViewCell {
         
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
-        titleLabel.font = .robotoFont(ofSize: 14, weight: .medium)
+        titleLabel.font = .robotoFont(ofSize: 12, weight: .medium)
 //        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.lineBreakMode = .byCharWrapping
+        titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 2
         
         arrowImageView.image = UIImage(named: "chevron_right")
@@ -64,23 +66,23 @@ class CategoryCell: UICollectionViewCell {
             arrowImageView.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 16),
             arrowImageView.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
             arrowImageView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -10),
-            arrowImageView.widthAnchor.constraint(equalToConstant: 24),
+            arrowImageView.widthAnchor.constraint(equalToConstant: 18),
             
             titleLabel.centerYAnchor.constraint(equalTo: bgView.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 14),
-            titleLabel.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor, constant: -16)
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor, constant: -6)
         ])
     }
     
-    func updateModel(model: Category, type: CategoryType = .recommendation) {
+    func updateModel(model: Category, type: CategoryType = .recommendation, bgColor: UIColor) {
         self.imageView.sd_setImage(with: URL(string: model.icon ?? ""))
         self.titleLabel.text = model.title
-        if model.id % 2 == 0 {
-            self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#C7A9F5")
-        }else {
-            self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#63D586")
-        }
-        
+//        if model.id % 2 == 0 {
+//            self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#C7A9F5")
+//        }else {
+//            self.bgView.backgroundColor = UIColor.hexStringToUIColor(hex: "#63D586")
+//        }
+        self.bgView.backgroundColor = bgColor
         if type == .game {
             arrowImageView.isHidden = true
             self.bgView.backgroundColor = .white

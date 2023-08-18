@@ -71,7 +71,8 @@ extension CategoriesView: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
-        cell.updateModel(model: items[indexPath.row], type: self.type)
+        let color = UIColor.arrayOfBorderColors[indexPath.row % UIColor.arrayOfBorderColors.count]
+        cell.updateModel(model: items[indexPath.row], type: self.type, bgColor: color)
         return cell
     }
     

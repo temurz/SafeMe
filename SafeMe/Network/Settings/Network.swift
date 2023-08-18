@@ -31,12 +31,13 @@ class Network {
     
     func push<T: Decodable>(_ token:Bool = true,
                             api:Api,
+                            newPath: String? = nil,
                             body:Data?,
                             headers:[String:String]?,
                             type: T.Type,
                             completion:@escaping(Result<T>) -> ())
     {
-        var request = URLRequest(url: URL(string: api.path)!,timeoutInterval: 15)
+        var request = newPath != nil ? URLRequest(url: URL(string: newPath!)!,timeoutInterval: 15) : URLRequest(url: URL(string: api.path)!,timeoutInterval: 15)
         request.httpMethod = api.method
         request.httpBody = body
         if let headers = headers {
