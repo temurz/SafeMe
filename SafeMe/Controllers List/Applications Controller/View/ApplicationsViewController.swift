@@ -35,7 +35,7 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
         super.viewDidLoad()
         presenter.delegate = self
         secondTextField.delegate = self
-        navBarTitleLabel.text = "Murojaatlar"
+        navBarTitleLabel.text = "Murojaatlar".localizedString
         leftMenuButton.tag = 6
         setupConstraints()
     }
@@ -64,15 +64,15 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
         secondTextField.layer.borderColor = UIColor.hexStringToUIColor(hex: "#E6EAF0").cgColor
         secondTextField.textColor = .black
         
-        firstLabel.text = "Murojaat turini tanlang"
+        firstLabel.text = "Murojaat turini tanlang".localizedString
         firstLabel.textColor = .systemGray
         firstLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        secondLabel.text = "Murojaat mavzusini kiriting"
+        secondLabel.text = "Murojaat mavzusini kiriting".localizedString
         secondLabel.textColor = .systemGray
         secondLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        thirdLabel.text = "Murojaat matnini kiriting"
+        thirdLabel.text = "Murojaat matnini kiriting".localizedString
         thirdLabel.textColor = .systemGray
         thirdLabel.font = .systemFont(ofSize: 14, weight: .medium)
         

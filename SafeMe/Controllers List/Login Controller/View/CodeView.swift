@@ -77,7 +77,7 @@ final class CodeView: UIView {
         textField.textColor = .clear
         textField.tintColor = .clear
         textField.keyboardType = .numberPad
-        textField.addToolBar(self, action: #selector(doneAction), title: "Готово")
+        textField.addToolBar(self, action: #selector(doneAction), title: "Готово".localizedString)
         textField.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
         
         bottomLabel.numberOfLines = 0

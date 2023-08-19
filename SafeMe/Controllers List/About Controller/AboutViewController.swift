@@ -26,7 +26,7 @@ class AboutViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         leftMenuButton.tag = 7
-        navBarTitleLabel.text = "Biz haqqimizda"
+        navBarTitleLabel.text = "Biz haqqimizda".localizedString
         setupConstraints()
     }
     
@@ -46,25 +46,25 @@ class AboutViewController: BaseViewController {
         unicefImageView.clipsToBounds = true
         self.view.addSubview(unicefImageView)
         
-        firstTitleLabel.text = "Biz haqqimizda"
+        firstTitleLabel.text = "Biz haqqimizda".localizedString
         firstTitleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         firstTitleLabel.textAlignment = .center
         self.view.addSubview(firstTitleLabel)
         
-        secondTitleLabel.text = "Mazkur proektning maqsadi, mamlakatimizda\n bolalarni internet olamidagi tajavuzkor\n havflardan asrash, ularning ongini va\n internetdan foydalanish madaniyatini\n oshirish, shuningdek xozirgi vaqtda aktual\n bo’lgan Kiberbulling singari xavflardan\n bolalarni ximoyalash xisoblanadi."
+        secondTitleLabel.text = "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment.".localizedString
         secondTitleLabel.font = .systemFont(ofSize: 14)
         secondTitleLabel.textColor = .systemGray
         secondTitleLabel.numberOfLines = 0
         secondTitleLabel.textAlignment = .center
         self.view.addSubview(secondTitleLabel)
         
-        thirdTitleLabel.text = "Mazkur proekt Unicef xalqaro bolalar\n jamg’armasi va IIV Kiberxavfsizlik markazi\n tomonidan ishlab chiqildi."
+        thirdTitleLabel.text = "Mazkur proekt Unicef xalqaro bolalar\n jamg’armasi va IIV Kiberxavfsizlik markazi\n tomonidan ishlab chiqildi.".localizedString
         thirdTitleLabel.textAlignment = .center
         thirdTitleLabel.font = .systemFont(ofSize: 12)
         thirdTitleLabel.numberOfLines = 0
         self.view.addSubview(thirdTitleLabel)
         
-        fourthTitleLabel.text = "©2022 yil, barcha huquqlar himoyalangan"
+        fourthTitleLabel.text = "©2022 yil, barcha huquqlar himoyalangan".localizedString
         fourthTitleLabel.textAlignment = .center
         fourthTitleLabel.font = .systemFont(ofSize: 12)
         fourthTitleLabel.numberOfLines = 0

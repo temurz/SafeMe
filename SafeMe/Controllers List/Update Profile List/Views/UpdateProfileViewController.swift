@@ -9,12 +9,12 @@ import UIKit
 import SideMenu
 class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
     private let bgView = UIView(.white)
-    private let titleLabel = UILabel(text: "Shaxsiy ma'lumotlaringizni kiriting".localizedString, font: .robotoFont(ofSize: 20, weight: .medium))
+    private let titleLabel = UILabel(text: "Enter your personal data".localizedString, font: .robotoFont(ofSize: 20, weight: .medium))
     let choosePhotoLabel = UILabel(text: "Choose a photo".localizedString, font: .robotoFont(ofSize: 14))
     private let profilePhotoImageView = UIImageView(.custom.lightGray)
     private let stackView = UIStackView()
     private let fullNameTextField = UICustomTextField(title: "Fullname".localizedString, star: false, text: nil, placeholder: "Fullname".localizedString)
-    private let birthdayTextField = UICustomTextField(title: "Birthday", star: false, text: nil, placeholder: "Enter your birthday".localizedString)
+    private let birthdayTextField = UICustomTextField(title: "Birthday".localizedString, star: false, text: nil, placeholder: "Enter your birthday".localizedString)
 //    private let educationTextField = UICustomTextField(title: "Education".localizedString, star: false, text: nil, placeholder: nil)
     private let regionButton = UICustomTextField(title: "Region".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
     private let districtButton = UICustomTextField(title: "District".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
@@ -185,20 +185,20 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
     }
     
     @objc private func choosePhotoAction(_ sender: UIGestureRecognizer) {
-        let alert = UIAlertController(title: nil, message: "Выберите источник", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: "Выберите источник".localizedString, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Камера", style: .default) { (result : UIAlertAction) -> Void in
+        alert.addAction(UIAlertAction(title: "Камера".localizedString, style: .default) { (result : UIAlertAction) -> Void in
             print("Camera selected")
             self.imagePicker.sourceType = .camera
             self.present(self.imagePicker, animated: true, completion: nil)
         })
-        alert.addAction(UIAlertAction(title: "Галерея", style: .default) { (result : UIAlertAction) -> Void in
+        alert.addAction(UIAlertAction(title: "Галерея".localizedString, style: .default) { (result : UIAlertAction) -> Void in
             print("Photo selected")
             self.imagePicker.sourceType = .photoLibrary
             self.present(self.imagePicker, animated: true, completion: nil)
         })
         
-        let cancel = UIAlertAction(title: "Отмена", style: .cancel)
+        let cancel = UIAlertAction(title: "Отмена".localizedString, style: .cancel)
         
         alert.addAction(cancel)
         

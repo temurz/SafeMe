@@ -53,7 +53,7 @@ class InspectorCell: UITableViewCell {
         telegramButton.layer.cornerRadius = 12
         telegramButton.addTarget(self, action: #selector(telegramAction), for: .touchUpInside)
         
-        callButton.setTitle("Qo’ng’iroq qilish", for: .normal)
+        callButton.setTitle("Qo’ng’iroq qilish".localizedString, for: .normal)
         callButton.setTitleColor(.white, for: .normal)
         callButton.titleLabel?.font = .robotoFont(ofSize: 14, weight: .medium)
         callButton.backgroundColor = .custom.buttonGreenBgColor
