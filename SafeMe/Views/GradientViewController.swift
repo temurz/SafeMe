@@ -10,6 +10,9 @@ import UIKit
 class GradientViewController: UIViewController {
     let backgroundGradientView = GradientView()
     lazy var indicatorView:UIIndicatorView = UIIndicatorView()
+    lazy var noDataView: UIView = UIView(.clear)
+    lazy var emptyImageView: UIImageView = UIImageView()
+    lazy var emptyLabel: UILabel = UILabel(text: "No data found".localizedString, font: .robotoFont(ofSize: 16, weight: .medium))
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +36,16 @@ class GradientViewController: UIViewController {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         indicatorView.fullConstraint()
         indicatorView.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
+        
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: backgroundGradientView, view: noDataView)
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: noDataView, array: [emptyImageView, emptyLabel])
+        emptyImageView.image = UIImage(systemName: "magnifyingglass")
+        emptyImageView.tintColor = .white
+        emptyLabel.numberOfLines = 0
+        emptyLabel.textColor = .white
+        emptyLabel.textAlignment = .center
+        noDataView.isHidden = true
+        
     }
     
     override func viewDidLoad() {
@@ -41,7 +54,21 @@ class GradientViewController: UIViewController {
             backgroundGradientView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundGradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundGradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            backgroundGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            noDataView.topAnchor.constraint(equalTo: backgroundGradientView.centerYAnchor, constant: 12),
+            noDataView.centerXAnchor.constraint(equalTo: backgroundGradientView.centerXAnchor),
+            noDataView.widthAnchor.constraint(equalToConstant: 70),
+            noDataView.heightAnchor.constraint(equalToConstant: 100),
+            
+            emptyImageView.widthAnchor.constraint(equalTo: noDataView.widthAnchor, multiplier: 1),
+            emptyImageView.heightAnchor.constraint(equalTo: emptyImageView.widthAnchor, multiplier: 1),
+            emptyImageView.topAnchor.constraint(equalTo: noDataView.topAnchor),
+            emptyImageView.leadingAnchor.constraint(equalTo: noDataView.leadingAnchor),
+            
+            emptyLabel.topAnchor.constraint(equalTo: emptyImageView.bottomAnchor, constant: 4),
+            emptyLabel.leadingAnchor.constraint(equalTo: noDataView.leadingAnchor),
+            emptyLabel.trailingAnchor.constraint(equalTo: noDataView.trailingAnchor),
         ])
     }
     

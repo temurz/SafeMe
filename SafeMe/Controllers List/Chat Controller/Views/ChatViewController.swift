@@ -106,6 +106,7 @@ extension ChatViewController: ChatPresenterProtocol {
     }
     
     func reloadGames(_ games: [Game]) {
+        noDataView.isHidden = games.isEmpty ? false : true
         self.gamesTableView.updateItems(games)
     }
 }

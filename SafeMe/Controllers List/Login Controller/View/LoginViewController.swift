@@ -26,7 +26,7 @@ class LoginViewController: GradientViewController {
     
     private let phoneTextField = UICustomTextField(title: "Username".localizedString,
                                                    star: true,
-                                                   text: "+998900109258",
+                                                   text: "+998973339618",
                                                    placeholder: "",
                                                    height: 60)
     private let passwordTextField = UICustomTextField(title: "Password".localizedString,
@@ -214,7 +214,7 @@ class LoginViewController: GradientViewController {
             titleLabel.text = "Ro'yxatdan o'tish".localizedString
             subtitleLabel.text = "Ro'yxatdan o'tish telefon raqamingizni va parolingizni kiriting".localizedString
         case .checkCode:
-            break
+            isLogin = .register
         }
     }
     
@@ -250,9 +250,9 @@ class LoginViewController: GradientViewController {
     private func showCodeConfirmation(_ bool: Bool) {
         codeView.isHidden = !bool
         backButton.isHidden = !bool
-        titleLabel.text = "Tasdiqlash kodi".localizedString
-        subtitleLabel.text = "\(phoneTextField.text.makeStarsInsteadNumbers()) raqamga yuborilgan maxfiy kodni kiriting".localizedString
-        isLogin = bool ? .checkCode : .login
+        titleLabel.text = bool ? "Tasdiqlash kodi".localizedString : "Ro'yxatdan o'tish".localizedString
+        subtitleLabel.text = bool ? "\(phoneTextField.text.makeStarsInsteadNumbers()) raqamga yuborilgan maxfiy kodni kiriting".localizedString : "Ro'yxatdan o'tish telefon raqamingizni va parolingizni kiriting".localizedString
+        isLogin = bool ? .checkCode : .register
         
         
         phoneTextField.isHidden = bool
@@ -260,7 +260,7 @@ class LoginViewController: GradientViewController {
         repeatPasswordTextField.isHidden = bool
         registrationButton.isHidden = bool
         forgotPasswordButton.isHidden = bool
-        registrationButton.setTitle("Ro'yxatdan o'tish", for: .normal)
+        registrationButton.setTitle("Kirish", for: .normal)
         
     }
     

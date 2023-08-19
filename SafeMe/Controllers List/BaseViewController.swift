@@ -36,10 +36,10 @@ class BaseViewController: GradientViewController {
         stackView.frame = .init(x: 0, y: 0, width: 200, height: 50)
         stackView.axis = .horizontal
         stackView.spacing = 8
-        stackView.alignment = .fill
+        stackView.alignment = .trailing
         stackView.distribution = .fillEqually
-        stackView.addArrangedSubview(searchButton)
-        stackView.addArrangedSubview(notificationsButton)
+        stackView.addArrangedSubview(UIView())
+        stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(sosButton)
         stackView.addArrangedSubview(profileButton)
         

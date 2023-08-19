@@ -110,7 +110,9 @@ extension SuggestionsViewController: SuggestionsPresenterProtocol {
     }
     
     func reloadRecommendations(_ recommendations: [Recommendation]) {
+        noDataView.isHidden = recommendations.isEmpty ? false : true
         self.recommendationsView.updateItems(recommendations)
+        
 //        self.recommendationsView.heightAnchor.constraint(equalToConstant: recommendationsView.getHeight()).isActive = true
     }
 }

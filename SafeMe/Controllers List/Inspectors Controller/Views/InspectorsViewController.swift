@@ -8,9 +8,6 @@
 import UIKit
 
 class InspectorsViewController: BaseViewController {
-    
-    
-    
     private let tableView = UITableView()
     private var presenter: InspectorsPresenter?
     private var inspectors = [Inspector]()
@@ -44,7 +41,6 @@ class InspectorsViewController: BaseViewController {
         tableView.register(InspectorCell.self, forCellReuseIdentifier: "InspektorCell")
         tableView.rowHeight = 242
         tableView.separatorStyle = .none
-
     }
     
     private func setupConstraints() {
@@ -87,6 +83,7 @@ extension InspectorsViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension InspectorsViewController: InspectorsPresenterProtocol {
     func reloadData(inspectors: [Inspector]) {
+        noDataView.isHidden = inspectors.isEmpty ? false : true
         self.inspectors = inspectors
         self.tableView.reloadData()
     }

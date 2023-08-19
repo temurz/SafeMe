@@ -83,6 +83,7 @@ extension PollViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension PollViewController: PollViewPresenterProtocol {
     func updatePolls(_ polls: [PollingModel]) {
+        noDataView.isHidden = polls.isEmpty ? false : true
         items = polls
         self.tableView.reloadData()
     }

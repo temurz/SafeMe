@@ -16,6 +16,9 @@
 		B842F2FC2A8F6EE3001F79BC /* PollDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F2FB2A8F6EE3001F79BC /* PollDetailViewController.swift */; };
 		B842F2FE2A8F745E001F79BC /* PollAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F2FD2A8F745E001F79BC /* PollAnswerCell.swift */; };
 		B842F3002A8F7A40001F79BC /* PollDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F2FF2A8F7A40001F79BC /* PollDetailViewPresenter.swift */; };
+		B842F3022A90B328001F79BC /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3012A90B328001F79BC /* TimerView.swift */; };
+		B842F3052A90C092001F79BC /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3042A90C092001F79BC /* LanguageViewController.swift */; };
+		B842F3092A90C36C001F79BC /* LanguageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3082A90C36C001F79BC /* LanguageViewCell.swift */; };
 		B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA162A62D65300D04485 /* LoginViewController.swift */; };
 		B86ACA192A62DF8700D04485 /* UICustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA182A62DF8700D04485 /* UICustomTextField.swift */; };
 		B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA1A2A62DFAF00D04485 /* UIView+Extension.swift */; };
@@ -183,6 +186,11 @@
 		B842F2FB2A8F6EE3001F79BC /* PollDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailViewController.swift; sourceTree = "<group>"; };
 		B842F2FD2A8F745E001F79BC /* PollAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAnswerCell.swift; sourceTree = "<group>"; };
 		B842F2FF2A8F7A40001F79BC /* PollDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailViewPresenter.swift; sourceTree = "<group>"; };
+		B842F3012A90B328001F79BC /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		B842F3042A90C092001F79BC /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		B842F3082A90C36C001F79BC /* LanguageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewCell.swift; sourceTree = "<group>"; };
+		B842F30A2A90D953001F79BC /* uz-Cyrl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "uz-Cyrl"; path = "uz-Cyrl.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		B842F30B2A90D953001F79BC /* uz-Cyrl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "uz-Cyrl"; path = "uz-Cyrl.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B86ACA162A62D65300D04485 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B86ACA182A62DF8700D04485 /* UICustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomTextField.swift; sourceTree = "<group>"; };
 		B86ACA1A2A62DFAF00D04485 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -365,6 +373,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B842F3032A90C067001F79BC /* Language List */ = {
+			isa = PBXGroup;
+			children = (
+				B842F3072A90C35C001F79BC /* Views */,
+				B842F3062A90C351001F79BC /* Presenter */,
+			);
+			path = "Language List";
+			sourceTree = "<group>";
+		};
+		B842F3062A90C351001F79BC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B842F3072A90C35C001F79BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B842F3042A90C092001F79BC /* LanguageViewController.swift */,
+				B842F3082A90C36C001F79BC /* LanguageViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B86ACA152A62D64000D04485 /* Login Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +567,7 @@
 				B86ACAC02A6C203000D04485 /* AuthCell.swift */,
 				B86ACAC42A6C727400D04485 /* ApplicationCodeViewController.swift */,
 				B875C38E2A817C1C004FEA92 /* CodeView.swift */,
+				B842F3012A90B328001F79BC /* TimerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -780,6 +814,7 @@
 			isa = PBXGroup;
 			children = (
 				B86ACA772A6667B900D04485 /* BaseViewController.swift */,
+				B842F3032A90C067001F79BC /* Language List */,
 				349C9B212A73C50900BC953A /* ProfileViewController */,
 				B86ACAFD2A725A2100D04485 /* SosViewController */,
 				B86ACA792A66E86C00D04485 /* SideMenuController */,
@@ -937,6 +972,7 @@
 				Base,
 				uz,
 				ru,
+				"uz-Cyrl",
 			);
 			mainGroup = B8B0622A2A616FA70020339B;
 			productRefGroup = B8B062342A616FA70020339B /* Products */;
@@ -1120,6 +1156,7 @@
 				B86ACAAC2A6AC5A100D04485 /* StatusCode.swift in Sources */,
 				B86ACA192A62DF8700D04485 /* UICustomTextField.swift in Sources */,
 				B86ACAD22A6FA69400D04485 /* NewsDataModel.swift in Sources */,
+				B842F3022A90B328001F79BC /* TimerView.swift in Sources */,
 				B86ACAD02A6F903100D04485 /* CategoryModel.swift in Sources */,
 				B86ACABB2A6C0F9C00D04485 /* AuthDataModel.swift in Sources */,
 				B86ACB6F2A751BD700D04485 /* GameModel.swift in Sources */,
@@ -1127,6 +1164,7 @@
 				B86ACAD62A6FAF8F00D04485 /* Inspector.swift in Sources */,
 				B842F3002A8F7A40001F79BC /* PollDetailViewPresenter.swift in Sources */,
 				B86ACA422A62EB9E00D04485 /* Textfield+Extension.swift in Sources */,
+				B842F3092A90C36C001F79BC /* LanguageViewCell.swift in Sources */,
 				B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */,
 				B86ACB632A74EDB500D04485 /* RecommendationsView.swift in Sources */,
 				B86ACAB92A6AD74700D04485 /* Date+Extension.swift in Sources */,
@@ -1193,6 +1231,7 @@
 				B8B0626C2A618A5B0020339B /* GradientView.swift in Sources */,
 				B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */,
 				B86ACA912A67C92F00D04485 /* PollViewController.swift in Sources */,
+				B842F3052A90C092001F79BC /* LanguageViewController.swift in Sources */,
 				B86ACACA2A6F1E9F00D04485 /* AgeFilterCell.swift in Sources */,
 				B86ACAC72A6EFD0A00D04485 /* AppEnterCodePresenter.swift in Sources */,
 				B86ACA8F2A67C84400D04485 /* ConsultantViewController.swift in Sources */,
@@ -1261,6 +1300,7 @@
 				B86ACAA12A6AC3B300D04485 /* en */,
 				B86ACAA42A6AC3CF00D04485 /* uz */,
 				B86ACAA62A6AC3E600D04485 /* ru */,
+				B842F30B2A90D953001F79BC /* uz-Cyrl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1271,6 +1311,7 @@
 				B8B062422A616FA90020339B /* Base */,
 				B86ACAA32A6AC3CF00D04485 /* uz */,
 				B86ACAA52A6AC3E600D04485 /* ru */,
+				B842F30A2A90D953001F79BC /* uz-Cyrl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

@@ -51,7 +51,7 @@ class NewsViewController: BaseViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -79,6 +79,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension NewsViewController: NewsPresenterProtocol {
     func reloadData(news: [News]) {
+        noDataView.isHidden = news.isEmpty ? false : true
         self.items = news
         self.tableView.reloadData()
     }

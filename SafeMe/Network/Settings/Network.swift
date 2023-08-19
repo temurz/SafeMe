@@ -232,11 +232,10 @@ class Network {
         
         // если есть фотографии
         if !imagesData.isEmpty {
-            for (row, data) in imagesData.enumerated() {
-                let string = UUID().uuidString + Date().toString("yyyyMMddHHmm")
-                let filename = string + "-\(row).jpg"
+            for (_, data) in imagesData.enumerated() {
+                let filename = UUID().uuidString + ".jpg"
                 body.appendString("--\(boundary)\r\n")
-                body.appendString("Content-Disposition:form-data; name=\"image[]\"; filename=\"\(filename)\"\r\n")
+                body.appendString("Content-Disposition:form-data; name=\"photo\"; filename=\"\(filename)\"\r\n")
                 body.appendString("Content-Type: \(mimeType)\r\n\r\n")
                 body.append(data)
                 body.appendString("\r\n")

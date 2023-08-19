@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }else {
 //            let sideController = SideMenuNavigationController(rootViewController: SuggestionsViewController())
 //            window.rootViewController = sideController
-            let navController = UINavigationController(rootViewController: LoginViewController())
+            let navController = UINavigationController(rootViewController: LanguageViewController())
             window.rootViewController = navController
         }
         
