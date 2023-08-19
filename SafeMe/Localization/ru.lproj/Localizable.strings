@@ -17,3 +17,96 @@
 "Your authorization is outdated. Login again to the app" = "Истек срок авторизации. Перезайдите в систему";
 "Choose a photo" = "Выберите фото";
 "Please choose an answer!" = "Пожалуйста выберите ответ!";
+"Enter your personal data" = "Пожалуйста введите персональные данные";
+
+"Something went wrong" = "Что-то пошло не так";
+"Failed to log in" = "Не удалось войти";
+"Authorization error. Try again later" = "Ошибка авторизации. Повторите попытку позже";
+"No data from the server. Try again a little later" = "Нет данных с сервера. Повторите попытку чуть позже";
+"Access is closed" = "Доступ закрыт";
+"Authorization is only available to Customers" = "Авторизация доступна только Клиентам";
+"Authorization error" = "Ошибка авторизации";
+"Incorrect login or password" = "Неверный логин или пароль";
+"An error occurred during authorization" = "Произошла ошибка при авторизации";
+"Data upload error" = "Ошибка загрузки данных";
+"You are not authorized" = "Вы не авторизованы";
+"Authorization required" = "Требуется Авторизация";
+"We are aware of this problem and are engaged in troubleshooting. Please try again later." = "Мы знаем об этой проблеме и занимаемся ее устранением. Повторите попытку позже.";
+"Your authorization is outdated. Login again to the app" = "Ваша авторизация устарела. Повторно авторизуйтесь в приложении";
+"Reenter to the app. Your authorization is expired" = "Повторно войдите в приложение. Срок действия вашей авторизации истек";
+"Your authorization is outdated" = "Ваша авторизация устарела";
+"Error in the data received from the server" = "Ошибка в данных, полученных от сервера";
+
+"Uploading data..." = "Выгрузка данных...";
+"Sending data..." = "Отправка данных...";
+"Authorization..." = "Авторизация...";
+
+"There are suspicious circumstances" = "Есть подозрительные обстоятельства";
+"Going into danger zone" = "Вход в опасную зону";
+"Help needed now" = "Помощь нужна сейчас";
+
+"Recommendations" = "Рекомендации";
+"Announcements" = "Объявления";
+"Games" = "Игры";
+"Questionnaire" = "Анкета";
+"Prevention Inspector" = "Инспектор по профилактике";
+"Requests" = "Запросы";
+"About Us" = "О нас";
+"Exit" = "Выход";
+
+"Enter" = "Вход";
+"Enter your phone number and password to login" = "Введите номер телефона и пароль для входа";
+
+"Wrong code" = "Неверный код";
+"Repeat password" = "Повторите пароль";
+"Back" = "Назад";
+"Login" = "Авторизоваться";
+"Choose" = "Выбрать";
+"Email or phone number" = "Электронная почта или номер телефона";
+"Done" = "Сделан";
+"Fullname" = "Полное имя";
+"Birthday" = "День рождения";
+"Enter your birthday" = "Введите свой день рождения";
+"Region" = "Регион";
+"District" = "Район";
+"Choose region" = "Выберите регион";
+"Choose district" = "Выберите район";
+"Sorry there are no answers for this question!" = "Извините, на этот вопрос нет ответов!";
+
+"Forgot your password?" = "Забыли пароль?";
+"Sign up" = "Зарегистрироваться";
+"Enter your phone number to register" = "Введите номер телефона для регистрации";
+"Enter your registration phone number and password" = "Введите регистрационный номер телефона и пароль";
+"Password Reset" = "Восстановление пароля";
+"Enter your phone number to reset your password" = "Введите номер телефона для сброса пароля";
+"Confirmation code" = "Код подтверждения";
+"enter the secret code sent to the number" = "введите секретный код, отправленный на номер";
+"Enter Pin Code" = "Введите пин-код";
+"Continue" = "Продолжать";
+"Confirm Pin" = "Подтвердить пин-код";
+"Recommended Games" = "Рекомендуемые игры";
+"District" = "Район";
+"Call" = "Вызов";
+"Select the type of application" = "Выберите тип заявки";
+"Enter the subject of the application" = "Введите тему заявки";
+"Enter your message" = "Введите ваше сообщение";
+"Application" = "Заявление";
+"Complaint" = "Жалоба";
+"Offer" = "Предложение";
+"Request Types" = "Типы запросов";
+
+"Done" = "Готово";
+"Select source" = "Выберите источник";
+"Camera" = "Камера";
+"Gallery" = "Галерея";
+"Cancel" = "Отмена";
+"Share" = "Поделиться";
+"Save" = "Сохранить";
+
+"The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "Целью данного проекта является защита\n детей от агрессивных\n опасностей в мире Интернета в нашей стране, повышение их осведомленности и\n культуры использования Интернета, а также защита детей от таких опасностей, как кибербуллинг, который актуален\n на данный момент.";
+
+"This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs." = "Данный проект разработан Международным Детским\n Фондом ЮНИСЕФ и Центром кибербезопасности\n МВД.";
+
+"©2022, All Rights Reserved" = "© 2022, Все права защищены";
+
+

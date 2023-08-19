@@ -29,7 +29,7 @@ class SuggestionsViewController: BaseViewController {
         super.viewDidLoad()
         presenter.delegate = self
         self.view.backgroundColor = .custom.mainBackgroundColor
-        navBarTitleLabel.text = "Tavsiyalar"
+        navBarTitleLabel.text = "Tavsiyalar".localizedString
         leftMenuButton.tag = 0
         ageFilterCollectionView.backgroundColor = .clear
         setupConstraints()

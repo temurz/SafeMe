@@ -17,3 +17,94 @@
 "Your authorization is outdated. Login again to the app" = "Avtorizaciya muddati tugagan. Boshqatdan tizimga kiring";
 "Choose a photo" = "Rasm tanlang";
 "Please choose an answer!" = "Iltimos javob tanlang!";
+"Enter your personal data" = "Shaxsiy ma'lumotlaringizni kiriting";
+
+"Something went wrong" = "Nimadir noto'g'ri bajarildi";
+"Failed to log in" = "Kirish amalga oshmadi";
+"Authorization error. Try again later" = "Avtorizatsiya xatosi. Keyinroq qayta urinib ko'ring";
+"No data from the server. Try again a little later" = "Serverdan ma'lumot yo'q. Birozdan keyin qayta urinib ko'ring";
+"Access is closed" = "Kirish yopiq";
+"Authorization is only available to Customers" = "Avtorizatsiya faqat mijozlar uchun mavjud";
+"Authorization error" = "Avtorizatsiya xatosi";
+"Incorrect login or password" = "Login yoki parol noto'g'ri";
+"An error occurred during authorization" = "Avtorizatsiya paytida xatolik yuz berdi";
+"Data upload error" = "Ma'lumotlarni yuklash xatosi";
+"You are not authorized" = "Sizga ruxsat berilmagan";
+"Authorization required" = "Avtorizatsiya kerak";
+"We are aware of this problem and are engaged in troubleshooting. Please try again later." = "Biz bu muammodan xabardormiz va muammolarni bartaraf etish bilan shug'ullanmoqdamiz. Iltimos, keyinroq qayta urinib ko'ring.";
+"Your authorization is outdated. Login again to the app" = "Sizning avtorizatsiyangiz eskirgan. Ilovaga qayta kiring";
+"Reenter to the app. Your authorization is expired" = "Ilovaga qayta kiring. Avtorizatsiya muddati tugagan";
+"Your authorization is outdated" = "Sizning avtorizatsiyangiz eskirgan";
+"Error in the data received from the server" = "Serverdan olingan ma'lumotlarda xato";
+
+"Uploading data..." = "Ma'lumotlar yuklanmoqda...";
+"Sending data..." = "Ma'lumotlar yuborilmoqda...";
+"Authorization..." = "Avtorizatsiya...";
+
+"There are suspicious circumstances" = "Shubhali holatlar mavjud";
+"Going into danger zone" = "Xavfli hududga borayapman";
+"Help needed now" = "Xoziroq yordam kerak";
+
+"Recommendations" = "Tavsiyalar";
+"Announcements" = "E'lonlar";
+"Games" = "Oyinlar";
+"Questionnaire" = "So'rovnoma";
+"Prevention Inspector" = "Profilaktika inspektori";
+"Requests" = "Murojaatlar";
+"About Us" = "Biz haqqimizda";
+"Exit" = "Chiqish";
+
+"Enter" = "Kirish";
+"Enter your phone number and password to login" = "Kirish uchun telefon raqamingizni va parolingizni kiriting";
+
+"Wrong code" = "Noto'g'ri kod";
+"Repeat password" = "Parolni qayta kiriting";
+"Back" = "Orqaga";
+"Login" = "Tizimga kirish";
+"Choose" = "Tanlash";
+"Email or phone number" = "Elektron pochta yoki telefon raqami";
+"Done" = "Bajarildi";
+"Fullname" = "To'liq ism";
+"Birthday" = "Tug'ilgan kun";
+"Enter your birthday" = "Tug'ilgan kuningizni kiriting";
+"Region" = "Hudud";
+"District" = "Tuman";
+"Choose region" = "Hududni tanlang";
+"Choose district" = "Tumanni tanlang";
+"Sorry there are no answers for this question!" = "Kechirasiz, bu savolga javob yo'q!";
+
+"Forgot your password?" = "Parol esingizdan chiqtimi?";
+"Sign up" = "Ro'yxatdan o'tish";
+"Enter your phone number to register" = "Ro'yxatdan o'tish uchun telefon raqamingizni kiriting";
+"Enter your registration phone number and password" = "Ro'yxatdan o'tish telefon raqamingizni va parolingizni kiriting";
+"Password Reset" = "Parolni tiklash";
+"Enter your phone number to reset your password" = "Parolni tiklash uchun telefon raqamingizni kiriting";
+"Confirmation code" = "Tasdiqlash kodi";
+"enter the secret code sent to the number" = "raqamga yuborilgan maxfiy kodni kiriting";
+"Enter Pin Code" = "Pin kodni kiriting";
+"Continue" = "Davom ettirish";
+"Confirm Pin" = "Pin kodni tasdiqlang";
+"Recommended Games" = "Tavsiya etilgan oyinlar";
+"District" = "Mahalla";
+"Call" = "Qo’ng’iroq qilish";
+"Select the type of application" = "Murojaat turini tanlang";
+"Enter the subject of the application" = "Murojaat mavzusini kiriting";
+"Enter your message" = "Murojaat matnini kiriting";
+"Application" = "Ariza";
+"Complaint" = "Shikoyat";
+"Offer" = "Taklif";
+"Request Types" = "Murojaat turlari";
+
+"Done" = "Bajarildi";
+"Select source" = "Manbani tanlang";
+"Camera" = "Kamera";
+"Gallery" = "Galereya";
+"Cancel" = "Bekor qilish";
+"Share" = "Ulashish";
+"Save" = "Saqlash";
+
+"The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "Mazkur proektning maqsadi, mamlakatimizda\n bolalarni internet olamidagi tajavuzkor\n havflardan asrash, ularning ongini va\n internetdan foydalanish madaniyatini\n oshirish, shuningdek xozirgi vaqtda aktual\n bo’lgan Kiberbulling singari xavflardan\n bolalarni ximoyalash xisoblanadi.";
+
+"This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs." = "Mazkur proekt Unicef xalqaro bolalar\n jamg’armasi va IIV Kiberxavfsizlik markazi\n tomonidan ishlab chiqildi.";
+
+"©2022, All Rights Reserved" = "©2022 yil, barcha huquqlar himoyalangan";

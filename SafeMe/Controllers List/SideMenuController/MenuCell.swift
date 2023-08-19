@@ -10,7 +10,7 @@ import UIKit
 class MenuCell: UITableViewCell {
     private let iconImageView = UIImageView()
     private let titleLabel = UILabel()
-    private var model = MenuModel(id: 0, image: "suggestions", title: "Tavsiyalar")
+    private var model = MenuModel(id: 0, image: "suggestions", title: "Tavsiyalar".localizedString)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

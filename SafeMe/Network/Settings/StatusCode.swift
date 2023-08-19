@@ -55,8 +55,8 @@ struct StatusCode:Decodable {
                 self.title = "Data upload error".localizedString
                 self.message = message ?? String.localized.nodatafromserver
             case 405:
-                self.title = "Ошибка регистрации"
-                self.message = message ?? "не удалось завершить регистрацию. Повторите попытку позже"
+                self.title = "Ошибка регистрации".localizedString
+                self.message = message ?? "не удалось завершить регистрацию. Повторите попытку позже".localizedString
             case 417:
                 self.title = "You are not authorized".localizedString
                 self.message = message ?? "Authorization required".localizedString

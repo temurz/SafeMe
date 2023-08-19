@@ -17,3 +17,94 @@
 "Your authorization is outdated. Login again to the app" = "Your authorization is outdated. Login again to the app";
 "Choose a photo" = "Choose a photo";
 "Please choose an answer!" = "Please choose an answer!";
+"Enter your personal data" = "Enter your personal data";
+
+"Something went wrong" = "Something went wrong";
+"Failed to log in" = "Failed to log in";
+"Authorization error. Try again later" = "Authorization error. Try again later";
+"No data from the server. Try again a little later" = "No data from the server. Try again a little later";
+"Access is closed" = "Access is closed";
+"Authorization is only available to Customers" = "Authorization is only available to Customers";
+"Authorization error" = "Authorization error";
+"Incorrect login or password" = "Incorrect login or password";
+"An error occurred during authorization" = "An error occurred during authorization";
+"Data upload error" = "Data upload error";
+"You are not authorized" = "You are not authorized";
+"Authorization required" = "Authorization required";
+"We are aware of this problem and are engaged in troubleshooting. Please try again later." = "We are aware of this problem and are engaged in troubleshooting. Please try again later.";
+"Your authorization is outdated. Login again to the app" = "Your authorization is outdated. Login again to the app";
+"Reenter to the app. Your authorization is expired" = "Reenter to the app. Your authorization is expired";
+"Your authorization is outdated" = "Your authorization is outdated";
+"Error in the data received from the server" = "Error in the data received from the server";
+
+"Uploading data..." = "Uploading data...";
+"Sending data..." = "Sending data...";
+"Authorization..." = "Authorization...";
+
+"There are suspicious circumstances" = "There are suspicious circumstances";
+"Going into danger zone" = "Going into danger zone";
+"Help needed now" = "Help needed now";
+
+"Recommendations" = "Recommendations";
+"Announcements" = "Announcements";
+"Games" = "Games";
+"Questionnaire" = "Questionnaire";
+"Prevention Inspector" = "Prevention Inspector";
+"Requests" = "Requests";
+"About Us" = "About Us";
+"Exit" = "Exit";
+
+"Enter" = "Enter";
+"Enter your phone number and password to login" = "Enter your phone number and password to login";
+
+"Wrong code" = "Wrong code";
+"Repeat password" = "Repeat password";
+"Back" = "Back";
+"Login" = "Login";
+"Choose" = "Choose";
+"Email or phone number" = "Email or phone number";
+"Done" = "Done";
+"Fullname" = "Fullname";
+"Birthday" = "Birthday";
+"Enter your birthday" = "Enter your birthday";
+"Region" = "Region";
+"District" = "District";
+"Choose region" = "Choose region";
+"Choose district" = "Choose district";
+"Sorry there are no answers for this question!" = "Sorry there are no answers for this question!";
+
+"Forgot your password?" = "Forgot your password?";
+"Sign up" = "Sign up";
+"Enter your phone number to register" = "Enter your phone number to register";
+"Enter your registration phone number and password" = "Enter your registration phone number and password";
+"Password Reset" = "Password Reset";
+"Enter your phone number to reset your password" = "Enter your phone number to reset your password";
+"Confirmation code" = "Confirmation code";
+"enter the secret code sent to the number" = "enter the secret code sent to the number";
+"Enter Pin Code" = "Enter Pin Code";
+"Continue" = "Continue";
+"Confirm Pin" = "Confirm Pin";
+"Recommended Games" = "Recommended Games";
+"District" = "District";
+"Call" = "Call";
+"Select the type of application" = "Select the type of application";
+"Enter the subject of the application" = "Enter the subject of the application";
+"Enter your message" = "Enter your message";
+"Application" = "Application";
+"Complaint" = "Complaint";
+"Offer" = "Offer";
+"Request Types" = "Request Types";
+
+"Done" = "Done";
+"Select source" = "Select source";
+"Camera" = "Camera";
+"Gallery" = "Gallery";
+"Cancel" = "Cancel";
+"Share" = "Share";
+"Save" = "Save";
+
+"The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment.";
+
+"This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs." = "This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs.";
+
+"©2022, All Rights Reserved" = "©2022, All Rights Reserved";

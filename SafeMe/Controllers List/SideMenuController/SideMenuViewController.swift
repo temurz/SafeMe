@@ -12,15 +12,15 @@ class SideMenuViewController: UIViewController {
     private let logoImageView = UIImageView()
     private let tableView = UITableView()
     private let items = [
-        MenuModel(id: 0, image: "suggestions", title: "Tavsiyalar"),
-        MenuModel(id: 1, image: "news", title: "E'lonlar"),
-        MenuModel(id: 2, image: "chat", title: "Oyinlar"),
+        MenuModel(id: 0, image: "suggestions", title: "Tavsiyalar".localizedString),
+        MenuModel(id: 1, image: "news", title: "E'lonlar".localizedString),
+        MenuModel(id: 2, image: "chat", title: "Oyinlar".localizedString),
 //        MenuModel(id: 3, image: "consultant", title: "Konsultant"),
-        MenuModel(id: 4, image: "poll", title: "So'rovnoma"),
-        MenuModel(id: 5, image: "inspector", title: "Profilaktika inspektori"),
-        MenuModel(id: 6, image: "application", title: "Murojaatlar"),
-        MenuModel(id: 7, image: "about", title: "Biz haqqimizda"),
-        MenuModel(id: 8, image: "exit", title: "Chiqish"),
+        MenuModel(id: 4, image: "poll", title: "So'rovnoma".localizedString),
+        MenuModel(id: 5, image: "inspector", title: "Profilaktika inspektori".localizedString),
+        MenuModel(id: 6, image: "application", title: "Murojaatlar".localizedString),
+        MenuModel(id: 7, image: "about", title: "Biz haqqimizda".localizedString),
+        MenuModel(id: 8, image: "exit", title: "Chiqish".localizedString),
     ]
     
     var selectedRowAction: ((Int) -> ())?

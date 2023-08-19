@@ -36,7 +36,7 @@ class SosViewController: GradientViewController {
         
         firstCallButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#FFC600")
         firstCallButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        firstCallButton.setTitle("Shubhali holatlar mavjud", for: .normal)
+        firstCallButton.setTitle("Shubhali holatlar mavjud".localizedString, for: .normal)
         firstCallButton.addTarget(self, action: #selector(firstCallButtonAction), for: .touchUpInside)
         firstCallButton.layer.cornerRadius = 12
         firstCallButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#6F2B15"), for: .normal)
@@ -49,7 +49,7 @@ class SosViewController: GradientViewController {
         
         secondCallButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#FFA607")
         secondCallButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        secondCallButton.setTitle("Xavfli hududga borayapman", for: .normal)
+        secondCallButton.setTitle("Xavfli hududga borayapman".localizedString, for: .normal)
         secondCallButton.layer.cornerRadius = 12
         secondCallButton.addTarget(self, action: #selector(secondCallButtonAction), for: .touchUpInside)
         secondCallButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#7A4E00"), for: .normal)
@@ -62,7 +62,7 @@ class SosViewController: GradientViewController {
         
         thirdCallButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#E15C2F")
         thirdCallButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        thirdCallButton.setTitle("Xoziroq yordam kerak", for: .normal)
+        thirdCallButton.setTitle("Xoziroq yordam kerak".localizedString, for: .normal)
         thirdCallButton.layer.cornerRadius = 12
         thirdCallButton.addTarget(self, action: #selector(thirdCallButtonAction), for:
                 .touchUpInside)

@@ -36,13 +36,13 @@ class GameViewCell: UITableViewCell {
         mainImageView.contentMode = .scaleAspectFit
         
         shareButton.layer.cornerRadius = 5
-        shareButton.setTitle("Поделиться", for: .normal)
+        shareButton.setTitle("Поделиться".localizedString, for: .normal)
         shareButton.setImage(UIImage(named: "share"), for: .normal)
         shareButton.titleLabel?.font = .robotoFont(ofSize: 12, weight: .medium)
         shareButton.leftImage(left: 10)
         
         saveButton.layer.cornerRadius = 5
-        saveButton.setTitle("Сохранить", for: .normal)
+        saveButton.setTitle("Сохранить".localizedString, for: .normal)
         saveButton.setImage(UIImage(named: "star"), for: .normal)
         saveButton.titleLabel?.font = .robotoFont(ofSize: 12, weight: .medium)
         saveButton.leftImage(left: 10)
