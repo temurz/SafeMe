@@ -17,8 +17,8 @@
 "Your authorization is outdated. Login again to the app" = "Your authorization is outdated. Login again to the app";
 "Choose a photo" = "Choose a photo";
 "Please choose an answer!" = "Please choose an answer!";
-"Enter your personal data" = "Enter your personal data";
 
+"Enter your personal data" = "Enter your personal data";
 "Something went wrong" = "Something went wrong";
 "Failed to log in" = "Failed to log in";
 "Authorization error. Try again later" = "Authorization error. Try again later";
@@ -51,13 +51,13 @@
 "Questionnaire" = "Questionnaire";
 "Prevention Inspector" = "Prevention Inspector";
 "Inspectors" = "Inspectors";
-//key           //value
 "Requests" = "Complaints";
 "Exit" = "Exit";
-
+"News" = "News";
+"Poll" = "Poll";
 "Sign in" = "Sign in";
-"Enter your phone number and password to login" = "Enter your phone number and password to login";
 
+"Enter your phone number and password to login" = "Enter your phone number and password to login";
 "Wrong code" = "Wrong code";
 "Repeat password" = "Repeat password";
 "Back" = "Back";
@@ -72,6 +72,14 @@
 "District" = "District";
 "Choose region" = "Choose region";
 "Choose district" = "Choose district";
+"Done" = "Done";
+"Select source" = "Select source";
+"Camera" = "Camera";
+"Gallery" = "Gallery";
+"Cancel" = "Cancel";
+"Share" = "Share";
+"Save" = "Save";
+"Send" = "Send";
 "Sorry there are no answers for this question!" = "Sorry there are no answers for this question!";
 
 "Forgot your password?" = "Forgot your password?";
@@ -96,22 +104,10 @@
 "Offer" = "Offer";
 "Request Types" = "Request types";
 
-"Done" = "Done";
-"Select source" = "Select source";
-"Camera" = "Camera";
-"Gallery" = "Gallery";
-"Cancel" = "Cancel";
-"Share" = "Share";
-"Save" = "Save";
-"Send" = "Send";
-
-
 "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment.";
 
 "This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs." = "This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs.";
 
 "©2022, All Rights Reserved" = "©2022, All Rights Reserved";
-"News" = "News";
-"Poll" = "Poll";
 "No data found" = "No data found";
 "Hello!\nPlease select a language!" = "Hello!\nPlease select a language!";

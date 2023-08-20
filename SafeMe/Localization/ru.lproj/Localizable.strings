@@ -17,8 +17,8 @@
 "Your authorization is outdated. Login again to the app" = "Истек срок авторизации. Перезайдите в систему";
 "Choose a photo" = "Выберите фото";
 "Please choose an answer!" = "Пожалуйста выберите ответ!";
-"Enter your personal data" = "Пожалуйста введите персональные данные";
 
+"Enter your personal data" = "Пожалуйста введите персональные данные";
 "Something went wrong" = "Что-то пошло не так";
 "Failed to log in" = "Не удалось войти";
 "Authorization error. Try again later" = "Ошибка авторизации. Повторите попытку позже";
@@ -51,15 +51,13 @@
 "Questionnaire" = "Анкета";
 "Prevention Inspector" = "Инспектор по профилактике";
 "Inspectors" = "Инспекторы";
-//key        //value
 "Requests" = "Заявления";
 "Exit" = "Выход";
 "News" = "Новости";
 "Poll" = "Опрос";
-
 "Sign in" = "Вход";
-"Enter your phone number and password to login" = "Введите номер телефона и пароль для входа";
 
+"Enter your phone number and password to login" = "Введите номер телефона и пароль для входа";
 "Wrong code" = "Неверный код";
 "Repeat password" = "Повторите пароль";
 "Back" = "Назад";
@@ -74,8 +72,16 @@
 "District" = "Район";
 "Choose region" = "Выберите регион";
 "Choose district" = "Выберите район";
-"Sorry there are no answers for this question!" = "Извините, на этот вопрос нет ответов!";
+"Done" = "Готово";
+"Select source" = "Выберите источник";
+"Camera" = "Камера";
+"Gallery" = "Галерея";
+"Cancel" = "Отмена";
+"Share" = "Поделиться";
+"Save" = "Сохранить";
+"Send" = "Отправить";
 
+"Sorry there are no answers for this question!" = "Извините, на этот вопрос нет ответов!";
 "Forgot your password?" = "Забыли пароль?";
 "Sign up" = "Зарегистрироваться";
 "Enter your phone number to register" = "Введите номер телефона для регистрации";
@@ -97,15 +103,6 @@
 "Complaint" = "Жалоба";
 "Offer" = "Предложение";
 "Request Types" = "Типы запросов";
-
-"Done" = "Готово";
-"Select source" = "Выберите источник";
-"Camera" = "Камера";
-"Gallery" = "Галерея";
-"Cancel" = "Отмена";
-"Share" = "Поделиться";
-"Save" = "Сохранить";
-"Send" = "Отправить";
 
 "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "Целью данного проекта является защита\n детей от агрессивных\n опасностей в мире Интернета в нашей стране, повышение их осведомленности и\n культуры использования Интернета, а также защита детей от таких опасностей, как кибербуллинг, который актуален\n на данный момент.";
 

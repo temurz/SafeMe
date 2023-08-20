@@ -6,22 +6,116 @@
   
 */
 
-"About us" = "About us";
-"Complaint" = "Complaint";
-"Phone number" = "Phone number";
-"Next" = "Давом еттириш";
-"Enter login/password" = "Enter login/password";
-"Username" = "Username";
-"Password" = "Password";
-"Close" = "Close";
-"Your authorization is outdated. Login again to the app" = "Your authorization is outdated. Login again to the app";
-"Choose a photo" = "Choose a photo";
-"Please choose an answer!" = "Please choose an answer!";
+"About us" = "Биз ҳаққимизда";
+"Complaint" = "Шикоят";
+"Phone number" = "Телефон рақами";
+"Next" = "Давом эттириш";
+"Enter login/password" = "Логин/Паролни киритинг";
+"Username" = "Телефон номер";
+"Password" = "Парол";
+"Close" = "Ёпиш";
+"Your authorization is outdated. Login again to the app" = "Авторизаcия муддати тугаган. Бошқатдан тизимга киринг";
+"Choose a photo" = "Расм танланг";
+"Please choose an answer!" = "Илтимос жавоб танланг!";
+
+"Enter your personal data" = "Шахсий маълумотларингизни киритинг";
+"Something went wrong" = "Нимадир нотўғри бажарилди";
+"Failed to log in" = "Кириш амалга ошмади";
+"Authorization error. Try again later" = "Авторизатсия хатоси. Кейинроқ қайта уриниб кўринг";
+"No data from the server. Try again a little later" = "Сервердан маълумот ёъқ. Бироздан кейин қайта уриниб кўринг";
+"Access is closed" = "Кириш ёпиқ";
+"Authorization is only available to Customers" = "Авторизатсия фақат мижозлар учун мавжуд";
+"Authorization error" = "Авторизатсия хатоси";
+"Incorrect login or password" = "Логин ёки парол нотўғри";
+"An error occurred during authorization" = "Авторизатсия пайтида хатолик юз берди";
+"Data upload error" = "Маълумотларни юклаш хатоси";
+"You are not authorized" = "Сизга рухсат берилмаган";
+"Authorization required" = "Авторизатсия керак";
+"We are aware of this problem and are engaged in troubleshooting. Please try again later." = "Биз бу муаммодан хабардормиз ва муаммоларни бартараф этиш билан шуғулланмоқдамиз. Илтимос, кейинроқ қайта уриниб кўринг.";
+"Your authorization is outdated. Login again to the app" = "Сизнинг авторизатсиянгиз эскирган. Иловага қайта киринг";
+"Reenter to the app. Your authorization is expired" = "Иловага қайта киринг. Авторизатсия муддати тугаган";
+"Your authorization is outdated" = "Сизнинг авторизатсиянгиз эскирган";
+"Error in the data received from the server" = "Сервердан олинган маълумотларда хато";
+
+"Uploading data..." = "Маълумотлар юкланмоқда...";
+"Sending data..." = "Маълумотлар юборилмоқда...";
+"Authorization..." = "Авторизатсия...";
+
+"There are suspicious circumstances" = "Шубҳали ҳолатлар мавжуд";
+"Going into danger zone" = "Хавфли ҳудудга бораяпман";
+"Help needed now" = "Хозироқ ёрдам керак";
+
+"Recommendations" = "Тавсиялар";
+"Announcements" = "Еълонлар";
+"Games" = "Ойинлар";
+"Questionnaire" = "Сўровнома";
+"Prevention Inspector" = "Профилактика инспектори";
+"Inspectors" = "Инспекторлар";
+"Requests" = "Мурожаатлар";
+"Exit" = "Чиқиш";
+"News" = "Янгиликлар";
+"Poll" = "Сўровнома";
+"Sign in" = "Кириш";
+
+"Enter your phone number and password to login" = "Кириш учун телефон рақамингизни ва паролингизни киритинг";
+"Wrong code" = "Нотўғри код";
+"Repeat password" = "Паролни қайта киритинг";
+"Back" = "Орқага";
+"Login" = "Тизимга кириш";
+"Choose" = "Танлаш";
+"Email or phone number" = "Електрон почта ёки телефон рақами";
+"Done" = "Бажарилди";
+"Fullname" = "Тўлиқ исм";
+"Birthday" = "Туғилган кун";
+"Enter your birthday" = "Туғилган кунингизни киритинг";
+"Region" = "Ҳудуд";
+"District" = "Туман";
+"Choose region" = "Ҳудудни танланг";
+"Choose district" = "Туманни танланг";
+"Done" = "Бажарилди";
+"Select source" = "Манбани танланг";
+"Camera" = "Камера";
+"Gallery" = "Галерея";
+"Cancel" = "Бекор қилиш";
+"Share" = "Улашиш";
+"Save" = "Сақлаш";
+"Send" = "Юбориш";
+
+"Sorry there are no answers for this question!" = "Кечирасиз, бу саволга жавоб ёъқ!";
+"Forgot your password?" = "Парол эсингиздан чиқтими?";
+"Sign up" = "Рўйхатдан ўтиш";
+"Enter your phone number to register" = "Рўйхатдан ўтиш учун телефон
+рақамингизни киритинг";
+"Enter your registration phone number and password" = "Рўйхатдан ўтиш
+телефон рақамингизни ва паролингизни киритинг";
+"Password Reset" = "Паролни тиклаш";
+"Enter your phone number to reset your password" = "Паролни тиклаш
+учун телефон рақамингизни киритинг";
+"Confirmation code" = "Тасдиқлаш коди";
+"enter the secret code sent to the number" = "рақамга юборилган махфий
+кодни киритинг";
+"Enter Pin Code" = "Пин кодни киритинг";
+"Continue" = "Давом эттириш";
+"Confirm Pin" = "Пин кодни тасдиқланг";
+"Recommended Games" = "Тавсия этилган ойинлар";
+"District" = "Маҳалла";
+"Call" = "Қо’нг’ироқ қилиш";
+"Select the type of application" = "Мурожаат турини танланг";
+"Enter the subject of the application" = "Мурожаат мавзусини киритинг";
+"Enter your message" = "Мурожаат матнини киритинг";
+"Application" = "Ариза";
+"Complaint" = "Шикоят";
+"Offer" = "Таклиф";
+"Request Types" = "Мурожаат турлари";
+
+"The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "Мазкур проектнинг мақсади, мамлакатимизда\n болаларни интернет оламидаги тажавузкор\n ҳавфлардан асраш, уларнинг онгини ва\n интернетдан фойдаланиш маданиятини\n ошириш, шунингдек хозирги вақтда актуал\n бо’лган Кибербуллинг сингари хавфлардан\n болаларни химоялаш хисобланади.";
+
+"This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs." = "Мазкур проект Униcеф халқаро болалар\n жамг’армаси ва ИИВ Киберхавфсизлик маркази\n томонидан ишлаб чиқилди.";
+
+"©2022, All Rights Reserved" = "©2022 йил, барча ҳуқуқлар ҳимояланган";
 
 "News" = "Янгиликлар";
 "Poll" = "Сўровнома";
 "Send" = "Юбориш";
 "No data found" = "Маълумот топилмади";
 "Hello!\nPlease select a language!" = "Ассалому алейкум!\nИлтимос тилни танланг!";
-"Inspectors" = "Инспекторлар";
-"Sign in" = "Кириш";
