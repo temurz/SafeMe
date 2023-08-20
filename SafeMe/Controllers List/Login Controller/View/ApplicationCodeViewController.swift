@@ -16,10 +16,10 @@ enum ButtonCheckState {
 final class ApplicationCodeViewController: GradientViewController {
     private let bgView = UIView()
     private let titleLabel = UILabel(text: "PIN".localizedString, ofSize: 20, weight: .medium, color: .custom.black)
-    private let subtitleLabel = UILabel(text: "Pin kodni kiriting".localizedString, ofSize: 16, weight: .regular, color: .custom.gray)
+    private let subtitleLabel = UILabel(text: "Enter Pin Code".localizedString, ofSize: 16, weight: .regular, color: .custom.gray)
     private let stackView = UIStackView(.horizontal, .fillEqually, .fill, 8, [])
     private let textField = UITextField()
-    private let nextButton = UIButton(backgroundColor: UIColor.custom.lightGray, textColor: .custom.white, text: "Davom ettirish".localizedString, radius: 12)
+    private let nextButton = UIButton(backgroundColor: UIColor.custom.lightGray, textColor: .custom.white, text: "Next".localizedString, radius: 12)
     private var buttonCheckState: ButtonCheckState = .firstCode
     private let presenter = AppEnterCodePresenter()
     
@@ -207,7 +207,7 @@ final class ApplicationCodeViewController: GradientViewController {
         if AuthApp.shared.appEnterCode == nil {
             if let text = textField.text {
                 presenter.saveEnterCode(enterCode: text)
-                subtitleLabel.text = "Pin kodni tasdiqlang".localizedString
+                subtitleLabel.text = "Confirm Pin".localizedString
                 textField.text = ""
                 textDidChange(textField)
             }

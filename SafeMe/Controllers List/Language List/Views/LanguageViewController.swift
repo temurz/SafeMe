@@ -9,11 +9,11 @@ import UIKit
 class LanguageViewController: GradientViewController {
     private let bgView = UIView(.white,radius: 12)
     private let welcomeLabel = UILabel(text: "Hello!\nPlease select a language!".localizedString, font: .robotoFont(ofSize: 20, weight: .bold))
-    private let tableView = UITableView()
+    private let tableView = UITableView(.clear)
     private var items = [("english-flag", "English", "en"),
                          ("russian-flag", "Русский", "ru"),
                          ("uzbekistan-flag", "O'zbekcha-lotin", "uz"),
-                         ("uzbekistan-flag", "Ўзбекча-кирилл", "sr")
+                         ("uzbekistan-flag", "Ўзбекча-кирилл", "uz-Cyrl")
     ]
     
     override func loadView() {
@@ -27,6 +27,7 @@ class LanguageViewController: GradientViewController {
     }
     
     private func initialize() {
+        
         SetupViews.addViewEndRemoveAutoresizingMask(superView: view, view: bgView)
         SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [welcomeLabel, tableView])
         welcomeLabel.numberOfLines = 2

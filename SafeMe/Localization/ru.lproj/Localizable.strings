@@ -42,19 +42,22 @@
 "Authorization..." = "Авторизация...";
 
 "There are suspicious circumstances" = "Есть подозрительные обстоятельства";
-"Going into danger zone" = "Вход в опасную зону";
-"Help needed now" = "Помощь нужна сейчас";
+"Going into danger zone" = "Вхожу в опасную зону";
+"Help needed now" = "Cрочно нужна помощь";
 
 "Recommendations" = "Рекомендации";
 "Announcements" = "Объявления";
 "Games" = "Игры";
 "Questionnaire" = "Анкета";
 "Prevention Inspector" = "Инспектор по профилактике";
-"Requests" = "Запросы";
-"About Us" = "О нас";
+"Inspectors" = "Инспекторы";
+//key        //value
+"Requests" = "Заявления";
 "Exit" = "Выход";
+"News" = "Новости";
+"Poll" = "Опрос";
 
-"Enter" = "Вход";
+"Sign in" = "Вход";
 "Enter your phone number and password to login" = "Введите номер телефона и пароль для входа";
 
 "Wrong code" = "Неверный код";
@@ -102,11 +105,12 @@
 "Cancel" = "Отмена";
 "Share" = "Поделиться";
 "Save" = "Сохранить";
+"Send" = "Отправить";
 
 "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "Целью данного проекта является защита\n детей от агрессивных\n опасностей в мире Интернета в нашей стране, повышение их осведомленности и\n культуры использования Интернета, а также защита детей от таких опасностей, как кибербуллинг, который актуален\n на данный момент.";
 
 "This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs." = "Данный проект разработан Международным Детским\n Фондом ЮНИСЕФ и Центром кибербезопасности\n МВД.";
 
 "©2022, All Rights Reserved" = "© 2022, Все права защищены";
-
-
+"No data found" = "Нет данных";
+"Hello!\nPlease select a language!" = "Добро пожаловать!\nПожалуйста выберите язык!";

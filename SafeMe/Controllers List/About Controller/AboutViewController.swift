@@ -81,7 +81,8 @@ class AboutViewController: BaseViewController {
             firstTitleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 28),
             firstTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            secondTitleLabel.centerXAnchor.constraint(equalTo: firstTitleLabel.centerXAnchor),
+            secondTitleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            secondTitleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16), 
             secondTitleLabel.topAnchor.constraint(equalTo: firstTitleLabel.bottomAnchor, constant: 19),
             
             unicefImageView.widthAnchor.constraint(equalToConstant: 210),

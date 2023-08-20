@@ -17,21 +17,21 @@ enum RegistrationType {
 class LoginViewController: GradientViewController {
     private let presenter: LoginPresenter
     private let bgView = UIView()
-    private let titleLabel = UILabel(text: "Kirish".localizedString,
+    private let titleLabel = UILabel(text: "Sign in".localizedString,
                                      font: .robotoFont(ofSize: 20, weight: .medium),
                                      color: .custom.black)
-    private let subtitleLabel = UILabel(text: "Kirish uchun telefon raqamingizni va parolingizni kiriting".localizedString,
+    private let subtitleLabel = UILabel(text: "Enter your phone number and password to login".localizedString,
                                         font: .robotoFont(ofSize: 15, weight: .regular),
                                         color: .custom.gray)
     
     private let phoneTextField = UICustomTextField(title: "Username".localizedString,
                                                    star: true,
-                                                   text: "+998973339618",
+                                                   text: "+998900109258",
                                                    placeholder: "",
                                                    height: 60)
     private let passwordTextField = UICustomTextField(title: "Password".localizedString,
                                                       star: true,
-                                                      text: "qwerty77",
+                                                      text: "Police2021@Admin",
                                                       placeholder: "Password".localizedString,
                                                       height: 60,
                                                       type: .pass)
@@ -47,10 +47,10 @@ class LoginViewController: GradientViewController {
                                       text: "Next".localizedString)
     private let forgotPasswordButton = UIButton(backgroundColor: .clear,
                                                 textColor: .blue,
-                                                text: "Parol esingizdan chiqtimi?".localizedString)
+                                                text: "Forgot your password?".localizedString)
     private let registrationButton = UIButton(backgroundColor: .clear,
                                               textColor: .blue,
-                                              text: "Ro'yxatdan o'tish".localizedString)
+                                              text: "Sign up".localizedString)
     
     private lazy var codeView = CodeView()
     private var backButton = UIButton(backgroundColor: .clear, textColor: .custom.blue, text: "Back".localizedString)
@@ -106,6 +106,7 @@ class LoginViewController: GradientViewController {
         
         forgotPasswordButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
         forgotPasswordButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        forgotPasswordButton.contentHorizontalAlignment = .left
         forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordAction), for: .touchUpInside)
         
         registrationButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
@@ -191,28 +192,28 @@ class LoginViewController: GradientViewController {
             repeatPasswordTextField.isHidden = false
             passwordTextField.isHidden = false
             
-            registrationButton.setTitle("Kirish", for: .normal)
+            registrationButton.setTitle("Sign in".localizedString, for: .normal)
             
-            titleLabel.text = "Ro'yxatdan o'tish".localizedString
-            subtitleLabel.text = "Ro'yxatdan o'tish uchun telefon raqamingizni kiriting".localizedString
+            titleLabel.text = "Sign up".localizedString
+            subtitleLabel.text = "Enter your phone number to register".localizedString
             
         case .register:
             isLogin = .login
             repeatPasswordTextField.isHidden = true
             passwordTextField.isHidden = false
             
-            registrationButton.setTitle("Ro'yxatdan o'tish", for: .normal)
+            registrationButton.setTitle("Sign up".localizedString, for: .normal)
             
-            titleLabel.text = "Kirish".localizedString
-            subtitleLabel.text = "Kirish uchun telefon raqamingizni va parolingizni kiriting".localizedString
+            titleLabel.text = "Sign in".localizedString
+            subtitleLabel.text = "Enter your phone number and password to login".localizedString
         case .forgetPassword:
             isLogin = .register
             repeatPasswordTextField.isHidden = false
             passwordTextField.isHidden = false
 
-            registrationButton.setTitle("Kirish", for: .normal)
-            titleLabel.text = "Ro'yxatdan o'tish".localizedString
-            subtitleLabel.text = "Ro'yxatdan o'tish telefon raqamingizni va parolingizni kiriting".localizedString
+            registrationButton.setTitle("Sign in".localizedString, for: .normal)
+            titleLabel.text = "Sign up".localizedString
+            subtitleLabel.text = "Enter your phone number to register".localizedString
         case .checkCode:
             isLogin = .register
         }
@@ -225,17 +226,17 @@ class LoginViewController: GradientViewController {
             repeatPasswordTextField.isHidden = true
             passwordTextField.isHidden = true
             
-            registrationButton.setTitle("Ro'yxatdan o'tish", for: .normal)
-            titleLabel.text = "Parolni tiklash".localizedString
-            subtitleLabel.text = "Parolni tiklash uchun telefon raqamingizni kiriting".localizedString
+            registrationButton.setTitle("Sign up".localizedString, for: .normal)
+            titleLabel.text = "Password Reset".localizedString
+            subtitleLabel.text = "Enter your phone number to reset your password".localizedString
         case .register:
             isLogin = .forgetPassword
             repeatPasswordTextField.isHidden = true
             passwordTextField.isHidden = true
             
-            registrationButton.setTitle("Ro'yxatdan o'tish", for: .normal)
-            titleLabel.text = "Parolni tiklash".localizedString
-            subtitleLabel.text = "Parolni tiklash uchun telefon raqamingizni kiriting".localizedString
+            registrationButton.setTitle("Sign up".localizedString, for: .normal)
+            titleLabel.text = "Password Reset".localizedString
+            subtitleLabel.text = "Enter your phone number to reset your password".localizedString
         case .forgetPassword:
             break
         case .checkCode:
@@ -250,8 +251,8 @@ class LoginViewController: GradientViewController {
     private func showCodeConfirmation(_ bool: Bool) {
         codeView.isHidden = !bool
         backButton.isHidden = !bool
-        titleLabel.text = bool ? "Tasdiqlash kodi".localizedString : "Ro'yxatdan o'tish".localizedString
-        subtitleLabel.text = bool ? "\(phoneTextField.text.makeStarsInsteadNumbers()) raqamga yuborilgan maxfiy kodni kiriting".localizedString : "Ro'yxatdan o'tish telefon raqamingizni va parolingizni kiriting".localizedString
+        titleLabel.text = bool ? "Confirmation code".localizedString : "Sign up".localizedString
+        subtitleLabel.text = bool ? "\(phoneTextField.text.makeStarsInsteadNumbers()) " + "enter the secret code sent to the number".localizedString : "Enter your phone number to register".localizedString
         isLogin = bool ? .checkCode : .register
         
         
@@ -260,7 +261,7 @@ class LoginViewController: GradientViewController {
         repeatPasswordTextField.isHidden = bool
         registrationButton.isHidden = bool
         forgotPasswordButton.isHidden = bool
-        registrationButton.setTitle("Kirish", for: .normal)
+        registrationButton.setTitle("Sign in".localizedString, for: .normal)
         
     }
     

@@ -47,8 +47,9 @@ class BaseViewController: GradientViewController {
         profileButton.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
         
         navBarTitleLabel.textAlignment = .left
-//        navBarTitleLabel.numberOfLines = 0
-        navBarTitleLabel.adjustsFontSizeToFitWidth = true
+        navBarTitleLabel.font = .robotoFont(ofSize: 14)
+        navBarTitleLabel.numberOfLines = 0
+//        navBarTitleLabel.adjustsFontSizeToFitWidth = true
         
         container.addArrangedSubview(navBarTitleLabel)
         container.addArrangedSubview(UIView(.clear))
@@ -121,13 +122,13 @@ class BaseViewController: GradientViewController {
             case 8:
                 AuthApp.shared.removeTokens()
                 AuthApp.shared.appEnterCode = nil
-                let vc = LoginViewController()
+                let vc = LanguageViewController()
                 let keyWindow = UIApplication.shared.connectedScenes
                     .filter({$0.activationState == .foregroundActive})
                     .compactMap({$0 as? UIWindowScene})
                     .first?.windows
                     .filter({$0.isKeyWindow}).first
-                let navController = SideMenuNavigationController(rootViewController: vc)
+                let navController = UINavigationController(rootViewController: vc)
                 keyWindow?.rootViewController = navController
             default:
                 break

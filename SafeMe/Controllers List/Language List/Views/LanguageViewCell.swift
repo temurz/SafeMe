@@ -21,11 +21,13 @@ class LanguageViewCell: UITableViewCell {
     }
     
     private func initialize() {
+        self.backgroundColor = .clear
         SetupViews.addViewEndRemoveAutoresizingMask(superView: contentView, view: bgView)
         SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [languageImageView, titleLabel])
         languageImageView.layer.cornerRadius = 12
         languageImageView.clipsToBounds = true
-
+        
+        titleLabel.textColor = .black
         
         bgView.layer.borderColor = UIColor.gray.cgColor
         bgView.layer.borderWidth = 1

@@ -39,7 +39,7 @@ class RecommendationCell: UICollectionViewCell {
         titleLabel.numberOfLines = 2
         titleLabel.font = .robotoFont(ofSize: 14, weight: .medium)
         titleLabel.textAlignment = .center
-        
+        titleLabel.textColor = .black
         
         setupConstraints()
     }

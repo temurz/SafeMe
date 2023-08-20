@@ -43,18 +43,19 @@
 
 "There are suspicious circumstances" = "There are suspicious circumstances";
 "Going into danger zone" = "Going into danger zone";
-"Help needed now" = "Help needed now";
+"Help needed now" = "Help needed immediately";
 
 "Recommendations" = "Recommendations";
 "Announcements" = "Announcements";
 "Games" = "Games";
 "Questionnaire" = "Questionnaire";
 "Prevention Inspector" = "Prevention Inspector";
-"Requests" = "Requests";
-"About Us" = "About Us";
+"Inspectors" = "Inspectors";
+//key           //value
+"Requests" = "Complaints";
 "Exit" = "Exit";
 
-"Enter" = "Enter";
+"Sign in" = "Sign in";
 "Enter your phone number and password to login" = "Enter your phone number and password to login";
 
 "Wrong code" = "Wrong code";
@@ -93,7 +94,7 @@
 "Application" = "Application";
 "Complaint" = "Complaint";
 "Offer" = "Offer";
-"Request Types" = "Request Types";
+"Request Types" = "Request types";
 
 "Done" = "Done";
 "Select source" = "Select source";
@@ -102,9 +103,15 @@
 "Cancel" = "Cancel";
 "Share" = "Share";
 "Save" = "Save";
+"Send" = "Send";
+
 
 "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment.";
 
 "This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs." = "This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs.";
 
 "©2022, All Rights Reserved" = "©2022, All Rights Reserved";
+"News" = "News";
+"Poll" = "Poll";
+"No data found" = "No data found";
+"Hello!\nPlease select a language!" = "Hello!\nPlease select a language!";

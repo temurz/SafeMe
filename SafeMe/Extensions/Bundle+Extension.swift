@@ -12,8 +12,7 @@ extension Bundle {
 
     public static func localizedBundle() -> Bundle {
         let appLang = AuthApp.shared.language
-        if bundle == nil,
-           let path = Bundle.main.path(forResource: appLang, ofType: "lproj")
+        if let path = Bundle.main.path(forResource: appLang, ofType: "lproj")
         {
             bundle = Bundle(path: path)
         }

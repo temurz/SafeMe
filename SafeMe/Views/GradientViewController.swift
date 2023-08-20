@@ -58,13 +58,13 @@ class GradientViewController: UIViewController {
             
             noDataView.topAnchor.constraint(equalTo: backgroundGradientView.centerYAnchor, constant: 12),
             noDataView.centerXAnchor.constraint(equalTo: backgroundGradientView.centerXAnchor),
-            noDataView.widthAnchor.constraint(equalToConstant: 70),
+            noDataView.widthAnchor.constraint(equalToConstant: 100),
             noDataView.heightAnchor.constraint(equalToConstant: 100),
             
-            emptyImageView.widthAnchor.constraint(equalTo: noDataView.widthAnchor, multiplier: 1),
+            emptyImageView.widthAnchor.constraint(equalTo: noDataView.widthAnchor, multiplier: 0.7),
             emptyImageView.heightAnchor.constraint(equalTo: emptyImageView.widthAnchor, multiplier: 1),
             emptyImageView.topAnchor.constraint(equalTo: noDataView.topAnchor),
-            emptyImageView.leadingAnchor.constraint(equalTo: noDataView.leadingAnchor),
+            emptyImageView.centerXAnchor.constraint(equalTo: noDataView.centerXAnchor),
             
             emptyLabel.topAnchor.constraint(equalTo: emptyImageView.bottomAnchor, constant: 4),
             emptyLabel.leadingAnchor.constraint(equalTo: noDataView.leadingAnchor),

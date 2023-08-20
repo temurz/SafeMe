@@ -6,13 +6,23 @@
 //
 
 import UIKit
-
+import CoreLocation
+enum SOSType: String {
+    case dangerZone = "danger"
+    case suspicious = "suspicious"
+    case help = "help"
+}
 class SosViewController: GradientViewController {
     
     private let firstCallButton = UIButton()
     private let secondCallButton = UIButton()
     private let thirdCallButton = UIButton()
     private let sosLabel = UILabel()
+    
+    var locationManager = CLLocationManager()
+    private var sosType = SOSType.dangerZone
+    
+    private var presenter = SosViewPresenter()
     
     override func loadView() {
         super.loadView()
@@ -23,7 +33,9 @@ class SosViewController: GradientViewController {
         super.viewDidLoad()
         self.title = "SOS"
         setupConstraints()
-        
+        presenter.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
     }
     
     private func initialize() {
@@ -36,7 +48,7 @@ class SosViewController: GradientViewController {
         
         firstCallButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#FFC600")
         firstCallButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        firstCallButton.setTitle("Shubhali holatlar mavjud".localizedString, for: .normal)
+        firstCallButton.setTitle("There are suspicious circumstances".localizedString, for: .normal)
         firstCallButton.addTarget(self, action: #selector(firstCallButtonAction), for: .touchUpInside)
         firstCallButton.layer.cornerRadius = 12
         firstCallButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#6F2B15"), for: .normal)
@@ -49,7 +61,7 @@ class SosViewController: GradientViewController {
         
         secondCallButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#FFA607")
         secondCallButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        secondCallButton.setTitle("Xavfli hududga borayapman".localizedString, for: .normal)
+        secondCallButton.setTitle("Going into danger zone".localizedString, for: .normal)
         secondCallButton.layer.cornerRadius = 12
         secondCallButton.addTarget(self, action: #selector(secondCallButtonAction), for: .touchUpInside)
         secondCallButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#7A4E00"), for: .normal)
@@ -62,7 +74,7 @@ class SosViewController: GradientViewController {
         
         thirdCallButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#E15C2F")
         thirdCallButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        thirdCallButton.setTitle("Xoziroq yordam kerak".localizedString, for: .normal)
+        thirdCallButton.setTitle("Help needed now".localizedString, for: .normal)
         thirdCallButton.layer.cornerRadius = 12
         thirdCallButton.addTarget(self, action: #selector(thirdCallButtonAction), for:
                 .touchUpInside)
@@ -100,20 +112,32 @@ class SosViewController: GradientViewController {
     }
     
     @objc private func firstCallButtonAction() {
-//        let vc = SosViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-        print("Shubhali holatlar mavjud!")
+        sosType = .suspicious
+        locationManager.requestLocation()
     }
     
     @objc private func secondCallButtonAction() {
-//        let vc = SosViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-        print("Xavfli hududga borayapman!")
+        sosType = .dangerZone
+        locationManager.requestLocation()
     }
     
     @objc private func thirdCallButtonAction() {
-//        let vc = SosViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-        print("Hozir yordam kerak!")
+        sosType = .help
+        locationManager.requestLocation()
+    }
+}
+
+extension SosViewController: CLLocationManagerDelegate, SosViewPresenterProtocol {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
+        if let location = locations.last {
+            let longitude = location.coordinate.longitude
+            let latitude = location.coordinate.latitude
+            presenter.sendSosSignal(long: longitude, lat: latitude, type: sosType.rawValue)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
 }

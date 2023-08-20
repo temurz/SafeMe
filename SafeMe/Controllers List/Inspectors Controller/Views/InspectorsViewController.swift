@@ -22,7 +22,7 @@ class InspectorsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        navBarTitleLabel.text = "Inspektorlar".localizedString
+        navBarTitleLabel.text = "Inspectors".localizedString
         leftMenuButton.tag = 5
         setupConstraints()
     }

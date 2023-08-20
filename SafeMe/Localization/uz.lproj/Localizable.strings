@@ -50,11 +50,13 @@
 "Games" = "Oyinlar";
 "Questionnaire" = "So'rovnoma";
 "Prevention Inspector" = "Profilaktika inspektori";
+"Inspectors" = "Inspectors";
 "Requests" = "Murojaatlar";
-"About Us" = "Biz haqqimizda";
 "Exit" = "Chiqish";
+"News" = "Yangiliklar";
+"Poll" = "So'rovnoma";
 
-"Enter" = "Kirish";
+"Sign in" = "Kirish";
 "Enter your phone number and password to login" = "Kirish uchun telefon raqamingizni va parolingizni kiriting";
 
 "Wrong code" = "Noto'g'ri kod";
@@ -102,9 +104,12 @@
 "Cancel" = "Bekor qilish";
 "Share" = "Ulashish";
 "Save" = "Saqlash";
+"Send" = "Yuborish";
 
 "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "Mazkur proektning maqsadi, mamlakatimizda\n bolalarni internet olamidagi tajavuzkor\n havflardan asrash, ularning ongini va\n internetdan foydalanish madaniyatini\n oshirish, shuningdek xozirgi vaqtda aktual\n bo’lgan Kiberbulling singari xavflardan\n bolalarni ximoyalash xisoblanadi.";
 
 "This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs." = "Mazkur proekt Unicef xalqaro bolalar\n jamg’armasi va IIV Kiberxavfsizlik markazi\n tomonidan ishlab chiqildi.";
 
 "©2022, All Rights Reserved" = "©2022 yil, barcha huquqlar himoyalangan";
+"No data found" = "Ma'lumot topilmadi";
+"Hello!\nPlease select a language!" = "Assalomu aleykum!\nIltimos tilni tanlang!";

@@ -9,7 +9,7 @@
 "About us" = "About us";
 "Complaint" = "Complaint";
 "Phone number" = "Phone number";
-"Next" = "Next";
+"Next" = "Давом еттириш";
 "Enter login/password" = "Enter login/password";
 "Username" = "Username";
 "Password" = "Password";
@@ -17,3 +17,11 @@
 "Your authorization is outdated. Login again to the app" = "Your authorization is outdated. Login again to the app";
 "Choose a photo" = "Choose a photo";
 "Please choose an answer!" = "Please choose an answer!";
+
+"News" = "Янгиликлар";
+"Poll" = "Сўровнома";
+"Send" = "Юбориш";
+"No data found" = "Маълумот топилмади";
+"Hello!\nPlease select a language!" = "Ассалому алейкум!\nИлтимос тилни танланг!";
+"Inspectors" = "Инспекторлар";
+"Sign in" = "Кириш";

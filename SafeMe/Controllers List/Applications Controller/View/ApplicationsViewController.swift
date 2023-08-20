@@ -35,7 +35,7 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
         super.viewDidLoad()
         presenter.delegate = self
         secondTextField.delegate = self
-        navBarTitleLabel.text = "Murojaatlar".localizedString
+        navBarTitleLabel.text = "Requests".localizedString
         leftMenuButton.tag = 6
         setupConstraints()
     }
@@ -64,37 +64,37 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
         secondTextField.layer.borderColor = UIColor.hexStringToUIColor(hex: "#E6EAF0").cgColor
         secondTextField.textColor = .black
         
-        firstLabel.text = "Murojaat turini tanlang".localizedString
+        firstLabel.text = "Select the type of application".localizedString
         firstLabel.textColor = .systemGray
         firstLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        secondLabel.text = "Murojaat mavzusini kiriting".localizedString
+        secondLabel.text = "Enter the subject of the application".localizedString
         secondLabel.textColor = .systemGray
         secondLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        thirdLabel.text = "Murojaat matnini kiriting".localizedString
+        thirdLabel.text = "Enter your message".localizedString
         thirdLabel.textColor = .systemGray
         thirdLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        let action1 = UIAction(title: "Ariza".localizedString, image: UIImage(named: "action1")) { action in
+        let action1 = UIAction(title: "Application".localizedString, image: UIImage(named: "action1")) { action in
             DispatchQueue.main.async {
-                self.firstButton.setTitle("Ariza".localizedString, for: .normal)
+                self.firstButton.setTitle("Application".localizedString, for: .normal)
             }
         }
         
-        let action2 = UIAction(title: "Shikoyat".localizedString, image: UIImage(named: "action2")) { action in
+        let action2 = UIAction(title: "Complaint".localizedString, image: UIImage(named: "action2")) { action in
             DispatchQueue.main.async {
-                self.firstButton.setTitle("Shikoyat".localizedString, for: .normal)
+                self.firstButton.setTitle("Complaint".localizedString, for: .normal)
             }
         }
         
-        let action3 = UIAction(title: "Taklif".localizedString, image: UIImage(named: "action3")) { action in
+        let action3 = UIAction(title: "Offer".localizedString, image: UIImage(named: "action3")) { action in
             DispatchQueue.main.async {
-                self.firstButton.setTitle("Taklif".localizedString, for: .normal)
+                self.firstButton.setTitle("Offer".localizedString, for: .normal)
             }
         }
         
-        let menu = UIMenu(title: "Murojaat turlari".localizedString, children: [action1, action2, action3])
+        let menu = UIMenu(title: "Request Types".localizedString, children: [action1, action2, action3])
         
         firstButton.setTitleColor(.black, for: .normal)
         firstButton.menu = menu
@@ -108,7 +108,7 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
         
         sendButton.backgroundColor = UIColor.hexStringToUIColor(hex: "#6BBDF6")
         sendButton.titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
-        sendButton.setTitle("Yuborish", for: .normal)
+        sendButton.setTitle("Send".localizedString, for: .normal)
         sendButton.layer.cornerRadius = 8
         sendButton.addTarget(self, action: #selector(thirdButtonAction), for: .touchUpInside)
         sendButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#FFFFFF"), for: .normal)

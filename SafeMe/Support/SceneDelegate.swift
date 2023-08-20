@@ -28,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }else {
 //            let sideController = SideMenuNavigationController(rootViewController: SuggestionsViewController())
 //            window.rootViewController = sideController
+//            AuthApp.shared.language = "uz"
             let navController = UINavigationController(rootViewController: LanguageViewController())
             window.rootViewController = navController
         }
