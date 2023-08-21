@@ -60,8 +60,9 @@ extension String {
             return text
         }
     }
-    
+    //+998993771234
     func makeStarsInsteadNumbers() -> String {
+        //["+", "9","9","8"]
         var text = Array(self)
         for i in 0 ..< text.count {
             if i >= 6 && i <= 9 {

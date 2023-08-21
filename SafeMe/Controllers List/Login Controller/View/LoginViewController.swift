@@ -256,7 +256,7 @@ class LoginViewController: GradientViewController {
         if !bool {
             codeView.timer?.stopTimer()
         }else {
-            timerVal = 10
+            timerVal = 120
             codeView.timer?.startTimer()
         }
         codeView.isHidden = !bool

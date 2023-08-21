@@ -58,15 +58,7 @@ extension Network {
     func register(username:String, password:String, repeatPassword: String, completion: @escaping (StatusCode, String?) -> ()) {
         let api = Api.register
         
-        struct ParsingModel: Decodable {
-            let success: Bool
-            let message: String
-            let body: BodyModel
-        }
         
-        struct BodyModel: Decodable {
-            let session_id: String
-        }
         let parameters = [
             [
                 "key": "phone",
