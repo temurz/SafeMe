@@ -22,7 +22,7 @@ class NewsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        navBarTitleLabel.text = "E'lonlar".localizedString
+        navBarTitleLabel.text = "News".localizedString
         leftMenuButton.tag = 1
         setupConstraints()
     }

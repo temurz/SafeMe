@@ -9,7 +9,7 @@ import UIKit
 
 class ChatViewController: BaseViewController {
     private var ageFilterCollectionView = AgeCategoriesView(.clear)
-    private let recommendedGamesLabel = UILabel(text: "Tavsiya etilgan oyinlar".localizedString, font: .robotoFont(ofSize: 20, weight: .medium), color: .white)
+    private let recommendedGamesLabel = UILabel(text: "Recommended Games".localizedString, font: .robotoFont(ofSize: 20, weight: .medium), color: .white)
     private var categoriesView = CategoriesView()
     private let gamesTableView = GamesTableView()
     private let presenter = ChatPresenter()
@@ -27,7 +27,7 @@ class ChatViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         presenter.delegate = self
-        navBarTitleLabel.text = "Oyinlar".localizedString
+        navBarTitleLabel.text = "Games".localizedString
         leftMenuButton.tag = 2
         setupConstraints()
     }

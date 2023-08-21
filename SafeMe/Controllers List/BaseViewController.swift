@@ -56,6 +56,7 @@ class BaseViewController: GradientViewController {
         
         sosButton.addTarget(self, action: #selector(sosButtonAction), for: .touchUpInside)
         profileButton.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
+        profileButton.tintColor = .white
         
         navBarTitleLabel.textAlignment = .left
         navBarTitleLabel.font = .robotoFont(ofSize: 14)

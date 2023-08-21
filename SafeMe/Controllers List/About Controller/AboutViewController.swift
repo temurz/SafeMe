@@ -26,7 +26,7 @@ class AboutViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         leftMenuButton.tag = 7
-        navBarTitleLabel.text = "Biz haqqimizda".localizedString
+        navBarTitleLabel.text = "About us".localizedString
         setupConstraints()
     }
     
@@ -46,7 +46,7 @@ class AboutViewController: BaseViewController {
         unicefImageView.clipsToBounds = true
         self.view.addSubview(unicefImageView)
         
-        firstTitleLabel.text = "Biz haqqimizda".localizedString
+        firstTitleLabel.text = "About us".localizedString
         firstTitleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         firstTitleLabel.textAlignment = .center
         self.view.addSubview(firstTitleLabel)
@@ -58,13 +58,13 @@ class AboutViewController: BaseViewController {
         secondTitleLabel.textAlignment = .center
         self.view.addSubview(secondTitleLabel)
         
-        thirdTitleLabel.text = "Mazkur proekt Unicef xalqaro bolalar\n jamg’armasi va IIV Kiberxavfsizlik markazi\n tomonidan ishlab chiqildi.".localizedString
+        thirdTitleLabel.text = "This project was developed by the Unicef ​​International Children\n Foundation and the Cyber ​​Security Center\n of the Ministry of Internal Affairs.".localizedString
         thirdTitleLabel.textAlignment = .center
         thirdTitleLabel.font = .systemFont(ofSize: 12)
         thirdTitleLabel.numberOfLines = 0
         self.view.addSubview(thirdTitleLabel)
         
-        fourthTitleLabel.text = "©2022 yil, barcha huquqlar himoyalangan".localizedString
+        fourthTitleLabel.text = "©2022, All Rights Reserved".localizedString
         fourthTitleLabel.textAlignment = .center
         fourthTitleLabel.font = .systemFont(ofSize: 12)
         fourthTitleLabel.numberOfLines = 0

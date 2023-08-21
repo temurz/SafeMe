@@ -35,6 +35,7 @@ class RecommendationCell: UICollectionViewCell {
         
         imageView.layer.cornerRadius = 9
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
         
         titleLabel.numberOfLines = 2
         titleLabel.font = .robotoFont(ofSize: 14, weight: .medium)

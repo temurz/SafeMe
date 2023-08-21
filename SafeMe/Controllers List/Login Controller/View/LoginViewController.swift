@@ -75,7 +75,7 @@ class LoginViewController: GradientViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         setupConstraints()
-//        showCodeConfirmation()
+//        showCodeConfirmation(true)
         
     }
     
@@ -94,6 +94,10 @@ class LoginViewController: GradientViewController {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [titleLabel, subtitleLabel, phoneTextField, passwordTextField, repeatPasswordTextField, nextButton, codeView, forgotPasswordButton, registrationButton, backButton])
         
         codeView.isHidden = true
+        codeView.requestSMS = { [weak self] in
+            guard let self else { return }
+            self.presenter.register(username: self.phoneTextField.text, pass: self.passwordTextField.text, repeatPassword: self.repeatPasswordTextField.text)
+        }
         
         subtitleLabel.numberOfLines = 0
         
@@ -249,6 +253,12 @@ class LoginViewController: GradientViewController {
     }
     
     private func showCodeConfirmation(_ bool: Bool) {
+        if !bool {
+            codeView.timer?.stopTimer()
+        }else {
+            timerVal = 10
+            codeView.timer?.startTimer()
+        }
         codeView.isHidden = !bool
         backButton.isHidden = !bool
         titleLabel.text = bool ? "Confirmation code".localizedString : "Sign up".localizedString

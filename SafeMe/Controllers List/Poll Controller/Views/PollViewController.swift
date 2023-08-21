@@ -21,7 +21,7 @@ class PollViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        navBarTitleLabel.text = "Sorovnoma".localizedString
+        navBarTitleLabel.text = "Poll".localizedString
         leftMenuButton.tag = 4
         presenter.delegate = self
         setupConstraints()

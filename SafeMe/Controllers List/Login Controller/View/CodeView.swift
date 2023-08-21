@@ -19,6 +19,10 @@ final class CodeView: UIView {
     private lazy var labelFour = UILabel(text: "", ofSize: 24, weight: .bold, color: .custom.black)
     private lazy var bottomLabel = UILabel(text: bottomText ?? "", font: .montserratFont(ofSize: 13, weight: .regular), color: .custom.gray)
     var isButtonAvailableAction: ((Bool) -> ())?
+    let timerButton = UIButton(.clear)
+    var timer: TimerView?
+    
+    var requestSMS: (()->())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,8 +48,13 @@ final class CodeView: UIView {
     }
     
     private func setupView() {
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: self, array: [stackView, textField, bottomLabel])
-
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: self, array: [stackView, textField, bottomLabel, timerButton])
+        timer = TimerView.loadingCountDownTimerInView(_superView: timerButton)
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: timerButton, view: timer!)
+        
+        timer?.requestSmsAction = { [weak self] in
+            self?.requestSMS?()
+        }
         
         let viewOne = UIView(.custom.lightGray)
         viewOne.addSubview(labelOne)
@@ -101,9 +110,18 @@ final class CodeView: UIView {
             
             bottomLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
             bottomLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            bottomLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            bottomLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            
+            timerButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12),
+            timerButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            timerButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            timerButton.heightAnchor.constraint(equalToConstant: 50),
+            
             
         ])
+        
+        timer?.fullConstraint()
+        TimerView.Stored.timerLabel.fullConstraint()
     }
     
     //MARK: - Actions
