@@ -17,8 +17,8 @@
 "Your authorization is outdated. Login again to the app" = "Avtorizaciya muddati tugagan. Boshqatdan tizimga kiring";
 "Choose a photo" = "Rasm tanlang";
 "Please choose an answer!" = "Iltimos javob tanlang!";
-"Enter your personal data" = "Shaxsiy ma'lumotlaringizni kiriting";
 
+"Enter your personal data" = "Shaxsiy ma'lumotlaringizni kiriting";
 "Something went wrong" = "Nimadir noto'g'ri bajarildi";
 "Failed to log in" = "Kirish amalga oshmadi";
 "Authorization error. Try again later" = "Avtorizatsiya xatosi. Keyinroq qayta urinib ko'ring";
@@ -55,10 +55,9 @@
 "Exit" = "Chiqish";
 "News" = "Yangiliklar";
 "Poll" = "So'rovnoma";
-
 "Sign in" = "Kirish";
-"Enter your phone number and password to login" = "Kirish uchun telefon raqamingizni va parolingizni kiriting";
 
+"Enter your phone number and password to login" = "Kirish uchun telefon raqamingizni va parolingizni kiriting";
 "Wrong code" = "Noto'g'ri kod";
 "Repeat password" = "Parolni qayta kiriting";
 "Back" = "Orqaga";
@@ -73,8 +72,16 @@
 "District" = "Tuman";
 "Choose region" = "Hududni tanlang";
 "Choose district" = "Tumanni tanlang";
-"Sorry there are no answers for this question!" = "Kechirasiz, bu savolga javob yo'q!";
+"Done" = "Bajarildi";
+"Select source" = "Manbani tanlang";
+"Camera" = "Kamera";
+"Gallery" = "Galereya";
+"Cancel" = "Bekor qilish";
+"Share" = "Ulashish";
+"Save" = "Saqlash";
+"Send" = "Yuborish";
 
+"Sorry there are no answers for this question!" = "Kechirasiz, bu savolga javob yo'q!";
 "Forgot your password?" = "Parol esingizdan chiqtimi?";
 "Sign up" = "Ro'yxatdan o'tish";
 "Enter your phone number to register" = "Ro'yxatdan o'tish uchun telefon raqamingizni kiriting";
@@ -96,15 +103,6 @@
 "Complaint" = "Shikoyat";
 "Offer" = "Taklif";
 "Request Types" = "Murojaat turlari";
-
-"Done" = "Bajarildi";
-"Select source" = "Manbani tanlang";
-"Camera" = "Kamera";
-"Gallery" = "Galereya";
-"Cancel" = "Bekor qilish";
-"Share" = "Ulashish";
-"Save" = "Saqlash";
-"Send" = "Yuborish";
 
 "The purpose of this project is to protect\n children from aggressive\n dangers in the world of the Internet in our country, to increase their awareness and\n culture of using the Internet, as well as to protect children from dangers such as cyberbullying, which is current\n at the moment." = "Mazkur proektning maqsadi, mamlakatimizda\n bolalarni internet olamidagi tajavuzkor\n havflardan asrash, ularning ongini va\n internetdan foydalanish madaniyatini\n oshirish, shuningdek xozirgi vaqtda aktual\n bo’lgan Kiberbulling singari xavflardan\n bolalarni ximoyalash xisoblanadi.";
 
