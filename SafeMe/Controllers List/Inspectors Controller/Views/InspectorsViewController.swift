@@ -39,7 +39,7 @@ class InspectorsViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(InspectorCell.self, forCellReuseIdentifier: "InspektorCell")
-        tableView.rowHeight = 242
+        tableView.rowHeight = 200
         tableView.separatorStyle = .none
     }
     

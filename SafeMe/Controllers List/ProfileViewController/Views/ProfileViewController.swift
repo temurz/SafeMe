@@ -23,9 +23,6 @@ class ProfileViewController: GradientViewController {
     private let birthLabel = UILabel()
     private let lineBorder = UIView()
     
-//    private let eduLabel = UILabel()
-//    private let eduNameLabel = UILabel()
-    
     private let cityLabel = UILabel()
     private let cityNameLabel = UILabel()
     

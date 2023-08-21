@@ -11,12 +11,11 @@ import SDWebImage
 
 class InspectorCell: UITableViewCell {
     
-    private let telegramButton = UIButton()
+//    private let telegramButton = UIButton()
     private let callButton = UIButton()
     private let phoneGreen = UIImageView()
     private let line5 = UIImageView()
     private let bgView = UIView(.white)
-    private let imageInspektor = UIImageView()
     private let fullnameTitle = UILabel()
     private let subtitle = UILabel()
     private let phoneNumber = UILabel()
@@ -36,7 +35,7 @@ class InspectorCell: UITableViewCell {
     }
     
     private func initialize() {
-        [bgView, imageInspektor, fullnameTitle, subtitle, phoneNumber, line5, phoneGreen, callButton, telegramButton, ].forEach {
+        [bgView, fullnameTitle, subtitle, phoneNumber, line5, phoneGreen, callButton ].forEach {
             view in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(view)
@@ -46,12 +45,12 @@ class InspectorCell: UITableViewCell {
         self.backgroundColor = .clear
         self.selectionStyle = .none
         
-        telegramButton.setTitle("Telegram", for: .normal)
-        telegramButton.setTitleColor(.white, for: .normal)
-        telegramButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
-        telegramButton.backgroundColor = .custom.buttonBackgroundColor
-        telegramButton.layer.cornerRadius = 12
-        telegramButton.addTarget(self, action: #selector(telegramAction), for: .touchUpInside)
+//        telegramButton.setTitle("Telegram", for: .normal)
+//        telegramButton.setTitleColor(.white, for: .normal)
+//        telegramButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+//        telegramButton.backgroundColor = .custom.buttonBackgroundColor
+//        telegramButton.layer.cornerRadius = 12
+//        telegramButton.addTarget(self, action: #selector(telegramAction), for: .touchUpInside)
         
         callButton.setTitle("Qo’ng’iroq qilish".localizedString, for: .normal)
         callButton.setTitleColor(.white, for: .normal)
@@ -61,6 +60,7 @@ class InspectorCell: UITableViewCell {
         callButton.setImage(UIImage(named: "phonegreen")?.withTintColor(.white), for: .normal)
         callButton.leftImage(left: 10)
         callButton.addTarget(self, action: #selector(callAction), for: .touchUpInside)
+        callButton.contentHorizontalAlignment = .center
         
         phoneGreen.image = UIImage(named: "phonegreen")
         phoneGreen.contentMode = .scaleAspectFit
@@ -72,11 +72,6 @@ class InspectorCell: UITableViewCell {
         line5.backgroundColor = .custom.lightGray
         line5.contentMode = .scaleAspectFit
         line5.clipsToBounds = true
-        
-        imageInspektor.image = UIImage(named: "inspektor1")
-        imageInspektor.contentMode = .scaleAspectFit
-        imageInspektor.clipsToBounds = true
-        imageInspektor.layer.cornerRadius = 12
         
         phoneNumber.text = "97-430-10-44"
         phoneNumber.font = .boldSystemFont(ofSize: 16)
@@ -102,12 +97,7 @@ class InspectorCell: UITableViewCell {
             bgView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             bgView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6),
             
-            imageInspektor.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 16),
-            imageInspektor.widthAnchor.constraint(equalToConstant: 90),
-            imageInspektor.heightAnchor.constraint(equalTo: imageInspektor.widthAnchor, multiplier: 1),
-            imageInspektor.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
-            
-            fullnameTitle.leadingAnchor.constraint(equalTo: imageInspektor.trailingAnchor, constant: 12),
+            fullnameTitle.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
             fullnameTitle.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 16),
             fullnameTitle.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -24),
             
@@ -115,7 +105,7 @@ class InspectorCell: UITableViewCell {
             subtitle.trailingAnchor.constraint(equalTo: fullnameTitle.trailingAnchor),
             subtitle.topAnchor.constraint(equalTo: fullnameTitle.bottomAnchor, constant: 18),
             
-            line5.topAnchor.constraint(equalTo: imageInspektor.bottomAnchor, constant: 16),
+            line5.topAnchor.constraint(equalTo: subtitle.bottomAnchor, constant: 16),
             line5.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
             line5.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
             line5.heightAnchor.constraint(equalToConstant: 2),
@@ -128,22 +118,21 @@ class InspectorCell: UITableViewCell {
             phoneNumber.topAnchor.constraint(equalTo: line5.bottomAnchor, constant: 16),
             phoneNumber.leadingAnchor.constraint(equalTo: phoneGreen.trailingAnchor, constant: 8),
             
-            callButton.topAnchor.constraint(equalTo: phoneNumber.bottomAnchor, constant: 18),
+            callButton.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
             callButton.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
-            callButton.trailingAnchor.constraint(equalTo: bgView.centerXAnchor, constant: -8),
+            callButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
             callButton.heightAnchor.constraint(equalToConstant: 40),
             
-            telegramButton.topAnchor.constraint(equalTo: phoneNumber.bottomAnchor, constant: 18),
-            telegramButton.leadingAnchor.constraint(equalTo: bgView.centerXAnchor, constant: 8),
-            telegramButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
-            telegramButton.heightAnchor.constraint(equalToConstant: 40)
+//            telegramButton.topAnchor.constraint(equalTo: phoneNumber.bottomAnchor, constant: 18),
+//            telegramButton.leadingAnchor.constraint(equalTo: bgView.centerXAnchor, constant: 8),
+//            telegramButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+//            telegramButton.heightAnchor.constraint(equalToConstant: 40)
             
             
         ])
     }
     
     func updateModel(item: Inspector) {
-        imageInspektor.sd_setImage(with: URL(string: item.image ?? ""))
         fullnameTitle.text = "\(item.firstName) \(item.lastName)"
         subtitle.text = item.mahalla + " " + item.position
         phoneNumber.text = item.phone

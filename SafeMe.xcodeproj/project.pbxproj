@@ -22,6 +22,7 @@
 		B842F30F2A9213D9001F79BC /* SosViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F30E2A9213D9001F79BC /* SosViewPresenter.swift */; };
 		B842F3112A92183A001F79BC /* Sos+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3102A92183A001F79BC /* Sos+Network.swift */; };
 		B842F3372A934950001F79BC /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3362A934950001F79BC /* Int+Extension.swift */; };
+		B842F33A2A935EDF001F79BC /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3392A935EDF001F79BC /* ChangePasswordViewController.swift */; };
 		B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA162A62D65300D04485 /* LoginViewController.swift */; };
 		B86ACA192A62DF8700D04485 /* UICustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA182A62DF8700D04485 /* UICustomTextField.swift */; };
 		B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA1A2A62DFAF00D04485 /* UIView+Extension.swift */; };
@@ -197,6 +198,7 @@
 		B842F30E2A9213D9001F79BC /* SosViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SosViewPresenter.swift; sourceTree = "<group>"; };
 		B842F3102A92183A001F79BC /* Sos+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sos+Network.swift"; sourceTree = "<group>"; };
 		B842F3362A934950001F79BC /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		B842F3392A935EDF001F79BC /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B86ACA162A62D65300D04485 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B86ACA182A62DF8700D04485 /* UICustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomTextField.swift; sourceTree = "<group>"; };
 		B86ACA1A2A62DFAF00D04485 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -361,7 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				B875C37A2A7F09EF004FEA92 /* Presenter */,
-				349C9B222A73C59D00BC953A /* ProfileViewController.swift */,
+				B842F3382A935851001F79BC /* Views */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -416,6 +418,15 @@
 			isa = PBXGroup;
 			children = (
 				B86ACAFE2A725A2F00D04485 /* SosViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B842F3382A935851001F79BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				349C9B222A73C59D00BC953A /* ProfileViewController.swift */,
+				B842F3392A935EDF001F79BC /* ChangePasswordViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1238,6 +1249,7 @@
 				B86ACAC12A6C203000D04485 /* AuthCell.swift in Sources */,
 				B86ACAB72A6AD5DB00D04485 /* Auth+Network.swift in Sources */,
 				B86ACB732A75227100D04485 /* Games+Network.swift in Sources */,
+				B842F33A2A935EDF001F79BC /* ChangePasswordViewController.swift in Sources */,
 				3401D41B2A67E4FA00978130 /* AboutCell.swift in Sources */,
 				B842F2FC2A8F6EE3001F79BC /* PollDetailViewController.swift in Sources */,
 				B86ACA4E2A62F2BE00D04485 /* Button + Extension.swift in Sources */,
