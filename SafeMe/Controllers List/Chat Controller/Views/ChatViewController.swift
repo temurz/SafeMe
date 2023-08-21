@@ -69,7 +69,7 @@ class ChatViewController: BaseViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            ageFilterCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            ageFilterCollectionView.topAnchor.constraint(equalTo: customNavBar.bottomAnchor),
             ageFilterCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             ageFilterCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             ageFilterCollectionView.heightAnchor.constraint(equalToConstant: 50),

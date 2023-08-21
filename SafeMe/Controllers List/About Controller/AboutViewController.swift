@@ -73,7 +73,7 @@ class AboutViewController: BaseViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            backgroundView.topAnchor.constraint(equalTo: customNavBar.bottomAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             backgroundView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -16),

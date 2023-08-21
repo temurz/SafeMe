@@ -55,6 +55,12 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.getRegions(page: 1, size: 10)
+        if let _ = user?.region {
+            presenter.getDistricts(region: 0, page: 1, size: 10)
+        }
+        if let _ = user?.district {
+            presenter.getMahallas(region: 0, district: 0, page: 1, size: 10)
+        }
     }
     
     
@@ -226,6 +232,14 @@ extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
     }
     
     func updateRegions(regions: [Region]) {
+        if let user = user {
+            for region in regions {
+                if region.name == user.region {
+                    self.userEdit.region = region.id
+                    presenter.getDistricts(region: region.id, page: 1, size: 10)
+                }
+            }
+        }
         var actions = [UIAction]()
         regions.forEach { region in
             let action1 = UIAction(title: region.name ?? "", image: nil) { action in
@@ -242,6 +256,14 @@ extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
     }
     
     func updateDistricts(districts: [District]) {
+        if let user = user {
+            for district in districts {
+                if district.name == user.district {
+                    self.userEdit.district = district.id
+                    presenter.getMahallas(region: userEdit.region ?? 1, district: district.id, page: 1, size: 10)
+                }
+            }
+        }
         var actions = [UIAction]()
         districts.filter({$0.region == self.userEdit.region}).forEach { district in
             let action1 = UIAction(title: district.name ?? "", image: nil) { action in
@@ -258,6 +280,13 @@ extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
     }
     
     func updateMahallas(mahallas: [Mahalla]) {
+        if let user = user {
+            for mahalla in mahallas {
+                if mahalla.name == user.mahalla {
+                    self.userEdit.mahalla = mahalla.id
+                }
+            }
+        }
         var actions = [UIAction]()
         mahallas.filter({$0.district == self.userEdit.district && $0.region == self.userEdit.region}).forEach { mahalla in
             let action1 = UIAction(title: mahalla.name ?? "", image: nil) { action in

@@ -14,7 +14,7 @@ class BaseViewController: GradientViewController {
     let sosButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(named: "sosIcon"))
     let notificationsButton = UIButton(backgroundColor: .clear, image: UIImage(systemName: "bell.fill"))
     let profileButton = UIButton(backgroundColor: .clear, image: UIImage(systemName: "person.crop.circle"))
-    let container = UIStackView()
+    let customNavBar = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,22 @@ class BaseViewController: GradientViewController {
         navController.navigationBar.tintColor = .white
         navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
         leftMenuButton.addTarget(self, action: #selector(leftSideMenuAction(_:)), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftMenuButton)
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftMenuButton)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     
     private func setNavBarContainer() {
+        
         let stackView = UIStackView()
         stackView.frame = .init(x: 0, y: 0, width: 200, height: 50)
         stackView.axis = .horizontal
@@ -49,17 +60,27 @@ class BaseViewController: GradientViewController {
         navBarTitleLabel.textAlignment = .left
         navBarTitleLabel.font = .robotoFont(ofSize: 14)
         navBarTitleLabel.numberOfLines = 0
-//        navBarTitleLabel.adjustsFontSizeToFitWidth = true
         
-        container.addArrangedSubview(navBarTitleLabel)
-        container.addArrangedSubview(UIView(.clear))
-        container.addArrangedSubview(stackView)
-        container.alignment = .fill
-        container.distribution = .fillEqually
-        self.navigationItem.titleView = container
+        customNavBar.addArrangedSubview(leftMenuButton)
+        customNavBar.addArrangedSubview(navBarTitleLabel)
+
+        customNavBar.addArrangedSubview(stackView)
+        customNavBar.alignment = .fill
+        customNavBar.distribution = .fill
+        customNavBar.spacing = 8
+        customNavBar.alignment = .center
+
+        self.view.addSubview(customNavBar)
+        customNavBar.translatesAutoresizingMaskIntoConstraints = false
         navBarTitleLabel.textColor = .custom.white
         navBarTitleLabel.font = .boldSystemFont(ofSize: 20)
-        container.frame = container.superview?.frame ?? .init(x: 0, y: 0, width: 1000, height: 50)
+
+        NSLayoutConstraint.activate([
+            customNavBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            customNavBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            customNavBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            customNavBar.heightAnchor.constraint(equalToConstant: 50),
+        ])
         
         
 //        NSLayoutConstraint.activate([

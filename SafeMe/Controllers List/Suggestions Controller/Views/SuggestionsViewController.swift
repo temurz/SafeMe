@@ -79,7 +79,7 @@ class SuggestionsViewController: BaseViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            bgFilterView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            bgFilterView.topAnchor.constraint(equalTo: customNavBar.bottomAnchor),
             bgFilterView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bgFilterView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bgFilterView.heightAnchor.constraint(equalToConstant: 50),

@@ -129,7 +129,7 @@ class ApplicationsViewController: BaseViewController, UITextViewDelegate {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            bgView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            bgView.topAnchor.constraint(equalTo: customNavBar.bottomAnchor),
             bgView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             bgView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             bgView.heightAnchor.constraint(equalTo: bgView.widthAnchor, multiplier: 1.26),
