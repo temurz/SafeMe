@@ -41,11 +41,13 @@ enum Api {
     case games
     case getUser
     case sendComplaint
+    case requestSMSForPasswordChange
+    case checkPasswordSms
     
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer, .sos, .addChild:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
@@ -66,6 +68,8 @@ enum Api {
             
             switch self {
             case .addChild: return baseURL + languageUrl + "/user/childern/create/"
+            case .checkPasswordSms: return baseURL + languageUrl + "/user/password/verification"
+            case .requestSMSForPasswordChange: return baseURL + languageUrl + "/user/password/recover"
             case .sos: return baseURL + languageUrl + "/api/v1.0/sos/"
             case .saveAnswer: return baseURL + languageUrl + "/api/v1.0/polling/answer"
             case .poll: return baseURL + languageUrl + "/api/v1.0/polling/all"

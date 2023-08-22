@@ -10,6 +10,9 @@
 		0D6C230785D092A770458063 /* Pods_SafeMe_SafeMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1023CEE72500D1D1858DC2F /* Pods_SafeMe_SafeMeUITests.framework */; };
 		19F3001DA908FFE2BFC446E1 /* Pods_SafeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */; };
 		3401D41B2A67E4FA00978130 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D41A2A67E4FA00978130 /* AboutCell.swift */; };
+		34242D822A93D069003740D0 /* ChangePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34242D812A93D069003740D0 /* ChangePasswordPresenter.swift */; };
+		34242D842A93D812003740D0 /* ChangePassword+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34242D832A93D812003740D0 /* ChangePassword+Network.swift */; };
+		34242D862A93DB11003740D0 /* PasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34242D852A93DB11003740D0 /* PasswordModel.swift */; };
 		349C9B232A73C59D00BC953A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C9B222A73C59D00BC953A /* ProfileViewController.swift */; };
 		B842F2F82A8F5C90001F79BC /* PollViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F2F72A8F5C90001F79BC /* PollViewPresenter.swift */; };
 		B842F2FA2A8F5E65001F79BC /* PollingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F2F92A8F5E65001F79BC /* PollingCell.swift */; };
@@ -182,6 +185,9 @@
 		0A6D5790960C34F4E9CFA469 /* Pods_SafeMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		269951007BF025C8AE93720C /* Pods-SafeMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMeTests.release.xcconfig"; path = "Target Support Files/Pods-SafeMeTests/Pods-SafeMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		3401D41A2A67E4FA00978130 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
+		34242D812A93D069003740D0 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
+		34242D832A93D812003740D0 /* ChangePassword+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangePassword+Network.swift"; sourceTree = "<group>"; };
+		34242D852A93DB11003740D0 /* PasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordModel.swift; sourceTree = "<group>"; };
 		349C9B222A73C59D00BC953A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		39CB27B42F29719920A5959D /* Pods-SafeMe-SafeMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeMe-SafeMeUITests.release.xcconfig"; path = "Target Support Files/Pods-SafeMe-SafeMeUITests/Pods-SafeMe-SafeMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5E9DCCC2A253898EA7501532 /* Pods_SafeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -552,6 +558,7 @@
 			children = (
 				B86ACAB12A6ACF2E00D04485 /* Settings */,
 				B86ACAB62A6AD5DB00D04485 /* Auth+Network.swift */,
+				34242D832A93D812003740D0 /* ChangePassword+Network.swift */,
 				B86ACB242A73C6DA00D04485 /* Inspectors+Network.swift */,
 				B86ACB302A73EFC500D04485 /* News+Network.swift */,
 				B86ACB582A74515F00D04485 /* AgeCategory+Network.swift */,
@@ -742,6 +749,7 @@
 			isa = PBXGroup;
 			children = (
 				B875C37B2A7F09FC004FEA92 /* ProfileViewPresenter.swift */,
+				34242D812A93D069003740D0 /* ChangePasswordPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -906,6 +914,7 @@
 				B875C3812A80F0B1004FEA92 /* ComplaintModel.swift */,
 				B870ED742A83706300C1D0E3 /* DistrictModel.swift */,
 				B89621FE2A8E403B0006EDD1 /* PollModel.swift */,
+				34242D852A93DB11003740D0 /* PasswordModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1206,6 +1215,7 @@
 				B86ACB252A73C6DA00D04485 /* Inspectors+Network.swift in Sources */,
 				B86ACAD62A6FAF8F00D04485 /* Inspector.swift in Sources */,
 				B842F3002A8F7A40001F79BC /* PollDetailViewPresenter.swift in Sources */,
+				34242D822A93D069003740D0 /* ChangePasswordPresenter.swift in Sources */,
 				B86ACA422A62EB9E00D04485 /* Textfield+Extension.swift in Sources */,
 				B842F3092A90C36C001F79BC /* LanguageViewCell.swift in Sources */,
 				B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */,
@@ -1237,6 +1247,7 @@
 				B875C3862A80F23D004FEA92 /* ApplicationsViewPresenter.swift in Sources */,
 				B875C37C2A7F09FC004FEA92 /* ProfileViewPresenter.swift in Sources */,
 				B842F2FA2A8F5E65001F79BC /* PollingCell.swift in Sources */,
+				34242D862A93DB11003740D0 /* PasswordModel.swift in Sources */,
 				B86ACB6A2A750BC200D04485 /* ChatPresenter.swift in Sources */,
 				B86ACAC32A6C651D00D04485 /* IndicatorView.swift in Sources */,
 				B86ACA1B2A62DFAF00D04485 /* UIView+Extension.swift in Sources */,
@@ -1285,6 +1296,7 @@
 				B86ACB5F2A74651100D04485 /* RecommendationModel.swift in Sources */,
 				B86ACB672A74F6CA00D04485 /* RecommendationDetailViewController.swift in Sources */,
 				B86ACA1D2A62DFCF00D04485 /* UILabel+Extension.swift in Sources */,
+				34242D842A93D812003740D0 /* ChangePassword+Network.swift in Sources */,
 				B86ACA1F2A62E00400D04485 /* UIColor+Extension.swift in Sources */,
 				B870ED732A82E84000C1D0E3 /* ProfileRegister+Network.swift in Sources */,
 				B86ACAB52A6AD4BC00D04485 /* DeviceHeader.swift in Sources */,

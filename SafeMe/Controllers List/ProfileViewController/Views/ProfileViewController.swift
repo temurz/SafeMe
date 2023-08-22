@@ -225,7 +225,8 @@ class ProfileViewController: GradientViewController {
     }
     
     @objc private func secondButtonAction() {
-        print("Parolni o'zgartiring!")
+        let vc = ChangePasswordViewController(phoneNumber: model?.phone ?? "")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

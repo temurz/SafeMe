@@ -8,7 +8,7 @@
 var timerBorderWidth : Int = 2;
 var timerWidth : Float = 30;
 var timeRadius : Float = 40;
-var timerVal : Int = 5;
+var timerVal : Int = 120;
 var timer : Timer!;
  
 import UIKit
@@ -43,7 +43,9 @@ class TimerView : UIView {
          
     }
      
+    
     func startTimer() {
+        timerVal = 120
         Stored.timerLabel.gestureRecognizers?.removeAll()
         TimerView.Stored.timerLabel.text = timerVal.makeMinutesAndSeconds()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer(dt:)), userInfo: nil, repeats: true)
