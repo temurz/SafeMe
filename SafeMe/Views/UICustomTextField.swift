@@ -161,6 +161,7 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         ])
         
         if type == .pass {
+            textField.isSecureTextEntry = true
             let view = UIView(.clear)
             view.addSubview(imagViewEye)
             let tap = UITapGestureRecognizer(target: self, action: #selector(actionEye))

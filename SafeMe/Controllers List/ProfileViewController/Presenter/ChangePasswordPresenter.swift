@@ -12,6 +12,7 @@ typealias ChangePasswordPresenterDelegate = ChangePasswordPresenterProtocol & Ch
 protocol ChangePasswordPresenterProtocol {
     func smsIsSent()
     func smsIsVerified()
+    func passwordChanged(_ statusCode: StatusCode)
 }
 
 class ChangePasswordPresenter {
@@ -39,7 +40,19 @@ class ChangePasswordPresenter {
                 return
             }
             
-            self.smsIsVerified()
+            self.smsIsVerified(sessionId)
+        }
+    }
+    
+    func sendNewPassword(newPass: String, repeatPass: String) {
+        Network.shared.sendNewPasswords(newPass: newPass, repeatPass: repeatPass, sessionId: self.sessionId) { statusCode in
+            
+            if statusCode.code != 0 {
+                self.pushAlert(statusCode)
+                return
+            }
+            
+            self.passwordChanged(statusCode)
         }
     }
 }
@@ -56,9 +69,16 @@ extension ChangePasswordPresenter {
         }
     }
     
-    func smsIsVerified() {
+    func smsIsVerified(_ sessionId: String) {
+        self.sessionId = sessionId
         DispatchQueue.main.async {
             self.delegate?.smsIsVerified()
+        }
+    }
+    
+    func passwordChanged(_ statusCode: StatusCode) {
+        DispatchQueue.main.async {
+            self.delegate?.passwordChanged(statusCode)
         }
     }
 }

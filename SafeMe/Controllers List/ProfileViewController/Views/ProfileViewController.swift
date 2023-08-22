@@ -154,12 +154,12 @@ class ProfileViewController: GradientViewController {
             parentLabel.leadingAnchor.constraint(equalTo: childLabel.trailingAnchor, constant: 8),
             parentLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
-            birthLabel.topAnchor.constraint(equalTo: childLabel.bottomAnchor, constant: 7),
+            birthLabel.topAnchor.constraint(equalTo: childLabel.bottomAnchor, constant: 6),
             birthLabel.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
             birthLabel.widthAnchor.constraint(equalToConstant: textWidth + 10),
             
             
-            dateLabel.topAnchor.constraint(equalTo: childLabel.bottomAnchor, constant: 7),
+            dateLabel.topAnchor.constraint(equalTo: childLabel.bottomAnchor, constant: 6),
             dateLabel.leadingAnchor.constraint(equalTo: birthLabel.trailingAnchor,constant: 8),
             dateLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             
@@ -225,7 +225,7 @@ class ProfileViewController: GradientViewController {
     }
     
     @objc private func secondButtonAction() {
-        let vc = ChangePasswordViewController(phoneNumber: model?.phone ?? "")
+        let vc = ChangePasswordViewController(phoneNumber: model?.phone ?? "", isToHomeView: false)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

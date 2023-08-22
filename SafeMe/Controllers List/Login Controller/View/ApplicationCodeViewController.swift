@@ -211,6 +211,10 @@ final class ApplicationCodeViewController: GradientViewController {
                 textField.text = ""
                 textDidChange(textField)
             }
+        }else if !presenter.compareEnterCode(enterCode: textField.text ?? "") {
+            alert(title: "Wrong PIN".localizedString, message: "Enter PIN again", url: nil)
+            textField.text = ""
+            textDidChange(textField)
         }
     }
 }

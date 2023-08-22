@@ -61,4 +61,36 @@ extension Network {
         }
     }
     
+    func sendNewPasswords(newPass: String, repeatPass: String, sessionId: String, completion: @escaping (StatusCode) -> ()) {
+        let api = Api.passwordUpdate
+        
+        let params = [
+            ["key": "password1",
+             "value": newPass,
+             "type": "text"
+            ],
+            ["key": "password2",
+             "value": repeatPass,
+             "type": "text"
+            ],
+            ["key": "session_id",
+             "value": sessionId,
+             "type": "text"
+            ]
+        ]
+        
+        let boundary = generateBoundaryString()
+        let body = generateMutableData(boundary: boundary, parameters: params, imagesData: []) as Data
+        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+        
+        push(api: api, body: body, headers: header, type: Parsing.self) { result in
+            switch result {
+            case .success(let model):
+                completion(StatusCode(code: 0, message: model.message))
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+    
 }

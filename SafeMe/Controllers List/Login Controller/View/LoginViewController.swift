@@ -182,7 +182,12 @@ class LoginViewController: GradientViewController {
         case .register:
             presenter.register(username: phoneTextField.text, pass: passwordTextField.text, repeatPassword: repeatPasswordTextField.text)
         case .forgetPassword:
-            break
+            guard !phoneTextField.isEmpty else {
+                alert(title: "Fields are not filled".localizedString, message: "Please fill all fields".localizedString, url: nil)
+                return
+            }
+            let vc = ChangePasswordViewController(phoneNumber: phoneTextField.text, isToHomeView: true)
+            self.navigationController?.pushViewController(vc, animated: true)
         case .checkCode:
             presenter.checkVerificationCode(code: codeView.getCodeText())
         }

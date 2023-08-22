@@ -15,7 +15,7 @@ class SideMenuViewController: UIViewController {
         MenuModel(id: 0, image: "suggestions", title: "Recommendations".localizedString),
         MenuModel(id: 1, image: "news", title: "News".localizedString),
         MenuModel(id: 2, image: "chat", title: "Games".localizedString),
-//        MenuModel(id: 3, image: "consultant", title: "Konsultant"),
+//        MenuModel(id: 3, image: "consultant", title: "Language".localizedString),
         MenuModel(id: 4, image: "poll", title: "Poll".localizedString),
         MenuModel(id: 5, image: "inspector", title: "Prevention Inspector".localizedString),
         MenuModel(id: 6, image: "application", title: "Requests".localizedString),

@@ -6,19 +6,36 @@
 //
 
 import UIKit
+import SideMenu
 class ChangePasswordViewController: GradientViewController {
     
     private let bgView = UIView(.white)
     private let codeView = CodeView()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
-    private let continueButton = UIButton(.custom.buttonBackgroundColor)
+    private let continueButton = UIButton(.custom.gray3)
+    private let passwordTextField = UICustomTextField(title: "Password".localizedString,
+                                                      star: true,
+                                                      text: nil,
+                                                      placeholder: "Password".localizedString,
+                                                      height: 60,
+                                                      type: .pass)
+    private let repeatPasswordTextField = UICustomTextField(title: "Repeat password".localizedString,
+                                                            star: true,
+                                                            text: nil,
+                                                            placeholder: "Password".localizedString,
+                                                            height: 60,
+                                                            type: .pass)
     
     private var phoneNumber: String
+    private var isVerification: Bool = true
+    
+    private var isToHomeView: Bool
     
     let presenter = ChangePasswordPresenter()
     
-    init(phoneNumber: String) {
+    init(phoneNumber: String, isToHomeView: Bool) {
+        self.isToHomeView = isToHomeView
         self.phoneNumber = phoneNumber
         super.init()
     }
@@ -42,6 +59,7 @@ class ChangePasswordViewController: GradientViewController {
         super.viewWillAppear(animated)
         codeView.timer?.startTimer()
         presenter.requestSMS(phoneNumber: phoneNumber)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,7 +70,16 @@ class ChangePasswordViewController: GradientViewController {
     func initialize() {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [bgView] )
         
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [codeView,titleLabel,subtitleLabel,continueButton])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [codeView,titleLabel,subtitleLabel,continueButton, passwordTextField, repeatPasswordTextField])
+        
+        codeView.isButtonAvailableAction = { [weak self] available in
+            guard let self else { return }
+            self.continueButton.backgroundColor = available ? .custom.buttonBackgroundColor : .custom.gray3
+            self.continueButton.isUserInteractionEnabled = available ? true : false
+        }
+        
+        passwordTextField.isHidden = true
+        repeatPasswordTextField.isHidden = true
         
         bgView.layer.cornerRadius = 12
         
@@ -61,7 +88,7 @@ class ChangePasswordViewController: GradientViewController {
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 0
         
-        subtitleLabel.text = "\(phoneNumber.makeStarsInsteadNumbers())" + "enter the secret code sent to the number".localizedString
+        subtitleLabel.text = "\(phoneNumber.makeStarsInsteadNumbers()) " + "enter the secret code sent to the number".localizedString
         subtitleLabel.textColor = .systemGray
         subtitleLabel.font = .systemFont(ofSize: 14)
         subtitleLabel.numberOfLines = 0
@@ -76,6 +103,7 @@ class ChangePasswordViewController: GradientViewController {
         continueButton.layer.shadowOffset = CGSize(width: 0, height: 3)
         continueButton.layer.shadowRadius = 7
         continueButton.layer.shadowOpacity = 0.5
+        continueButton.isUserInteractionEnabled = false
         continueButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
     }
     
@@ -104,11 +132,38 @@ class ChangePasswordViewController: GradientViewController {
             continueButton.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
             continueButton.heightAnchor.constraint(equalTo: continueButton.widthAnchor, multiplier: 0.12),
             
+            passwordTextField.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 16),
+            passwordTextField.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
+            passwordTextField.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+//            passwordTextField.heightAnchor.constraint(equalToConstant: 60),
+            
+            repeatPasswordTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 8),
+            repeatPasswordTextField.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
+            repeatPasswordTextField.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+//            repeatPasswordTextField.heightAnchor.constraint(equalToConstant: 60),
         ])
     }
     
     @objc func nextAction() {
-        presenter.checkCode(code: codeView.getCodeText())
+        if isVerification {
+            presenter.checkCode(code: codeView.getCodeText())
+        }else {
+            if !passwordTextField.isEmpty && !repeatPasswordTextField.isEmpty {
+                presenter.sendNewPassword(newPass: passwordTextField.text, repeatPass: repeatPasswordTextField.text)
+            }else {
+                alert(title: "Fields are not filled".localizedString, message: "Please fill all fields".localizedString, url: nil)
+            }
+            
+        }
+    }
+    
+    private func showPasswordsView() {
+        codeView.isHidden = true
+        passwordTextField.isHidden = false
+        repeatPasswordTextField.isHidden = false
+        subtitleLabel.text = "Enter new password and repeat it.".localizedString
+        titleLabel.text = "New password".localizedString
+        isVerification = false
     }
     
 }
@@ -119,6 +174,25 @@ extension ChangePasswordViewController: ChangePasswordPresenterProtocol {
     }
     
     func smsIsVerified() {
-        
+        showPasswordsView()
+    }
+    
+    func passwordChanged(_ statusCode: StatusCode) {
+        self.alert(error: statusCode) { [weak self] _ in
+            guard let self else { return }
+            if self.isToHomeView {
+                let vc = SuggestionsViewController()
+                let sideController = SideMenuNavigationController(rootViewController: vc)
+                let keyWindow = UIApplication.shared.connectedScenes
+                    .filter({$0.activationState == .foregroundActive})
+                    .compactMap({$0 as? UIWindowScene})
+                    .first?.windows
+                    .filter({$0.isKeyWindow}).first
+                let navController = sideController
+                keyWindow?.rootViewController = navController
+            }else {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
 }

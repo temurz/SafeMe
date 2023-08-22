@@ -21,14 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-//        window.rootViewController = ViewController()
         if AuthApp.shared.token != nil {
-            let sideController = SideMenuNavigationController(rootViewController: SuggestionsViewController())
-            window.rootViewController = sideController
+            let vc = ApplicationCodeViewController()
+            let navController = UINavigationController(rootViewController: vc)
+            window.rootViewController = navController
         }else {
-//            let sideController = SideMenuNavigationController(rootViewController: SuggestionsViewController())
-//            window.rootViewController = sideController
-//            AuthApp.shared.language = "uz"
             let navController = UINavigationController(rootViewController: LanguageViewController())
             window.rootViewController = navController
         }

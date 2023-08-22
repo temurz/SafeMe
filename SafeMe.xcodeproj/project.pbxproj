@@ -75,7 +75,6 @@
 		B86ACA822A66F9B800D04485 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA812A66F9B800D04485 /* AboutViewController.swift */; };
 		B86ACA8B2A67C7BB00D04485 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA8A2A67C7BB00D04485 /* NewsViewController.swift */; };
 		B86ACA8D2A67C81100D04485 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA8C2A67C81100D04485 /* ChatViewController.swift */; };
-		B86ACA8F2A67C84400D04485 /* ConsultantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA8E2A67C84400D04485 /* ConsultantViewController.swift */; };
 		B86ACA912A67C92F00D04485 /* PollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA902A67C92F00D04485 /* PollViewController.swift */; };
 		B86ACA932A67C97100D04485 /* InspectorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA922A67C97100D04485 /* InspectorsViewController.swift */; };
 		B86ACA952A67C99300D04485 /* ApplicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA942A67C99300D04485 /* ApplicationsViewController.swift */; };
@@ -232,7 +231,6 @@
 		B86ACA812A66F9B800D04485 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B86ACA8A2A67C7BB00D04485 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		B86ACA8C2A67C81100D04485 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		B86ACA8E2A67C84400D04485 /* ConsultantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultantViewController.swift; sourceTree = "<group>"; };
 		B86ACA902A67C92F00D04485 /* PollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollViewController.swift; sourceTree = "<group>"; };
 		B86ACA922A67C97100D04485 /* InspectorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorsViewController.swift; sourceTree = "<group>"; };
 		B86ACA942A67C99300D04485 /* ApplicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsViewController.swift; sourceTree = "<group>"; };
@@ -510,12 +508,11 @@
 			path = "Chat Controller";
 			sourceTree = "<group>";
 		};
-		B86ACA862A67C6A300D04485 /* Consultant Controller */ = {
+		B86ACA862A67C6A300D04485 /* Settings Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B86ACA8E2A67C84400D04485 /* ConsultantViewController.swift */,
 			);
-			path = "Consultant Controller";
+			path = "Settings Controller";
 			sourceTree = "<group>";
 		};
 		B86ACA872A67C6AC00D04485 /* Poll Controller */ = {
@@ -872,7 +869,7 @@
 				B86ACA832A67C57C00D04485 /* Suggestions Controller */,
 				B86ACA842A67C68900D04485 /* News Controller */,
 				B86ACA852A67C69900D04485 /* Chat Controller */,
-				B86ACA862A67C6A300D04485 /* Consultant Controller */,
+				B86ACA862A67C6A300D04485 /* Settings Controller */,
 				B86ACA872A67C6AC00D04485 /* Poll Controller */,
 				B86ACA882A67C6C000D04485 /* Inspectors Controller */,
 				B86ACA892A67C6D800D04485 /* Applications Controller */,
@@ -1292,7 +1289,6 @@
 				B842F3052A90C092001F79BC /* LanguageViewController.swift in Sources */,
 				B86ACACA2A6F1E9F00D04485 /* AgeFilterCell.swift in Sources */,
 				B86ACAC72A6EFD0A00D04485 /* AppEnterCodePresenter.swift in Sources */,
-				B86ACA8F2A67C84400D04485 /* ConsultantViewController.swift in Sources */,
 				B86ACB5F2A74651100D04485 /* RecommendationModel.swift in Sources */,
 				B86ACB672A74F6CA00D04485 /* RecommendationDetailViewController.swift in Sources */,
 				B86ACA1D2A62DFCF00D04485 /* UILabel+Extension.swift in Sources */,
