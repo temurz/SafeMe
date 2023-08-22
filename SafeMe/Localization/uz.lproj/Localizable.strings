@@ -72,6 +72,7 @@
 "District" = "Tuman";
 "Choose region" = "Hududni tanlang";
 "Choose district" = "Tumanni tanlang";
+"Choose mahalla" = "Mahallani tanlang";
 "Done" = "Bajarildi";
 "Select source" = "Manbani tanlang";
 "Camera" = "Kamera";
@@ -113,3 +114,13 @@
 "Hello!\nPlease select a language!" = "Assalomu aleykum!\nIltimos tilni tanlang!";
 "Start" = "Boshlash";
 "Send SMS again" = "SMS boshqatdan jo'natish";
+"Enter the birthday" = "Tug'ilgan kunni kiriting";
+"Man" = "Erkak";
+"Woman" = "Ayol";
+"Boy" = "Og'il bola";
+"Girl" = "Qiz bola";
+"Add child" = "Bolani qoshish";
+"Fields are not filled" = "Maydonlar toldirilmagan";
+"Please fill all fields" = "Iltimos maydonlarni toldiring";
+"Father" = "Ota";
+"Mother" = "Ona";

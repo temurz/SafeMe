@@ -113,3 +113,14 @@
 "Hello!\nPlease select a language!" = "Добро пожаловать!\nПожалуйста выберите язык!";
 "Start" = "Старт";
 "Send SMS again" = "Еще раз отправить SMS";
+"Enter the birthday" = "Введите дату рождения";
+"Choose mahalla" = "Выберите махаллю";
+"Man" = "Мужчина";
+"Woman" = "Женщина";
+"Boy" = "Мальчик";
+"Girl" = "Девочка";
+"Add child" = "Добавить ребенка";
+"Fields are not filled" = "Поля не заполнены";
+"Please fill all fields" = "Пожалуйста заполните поля";
+"Father" = "Отец";
+"Mother" = "Мать";

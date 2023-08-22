@@ -14,8 +14,8 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
     private let profilePhotoImageView = UIImageView(.custom.lightGray)
     private let stackView = UIStackView()
     private let fullNameTextField = UICustomTextField(title: "Fullname".localizedString, star: false, text: nil, placeholder: "Fullname".localizedString)
-    private let birthdayTextField = UICustomTextField(title: "Birthday".localizedString, star: false, text: nil, placeholder: "Enter your birthday".localizedString)
-//    private let educationTextField = UICustomTextField(title: "Education".localizedString, star: false, text: nil, placeholder: nil)
+    private let birthdayTextField = UICustomTextField(title: "Birthday".localizedString, star: false, text: nil, placeholder: nil)
+    private let genderTextField = UICustomTextField(title: "Gender".localizedString, star: false, text: nil, placeholder: nil, type: .button)
     private let regionButton = UICustomTextField(title: "Region".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
     private let districtButton = UICustomTextField(title: "District".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
     private let mahallaButton = UICustomTextField(title: "Mahalla".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
@@ -28,11 +28,13 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
     let datePicker = UIDatePicker()
     
     private var user: User?
+    private var withNavigation: Bool
     private var userEdit = UserEdit(fullName: "", birthday: "")
     private let presenter = UpdateProfilePresenter()
     
-    init(user: User?) {
+    init(user: User?, withNavigation: Bool) {
         self.user = user
+        self.withNavigation = withNavigation
         super.init()
     }
     
@@ -73,23 +75,17 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
         SetupViews.addViewEndRemoveAutoresizingMask(superView: scrollView, array: [stackView])
         SetupViews.addViewEndRemoveAutoresizingMask(superView: contentView, view: scrollView)
         
-        [photoView, fullNameTextField, birthdayTextField, regionButton, districtButton, mahallaButton].forEach { view in
+        [photoView, fullNameTextField, birthdayTextField, genderTextField, regionButton, districtButton, mahallaButton].forEach { view in
             self.stackView.addArrangedSubview(view)
         }
         
-        
-        
         SetupViews.addViewEndRemoveAutoresizingMask(superView: birthdayTextField, view: datePicker)
-        
-//        birthdayTextField.didSelectCalendar = { [weak self] in
-//            guard let self else { return }
-//            self.datePicker.isHidden = false
-//        }
         
         profilePhotoImageView.contentMode = .scaleAspectFill
         profilePhotoImageView.clipsToBounds = true
         profilePhotoImageView.layer.cornerRadius = 8
         
+        titleLabel.numberOfLines = 0
         
         choosePhotoLabel.isUserInteractionEnabled = false
         choosePhotoLabel.numberOfLines = 2
@@ -120,6 +116,7 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
         if let user = user {
             fullNameTextField.text = user.last_name + " " + user.first_name
             birthdayTextField.text = user.birth_day ?? ""
+            genderTextField.text = user.gender ?? ""
             regionButton.button.setTitle(user.region ?? "", for: .normal)
             districtButton.button.setTitle(user.district ?? "", for: .normal)
             mahallaButton.button.setTitle(user.mahalla ?? "", for: .normal)
@@ -127,6 +124,17 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
         }
         
         choosePhotoLabel.isHidden = profilePhotoImageView.image != nil ? true : false
+        
+        let actionBoy = UIAction(title: "Man".localizedString) { [weak self] _ in
+            guard let self else { return }
+            self.genderTextField.text = "Man".localizedString
+        }
+        let actionGirl = UIAction(title: "Woman".localizedString) { [weak self] _ in
+            guard let self else { return }
+            self.genderTextField.text = "Woman".localizedString
+        }
+        let menuGender = UIMenu(title: "Choose gender".localizedString, children: [actionBoy, actionGirl])
+        self.genderTextField.button.menu = menuGender
         
         NSLayoutConstraint.activate([
             bgView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -191,20 +199,20 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
     }
     
     @objc private func choosePhotoAction(_ sender: UIGestureRecognizer) {
-        let alert = UIAlertController(title: nil, message: "Выберите источник".localizedString, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: "Select source".localizedString, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Камера".localizedString, style: .default) { (result : UIAlertAction) -> Void in
+        alert.addAction(UIAlertAction(title: "Camera".localizedString, style: .default) { (result : UIAlertAction) -> Void in
             print("Camera selected")
             self.imagePicker.sourceType = .camera
             self.present(self.imagePicker, animated: true, completion: nil)
         })
-        alert.addAction(UIAlertAction(title: "Галерея".localizedString, style: .default) { (result : UIAlertAction) -> Void in
+        alert.addAction(UIAlertAction(title: "Gallery".localizedString, style: .default) { (result : UIAlertAction) -> Void in
             print("Photo selected")
             self.imagePicker.sourceType = .photoLibrary
             self.present(self.imagePicker, animated: true, completion: nil)
         })
         
-        let cancel = UIAlertAction(title: "Отмена".localizedString, style: .cancel)
+        let cancel = UIAlertAction(title: "Cancel".localizedString, style: .cancel)
         
         alert.addAction(cancel)
         
@@ -220,8 +228,12 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
 
 extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
     func updateUser() {
-        alert(error: StatusCode(code: 0), action: nil)
-        let sideController = SideMenuNavigationController(rootViewController: SuggestionsViewController())
+        if withNavigation {
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+        let vc = SuggestionsViewController()
+        let sideController = SideMenuNavigationController(rootViewController: vc)
         let keyWindow = UIApplication.shared.connectedScenes
             .filter({$0.activationState == .foregroundActive})
             .compactMap({$0 as? UIWindowScene})

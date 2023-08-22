@@ -37,3 +37,11 @@ struct UserEdit {
     var mahalla: Int?
     var photo: Data?
 }
+
+struct Child {
+    var name: String
+    var gender: String
+    var date_birthday: String
+    var type_parent: String
+    var status: Bool?
+}

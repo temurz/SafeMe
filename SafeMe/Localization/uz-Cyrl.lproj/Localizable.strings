@@ -121,3 +121,14 @@
 "Hello!\nPlease select a language!" = "Ассалому алейкум!\nИлтимос тилни танланг!";
 "Start" = "Бошлаш";
 "Send SMS again" = "SMS бошқатдан жўнатиш";
+"Enter the birthday" = "Тугилган кунни киритинг";
+"Choose mahalla" = "Махаллани танланг";
+"Man" = "Эркак";
+"Woman" = "Аёл";
+"Boy" = "Оғил бола";
+"Girl" = "Қиз бола";
+"Add child" = "Болани кошиш";
+"Fields are not filled" = "Майдонлар толдирилмаган";
+"Please fill all fields" = "Илтимос майдонларни толдиринг";
+"Father" = "Ота";
+"Mother" = "Она";

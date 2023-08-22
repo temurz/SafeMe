@@ -54,7 +54,8 @@ class ProfileViewController: GradientViewController {
     private func initialize() {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [backgroundView, firstButton, secondButton, profilePhoto, fullnameLabel, parentLabel, birthLabel, childLabel, dateLabel, lineBorder, cityLabel, cityNameLabel, countryLabel, countryNameLabel, streetLabel, streetNameLabel])
         
-        profilePhoto.image = UIImage(named: "profileSample")
+        profilePhoto.image = UIImage(systemName: "person.crop.circle")
+        profilePhoto.tintColor = .gray
         profilePhoto.contentMode = .scaleAspectFill
         profilePhoto.clipsToBounds = true
         profilePhoto.layer.cornerRadius = 4
@@ -155,7 +156,7 @@ class ProfileViewController: GradientViewController {
             
             birthLabel.topAnchor.constraint(equalTo: childLabel.bottomAnchor, constant: 7),
             birthLabel.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
-            birthLabel.widthAnchor.constraint(equalToConstant: textWidth),
+            birthLabel.widthAnchor.constraint(equalToConstant: textWidth + 10),
             
             
             dateLabel.topAnchor.constraint(equalTo: childLabel.bottomAnchor, constant: 7),
@@ -219,7 +220,7 @@ class ProfileViewController: GradientViewController {
     }
     
     @objc private func firstButtonAction() {
-        let vc = UpdateProfileViewController(user: model)
+        let vc = UpdateProfileViewController(user: model, withNavigation: true)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

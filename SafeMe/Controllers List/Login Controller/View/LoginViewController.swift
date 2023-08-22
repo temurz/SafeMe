@@ -276,7 +276,7 @@ class LoginViewController: GradientViewController {
     }
     
     private func goToUpdateProfile() {
-        let vc = UpdateProfileViewController(user: nil)
+        let vc = UpdateProfileViewController(user: nil, withNavigation: false)
         let keyWindow = UIApplication.shared.connectedScenes
             .filter({$0.activationState == .foregroundActive})
             .compactMap({$0 as? UIWindowScene})

@@ -113,3 +113,14 @@
 "Hello!\nPlease select a language!" = "Hello!\nPlease select a language!";
 "Start" = "Start";
 "Send SMS again" = "Send SMS again";
+"Enter the birthday" = "Enter the birthday";
+"Choose mahalla" = "Choose mahalla";
+"Man" = "Man";
+"Woman" = "Woman";
+"Boy" = "Boy";
+"Girl" = "Girl";
+"Add child" = "Add child";
+"Fields are not filled" = "Fields are not filled";
+"Please fill all fields" = "Please fill all fields";
+"Father" = "Father";
+"Mother" = "Mother";

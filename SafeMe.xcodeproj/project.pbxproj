@@ -146,6 +146,8 @@
 		B875D5552A891DE700A5929F /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875D5542A891DE700A5929F /* GameDetailViewController.swift */; };
 		B89621FF2A8E403B0006EDD1 /* PollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89621FE2A8E403B0006EDD1 /* PollModel.swift */; };
 		B89622012A8E4C1F0006EDD1 /* Poll+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89622002A8E4C1F0006EDD1 /* Poll+Network.swift */; };
+		B8A66F142A93C62000EB6269 /* AddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A66F132A93C62000EB6269 /* AddChildViewController.swift */; };
+		B8A66F162A948FB000EB6269 /* ChildViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A66F152A948FB000EB6269 /* ChildViewPresenter.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */; };
@@ -302,6 +304,8 @@
 		B875D5542A891DE700A5929F /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		B89621FE2A8E403B0006EDD1 /* PollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollModel.swift; sourceTree = "<group>"; };
 		B89622002A8E4C1F0006EDD1 /* Poll+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Poll+Network.swift"; sourceTree = "<group>"; };
+		B8A66F132A93C62000EB6269 /* AddChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildViewController.swift; sourceTree = "<group>"; };
+		B8A66F152A948FB000EB6269 /* ChildViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewPresenter.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -720,6 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				B870ED7B2A83735800C1D0E3 /* UpdateProfilePresenter.swift */,
+				B8A66F152A948FB000EB6269 /* ChildViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -728,6 +733,7 @@
 			isa = PBXGroup;
 			children = (
 				B870ED792A83734E00C1D0E3 /* UpdateProfileViewController.swift */,
+				B8A66F132A93C62000EB6269 /* AddChildViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1206,6 +1212,7 @@
 				B86ACB632A74EDB500D04485 /* RecommendationsView.swift in Sources */,
 				B86ACAB92A6AD74700D04485 /* Date+Extension.swift in Sources */,
 				B86ACAC52A6C727400D04485 /* ApplicationCodeViewController.swift in Sources */,
+				B8A66F142A93C62000EB6269 /* AddChildViewController.swift in Sources */,
 				B86ACA822A66F9B800D04485 /* AboutViewController.swift in Sources */,
 				B86ACB532A744E5700D04485 /* SuggestionsPresenter.swift in Sources */,
 				B86ACB292A73D03400D04485 /* InspectorsPresenter.swift in Sources */,
@@ -1286,6 +1293,7 @@
 				B870ED752A83706300C1D0E3 /* DistrictModel.swift in Sources */,
 				B86ACA462A62EBD100D04485 /* StackView+Extension.swift in Sources */,
 				B86ACA3E2A62EB6600D04485 /* UIFont+Extension.swift in Sources */,
+				B8A66F162A948FB000EB6269 /* ChildViewPresenter.swift in Sources */,
 				B86ACAAE2A6AC5F900D04485 /* API.swift in Sources */,
 				B875C3792A7F08E8004FEA92 /* User.swift in Sources */,
 			);

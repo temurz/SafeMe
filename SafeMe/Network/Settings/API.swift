@@ -20,6 +20,7 @@ public enum HTTPMethod: String {
 }
 
 enum Api {
+    case addChild
     case sos
     case saveAnswer
     case poll
@@ -44,7 +45,7 @@ enum Api {
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer, .sos:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer, .sos, .addChild:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
@@ -64,6 +65,7 @@ enum Api {
             var languageUrl = lang == "uz-Cyrl" ? "/sr" : "/" + lang
             
             switch self {
+            case .addChild: return baseURL + languageUrl + "/user/childern/create/"
             case .sos: return baseURL + languageUrl + "/api/v1.0/sos/"
             case .saveAnswer: return baseURL + languageUrl + "/api/v1.0/polling/answer"
             case .poll: return baseURL + languageUrl + "/api/v1.0/polling/all"

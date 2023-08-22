@@ -8,9 +8,9 @@
 import UIKit
 import CoreLocation
 enum SOSType: String {
-    case dangerZone = "danger"
-    case suspicious = "suspicious"
-    case help = "help"
+    case suspicious = "shubhali"
+    case dangerZone = "xavli_hudud"
+    case help = "danger"
 }
 class SosViewController: GradientViewController {
     
