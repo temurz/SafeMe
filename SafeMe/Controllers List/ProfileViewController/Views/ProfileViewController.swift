@@ -225,7 +225,7 @@ class ProfileViewController: GradientViewController {
     }
     
     @objc private func secondButtonAction() {
-        let vc = ChangePasswordViewController(phoneNumber: model?.phone ?? "", isToHomeView: false)
+        let vc = ChangePasswordViewController(phoneNumber: model?.phone ?? "", isBackToLogin: false)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

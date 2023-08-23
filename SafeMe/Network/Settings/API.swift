@@ -20,6 +20,7 @@ public enum HTTPMethod: String {
 }
 
 enum Api {
+    case requestSMSForPin
     case passwordUpdate
     case addChild
     case sos
@@ -44,11 +45,12 @@ enum Api {
     case sendComplaint
     case requestSMSForPasswordChange
     case checkPasswordSms
+    case pinSmsCodeVerification
     
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
@@ -68,6 +70,8 @@ enum Api {
             let languageUrl = lang == "uz-Cyrl" ? "/sr" : "/" + lang
             
             switch self {
+            case .pinSmsCodeVerification: return baseURL + languageUrl + "/user/pin/verification"
+            case .requestSMSForPin: return baseURL + languageUrl + "/user/pin/recover"
             case .passwordUpdate: return baseURL + languageUrl + "/user/password/update"
             case .addChild: return baseURL + languageUrl + "/user/childern/create/"
             case .checkPasswordSms: return baseURL + languageUrl + "/user/password/verification"

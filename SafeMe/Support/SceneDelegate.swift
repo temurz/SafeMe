@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         if AuthApp.shared.token != nil {
-            let vc = ApplicationCodeViewController()
+            let vc = ApplicationCodeViewController(hasPin: true)
             let navController = UINavigationController(rootViewController: vc)
             window.rootViewController = navController
         }else {

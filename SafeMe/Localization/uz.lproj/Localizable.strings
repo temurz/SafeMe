@@ -127,3 +127,6 @@
 "New password" = "Yangi parol";
 "Enter new password and repeat it." = "Yangi parolni kiriting va uni takrorlang.";
 "Language" = "Til";
+"Did you forget PIN?" = "PIN esingizdan chiqdimi?";
+"Enter the secret code sent to your number" = "Sizning telefon raqamingizga jo'natilgan SMS kodni kiriting";
+"Create new PIN" = "Yangi PIN yarating";

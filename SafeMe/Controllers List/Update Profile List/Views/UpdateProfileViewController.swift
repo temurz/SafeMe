@@ -239,8 +239,7 @@ extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
             .compactMap({$0 as? UIWindowScene})
             .first?.windows
             .filter({$0.isKeyWindow}).first
-        let navController = sideController
-        keyWindow?.rootViewController = navController
+        keyWindow?.rootViewController = sideController
     }
     
     func updateRegions(regions: [Region]) {

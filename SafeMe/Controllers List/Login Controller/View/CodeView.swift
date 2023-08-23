@@ -134,6 +134,14 @@ final class CodeView: UIView {
         return textField.text ?? ""
     }
     
+    func clear() {
+        textField.text = ""
+        labelOne.text = ""
+        labelTwo.text = ""
+        labelThree.text = ""
+        labelFour.text = ""
+    }
+    
     @objc private func textDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if text.count == 4 {

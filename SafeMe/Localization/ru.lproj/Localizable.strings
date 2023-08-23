@@ -127,3 +127,6 @@
 "New password" = "Новый пароль";
 "Enter new password and repeat it." = "Введите новый пароль и повторите его.";
 "Language" = "Язык";
+"Did you forget PIN?" = "Забыли PIN?";
+"Enter the secret code sent to your number" = "Введите SMS код, отправленный на ваш номер телефона";
+"Create new PIN" = "Создайте новый PIN";

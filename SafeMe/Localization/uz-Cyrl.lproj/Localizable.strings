@@ -135,3 +135,6 @@
 "New password" = "Янги пароль";
 "Enter new password and repeat it." = "Янги парольни киритинг ва уни такрорланг.";
 "Language" = "Тил";
+"Did you forget PIN?" = "PIN есингиздан чиклими?";
+"Enter the secret code sent to your number" = "Сизнинг телефон рақамингизга жўнатилган SMS кодни киритинг";
+"Create new PIN" = "Янги PIN яратинг";

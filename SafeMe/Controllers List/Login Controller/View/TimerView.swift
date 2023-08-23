@@ -53,6 +53,7 @@ class TimerView : UIView {
     
     func stopTimer() {
         timer.invalidate()
+        timerVal = 120
     }
      
     @objc func updateTimer(dt:Timer) {
@@ -70,6 +71,7 @@ class TimerView : UIView {
     }
     
     @objc private func requestSmsAgain() {
+        stopTimer()
         self.requestSmsAction?()
     }
 }

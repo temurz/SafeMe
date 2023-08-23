@@ -30,12 +30,12 @@ class ChangePasswordViewController: GradientViewController {
     private var phoneNumber: String
     private var isVerification: Bool = true
     
-    private var isToHomeView: Bool
+    private var isBackToLogin: Bool
     
     let presenter = ChangePasswordPresenter()
     
-    init(phoneNumber: String, isToHomeView: Bool) {
-        self.isToHomeView = isToHomeView
+    init(phoneNumber: String, isBackToLogin: Bool) {
+        self.isBackToLogin = isBackToLogin
         self.phoneNumber = phoneNumber
         super.init()
     }
@@ -76,6 +76,11 @@ class ChangePasswordViewController: GradientViewController {
             guard let self else { return }
             self.continueButton.backgroundColor = available ? .custom.buttonBackgroundColor : .custom.gray3
             self.continueButton.isUserInteractionEnabled = available ? true : false
+        }
+        
+        codeView.requestSMS = { [weak self] in
+            guard let self else { return }
+            self.presenter.requestSMS(phoneNumber: self.phoneNumber)
         }
         
         passwordTextField.isHidden = true
@@ -170,7 +175,7 @@ class ChangePasswordViewController: GradientViewController {
 
 extension ChangePasswordViewController: ChangePasswordPresenterProtocol {
     func smsIsSent() {
-        
+        codeView.timer?.startTimer()
     }
     
     func smsIsVerified() {
@@ -180,15 +185,14 @@ extension ChangePasswordViewController: ChangePasswordPresenterProtocol {
     func passwordChanged(_ statusCode: StatusCode) {
         self.alert(error: statusCode) { [weak self] _ in
             guard let self else { return }
-            if self.isToHomeView {
-                let vc = SuggestionsViewController()
-                let sideController = SideMenuNavigationController(rootViewController: vc)
+            if self.isBackToLogin {
+                let vc = LoginViewController()
+                let navController = UINavigationController(rootViewController: vc)
                 let keyWindow = UIApplication.shared.connectedScenes
                     .filter({$0.activationState == .foregroundActive})
                     .compactMap({$0 as? UIWindowScene})
                     .first?.windows
                     .filter({$0.isKeyWindow}).first
-                let navController = sideController
                 keyWindow?.rootViewController = navController
             }else {
                 self.navigationController?.popViewController(animated: true)

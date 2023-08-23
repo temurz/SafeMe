@@ -9,8 +9,8 @@ import UIKit
 import SideMenu
 
 enum ButtonCheckState {
-    case firstCode
-    case secondCode
+    case pin
+    case confirmationCode
 }
 
 final class ApplicationCodeViewController: GradientViewController {
@@ -20,7 +20,12 @@ final class ApplicationCodeViewController: GradientViewController {
     private let stackView = UIStackView(.horizontal, .fillEqually, .fill, 8, [])
     private let textField = UITextField()
     private let nextButton = UIButton(backgroundColor: UIColor.custom.lightGray, textColor: .custom.white, text: "Next".localizedString, radius: 12)
-    private var buttonCheckState: ButtonCheckState = .firstCode
+    private let forgotPinButton = UIButton(.clear)
+    private let codeView = CodeView()
+    private var buttonCheckState: ButtonCheckState = .pin
+    private let backButton = UIButton(backgroundColor: .clear, textColor: .custom.blue, text: "Back".localizedString)
+    var hasPin: Bool
+    
     private let presenter = AppEnterCodePresenter()
     
     let roundViewOne = UIView(.black)
@@ -28,6 +33,14 @@ final class ApplicationCodeViewController: GradientViewController {
     let roundViewThree = UIView(.black)
     let roundViewFour = UIView(.black)
     
+    init(hasPin: Bool) {
+        self.hasPin = hasPin
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func loadView() {
@@ -38,6 +51,7 @@ final class ApplicationCodeViewController: GradientViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
+        presenter.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +65,29 @@ final class ApplicationCodeViewController: GradientViewController {
         bgView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(bgView)
         
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [titleLabel, subtitleLabel, stackView, textField, nextButton])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [titleLabel, subtitleLabel, stackView, textField, nextButton, forgotPinButton, backButton, codeView])
+        
+        subtitleLabel.numberOfLines = 0
+        
+        forgotPinButton.contentHorizontalAlignment = .right
+        forgotPinButton.setTitle("Did you forget PIN?".localizedString, for: .normal)
+        forgotPinButton.setTitleColor(.custom.gray, for: .normal)
+        forgotPinButton.isHidden = hasPin ? false : true
+        forgotPinButton.addTarget(self, action: #selector(forgotAction), for: .touchUpInside)
+        forgotPinButton.titleLabel?.font = .robotoFont(ofSize: 16)
+        
+        subtitleLabel.text = hasPin ? subtitleLabel.text : "Create new PIN".localizedString
+        
+        codeView.isHidden = true
+        codeView.requestSMS = { [weak self] in
+            guard let self else { return }
+            self.presenter.requestSMSForPin()
+        }
+        
+        codeView.isButtonAvailableAction = { [weak self] bool in
+            guard let self else { return }
+            self.makeNextButtonAvailable(bool)
+        }
         
         let viewOne = UIView()
         
@@ -98,6 +134,10 @@ final class ApplicationCodeViewController: GradientViewController {
         textField.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
         
         nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+        
+        backButton.isHidden = true
+        backButton.contentHorizontalAlignment = .right
+        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
     }
     
     
@@ -124,7 +164,22 @@ final class ApplicationCodeViewController: GradientViewController {
             nextButton.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
             nextButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
             nextButton.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
-            nextButton.heightAnchor.constraint(equalToConstant: 50)
+            nextButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            forgotPinButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            forgotPinButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8),
+            forgotPinButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            forgotPinButton.heightAnchor.constraint(equalToConstant: 32),
+            
+            backButton.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 24),
+            backButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+            backButton.heightAnchor.constraint(equalToConstant: 24),
+            backButton.widthAnchor.constraint(equalToConstant: 100),
+            
+            codeView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 16),
+            codeView.leadingAnchor.constraint(equalTo: bgView.leadingAnchor),
+            codeView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor),
+            codeView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16),
         ])
         
         textField.fullConstraint(view: stackView)
@@ -135,22 +190,27 @@ final class ApplicationCodeViewController: GradientViewController {
         textField.endEditing(true)
     }
     
+    @objc private func forgotAction() {
+        presenter.requestSMSForPin()
+    }
+    
+    @objc private func backAction() {
+        showCodeConfirmation(false)
+    }
+    
     @objc private func textDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if text.count == 4 {
                 //                self.isButtonAvailableAction?(true)
-                self.nextButton.backgroundColor = UIColor.custom.buttonBackgroundColor
-                self.nextButton.isUserInteractionEnabled = true
+                makeNextButtonAvailable(true)
             }else if text.count > 4 {
                 //                self.isButtonAvailableAction?(true)
-                self.nextButton.backgroundColor = UIColor.custom.buttonBackgroundColor
-                self.nextButton.isUserInteractionEnabled = true
+                makeNextButtonAvailable(true)
                 textField.text?.removeLast()
                 textField.endEditing(true)
             }else if text.count < 4 {
                 //                self.isButtonAvailableAction?(false)
-                self.nextButton.backgroundColor = .custom.lightGray
-                self.nextButton.isUserInteractionEnabled = false
+                makeNextButtonAvailable(false)
             }
             if text.count == 0 {
                 roundViewOne.backgroundColor = .custom.green
@@ -191,30 +251,79 @@ final class ApplicationCodeViewController: GradientViewController {
         }
     }
     
-    @objc private func nextAction() {
-        
-        if presenter.compareEnterCode(enterCode: textField.text ?? "") {
-            let vc = SuggestionsViewController()
-            let keyWindow = UIApplication.shared.connectedScenes
-                .filter({$0.activationState == .foregroundActive})
-                .compactMap({$0 as? UIWindowScene})
-                .first?.windows
-                .filter({$0.isKeyWindow}).first
-            let navController = SideMenuNavigationController(rootViewController: vc)
-            keyWindow?.rootViewController = navController
-            return
+    private func showCodeConfirmation(_ bool: Bool) {
+        self.view.endEditing(true)
+        if !bool {
+            codeView.timer?.stopTimer()
+            textDidChange(self.textField)
+        }else {
+            codeView.timer?.startTimer()
+            codeView.clear()
+            makeNextButtonAvailable(false)
         }
-        if AuthApp.shared.appEnterCode == nil {
-            if let text = textField.text {
-                presenter.saveEnterCode(enterCode: text)
-                subtitleLabel.text = "Confirm Pin".localizedString
+        buttonCheckState = bool ? .confirmationCode : .pin
+        codeView.isHidden = !bool
+        
+        backButton.isHidden = !bool
+        titleLabel.text = bool ? "Confirmation code".localizedString : "PIN".localizedString
+        subtitleLabel.text = bool ? "Enter the secret code sent to your number".localizedString : "Enter Pin Code".localizedString
+        
+        stackView.isHidden = bool
+        textField.isHidden = bool
+        forgotPinButton.isHidden = bool
+    }
+    
+    private func makeNextButtonAvailable(_ bool: Bool) {
+        if bool {
+            self.nextButton.backgroundColor = UIColor.custom.buttonBackgroundColor
+            self.nextButton.isUserInteractionEnabled = true
+        }else {
+            self.nextButton.backgroundColor = .custom.lightGray
+            self.nextButton.isUserInteractionEnabled = false
+        }
+    }
+    
+    @objc private func nextAction() {
+        if buttonCheckState == .pin {
+            if presenter.compareEnterCode(enterCode: textField.text ?? "") {
+                let vc = SuggestionsViewController()
+                let keyWindow = UIApplication.shared.connectedScenes
+                    .filter({$0.activationState == .foregroundActive})
+                    .compactMap({$0 as? UIWindowScene})
+                    .first?.windows
+                    .filter({$0.isKeyWindow}).first
+                let navController = SideMenuNavigationController(rootViewController: vc)
+                keyWindow?.rootViewController = navController
+                return
+            }
+            if AuthApp.shared.appEnterCode == nil {
+                if let text = textField.text {
+                    presenter.saveEnterCode(enterCode: text)
+                    subtitleLabel.text = "Confirm Pin".localizedString
+                    textField.text = ""
+                    textDidChange(textField)
+                }
+            }else if !presenter.compareEnterCode(enterCode: textField.text ?? "") {
+                alert(title: "Wrong PIN".localizedString, message: "Enter PIN again", url: nil)
                 textField.text = ""
                 textDidChange(textField)
             }
-        }else if !presenter.compareEnterCode(enterCode: textField.text ?? "") {
-            alert(title: "Wrong PIN".localizedString, message: "Enter PIN again", url: nil)
-            textField.text = ""
-            textDidChange(textField)
+        }else {
+            presenter.checkSMSCodeForPin(code: codeView.getCodeText())
         }
+        
+    }
+}
+
+extension ApplicationCodeViewController: AppEnterCodePresenterProtocol {
+    func success(sessionId: String) {
+        showCodeConfirmation(true)
+    }
+    
+    func successSMSVerification() {
+        AuthApp.shared.appEnterCode = nil
+        showCodeConfirmation(false)
+        forgotPinButton.isHidden = true
+        subtitleLabel.text = "Create new PIN".localizedString
     }
 }

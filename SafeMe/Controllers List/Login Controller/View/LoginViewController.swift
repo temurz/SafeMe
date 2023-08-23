@@ -186,7 +186,7 @@ class LoginViewController: GradientViewController {
                 alert(title: "Fields are not filled".localizedString, message: "Please fill all fields".localizedString, url: nil)
                 return
             }
-            let vc = ChangePasswordViewController(phoneNumber: phoneTextField.text, isToHomeView: true)
+            let vc = ChangePasswordViewController(phoneNumber: phoneTextField.text, isBackToLogin: true)
             self.navigationController?.pushViewController(vc, animated: true)
         case .checkCode:
             presenter.checkVerificationCode(code: codeView.getCodeText())
@@ -261,7 +261,6 @@ class LoginViewController: GradientViewController {
         if !bool {
             codeView.timer?.stopTimer()
         }else {
-            timerVal = 120
             codeView.timer?.startTimer()
         }
         codeView.isHidden = !bool
@@ -295,7 +294,7 @@ class LoginViewController: GradientViewController {
 
 extension LoginViewController: LoginPresenterProtocol {
     func successAutorization() {
-        let vc = ApplicationCodeViewController()
+        let vc = ApplicationCodeViewController(hasPin: false)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

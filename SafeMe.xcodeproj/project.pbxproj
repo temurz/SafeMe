@@ -150,6 +150,8 @@
 		B89622012A8E4C1F0006EDD1 /* Poll+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89622002A8E4C1F0006EDD1 /* Poll+Network.swift */; };
 		B8A66F142A93C62000EB6269 /* AddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A66F132A93C62000EB6269 /* AddChildViewController.swift */; };
 		B8A66F162A948FB000EB6269 /* ChildViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A66F152A948FB000EB6269 /* ChildViewPresenter.swift */; };
+		B8AAFDF02A95F6230066FB06 /* PINVerification+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAFDEF2A95F6230066FB06 /* PINVerification+Network.swift */; };
+		B8AAFDF22A95F9D30066FB06 /* SMSVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAFDF12A95F9D30066FB06 /* SMSVerificationViewController.swift */; };
 		B8B062372A616FA70020339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062362A616FA70020339B /* AppDelegate.swift */; };
 		B8B062392A616FA70020339B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B062382A616FA70020339B /* SceneDelegate.swift */; };
 		B8B0623B2A616FA70020339B /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0623A2A616FA70020339B /* SuggestionsViewController.swift */; };
@@ -310,6 +312,8 @@
 		B89622002A8E4C1F0006EDD1 /* Poll+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Poll+Network.swift"; sourceTree = "<group>"; };
 		B8A66F132A93C62000EB6269 /* AddChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildViewController.swift; sourceTree = "<group>"; };
 		B8A66F152A948FB000EB6269 /* ChildViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewPresenter.swift; sourceTree = "<group>"; };
+		B8AAFDEF2A95F6230066FB06 /* PINVerification+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINVerification+Network.swift"; sourceTree = "<group>"; };
+		B8AAFDF12A95F9D30066FB06 /* SMSVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSVerificationViewController.swift; sourceTree = "<group>"; };
 		B8B062332A616FA70020339B /* SafeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B062362A616FA70020339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B062382A616FA70020339B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -567,6 +571,7 @@
 				B870ED722A82E84000C1D0E3 /* ProfileRegister+Network.swift */,
 				B89622002A8E4C1F0006EDD1 /* Poll+Network.swift */,
 				B842F3102A92183A001F79BC /* Sos+Network.swift */,
+				B8AAFDEF2A95F6230066FB06 /* PINVerification+Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				B86ACAC42A6C727400D04485 /* ApplicationCodeViewController.swift */,
 				B875C38E2A817C1C004FEA92 /* CodeView.swift */,
 				B842F3012A90B328001F79BC /* TimerView.swift */,
+				B8AAFDF12A95F9D30066FB06 /* SMSVerificationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1238,6 +1244,7 @@
 				B842F2F82A8F5C90001F79BC /* PollViewPresenter.swift in Sources */,
 				B86ACA4A2A62EC5A00D04485 /* SetupViews.swift in Sources */,
 				B875C3802A80EF05004FEA92 /* Complaint+Network.swift in Sources */,
+				B8AAFDF02A95F6230066FB06 /* PINVerification+Network.swift in Sources */,
 				B86ACB652A74F07D00D04485 /* RecommendationCell.swift in Sources */,
 				B842F3372A934950001F79BC /* Int+Extension.swift in Sources */,
 				B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */,
@@ -1292,6 +1299,7 @@
 				B86ACB5F2A74651100D04485 /* RecommendationModel.swift in Sources */,
 				B86ACB672A74F6CA00D04485 /* RecommendationDetailViewController.swift in Sources */,
 				B86ACA1D2A62DFCF00D04485 /* UILabel+Extension.swift in Sources */,
+				B8AAFDF22A95F9D30066FB06 /* SMSVerificationViewController.swift in Sources */,
 				34242D842A93D812003740D0 /* ChangePassword+Network.swift in Sources */,
 				B86ACA1F2A62E00400D04485 /* UIColor+Extension.swift in Sources */,
 				B870ED732A82E84000C1D0E3 /* ProfileRegister+Network.swift in Sources */,

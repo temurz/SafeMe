@@ -95,11 +95,12 @@ class AboutViewController: BaseViewController {
             cyber102ImageView.topAnchor.constraint(equalTo: unicefImageView.bottomAnchor, constant: 36),
             cyber102ImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            fourthTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            fourthTitleLabel.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,constant: -40),
+            fourthTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16),
+            fourthTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            fourthTitleLabel.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,constant: -24),
             
-            thirdTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            thirdTitleLabel.topAnchor.constraint(equalTo: cyber102ImageView.bottomAnchor, constant: 80),
+            thirdTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            thirdTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             thirdTitleLabel.bottomAnchor.constraint(equalTo: fourthTitleLabel.topAnchor, constant: -36),
             
             

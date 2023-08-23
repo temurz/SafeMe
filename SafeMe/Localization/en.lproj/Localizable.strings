@@ -127,3 +127,6 @@
 "New password" = "New password";
 "Enter new password and repeat it." = "Enter new password and repeat it.";
 "Language" = "Language";
+"Did you forget PIN?" = "Did you forget PIN?";
+"Enter the secret code sent to your number" = "Enter the secret code sent to your number";
+"Create new PIN" = "Create new PIN";

@@ -184,8 +184,7 @@ class AddChildViewController: GradientViewController {
             .compactMap({$0 as? UIWindowScene})
             .first?.windows
             .filter({$0.isKeyWindow}).first
-        let navController = sideController
-        keyWindow?.rootViewController = navController
+        keyWindow?.rootViewController = sideController
     }
 }
 
@@ -201,8 +200,7 @@ extension AddChildViewController: ChildViewPresenterProtocol {
                 .compactMap({$0 as? UIWindowScene})
                 .first?.windows
                 .filter({$0.isKeyWindow}).first
-            let navController = sideController
-            keyWindow?.rootViewController = navController
+            keyWindow?.rootViewController = sideController
         }
         alert.addAction(cancel)
         self.present(alert, animated: true)

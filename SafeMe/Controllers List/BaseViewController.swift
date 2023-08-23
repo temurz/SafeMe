@@ -46,9 +46,9 @@ class BaseViewController: GradientViewController {
         let stackView = UIStackView()
         stackView.frame = .init(x: 0, y: 0, width: 200, height: 50)
         stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .trailing
-        stackView.distribution = .fillEqually
+        stackView.spacing = 12
+        stackView.alignment = .fill
+        stackView.distribution = .fill
         stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(sosButton)
@@ -57,6 +57,7 @@ class BaseViewController: GradientViewController {
         sosButton.addTarget(self, action: #selector(sosButtonAction), for: .touchUpInside)
         profileButton.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
         profileButton.tintColor = .white
+        profileButton.contentMode = .scaleAspectFill
         
         navBarTitleLabel.textAlignment = .left
         navBarTitleLabel.font = .robotoFont(ofSize: 14)
@@ -79,7 +80,7 @@ class BaseViewController: GradientViewController {
         NSLayoutConstraint.activate([
             customNavBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             customNavBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
-            customNavBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            customNavBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             customNavBar.heightAnchor.constraint(equalToConstant: 50),
         ])
         
