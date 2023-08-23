@@ -49,6 +49,7 @@ class ProfileViewController: GradientViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.getUser()
+        indicatorView.stopAnimating()
     }
     
     private func initialize() {
@@ -114,7 +115,7 @@ class ProfileViewController: GradientViewController {
         firstButton.layer.borderColor = UIColor.hexStringToUIColor(hex: "#1ACBAE").cgColor
         firstButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         firstButton.setTitle("Profilni tahrirlash".localizedString, for: .normal)
-        firstButton.addTarget(self, action: #selector(firstButtonAction), for: .touchUpInside)
+        firstButton.addTarget(self, action: #selector(updateProfileButtonAction), for: .touchUpInside)
         firstButton.layer.cornerRadius = 8
         firstButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#1ACBAE"), for: .normal)
         
@@ -219,7 +220,8 @@ class ProfileViewController: GradientViewController {
         ])
     }
     
-    @objc private func firstButtonAction() {
+    @objc private func updateProfileButtonAction() {
+        self.indicatorView.startAnimating()
         let vc = UpdateProfileViewController(user: model, withNavigation: true)
         self.navigationController?.pushViewController(vc, animated: true)
     }

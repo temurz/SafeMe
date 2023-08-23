@@ -21,6 +21,7 @@ class SosViewController: GradientViewController {
     
     var locationManager = CLLocationManager()
     private var sosType = SOSType.dangerZone
+    private var emptyRequest = true
     
     private var presenter = SosViewPresenter()
     
@@ -34,8 +35,8 @@ class SosViewController: GradientViewController {
         self.title = "SOS"
         setupConstraints()
         presenter.delegate = self
-        locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
     }
     
     private func initialize() {
@@ -113,17 +114,17 @@ class SosViewController: GradientViewController {
     
     @objc private func firstCallButtonAction() {
         sosType = .suspicious
-        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
     }
     
     @objc private func secondCallButtonAction() {
         sosType = .dangerZone
-        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
     }
     
     @objc private func thirdCallButtonAction() {
         sosType = .help
-        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
     }
 }
 

@@ -17,8 +17,11 @@ class SosViewPresenter {
     weak var delegate: SosViewPresenterDelegate?
     
     func sendSosSignal(long: CLLocationDegrees, lat: CLLocationDegrees, type: String) {
-        Network.shared.sendSosSignal(long: long as Double, lat: lat as Double, type: type) { statusCode in
-            
+        self.delegate?.indicatorView.startAnimating()
+        Network.shared.sendSosSignal(long: long as Double, lat: lat as Double, type: type) {
+            [weak self] statusCode in
+            guard let self else { return }
+            self.delegate?.indicatorView.stopAnimating()
             self.pushAlert(statusCode)
         }
     }

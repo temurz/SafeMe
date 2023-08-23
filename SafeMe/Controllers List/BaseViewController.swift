@@ -13,7 +13,7 @@ class BaseViewController: GradientViewController {
     let searchButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(systemName: "magnifyingglass"))
     let sosButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(named: "sosIcon"))
     let notificationsButton = UIButton(backgroundColor: .clear, image: UIImage(systemName: "bell.fill"))
-    let profileButton = UIButton(backgroundColor: .clear, image: UIImage(systemName: "person.crop.circle"))
+    let profileButton = UIButton(backgroundColor: .clear, image: UIImage(named: "person"))
     let customNavBar = UIStackView()
     
     override func viewDidLoad() {
@@ -46,7 +46,7 @@ class BaseViewController: GradientViewController {
         let stackView = UIStackView()
         stackView.frame = .init(x: 0, y: 0, width: 200, height: 50)
         stackView.axis = .horizontal
-        stackView.spacing = 12
+        stackView.spacing = 16
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.addArrangedSubview(UIView())
