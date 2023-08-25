@@ -40,7 +40,13 @@ enum Api {
     case ageCategory
     case categories
     case recommendations
+    case recomAgeCategory
+    case recomCategory
+    case recomCategoryAndAge
     case games
+    case gamesAgeCategory
+    case gamesCategory
+    case gamesCategoryAndAge
     case getUser
     case sendComplaint
     case requestSMSForPasswordChange
@@ -50,7 +56,7 @@ enum Api {
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification, .recomCategory, .recomAgeCategory, .recomCategoryAndAge, .gamesCategory, .gamesAgeCategory, .gamesCategoryAndAge:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
@@ -70,6 +76,7 @@ enum Api {
             let languageUrl = lang == "uz-Cyrl" ? "/sr" : "/" + lang
             
             switch self {
+            
             case .pinSmsCodeVerification: return baseURL + languageUrl + "/user/pin/verification"
             case .requestSMSForPin: return baseURL + languageUrl + "/user/pin/recover"
             case .passwordUpdate: return baseURL + languageUrl + "/user/password/update"
@@ -86,7 +93,13 @@ enum Api {
             case .phoneVerification: return baseURL + languageUrl + "/user/verification/"
             case .getUser: return baseURL + languageUrl + "/user/"
             case .games: return baseURL + languageUrl + "/api/v1.0/games/"
+            case .gamesCategory: return baseURL + languageUrl + "/api/v1.0/games/category"
+            case .gamesAgeCategory: return baseURL + languageUrl + "/api/v1.0/games/age"
+            case .gamesCategoryAndAge: return baseURL + languageUrl + "/api/v1.0/games/agecategory"
             case .recommendations: return baseURL + languageUrl + "/api/v1.0/recommendation/"
+            case .recomCategory: return baseURL + languageUrl + "/api/v1.0/recommendation/category"
+            case .recomAgeCategory: return baseURL + languageUrl + "/api/v1.0/recommendation/agecategory"
+            case .recomCategoryAndAge: return baseURL + languageUrl + "/api/v1.0/recommendation/agecat"
             case .categories: return baseURL + languageUrl + "/api/v1.0/category/"
             case .news: return baseURL + languageUrl + "/api/v1.0/news/"
             case .inspectors: return baseURL + languageUrl + "/api/v1.0/police/"

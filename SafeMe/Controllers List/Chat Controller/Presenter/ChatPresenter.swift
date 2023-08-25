@@ -57,10 +57,11 @@ class ChatPresenter {
             self.delegate?.indicatorView.stopAnimating()
             self.reloadGames(games)
         }else {
-            Network.shared.getGames { [weak self] statusCode, games in
+            Network.shared.getGames(ageCategory: ageCategory?.id, category: category?.id) { [weak self] statusCode, games in
                 self?.delegate?.indicatorView.stopAnimating()
                 guard let games else {
                     self?.pushAlert(statusCode)
+                    self?.reloadGames([])
                     return
                 }
                 
@@ -97,14 +98,14 @@ extension ChatPresenter {
     
     private func reloadGames(_ games: [Game]) {
         DispatchQueue.main.async {
-            var filteredGames = games
-            if let selectedAgeCategory = self.selectedAgeCategory {
-                filteredGames = games.filter({$0.agecategory == selectedAgeCategory.id})
-            }
-            if let selectedCategory = self.selectedCategory {
-                filteredGames = filteredGames.filter({$0.category == selectedCategory.id})
-            }
-            self.delegate?.reloadGames(filteredGames)
+//            var filteredGames = games
+//            if let selectedAgeCategory = self.selectedAgeCategory {
+//                filteredGames = games.filter({$0.agecategory == selectedAgeCategory.id})
+//            }
+//            if let selectedCategory = self.selectedCategory {
+//                filteredGames = filteredGames.filter({$0.category == selectedCategory.id})
+//            }
+            self.delegate?.reloadGames(games)
         }
     }
 }

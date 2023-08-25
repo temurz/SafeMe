@@ -1507,7 +1507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B9QUW9Z84N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeMe/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
@@ -1539,7 +1539,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B9QUW9Z84N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeMe/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";

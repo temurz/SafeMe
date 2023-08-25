@@ -57,17 +57,16 @@ class SuggestionsPresenter {
             self.delegate?.indicatorView.stopAnimating()
             self.reloadRecommendations(recommendations)
         }else {
-            Network.shared.getRecommendations { [weak self] statusCode, recommendations in
+            Network.shared.getRecommendations(ageCategory: ageCategory?.id, category: category?.id) { [weak self] statusCode, recommendations in
                 self?.delegate?.indicatorView.stopAnimating()
                 guard let recommendations else {
                     self?.pushAlert(statusCode)
+                    self?.reloadRecommendations([])
                     return
                 }
-                
                 self?.reloadRecommendations(recommendations)
             }
         }
-        
     }
 }
 
@@ -89,14 +88,14 @@ extension SuggestionsPresenter {
     
     private func reloadRecommendations(_ recommendations: [Recommendation]) {
         DispatchQueue.main.async {
-            var filteredRecs = recommendations
-            if let selectedAgeCategory = self.selectedAgeCategory {
-                filteredRecs = recommendations.filter({$0.ageCategory == selectedAgeCategory.id})
-            }
-            if let selectedCategory = self.selectedCategory {
-                filteredRecs = filteredRecs.filter({$0.category == selectedCategory.id})
-            }
-            self.delegate?.reloadRecommendations(filteredRecs)
+//            var filteredRecs = recommendations
+//            if let selectedAgeCategory = self.selectedAgeCategory {
+//                filteredRecs = recommendations.filter({$0.ageCategory == selectedAgeCategory.id})
+//            }
+//            if let selectedCategory = self.selectedCategory {
+//                filteredRecs = filteredRecs.filter({$0.category == selectedCategory.id})
+//            }
+            self.delegate?.reloadRecommendations(recommendations)
         }
     }
     
