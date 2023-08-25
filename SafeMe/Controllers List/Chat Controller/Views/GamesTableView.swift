@@ -11,6 +11,7 @@ class GamesTableView: UIView {
     private let tableView: UITableView = UITableView()
     private var items = [Game]()
     var isWaiting = false
+    var canLoadMore = true
     var pageNumber = 1
     var totalPages = 1
     
@@ -78,11 +79,13 @@ extension GamesTableView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
-            isWaiting = true
-            pageNumber += 1
-            pageNumber = totalPages > pageNumber ? pageNumber : totalPages
-            loadMore?(pageNumber)
+        if canLoadMore {
+            if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
+                isWaiting = true
+                pageNumber += 1
+                pageNumber = totalPages > pageNumber ? pageNumber : totalPages
+                loadMore?(pageNumber)
+            }
         }
     }
 }

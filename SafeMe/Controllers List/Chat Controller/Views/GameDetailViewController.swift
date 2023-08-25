@@ -50,14 +50,10 @@ class GameDetailViewController: GradientViewController {
             scrollView.contentOffset.x = 0
         }
         
-
-
-        
         mainImageView.sd_setImage(with: URL(string: game.image ?? ""))
         mainImageView.layer.cornerRadius = 12
-        mainImageView.clipsToBounds = true
         mainImageView.backgroundColor = .black
-        mainImageView.contentMode = .scaleAspectFit
+        mainImageView.layer.masksToBounds = true
         
         titleLabel.text = game.description
         titleLabel.font = .robotoFont(ofSize: 16, weight: .medium)
@@ -94,7 +90,7 @@ class GameDetailViewController: GradientViewController {
             mainImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 12),
             mainImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             mainImageView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.82),
-            mainImageView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.4),
+            mainImageView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.8),
             
             titleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
             titleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
@@ -128,7 +124,7 @@ extension GameDetailViewController: WKNavigationDelegate {
                             let newHeight = max(minHeight, height)
                             self.webView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
                             
-                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.8 + (self.titleLabel.text?.height(withConstrainedWidth: self.view.frame.width, font: self.titleLabel.font) ?? 50))
+                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 1.1 + (self.titleLabel.text?.height(withConstrainedWidth: self.view.frame.width, font: self.titleLabel.font) ?? 50))
                         }
                     })
                 }

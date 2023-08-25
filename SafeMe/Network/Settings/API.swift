@@ -26,6 +26,7 @@ enum Api {
     case sos
     case saveAnswer
     case poll
+    case pollWithAge
     case pollAnswers
     case regions
     case districts
@@ -56,7 +57,7 @@ enum Api {
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification, .recomCategory, .recomAgeCategory, .recomCategoryAndAge, .gamesCategory, .gamesAgeCategory, .gamesCategoryAndAge, .categories:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification, .recomCategory, .recomAgeCategory, .recomCategoryAndAge, .gamesCategory, .gamesAgeCategory, .gamesCategoryAndAge, .categories, .pollWithAge:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
@@ -86,6 +87,7 @@ enum Api {
             case .sos: return baseURL + languageUrl + "/api/v1.0/sos/"
             case .saveAnswer: return baseURL + languageUrl + "/api/v1.0/polling/answer"
             case .poll: return baseURL + languageUrl + "/api/v1.0/polling/all"
+            case .pollWithAge: return baseURL + languageUrl + "/api/v1.0/polling/all"
             case .pollAnswers: return baseURL + languageUrl + "/api/v1.0/polling/view/"
             case .mahalla: return baseURL + languageUrl + "/api/v1.0/mahalla/"
             case .districts: return baseURL + languageUrl + "/api/v1.0/districts/"

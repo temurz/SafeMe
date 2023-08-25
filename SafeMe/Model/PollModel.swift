@@ -35,6 +35,7 @@ struct PollingModel: Decodable {
 struct PollingParsingModel: Decodable {
     let success: Bool
     let message: String
+    let total_pages: Int?
     let body: [PollingModel]
 }
 

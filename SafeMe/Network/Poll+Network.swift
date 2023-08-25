@@ -9,32 +9,49 @@ import Foundation
 
 extension Network {
     
-    func getPolls(completion: @escaping (StatusCode, [PollingModel]?) -> ()) {
+    func getPolls(page: Int, size: Int, ageCategory: Int?, completion: @escaping (StatusCode, [PollingModel]?, Int?) -> ()) {
         
-        let api = Api.poll
+        var api = Api.poll
         
-        push(api: api, body: nil, headers: nil, type: PollingParsingModel.self) { result in
-            switch result {
-            case .success(let model):
-                completion(StatusCode(code: 0), model.body)
-            case .failure(let error):
-                completion(error, nil)
+        let queryItems = [URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "size", value: "\(size)")]
+        var urlComps = URLComponents(string: api.path)!
+        urlComps.queryItems = queryItems
+        let newUrl = urlComps.url!
+        
+        if let ageCategory = ageCategory {
+            api = .pollWithAge
+            
+            let params = [["key": "agecategory",
+                           "value": "\(ageCategory)",
+                           "type": "text"
+                          ]]
+            let boundary = generateBoundaryString()
+            let body = generateMutableData(boundary: boundary, parameters: params, imagesData: []) as Data
+            let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+            
+            push(api: api, body: body, headers: header, type: PollingParsingModel.self) { result in
+                switch result {
+                case .success(let model):
+                    completion(StatusCode(code: 0), model.body, model.total_pages)
+                case .failure(let error):
+                    completion(error, nil, nil)
+                }
+            }
+        }else {
+            push(api: api, newUrl: newUrl, body: nil, headers: nil, type: PollingParsingModel.self) { result in
+                switch result {
+                case .success(let model):
+                    completion(StatusCode(code: 0), model.body, model.total_pages)
+                case .failure(let error):
+                    completion(error, nil, nil)
+                }
             }
         }
     }
     
     func getPollAnswers(poll_id: Int, completion: @escaping (StatusCode, [Answer]?) -> ()) {
-        var api = Api.pollAnswers
+        let api = Api.pollAnswers
         
-//        let params = [[
-//            "key": "poll_id",
-//            "value": "\(poll_id)",
-//            "type": "text"
-//        ]]
-//
-//        let boundary = generateBoundaryString()
-//        let body = generateMutableData(boundary: boundary, parameters: params, imagesData: []) as Data
-//        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
         let path = URL(string: api.path + "\(poll_id)")
         
         push(api: api,newUrl: path, body: nil, headers: nil, type: PollAnswerParsingModel.self) { result in

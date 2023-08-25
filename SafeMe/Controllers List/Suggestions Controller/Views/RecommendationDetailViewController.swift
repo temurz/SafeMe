@@ -54,9 +54,9 @@ class RecommendationDetailViewController: GradientViewController {
         
         mainImageView.sd_setImage(with: URL(string: recommendation.image ?? ""))
         mainImageView.layer.cornerRadius = 12
-        mainImageView.clipsToBounds = true
+        mainImageView.layer.masksToBounds = true
         mainImageView.backgroundColor = .black
-        mainImageView.contentMode = .scaleAspectFit
+//        mainImageView.contentMode = .scaleAspectFit
         
         titleLabel.text = recommendation.title
         titleLabel.font = .robotoFont(ofSize: 16, weight: .medium)
@@ -67,9 +67,6 @@ class RecommendationDetailViewController: GradientViewController {
         webView.loadHTMLString(headerString + (recommendation.text ?? ""), baseURL: nil)
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
-//        webView.scrollView.minimumZoomScale = 1.0
-//        webView.scrollView.maximumZoomScale = 150 // You can adjust this value to control the maximum zoom level
-//        webView.scrollView.zoomScale = 150
         
         dateView.setImage(UIImage(named: "calendar"), for: .normal)
         dateView.setTitle(recommendation.createdDate.convertToDateUS(), for: .normal)
@@ -93,7 +90,7 @@ class RecommendationDetailViewController: GradientViewController {
             mainImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 12),
             mainImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             mainImageView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.82),
-            mainImageView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.4),
+            mainImageView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.8),
             
             titleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
             titleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
@@ -126,7 +123,7 @@ extension RecommendationDetailViewController: WKNavigationDelegate {
                             let newHeight = max(minHeight, height)
                             self.webView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
                             
-                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.7 + (self.titleLabel.text?.height(withConstrainedWidth: self.view.frame.width, font: self.titleLabel.font) ?? 50))
+                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 1.1 + (self.titleLabel.text?.height(withConstrainedWidth: self.view.frame.width, font: self.titleLabel.font) ?? 50))
                         }
                     })
                 }

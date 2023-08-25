@@ -11,6 +11,10 @@ class PollViewController: BaseViewController {
     private var ageFilterCollectionView = AgeCategoriesView(.clear)
     private let tableView = UITableView(.clear)
     private let presenter = PollViewPresenter()
+    
+    var totalPages = 1
+    var pageNumber = 1
+    var isWaiting = false
 
     var items = [PollingModel]()
     override func loadView() {
@@ -30,14 +34,14 @@ class PollViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.getAgeCategories()
-        presenter.getPolls()
+        presenter.getPolls(page: 1, size: 10)
     }
     
     private func initialize() {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [ageFilterCollectionView, tableView])
 
         ageFilterCollectionView.selectAction = { [weak self] ageCategory in
-            self?.presenter.getPolls(ageCategory: ageCategory)
+            self?.presenter.getPolls(page: 1, ageCategory: ageCategory)
         }
         
         tableView.rowHeight = self.view.frame.width - 120
@@ -79,12 +83,31 @@ extension PollViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
+            isWaiting = true
+            pageNumber += 1
+            pageNumber = totalPages > pageNumber ? pageNumber : totalPages
+            loadMore(pageNumber)
+        }
+    }
+    
+    func loadMore(_ pageNumber: Int) {
+        presenter.getPolls(page: pageNumber)
+    }
 }
 
 extension PollViewController: PollViewPresenterProtocol {
-    func updatePolls(_ polls: [PollingModel]) {
+    func updatePolls(_ polls: [PollingModel], totalPages: Int) {
         noDataView.isHidden = polls.isEmpty ? false : true
-        items = polls
+        self.totalPages = totalPages
+        if isWaiting {
+            self.items += polls
+            isWaiting = false
+        }else {
+            self.items = polls
+        }
         self.tableView.reloadData()
     }
     

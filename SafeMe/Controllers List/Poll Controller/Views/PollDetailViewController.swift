@@ -54,8 +54,11 @@ class PollDetailViewController: GradientViewController {
         scrollView.layer.cornerRadius = 12
         SetupViews.addViewEndRemoveAutoresizingMask(superView: scrollView, array: [mainImageView, titleLabel, tableView])
         
+        mainImageView.sd_setImage(with: URL(string: model.media))
         mainImageView.layer.cornerRadius = 12
-        mainImageView.contentMode = .scaleAspectFit
+        mainImageView.layer.masksToBounds = true
+        
+//        mainImageView.contentMode = .scaleAspectFit
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -63,7 +66,6 @@ class PollDetailViewController: GradientViewController {
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
         
-        mainImageView.sd_setImage(with: URL(string: model.media))
         titleLabel.text = model.text
         titleLabel.numberOfLines = 0
         
@@ -87,7 +89,7 @@ class PollDetailViewController: GradientViewController {
             mainImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             mainImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             mainImageView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.82),
-            mainImageView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.4),
+            mainImageView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.8),
             
             titleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),

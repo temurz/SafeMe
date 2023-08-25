@@ -35,8 +35,8 @@ class GameViewCell: UITableViewCell {
         bgView.layer.cornerRadius = 12
         
         mainImageView.layer.cornerRadius = 6
-        mainImageView.clipsToBounds = true
-        mainImageView.contentMode = .scaleAspectFit
+        
+        mainImageView.layer.masksToBounds = true
         
         saveImageView.layer.cornerRadius = 6
         saveImageView.image = UIImage(named: "star")

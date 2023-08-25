@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PollViewPresenterProtocol {
-    func updatePolls(_ polls: [PollingModel])
+    func updatePolls(_ polls: [PollingModel], totalPages: Int)
     func reloadAgeCategories(_ ageCategories: [AgeCategory])
 }
 
@@ -17,21 +17,17 @@ typealias PollViewPresenterDelegate = PollViewPresenterProtocol & PollViewContro
 class PollViewPresenter {
     weak var delegate: PollViewPresenterDelegate?
     
-    func getPolls(ageCategory: AgeCategory? = nil) {
+    func getPolls(page: Int, size: Int = 10, ageCategory: AgeCategory? = nil) {
         
-        Network.shared.getPolls { [weak self] statusCode, polls in
+        Network.shared.getPolls(page: page, size: size, ageCategory: ageCategory?.id) { [weak self] statusCode, polls, totalPages in
             guard let self else { return }
             guard let polls else {
                 self.pushAlert(statusCode)
+                self.updatePolls([], totalPages: 1)
                 return
             }
             
-            if let ageCategory = ageCategory {
-                let filteredPolls = polls.filter({$0.ageCategory == ageCategory.id})
-                self.updatePolls(filteredPolls)
-                return
-            }
-            self.updatePolls(polls)
+            self.updatePolls(polls, totalPages: totalPages ?? 1)
         }
     }
     
@@ -51,9 +47,9 @@ class PollViewPresenter {
 
 extension PollViewPresenter {
     
-    func updatePolls(_ polls: [PollingModel]) {
+    func updatePolls(_ polls: [PollingModel], totalPages: Int) {
         DispatchQueue.main.async { [weak self] in
-            self?.delegate?.updatePolls(polls)
+            self?.delegate?.updatePolls(polls, totalPages: totalPages)
         }
     }
     

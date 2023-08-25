@@ -59,12 +59,14 @@ class ChatViewController: BaseViewController {
         bookmarkedButton.contentMode = .scaleAspectFill
         ageFilterCollectionView.selectAction = { [weak self] ageCategory in
             self?.selectedAgeCategory = ageCategory
+            self?.gamesTableView.canLoadMore = false
             self?.presenter.getGames(ageCategory: ageCategory, category: self?.selectedCategory, page: 1, size: 10)
         }
         
         
         categoriesView.selectAction = { [weak self] category in
             self?.selectedCategory = category
+            self?.gamesTableView.canLoadMore = false
             self?.presenter.getGames(ageCategory: self?.selectedAgeCategory, category: category, page: 1, size: 10)
         }
         

@@ -34,8 +34,8 @@ class NewsCell: UITableViewCell {
         bgView.layer.borderColor = UIColor.hexStringToUIColor(hex: "#63D586").cgColor
         bgView.layer.cornerRadius = 12
         
-        mainImageView.contentMode = .scaleAspectFit
         mainImageView.layer.cornerRadius = 6
+        mainImageView.layer.masksToBounds = true
         
         titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
         titleLabel.numberOfLines = 0
