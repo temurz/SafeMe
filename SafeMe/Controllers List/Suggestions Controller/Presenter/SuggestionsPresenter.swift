@@ -10,7 +10,7 @@ import Foundation
 protocol SuggestionsPresenterProtocol {
     func reloadAgeCategories(_ ageCategories: [AgeCategory])
     func reloadCategories(_ categories: [Category])
-    func reloadRecommendations(_ recommendations: [Recommendation])
+    func reloadRecommendations(_ recommendations: [Recommendation], totalPages: Int)
 }
 
 typealias SuggestionsPresenterDelegate = SuggestionsPresenterProtocol & SuggestionsViewController
@@ -20,6 +20,7 @@ class SuggestionsPresenter {
     
     var selectedAgeCategory: AgeCategory?
     var selectedCategory: Category?
+    var size: Int = 10
     var recommendations: [Recommendation] = []
     
     func getAgeCategories() {
@@ -35,9 +36,9 @@ class SuggestionsPresenter {
         }
     }
     
-    func getCategories() {
+    func getCategories(type: String) {
         self.delegate?.indicatorView.startAnimating()
-        Network.shared.getCategories { [weak self] statusCode, categories in
+        Network.shared.getCategories(type: type) { [weak self] statusCode, categories in
             self?.delegate?.indicatorView.stopAnimating()
             guard let categories else {
                 return
@@ -47,24 +48,25 @@ class SuggestionsPresenter {
         }
     }
     
-    func getRecommendations(ageCategory: AgeCategory? = nil, category: Category? = nil) {
+    func getRecommendations(ageCategory: AgeCategory? = nil, category: Category? = nil, page: Int, size: Int = 10) {
         self.selectedAgeCategory = ageCategory
         self.selectedCategory = category
+        self.size = size
         
         self.delegate?.indicatorView.startAnimating()
         
         if !self.recommendations.isEmpty {
             self.delegate?.indicatorView.stopAnimating()
-            self.reloadRecommendations(recommendations)
+            self.reloadRecommendations(recommendations, totalPages: 0)
         }else {
-            Network.shared.getRecommendations(ageCategory: ageCategory?.id, category: category?.id) { [weak self] statusCode, recommendations in
+            Network.shared.getRecommendations(ageCategory: ageCategory?.id, category: category?.id, page: page, size: size) { [weak self] statusCode, recommendations, totalPages in
                 self?.delegate?.indicatorView.stopAnimating()
                 guard let recommendations else {
                     self?.pushAlert(statusCode)
-                    self?.reloadRecommendations([])
+                    self?.reloadRecommendations([], totalPages: 0)
                     return
                 }
-                self?.reloadRecommendations(recommendations)
+                self?.reloadRecommendations(recommendations, totalPages: totalPages ?? 0)
             }
         }
     }
@@ -86,16 +88,9 @@ extension SuggestionsPresenter {
         }
     }
     
-    private func reloadRecommendations(_ recommendations: [Recommendation]) {
+    private func reloadRecommendations(_ recommendations: [Recommendation], totalPages: Int) {
         DispatchQueue.main.async {
-//            var filteredRecs = recommendations
-//            if let selectedAgeCategory = self.selectedAgeCategory {
-//                filteredRecs = recommendations.filter({$0.ageCategory == selectedAgeCategory.id})
-//            }
-//            if let selectedCategory = self.selectedCategory {
-//                filteredRecs = filteredRecs.filter({$0.category == selectedCategory.id})
-//            }
-            self.delegate?.reloadRecommendations(recommendations)
+            self.delegate?.reloadRecommendations(recommendations, totalPages: totalPages)
         }
     }
     

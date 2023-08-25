@@ -10,16 +10,21 @@ import Foundation
 extension Network {
     
     //MARK: Get News
-    func getNews(completion: @escaping (StatusCode, [News]?) -> ()) {
+    func getNews(page: Int, size: Int, completion: @escaping (StatusCode, [News]?, Int?) -> ()) {
         
         let api = Api.news
         
-        push(api: api, body: nil, headers: nil, type: NewsModel.self) { result in
+        let queryItems = [URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "size", value: "\(size)")]
+        var urlComponents = URLComponents(string: api.path)!
+        urlComponents.queryItems = queryItems
+        let newUrl = urlComponents.url!
+        
+        push(api: api, newUrl: newUrl,body: nil, headers: nil, type: NewsModel.self) { result in
             switch result {
             case .success(let model):
-                completion(StatusCode(code: 200), model.body)
+                completion(StatusCode(code: 200), model.body, model.totalPages)
             case .failure(let error):
-                completion(error, nil)
+                completion(error, nil, nil)
             }
         }
     }

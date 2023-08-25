@@ -10,8 +10,15 @@ import UIKit
 class RecommendationsView: UIView {
     private var collectionView: UICollectionView!
     private var items: [Recommendation] = []
-    var selectAction: ((Recommendation) -> ())?
     
+    var pageNumber: Int = 1
+    var isWaiting: Bool = false
+    var firstLoad: Bool = true
+    var canLoadMore = true
+    var totalPages: Int = 1
+    
+    var selectAction: ((Recommendation) -> ())?
+    var loadMore: ((Int) -> ())?
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -61,6 +68,12 @@ class RecommendationsView: UIView {
         self.items = items
         self.collectionView.reloadData()
     }
+    
+    func appendItems(_ items: [Recommendation]) {
+        self.items += items
+        self.collectionView.reloadData()
+        isWaiting = false
+    }
 }
 
 extension RecommendationsView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -83,4 +96,14 @@ extension RecommendationsView: UICollectionViewDataSource, UICollectionViewDeleg
         self.selectAction?(items[indexPath.row])
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if canLoadMore {
+            if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
+                isWaiting = true
+                pageNumber += 1
+                pageNumber = totalPages > pageNumber ? pageNumber : totalPages
+                loadMore?(pageNumber)
+            }
+        }
+    }
 }

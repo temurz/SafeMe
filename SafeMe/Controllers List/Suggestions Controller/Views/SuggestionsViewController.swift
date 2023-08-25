@@ -39,8 +39,8 @@ class SuggestionsViewController: BaseViewController {
         super.viewWillAppear(animated)
         if firstLaunch {
             presenter.getAgeCategories()
-            presenter.getCategories()
-            presenter.getRecommendations()
+            presenter.getCategories(type: "recomendation")
+            presenter.getRecommendations(page: 1)
         }
     }
     
@@ -55,12 +55,16 @@ class SuggestionsViewController: BaseViewController {
         
         ageFilterCollectionView.selectAction = { [weak self] ageCategory in
             self?.selectedAgeCategory = ageCategory
-            self?.presenter.getRecommendations(ageCategory: ageCategory, category: self?.selectedCategory)
+            self?.recommendationsView.pageNumber = 1
+            self?.recommendationsView.canLoadMore = false
+            self?.presenter.getRecommendations(ageCategory: ageCategory, category: self?.selectedCategory,page: 1)
         }
         
         categoriesView.selectAction = { [weak self] category in
             self?.selectedCategory = category
-            self?.presenter.getRecommendations(ageCategory: self?.selectedAgeCategory,category: category)
+            self?.recommendationsView.pageNumber = 1
+            self?.recommendationsView.canLoadMore = false
+            self?.presenter.getRecommendations(ageCategory: self?.selectedAgeCategory,category: category, page: 1)
         }
         
         recommendationsView.selectAction = { [weak self] recommendation in
@@ -68,6 +72,10 @@ class SuggestionsViewController: BaseViewController {
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         
+        recommendationsView.loadMore = { [weak self] pageNumber in
+            guard let self else {return}
+            self.presenter.getRecommendations(page: pageNumber)
+        }
 //        bgFilterView.layer.shadowColor = UIColor.black.cgColor
 //        bgFilterView.layer.masksToBounds = true
 //        bgFilterView.clipsToBounds = false
@@ -109,9 +117,15 @@ extension SuggestionsViewController: SuggestionsPresenterProtocol {
         self.categoriesView.heightAnchor.constraint(equalToConstant: categoriesView.getHeight()).isActive = true
     }
     
-    func reloadRecommendations(_ recommendations: [Recommendation]) {
+    func reloadRecommendations(_ recommendations: [Recommendation], totalPages: Int) {
         noDataView.isHidden = recommendations.isEmpty ? false : true
-        self.recommendationsView.updateItems(recommendations)
+        self.recommendationsView.totalPages = totalPages
+        if recommendationsView.isWaiting {
+            self.recommendationsView.appendItems(recommendations)
+        }else {
+            self.recommendationsView.updateItems(recommendations)
+        }
+        
         
 //        self.recommendationsView.heightAnchor.constraint(equalToConstant: recommendationsView.getHeight()).isActive = true
     }

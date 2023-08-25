@@ -50,10 +50,11 @@ class CategoriesView: UIView {
     }
     
     func getHeight() -> CGFloat {
+        var maxSize = CGFloat((64 * 3) + 10)
         if items.count % 2 == 0 {
-            return CGFloat(64 * (items.count / 2)) + 10
+            return min(CGFloat(64 * (items.count / 2)) + 10, maxSize)
         }else {
-            return CGFloat(64 * ((items.count / 2) + 1)) + 10
+            return min(CGFloat(64 * ((items.count / 2) + 1)) + 10, maxSize)
         }
     }
     

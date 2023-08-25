@@ -12,8 +12,11 @@ class GameViewCell: UITableViewCell {
     private let mainImageView = UIImageView()
     private let subtitleLabel = UILabel(text: "", font: .robotoFont(ofSize: 12, weight: .medium), color: .gray)
     private let titleLabel = UILabel(text: "", font: .robotoFont(ofSize: 16, weight: .medium), color: .black)
-    private let shareButton = UIButton(backgroundColor: .hexStringToUIColor(hex: "#1E90FF"), image: nil)
-    private let saveButton = UIButton(backgroundColor: .hexStringToUIColor(hex: "#FFC600"), image: nil)
+    private let saveImageView = UIImageView(.clear)
+    private let saveBackgroundView = GradientView()
+    
+    var saveAction: ((Bool) -> ())?
+    private var saved: Bool = false
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,7 +29,7 @@ class GameViewCell: UITableViewCell {
     
     private func initialize() {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: contentView, view: bgView)
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [mainImageView, subtitleLabel, titleLabel, shareButton, saveButton])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [mainImageView, subtitleLabel, titleLabel, saveBackgroundView, saveImageView ])
         self.backgroundColor = .clear
         self.selectionStyle = .none
         bgView.layer.cornerRadius = 12
@@ -35,18 +38,17 @@ class GameViewCell: UITableViewCell {
         mainImageView.clipsToBounds = true
         mainImageView.contentMode = .scaleAspectFit
         
-        shareButton.layer.cornerRadius = 5
-        shareButton.setTitle("Поделиться".localizedString, for: .normal)
-        shareButton.setImage(UIImage(named: "share"), for: .normal)
-        shareButton.titleLabel?.font = .robotoFont(ofSize: 12, weight: .medium)
-        shareButton.leftImage(left: 10)
-        
-        saveButton.layer.cornerRadius = 5
-        saveButton.setTitle("Сохранить".localizedString, for: .normal)
-        saveButton.setImage(UIImage(named: "star"), for: .normal)
-        saveButton.titleLabel?.font = .robotoFont(ofSize: 12, weight: .medium)
-        saveButton.leftImage(left: 10)
-        
+        saveImageView.layer.cornerRadius = 6
+        saveImageView.image = UIImage(named: "star")
+        saveImageView.isUserInteractionEnabled = false
+        saveImageView.contentMode = .scaleAspectFit
+                                      
+        saveBackgroundView.firstColor = UIColor(red: 0.1, green: 0.63, blue: 0.8, alpha: 1)
+        saveBackgroundView.secondColor = UIColor(red: 0.1, green: 0.8, blue: 0.67, alpha: 1)
+        saveBackgroundView.layer.cornerRadius = 6
+        saveBackgroundView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(saveTapped))
+        saveBackgroundView.addGestureRecognizer(tap)
         
         setupConstraints()
     }
@@ -71,16 +73,22 @@ class GameViewCell: UITableViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
             titleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 8),
             
-            shareButton.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
-            shareButton.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
-            shareButton.widthAnchor.constraint(equalToConstant: 114),
-            shareButton.heightAnchor.constraint(equalToConstant: 30),
+            saveBackgroundView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+            saveBackgroundView.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
+            saveBackgroundView.widthAnchor.constraint(equalToConstant: 70),
+            saveBackgroundView.heightAnchor.constraint(equalToConstant: 40),
             
-            saveButton.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
-            saveButton.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
-            saveButton.widthAnchor.constraint(equalTo: shareButton.widthAnchor, multiplier: 1),
-            saveButton.heightAnchor.constraint(equalToConstant: 30),
+            saveImageView.topAnchor.constraint(equalTo: saveBackgroundView.topAnchor, constant: 8),
+            saveImageView.leadingAnchor.constraint(equalTo: saveBackgroundView.leadingAnchor, constant: 16),
+            saveImageView.trailingAnchor.constraint(equalTo: saveBackgroundView.trailingAnchor, constant: -16),
+            saveImageView.bottomAnchor.constraint(equalTo: saveBackgroundView.bottomAnchor,constant: -8),
         ])
+    }
+    
+    @objc private func saveTapped() {
+        saved = !saved
+        saveImageView.image = saved ? UIImage(named: "star")?.withTintColor(UIColor.hexStringToUIColor(hex: "#FFC600")) : UIImage(named: "star")
+        saveAction?(saved)
     }
     
     func updateModel(model: Game) {

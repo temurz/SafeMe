@@ -9,7 +9,7 @@ import Foundation
 
 extension Network {
     
-    func getGames(ageCategory: Int?, category: Int?, completion: @escaping (StatusCode, [Game]?) -> ()) {
+    func getGames(ageCategory: Int?, category: Int?, page: Int, size: Int, completion: @escaping (StatusCode, [Game]?, Int?) -> ()) {
         
         var api = Api.games
         var params: [[String: String]]? = nil
@@ -37,25 +37,30 @@ extension Network {
                       ]]
         }
         
+        let queryItems = [URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "size", value: "\(size)")]
+        var urlComps = URLComponents(string: api.path)!
+        urlComps.queryItems = queryItems
+        let newUrl = urlComps.url!
+        
         if params == nil  {
-            push(api: api, body: nil, headers: nil, type: GameParsingModel.self) { result in
+            push(api: api,newUrl: newUrl, body: nil, headers: nil, type: GameParsingModel.self) { result in
                 switch result {
                 case .success(let model):
-                    completion(StatusCode(code: 200), model.body)
+                    completion(StatusCode(code: 200), model.body, model.total_pages)
                 case .failure(let error):
-                    completion(error, nil)
+                    completion(error, nil, nil)
                 }
             }
         }else if let params = params {
             let boundary = generateBoundaryString()
             let body = generateMutableData(boundary: boundary, parameters: params, imagesData: []) as Data
             let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
-            push(api: api, body: body, headers: header, type: GameParsingModel.self) { result in
+            push(api: api, newUrl: newUrl, body: body, headers: header, type: GameParsingModel.self) { result in
                 switch result {
                 case .success(let model):
-                    completion(StatusCode(code: 200), model.body)
+                    completion(StatusCode(code: 200), model.body, model.total_pages)
                 case .failure(let error):
-                    completion(error, nil)
+                    completion(error, nil, nil)
                 }
             }
         }

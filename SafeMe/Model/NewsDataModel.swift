@@ -45,14 +45,14 @@ struct NewsModel: Decodable {
 //    let next: String?
 //    let previous: String?
 //    let count: Int
-//    let totalPages: Int
+    let totalPages: Int?
     let body: [News]
     
     enum CodingKeys: String, CodingKey {
 //        case next
 //        case previous
 //        case count
-//        case totalPages = "total_pages"
+        case totalPages = "total_pages"
         case body
     }
     
@@ -61,7 +61,7 @@ struct NewsModel: Decodable {
 //        self.next = try container.decode(String.self, forKey: .next)
 //        self.previous = try container.decode(String.self, forKey: .previous)
 //        self.count = try container.decode(Int.self, forKey: .count)
-//        self.totalPages = try container.decode(Int.self, forKey: .totalPages)
+        self.totalPages = try container.decode(Int.self, forKey: .totalPages)
         self.body = try container.decode([News].self, forKey: .body)
     }
 }

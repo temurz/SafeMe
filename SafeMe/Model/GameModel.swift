@@ -41,5 +41,6 @@ struct Game: Decodable {
 }
 
 struct GameParsingModel: Decodable {
+    let total_pages: Int?
     let body: [Game]
 }

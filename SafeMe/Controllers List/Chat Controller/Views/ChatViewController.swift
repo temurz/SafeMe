@@ -10,6 +10,7 @@ import UIKit
 class ChatViewController: BaseViewController {
     private var ageFilterCollectionView = AgeCategoriesView(.clear)
     private let recommendedGamesLabel = UILabel(text: "Recommended Games".localizedString, font: .robotoFont(ofSize: 20, weight: .medium), color: .white)
+    private let bookmarkedButton = UIImageView(image: UIImage(named: "star"))
     private var categoriesView = CategoriesView()
     private let gamesTableView = GamesTableView()
     private let presenter = ChatPresenter()
@@ -37,7 +38,7 @@ class ChatViewController: BaseViewController {
         if firstLaunch {
             presenter.getAgeCategories()
             presenter.getCategories()
-            presenter.getGames()
+            presenter.getGames(page: 1, size: 17)
         }
     }
     
@@ -48,17 +49,23 @@ class ChatViewController: BaseViewController {
     
     private func initialize() {
         ageFilterCollectionView.backgroundColor = .clear
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [ ageFilterCollectionView, categoriesView, recommendedGamesLabel, gamesTableView])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [ ageFilterCollectionView, categoriesView, recommendedGamesLabel, bookmarkedButton, gamesTableView])
         gamesTableView.backgroundColor = .clear
+        
+        gamesTableView.loadMore = { [weak self] pageNumber in
+            guard let self else { return }
+            self.presenter.getGames(page: pageNumber)
+        }
+        bookmarkedButton.contentMode = .scaleAspectFill
         ageFilterCollectionView.selectAction = { [weak self] ageCategory in
             self?.selectedAgeCategory = ageCategory
-            self?.presenter.getGames(ageCategory: ageCategory, category: self?.selectedCategory)
+            self?.presenter.getGames(ageCategory: ageCategory, category: self?.selectedCategory, page: 1, size: 10)
         }
         
         
         categoriesView.selectAction = { [weak self] category in
             self?.selectedCategory = category
-            self?.presenter.getGames(ageCategory: self?.selectedAgeCategory, category: category)
+            self?.presenter.getGames(ageCategory: self?.selectedAgeCategory, category: category, page: 1, size: 10)
         }
         
         gamesTableView.selectItem = { [weak self] game in
@@ -83,7 +90,12 @@ class ChatViewController: BaseViewController {
             recommendedGamesLabel.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 16),
             recommendedGamesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             recommendedGamesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            recommendedGamesLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 20),
+            recommendedGamesLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 24),
+            
+            bookmarkedButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16),
+            bookmarkedButton.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 16),
+            bookmarkedButton.heightAnchor.constraint(equalToConstant: 24),
+            bookmarkedButton.widthAnchor.constraint(equalToConstant: 24),
             
             gamesTableView.topAnchor.constraint(equalTo: recommendedGamesLabel.bottomAnchor, constant: 16),
             gamesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -105,8 +117,14 @@ extension ChatViewController: ChatPresenterProtocol {
         self.categoriesView.heightAnchor.constraint(equalToConstant: categoriesView.getHeight()).isActive = true
     }
     
-    func reloadGames(_ games: [Game]) {
+    func reloadGames(_ games: [Game], totalPages: Int) {
         noDataView.isHidden = games.isEmpty ? false : true
-        self.gamesTableView.updateItems(games)
+        gamesTableView.totalPages = totalPages
+        if gamesTableView.isWaiting {
+            self.gamesTableView.appendItems(games)
+        }else {
+            self.gamesTableView.updateItems(games)
+        }
+        
     }
 }

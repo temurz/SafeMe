@@ -35,9 +35,9 @@ extension Network {
 //        let boundary = generateBoundaryString()
 //        let body = generateMutableData(boundary: boundary, parameters: params, imagesData: []) as Data
 //        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
-        let path = api.path + "\(poll_id)"
+        let path = URL(string: api.path + "\(poll_id)")
         
-        push(api: api,newPath: path, body: nil, headers: nil, type: PollAnswerParsingModel.self) { result in
+        push(api: api,newUrl: path, body: nil, headers: nil, type: PollAnswerParsingModel.self) { result in
             switch result {
             case .success(let model):
                 completion(StatusCode(code: 0), model.body.result)

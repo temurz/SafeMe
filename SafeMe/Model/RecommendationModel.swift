@@ -36,5 +36,6 @@ struct Recommendation: Decodable {
 }
 
 struct RecommendationParsingModel: Decodable {
+    let total_pages: Int?
     let body: [Recommendation]
 }

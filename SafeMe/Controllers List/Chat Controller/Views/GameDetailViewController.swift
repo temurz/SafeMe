@@ -119,7 +119,8 @@ extension GameDetailViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
                 if complete != nil {
-                    webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                    webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { [weak self] (height, error) in
+                        guard let self else { return }
                         if let height = height as? CGFloat {
                             // Update the height constraint of the web view
                             let minHeight: CGFloat = 50
@@ -127,7 +128,7 @@ extension GameDetailViewController: WKNavigationDelegate {
                             let newHeight = max(minHeight, height)
                             self.webView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
                             
-                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.9)
+                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.8 + (self.titleLabel.text?.height(withConstrainedWidth: self.view.frame.width, font: self.titleLabel.font) ?? 50))
                         }
                     })
                 }

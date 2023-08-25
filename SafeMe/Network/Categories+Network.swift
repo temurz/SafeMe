@@ -9,10 +9,19 @@ import Foundation
 
 extension Network {
     
-    func getCategories(completion: @escaping (StatusCode, [Category]?) -> ()) {
+    func getCategories(type: String, completion: @escaping (StatusCode, [Category]?) -> ()) {
         let api = Api.categories
         
-        push(api: api, body: nil, headers: nil, type: CategoryParsingModel.self) { result in
+        let params = [["key": "type",
+                       "value": type,
+                       "type": "text"
+                    ]]
+        
+        let boundary = generateBoundaryString()
+        let body = generateMutableData(boundary: boundary, parameters: params, imagesData: []) as Data
+        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+        
+        push(api: api, body: body, headers: header, type: CategoryParsingModel.self) { result in
             switch result {
             case .success(let model):
                 completion(StatusCode(code: 200), model.body)

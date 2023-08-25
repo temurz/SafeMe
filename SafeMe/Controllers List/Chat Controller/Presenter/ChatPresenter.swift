@@ -10,7 +10,7 @@ import Foundation
 protocol ChatPresenterProtocol {
     func reloadAgeCategories(_ ageCategories: [AgeCategory])
     func reloadCategories(_ categories: [Category])
-    func reloadGames(_ games: [Game])
+    func reloadGames(_ games: [Game], totalPages: Int)
 }
 
 typealias ChatPresenterDelegate = ChatPresenterProtocol & ChatViewController
@@ -37,7 +37,7 @@ class ChatPresenter {
     
     func getCategories() {
         self.delegate?.indicatorView.startAnimating()
-        Network.shared.getCategories { [weak self] statusCode, categories in
+        Network.shared.getCategories(type: "game") { [weak self] statusCode, categories in
             self?.delegate?.indicatorView.stopAnimating()
             guard let categories else {
                 return
@@ -47,7 +47,7 @@ class ChatPresenter {
         }
     }
     
-    func getGames(ageCategory: AgeCategory? = nil, category: Category? = nil) {
+    func getGames(ageCategory: AgeCategory? = nil, category: Category? = nil, page: Int, size: Int = 10) {
         self.selectedAgeCategory = ageCategory
         self.selectedCategory = category
         
@@ -55,17 +55,17 @@ class ChatPresenter {
         
         if !self.games.isEmpty {
             self.delegate?.indicatorView.stopAnimating()
-            self.reloadGames(games)
+            self.reloadGames(games, totalPages: 1)
         }else {
-            Network.shared.getGames(ageCategory: ageCategory?.id, category: category?.id) { [weak self] statusCode, games in
+            Network.shared.getGames(ageCategory: ageCategory?.id, category: category?.id, page: page, size: size) { [weak self] statusCode, games, totalPages in
                 self?.delegate?.indicatorView.stopAnimating()
                 guard let games else {
                     self?.pushAlert(statusCode)
-                    self?.reloadGames([])
+                    self?.reloadGames([], totalPages: 1)
                     return
                 }
                 
-                self?.reloadGames(games)
+                self?.reloadGames(games, totalPages: totalPages ?? 1)
             }
         }
         
@@ -85,8 +85,7 @@ extension ChatPresenter {
     
     private func reloadCategories(_ categories: [Category]) {
         DispatchQueue.main.async {
-            let filteredItems = categories.filter({$0.type == "game"})
-            self.delegate?.reloadCategories(filteredItems)
+            self.delegate?.reloadCategories(categories)
         }
     }
     
@@ -96,16 +95,9 @@ extension ChatPresenter {
         }
     }
     
-    private func reloadGames(_ games: [Game]) {
+    private func reloadGames(_ games: [Game], totalPages: Int) {
         DispatchQueue.main.async {
-//            var filteredGames = games
-//            if let selectedAgeCategory = self.selectedAgeCategory {
-//                filteredGames = games.filter({$0.agecategory == selectedAgeCategory.id})
-//            }
-//            if let selectedCategory = self.selectedCategory {
-//                filteredGames = filteredGames.filter({$0.category == selectedCategory.id})
-//            }
-            self.delegate?.reloadGames(games)
+            self.delegate?.reloadGames(games, totalPages: totalPages)
         }
     }
 }

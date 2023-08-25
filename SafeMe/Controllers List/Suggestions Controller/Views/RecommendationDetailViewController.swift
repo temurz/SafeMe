@@ -126,7 +126,7 @@ extension RecommendationDetailViewController: WKNavigationDelegate {
                             let newHeight = max(minHeight, height)
                             self.webView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
                             
-                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.7)
+                            self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width - 32, height: newHeight +  UIScreen.main.bounds.width * 0.7 + (self.titleLabel.text?.height(withConstrainedWidth: self.view.frame.width, font: self.titleLabel.font) ?? 50))
                         }
                     })
                 }

@@ -56,11 +56,11 @@ enum Api {
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification, .recomCategory, .recomAgeCategory, .recomCategoryAndAge, .gamesCategory, .gamesAgeCategory, .gamesCategoryAndAge:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification, .recomCategory, .recomAgeCategory, .recomCategoryAndAge, .gamesCategory, .gamesAgeCategory, .gamesCategoryAndAge, .categories:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
-        case .games, .inspectors, .news, .ageCategory, .categories, .recommendations, .getUser:
+        case .games, .inspectors, .news, .ageCategory, .recommendations, .getUser:
             return HTTPMethod.get.rawValue
         default:
             return HTTPMethod.get.rawValue

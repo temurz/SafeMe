@@ -13,6 +13,10 @@ class NewsViewController: BaseViewController {
     private let presenter: NewsPresenter = NewsPresenter()
     private var firstLaunch = true
     
+    var totalPages = 1
+    var pageNumber = 1
+    var isWaiting = false
+    
     override func loadView() {
         super.loadView()
         presenter.delegate = self
@@ -30,7 +34,7 @@ class NewsViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if firstLaunch {
-            presenter.getNews()
+            presenter.getNews(page: 1)
         }
     }
     
@@ -75,12 +79,31 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = NewsDetailViewController(news: items[indexPath.row])
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
+            isWaiting = true
+            pageNumber += 1
+            pageNumber = totalPages > pageNumber ? pageNumber : totalPages
+            loadMore(pageNumber)
+        }
+    }
+    
+    func loadMore(_ pageNumber: Int) {
+        presenter.getNews(page: pageNumber)
+    }
 }
 
 extension NewsViewController: NewsPresenterProtocol {
-    func reloadData(news: [News]) {
+    func reloadData(news: [News], totalPages: Int) {
         noDataView.isHidden = news.isEmpty ? false : true
-        self.items = news
+        self.totalPages = totalPages
+        if isWaiting {
+            self.items += news
+            isWaiting = false
+        }else {
+            self.items = news
+        }
         self.tableView.reloadData()
     }
     
