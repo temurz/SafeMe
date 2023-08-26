@@ -26,7 +26,7 @@ class LoginViewController: GradientViewController {
     
     private let phoneTextField = UICustomTextField(title: "Username".localizedString,
                                                    star: true,
-                                                   text: "+9989",
+                                                   text: "+998",
                                                    placeholder: "",
                                                    height: 60)
     private let passwordTextField = UICustomTextField(title: "Password".localizedString,
