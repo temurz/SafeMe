@@ -13,8 +13,8 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
     let choosePhotoLabel = UILabel(text: "Choose a photo".localizedString, font: .robotoFont(ofSize: 14))
     private let profilePhotoImageView = UIImageView(.custom.lightGray)
     private let stackView = UIStackView()
-    private let fullNameTextField = UICustomTextField(title: "Fullname".localizedString, star: false, text: nil, placeholder: "Fullname".localizedString)
-    private let birthdayTextField = UICustomTextField(title: "Birthday".localizedString, star: false, text: nil, placeholder: nil)
+    private let fullNameTextField = UICustomTextField(title: "Fullname".localizedString, star: true, text: nil, placeholder: "Fullname".localizedString)
+    private let birthdayTextField = UICustomTextField(title: "Birthday".localizedString, star: true, text: nil, placeholder: nil)
     private let genderTextField = UICustomTextField(title: "Gender".localizedString, star: false, text: nil, placeholder: nil, type: .button)
     private let regionButton = UICustomTextField(title: "Region".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
     private let districtButton = UICustomTextField(title: "District".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
@@ -56,13 +56,15 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.getRegions(page: 1, size: 10)
-        if let _ = user?.region {
-            presenter.getDistricts(region: 0, page: 1, size: 10)
-        }
-        if let _ = user?.district {
-            presenter.getMahallas(region: 0, district: 0, page: 1, size: 10)
-        }
+        presenter.getRegions(page: 1, size: 14)
+        
+        let actionDistrict = UIAction(title: "First choose region".localizedString, image: nil) { action in }
+        let menu = UIMenu(title: "Choose district".localizedString, children: [actionDistrict])
+        districtButton.button.menu = menu
+        
+        let action = UIAction(title: "First choose region and district".localizedString, image: nil) { action in }
+        let menuMahalla = UIMenu(title: "Choose mahalla".localizedString, children: [action])
+        mahallaButton.button.menu = menuMahalla
     }
     
     
@@ -80,6 +82,9 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
         }
         
         SetupViews.addViewEndRemoveAutoresizingMask(superView: birthdayTextField, view: datePicker)
+        
+        fullNameTextField.delegate = self
+        birthdayTextField.delegate = self
         
         profilePhotoImageView.contentMode = .scaleAspectFill
         profilePhotoImageView.clipsToBounds = true
@@ -111,6 +116,8 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         
+        nextButton.backgroundColor = .custom.lightGray
+        nextButton.isUserInteractionEnabled = false
         nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         
         if let user = user {
@@ -121,6 +128,8 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
             districtButton.button.setTitle(user.district ?? "", for: .normal)
             mahallaButton.button.setTitle(user.mahalla ?? "", for: .normal)
             profilePhotoImageView.sd_setImage(with: URL(string: user.photo ?? ""))
+            nextButton.backgroundColor = .custom.buttonBackgroundColor
+            nextButton.isUserInteractionEnabled = true
         }
         
         choosePhotoLabel.isHidden = profilePhotoImageView.image != nil ? true : false
@@ -188,6 +197,10 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
         
     }
     
+    @objc private func textDidChange(_ textField: UITextField) {
+        
+    }
+    
     @objc private func nextAction() {
         presenter.sendUserData(fullName: fullNameTextField.text, birthday: userEdit.birthday, region: userEdit.region, district: userEdit.district, mahalla: userEdit.mahalla, photo: userEdit.photo)
     }
@@ -247,7 +260,6 @@ extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
             for region in regions {
                 if region.name == user.region {
                     self.userEdit.region = region.id
-                    presenter.getDistricts(region: region.id, page: 1, size: 10)
                 }
             }
         }
@@ -271,12 +283,11 @@ extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
             for district in districts {
                 if district.name == user.district {
                     self.userEdit.district = district.id
-                    presenter.getMahallas(region: userEdit.region ?? 1, district: district.id, page: 1, size: 10)
                 }
             }
         }
         var actions = [UIAction]()
-        districts.filter({$0.region == self.userEdit.region}).forEach { district in
+        districts.forEach { district in
             let action1 = UIAction(title: district.name ?? "", image: nil) { action in
                 self.userEdit.district = district.id
                 DispatchQueue.main.async {
@@ -299,7 +310,7 @@ extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
             }
         }
         var actions = [UIAction]()
-        mahallas.filter({$0.district == self.userEdit.district && $0.region == self.userEdit.region}).forEach { mahalla in
+        mahallas.forEach { mahalla in
             let action1 = UIAction(title: mahalla.name ?? "", image: nil) { action in
                 self.userEdit.mahalla = mahalla.id
                 DispatchQueue.main.async {
@@ -308,10 +319,6 @@ extension UpdateProfileViewController: UpdateProfilePresenterProtocol {
             }
             actions.append(action1)
         }
-        let action = UIAction(title: "mahalla", image: nil) { action in
-            self.regionButton.button.setTitle("mahalla", for: .normal)
-        }
-        actions.append(action)
         let menu = UIMenu(title: "Choose mahalla".localizedString, children: actions)
         mahallaButton.button.menu = menu
     }
@@ -325,6 +332,18 @@ extension UpdateProfileViewController: UIImagePickerControllerDelegate {
             imagePicker.dismiss(animated: true)
             choosePhotoLabel.isHidden = true
 //            enableButton()
+        }
+    }
+}
+
+extension UpdateProfileViewController: UICustomTextFieldDelegate {
+    func customTextField(_ customTextField: UICustomTextField, changed text: String?) {
+        if !fullNameTextField.text.isEmpty && !birthdayTextField.text.isEmpty {
+            nextButton.backgroundColor = .custom.buttonBackgroundColor
+            nextButton.isUserInteractionEnabled = true
+        }else {
+            nextButton.backgroundColor = .custom.lightGray
+            nextButton.isUserInteractionEnabled = false
         }
     }
 }

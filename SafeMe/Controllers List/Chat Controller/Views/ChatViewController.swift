@@ -19,6 +19,7 @@ class ChatViewController: BaseViewController {
     private var selectedCategory: Category?
     
     private var firstLaunch = true
+    private var isBookmarked = false
     
     override func loadView() {
         super.loadView()
@@ -38,7 +39,6 @@ class ChatViewController: BaseViewController {
         if firstLaunch {
             presenter.getAgeCategories()
             presenter.getCategories()
-            presenter.getGames(page: 1, size: 17)
         }
     }
     
@@ -52,27 +52,37 @@ class ChatViewController: BaseViewController {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [ ageFilterCollectionView, categoriesView, recommendedGamesLabel, bookmarkedButton, gamesTableView])
         gamesTableView.backgroundColor = .clear
         
-        gamesTableView.loadMore = { [weak self] pageNumber in
-            guard let self else { return }
-            self.presenter.getGames(page: pageNumber)
-        }
+//        gamesTableView.loadMore = { [weak self] pageNumber in
+//            guard let self else { return }
+//            self.presenter.getGames(page: pageNumber)
+//        }
         bookmarkedButton.contentMode = .scaleAspectFill
+        let tap = UITapGestureRecognizer(target: self, action: #selector(selectBookmarkedButton))
+        bookmarkedButton.addGestureRecognizer(tap)
+        bookmarkedButton.isUserInteractionEnabled = true
         ageFilterCollectionView.selectAction = { [weak self] ageCategory in
-            self?.selectedAgeCategory = ageCategory
-            self?.gamesTableView.canLoadMore = false
-            self?.presenter.getGames(ageCategory: ageCategory, category: self?.selectedCategory, page: 1, size: 10)
+            guard let self else {return}
+            self.selectedAgeCategory = ageCategory
+            self.gamesTableView.canLoadMore = false
+            self.presenter.getGamesBookmarkView(isBookmark: self.isBookmarked, ageCategory: ageCategory.id, category: self.selectedCategory?.id)
         }
         
         
         categoriesView.selectAction = { [weak self] category in
-            self?.selectedCategory = category
-            self?.gamesTableView.canLoadMore = false
-            self?.presenter.getGames(ageCategory: self?.selectedAgeCategory, category: category, page: 1, size: 10)
+            guard let self else {return}
+            self.selectedCategory = category
+            self.gamesTableView.canLoadMore = false
+            self.presenter.getGamesBookmarkView(isBookmark: self.isBookmarked, ageCategory: self.selectedAgeCategory?.id, category: category.id)
         }
         
         gamesTableView.selectItem = { [weak self] game in
             let vc = GameDetailViewController(game: game)
             self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        gamesTableView.saveOrDeleteAction = { [weak self] bool, id in
+            guard let self else {return}
+            self.presenter.saveOrDeleteGameBookmark(game: id, isSave: bool)
         }
     }
     
@@ -106,12 +116,26 @@ class ChatViewController: BaseViewController {
             
         ])
     }
-
+    
+    @objc private func selectBookmarkedButton() {
+        isBookmarked = !isBookmarked
+        if isBookmarked {
+            bookmarkedButton.image = UIImage(named: "star")?.withTintColor(UIColor.hexStringToUIColor(hex: "#FFC600"))
+            presenter.getGamesBookmarkView(isBookmark: isBookmarked, ageCategory: self.selectedAgeCategory?.id, category: self.selectedCategory?.id)
+        }else {
+            bookmarkedButton.image = UIImage(named: "star")
+            presenter.getGamesBookmarkView(isBookmark: isBookmarked, ageCategory: self.selectedAgeCategory?.id, category: self.selectedCategory?.id)
+        }
+    }
 }
 
 extension ChatViewController: ChatPresenterProtocol {
     func reloadAgeCategories(_ ageCategories: [AgeCategory]) {
         self.ageFilterCollectionView.updateItems(items: ageCategories)
+        if !ageCategories.isEmpty {
+            self.selectedAgeCategory = ageCategories[0]
+            presenter.getGamesBookmarkView(isBookmark: isBookmarked, ageCategory: self.selectedAgeCategory?.id, category: nil)
+        }
     }
     
     func reloadCategories(_ categories: [Category]) {
@@ -121,12 +145,16 @@ extension ChatViewController: ChatPresenterProtocol {
     
     func reloadGames(_ games: [Game], totalPages: Int) {
         noDataView.isHidden = games.isEmpty ? false : true
-        gamesTableView.totalPages = totalPages
-        if gamesTableView.isWaiting {
-            self.gamesTableView.appendItems(games)
-        }else {
-            self.gamesTableView.updateItems(games)
-        }
+//        gamesTableView.totalPages = totalPages
+//        if gamesTableView.isWaiting {
+//            self.gamesTableView.appendItems(games)
+//        }else {
+            self.gamesTableView.updateItems(games, saved: isBookmarked)
+//        }
         
+    }
+    
+    func successSaveOrDeleteBookmark() {
+        self.presenter.getGamesBookmarkView(isBookmark: isBookmarked, ageCategory: self.selectedAgeCategory?.id, category: self.selectedCategory?.id)
     }
 }

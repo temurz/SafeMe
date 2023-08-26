@@ -130,3 +130,5 @@
 "Did you forget PIN?" = "Забыли PIN?";
 "Enter the secret code sent to your number" = "Введите SMS код, отправленный на ваш номер телефона";
 "Create new PIN" = "Создайте новый PIN";
+"First choose region and district" = "Сперва выберите область и район";
+"First choose region" = "Сперва выберите область";

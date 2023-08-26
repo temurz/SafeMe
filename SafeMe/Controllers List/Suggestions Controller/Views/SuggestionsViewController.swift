@@ -40,7 +40,7 @@ class SuggestionsViewController: BaseViewController {
         if firstLaunch {
             presenter.getAgeCategories()
             presenter.getCategories(type: "recomendation")
-            presenter.getRecommendations(page: 1)
+            
         }
     }
     
@@ -108,7 +108,11 @@ class SuggestionsViewController: BaseViewController {
 
 extension SuggestionsViewController: SuggestionsPresenterProtocol {
     func reloadAgeCategories(_ ageCategories: [AgeCategory]) {
+        if !ageCategories.isEmpty {
+            selectedAgeCategory = ageCategories[0]
+        }
         self.ageFilterCollectionView.updateItems(items: ageCategories)
+        presenter.getRecommendations(ageCategory: self.selectedAgeCategory,page: 1)
     }
     
     func reloadCategories(_ categories: [Category]) {
@@ -120,14 +124,11 @@ extension SuggestionsViewController: SuggestionsPresenterProtocol {
     func reloadRecommendations(_ recommendations: [Recommendation], totalPages: Int) {
         noDataView.isHidden = recommendations.isEmpty ? false : true
         self.recommendationsView.totalPages = totalPages
-        if recommendationsView.isWaiting {
-            self.recommendationsView.appendItems(recommendations)
-        }else {
+//        if recommendationsView.isWaiting {
+//            self.recommendationsView.appendItems(recommendations)
+//        }else {
             self.recommendationsView.updateItems(recommendations)
-        }
-        
-        
-//        self.recommendationsView.heightAnchor.constraint(equalToConstant: recommendationsView.getHeight()).isActive = true
+//        }
     }
 }
 

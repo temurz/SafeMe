@@ -16,7 +16,10 @@ class GamesTableView: UIView {
     var totalPages = 1
     
     var selectItem: ((Game) -> ())?
+    var saveOrDeleteAction: ((Bool, Int) -> ())?
     var loadMore: ((Int) -> ())?
+    var saved: Bool = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -47,8 +50,9 @@ class GamesTableView: UIView {
         ])
     }
     
-    func updateItems(_ games: [Game]) {
+    func updateItems(_ games: [Game], saved: Bool) {
         items = games
+        self.saved = saved
         tableView.reloadData()
     }
     
@@ -66,10 +70,10 @@ extension GamesTableView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameViewCell
-        cell.updateModel(model: items[indexPath.row])
+        cell.updateModel(model: items[indexPath.row], saved: self.saved)
         cell.saveAction = { [weak self] bool in
-            guard let _ = self else { return }
-            print(bool)
+            guard let self else { return }
+            self.saveOrDeleteAction?(bool, self.items[indexPath.row].id)
         }
         return cell
     }
@@ -78,14 +82,14 @@ extension GamesTableView: UITableViewDataSource, UITableViewDelegate {
         selectItem?(items[indexPath.row])
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if canLoadMore {
-            if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
-                isWaiting = true
-                pageNumber += 1
-                pageNumber = totalPages > pageNumber ? pageNumber : totalPages
-                loadMore?(pageNumber)
-            }
-        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if canLoadMore {
+//            if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
+//                isWaiting = true
+//                pageNumber += 1
+//                pageNumber = totalPages > pageNumber ? pageNumber : totalPages
+//                loadMore?(pageNumber)
+//            }
+//        }
+//    }
 }

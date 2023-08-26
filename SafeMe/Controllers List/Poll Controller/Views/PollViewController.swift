@@ -34,7 +34,7 @@ class PollViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.getAgeCategories()
-        presenter.getPolls(page: 1, size: 10)
+        
     }
     
     private func initialize() {
@@ -84,14 +84,14 @@ extension PollViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
-            isWaiting = true
-            pageNumber += 1
-            pageNumber = totalPages > pageNumber ? pageNumber : totalPages
-            loadMore(pageNumber)
-        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
+//            isWaiting = true
+//            pageNumber += 1
+//            pageNumber = totalPages > pageNumber ? pageNumber : totalPages
+//            loadMore(pageNumber)
+//        }
+//    }
     
     func loadMore(_ pageNumber: Int) {
         presenter.getPolls(page: pageNumber)
@@ -101,17 +101,20 @@ extension PollViewController: UITableViewDataSource, UITableViewDelegate {
 extension PollViewController: PollViewPresenterProtocol {
     func updatePolls(_ polls: [PollingModel], totalPages: Int) {
         noDataView.isHidden = polls.isEmpty ? false : true
-        self.totalPages = totalPages
-        if isWaiting {
-            self.items += polls
-            isWaiting = false
-        }else {
+//        self.totalPages = totalPages
+//        if isWaiting {
+//            self.items += polls
+//            isWaiting = false
+//        }else {
             self.items = polls
-        }
+//        }
         self.tableView.reloadData()
     }
     
     func reloadAgeCategories(_ ageCategories: [AgeCategory]) {
         ageFilterCollectionView.updateItems(items: ageCategories)
+        if !ageCategories.isEmpty {
+            presenter.getPolls(page: 1, size: 10, ageCategory: ageCategories[0])
+        }
     }
 }

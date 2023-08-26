@@ -96,14 +96,14 @@ extension RecommendationsView: UICollectionViewDataSource, UICollectionViewDeleg
         self.selectAction?(items[indexPath.row])
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if canLoadMore {
-            if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
-                isWaiting = true
-                pageNumber += 1
-                pageNumber = totalPages > pageNumber ? pageNumber : totalPages
-                loadMore?(pageNumber)
-            }
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if canLoadMore {
+//            if indexPath.row == items.count - 2 && !isWaiting && totalPages != pageNumber {
+//                isWaiting = true
+//                pageNumber += 1
+//                pageNumber = totalPages > pageNumber ? pageNumber : totalPages
+//                loadMore?(pageNumber)
+//            }
+//        }
+//    }
 }

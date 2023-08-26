@@ -91,7 +91,9 @@ class GameViewCell: UITableViewCell {
         saveAction?(saved)
     }
     
-    func updateModel(model: Game) {
+    func updateModel(model: Game, saved: Bool) {
+        self.saved = saved
+        saveImageView.image = saved ? UIImage(named: "star")?.withTintColor(UIColor.hexStringToUIColor(hex: "#FFC600")) : UIImage(named: "star")
         mainImageView.sd_setImage(with: URL(string: model.image ?? ""))
         subtitleLabel.text = model.description
         titleLabel.text = model.name

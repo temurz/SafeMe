@@ -138,3 +138,5 @@
 "Did you forget PIN?" = "PIN есингиздан чиклими?";
 "Enter the secret code sent to your number" = "Сизнинг телефон рақамингизга жўнатилган SMS кодни киритинг";
 "Create new PIN" = "Янги PIN яратинг";
+"First choose region and district" = "Биринчи вилоят ва туманни танланг";
+"First choose region" = "Биринчи вилоятни танланг";

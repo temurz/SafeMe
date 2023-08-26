@@ -105,6 +105,7 @@ class UICustomTextField: UIView, UITextFieldDelegate, UIGestureRecognizerDelegat
         textField.contentVerticalAlignment = .center
         textField.contentMode = .center
         self.starLabel.isHidden = !star
+        if star { typeLabel.text = title + "*" }
         self.hasCalendarImageView = hasCalendar
         setupView(height)
     }

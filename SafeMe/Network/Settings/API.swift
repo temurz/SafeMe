@@ -45,6 +45,10 @@ enum Api {
     case recomCategory
     case recomCategoryAndAge
     case games
+    case gamesUnbookmarkView
+    case gamesSave
+    case gamesDelete
+    case gamesBookmarkView
     case gamesAgeCategory
     case gamesCategory
     case gamesCategoryAndAge
@@ -57,12 +61,14 @@ enum Api {
     //MARK: - METHOD
     var method: String {
         switch self {
-        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification, .recomCategory, .recomAgeCategory, .recomCategoryAndAge, .gamesCategory, .gamesAgeCategory, .gamesCategoryAndAge, .categories, .pollWithAge:
+        case .register, .login, .sendComplaint, .phoneVerification, .authRefresh, .saveAnswer,.requestSMSForPasswordChange, .sos, .checkPasswordSms, .addChild, .passwordUpdate, .pinSmsCodeVerification, .recomCategory, .recomAgeCategory, .recomCategoryAndAge, .gamesCategory, .gamesAgeCategory, .gamesCategoryAndAge, .categories, .pollWithAge, .gamesSave, .gamesUnbookmarkView, .districts, .mahalla:
             return HTTPMethod.post.rawValue
         case .editUser:
             return HTTPMethod.put.rawValue
         case .games, .inspectors, .news, .ageCategory, .recommendations, .getUser:
             return HTTPMethod.get.rawValue
+        case .gamesDelete:
+            return HTTPMethod.delete.rawValue
         default:
             return HTTPMethod.get.rawValue
         }
@@ -89,12 +95,16 @@ enum Api {
             case .poll: return baseURL + languageUrl + "/api/v1.0/polling/all"
             case .pollWithAge: return baseURL + languageUrl + "/api/v1.0/polling/all"
             case .pollAnswers: return baseURL + languageUrl + "/api/v1.0/polling/view/"
-            case .mahalla: return baseURL + languageUrl + "/api/v1.0/mahalla/"
-            case .districts: return baseURL + languageUrl + "/api/v1.0/districts/"
+            case .mahalla: return baseURL + languageUrl + "/api/v1.0/mahalla/by_district"
+            case .districts: return baseURL + languageUrl + "/api/v1.0/district/by_region"
             case .regions: return baseURL + languageUrl + "/api/v1.0/regions/"
             case .phoneVerification: return baseURL + languageUrl + "/user/verification/"
             case .getUser: return baseURL + languageUrl + "/user/"
             case .games: return baseURL + languageUrl + "/api/v1.0/games/"
+            case .gamesUnbookmarkView: return baseURL + languageUrl + "/api/v1.0/games/unbookmark"
+            case .gamesBookmarkView: return baseURL + languageUrl + "/api/v1.0/games/bookmark"
+            case .gamesSave: return baseURL + languageUrl + "/api/v1.0/games/bookmark"
+            case .gamesDelete: return baseURL + languageUrl + "/api/v1.0/games/bookmark"
             case .gamesCategory: return baseURL + languageUrl + "/api/v1.0/games/category"
             case .gamesAgeCategory: return baseURL + languageUrl + "/api/v1.0/games/age"
             case .gamesCategoryAndAge: return baseURL + languageUrl + "/api/v1.0/games/agecategory"

@@ -53,20 +53,17 @@ class SuggestionsPresenter {
         self.selectedCategory = category
         self.size = size
         
-        self.delegate?.indicatorView.startAnimating()
-        
         if !self.recommendations.isEmpty {
             self.delegate?.indicatorView.stopAnimating()
             self.reloadRecommendations(recommendations, totalPages: 0)
         }else {
             Network.shared.getRecommendations(ageCategory: ageCategory?.id, category: category?.id, page: page, size: size) { [weak self] statusCode, recommendations, totalPages in
-                self?.delegate?.indicatorView.stopAnimating()
                 guard let recommendations else {
                     self?.pushAlert(statusCode)
-                    self?.reloadRecommendations([], totalPages: 0)
+                    self?.reloadRecommendations([], totalPages: 1)
                     return
                 }
-                self?.reloadRecommendations(recommendations, totalPages: totalPages ?? 0)
+                self?.reloadRecommendations(recommendations, totalPages: totalPages ?? 1)
             }
         }
     }

@@ -130,3 +130,5 @@
 "Did you forget PIN?" = "PIN esingizdan chiqdimi?";
 "Enter the secret code sent to your number" = "Sizning telefon raqamingizga jo'natilgan SMS kodni kiriting";
 "Create new PIN" = "Yangi PIN yarating";
+"First choose region and district" = "Birinchi viloyat va tumanni tanlang";
+"First choose region" = "Birinchi viloyatni tanlang";

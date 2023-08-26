@@ -13,8 +13,12 @@ extension Network {
         
         let api = Api.regions
         
+        let queryItems = [URLQueryItem(name: "size", value: "\(size)")]
+        var urlComponents = URLComponents(string: api.path)!
+        urlComponents.queryItems = queryItems
+        let newUrl = urlComponents.url!
         
-        push(api: api, body: nil, headers: nil, type: RegionParsingModel.self) { result in
+        push(api: api,newUrl: newUrl, body: nil, headers: nil, type: RegionParsingModel.self) { result in
             switch result {
             case .success(let model):
                 completion(StatusCode(code: 0), model.body)
@@ -28,26 +32,18 @@ extension Network {
         
         let api = Api.districts
         
-//        let parameters = [
-//            ["key": "region",
-//             "value": "\(region)",
-//             "type": "text"
-//            ]
-//            ["key" : "page",
-//             "value": "\(page)",
-//             "type": "text"
-//            ],
-//            ["key": "size",
-//             "value": "\(size)",
-//             "type": "text"
-//            ]
-//        ]
+        let parameters = [
+            ["key": "region",
+             "value": "\(region)",
+             "type": "text"
+            ]
+        ]
         
-//        let boundary = generateBoundaryString()
-//        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
-//        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+        let boundary = generateBoundaryString()
+        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
+        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
         
-        push(api: api, body: nil, headers: nil, type: DistrictParsingModel.self
+        push(api: api, body: body, headers: header, type: DistrictParsingModel.self
         ) { result in
             switch result {
             case .success(let model):
@@ -61,30 +57,18 @@ extension Network {
     func getMahallas(region: Int, district: Int, page: Int, size: Int, completion: @escaping (StatusCode, [Mahalla]?) -> ()) {
         let api = Api.mahalla
         
-//        let parameters = [
-//            ["key": "region",
-//             "value": "\(region)",
-//             "type": "text"
-//            ],
-//            ["key": "district",
-//             "value": "\(district)",
-//             "type": "text"
-//            ]
-//            ["key" : "page",
-//             "value": "\(page)",
-//             "type": "text"
-//            ],
-//            ["key": "size",
-//             "value": "\(size)",
-//             "type": "text"
-//            ]
-//        ]
+        let parameters = [
+            ["key": "district",
+             "value": "\(district)",
+             "type": "text"
+            ]
+        ]
         
-//        let boundary = generateBoundaryString()
-//        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
-//        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
+        let boundary = generateBoundaryString()
+        let body = generateMutableData(boundary: boundary, parameters: parameters, imagesData: []) as Data
+        let header = ["multipart/form-data; boundary=\(boundary)" : "Content-Type" ]
         
-        push(api: api, body: nil, headers: nil, type: MahallaParsingModel.self
+        push(api: api, body: body, headers: header, type: MahallaParsingModel.self
         ) { result in
             switch result {
             case .success(let model):
