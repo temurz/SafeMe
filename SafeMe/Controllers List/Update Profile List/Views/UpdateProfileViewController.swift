@@ -16,9 +16,9 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
     private let fullNameTextField = UICustomTextField(title: "Fullname".localizedString, star: true, text: nil, placeholder: "Fullname".localizedString)
     private let birthdayTextField = UICustomTextField(title: "Birthday".localizedString, star: true, text: nil, placeholder: nil)
     private let genderTextField = UICustomTextField(title: "Gender".localizedString, star: false, text: nil, placeholder: nil, type: .button)
-    private let regionButton = UICustomTextField(title: "Region".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
-    private let districtButton = UICustomTextField(title: "District".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
-    private let mahallaButton = UICustomTextField(title: "Mahalla".localizedString, star: false, text: nil, placeholder: nil, height: 32, type: .button)
+    private let regionButton = UICustomTextField(title: "Region".localizedString, star: false, text: nil, placeholder: "Choose region".localizedString, height: 32, type: .button)
+    private let districtButton = UICustomTextField(title: "District".localizedString, star: false, text: nil, placeholder: "Choose district".localizedString, height: 32, type: .button)
+    private let mahallaButton = UICustomTextField(title: "Mahalla".localizedString, star: false, text: nil, placeholder: "Choose mahalla".localizedString, height: 32, type: .button)
     private let nextButton = UIButton(backgroundColor: UIColor.custom.buttonBackgroundColor,
                                       textColor: .custom.white,
                                       text: "Next".localizedString, radius: 8)
@@ -125,8 +125,11 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
             birthdayTextField.text = user.birth_day ?? ""
             genderTextField.text = user.gender ?? ""
             regionButton.button.setTitle(user.region ?? "", for: .normal)
+            regionButton.placeholder = nil
             districtButton.button.setTitle(user.district ?? "", for: .normal)
+            districtButton.placeholder = nil
             mahallaButton.button.setTitle(user.mahalla ?? "", for: .normal)
+            mahallaButton.placeholder = nil
             profilePhotoImageView.sd_setImage(with: URL(string: user.photo ?? ""))
             nextButton.backgroundColor = .custom.buttonBackgroundColor
             nextButton.isUserInteractionEnabled = true

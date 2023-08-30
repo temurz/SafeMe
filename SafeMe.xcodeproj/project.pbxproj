@@ -148,6 +148,7 @@
 		B875D5552A891DE700A5929F /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875D5542A891DE700A5929F /* GameDetailViewController.swift */; };
 		B89621FF2A8E403B0006EDD1 /* PollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89621FE2A8E403B0006EDD1 /* PollModel.swift */; };
 		B89622012A8E4C1F0006EDD1 /* Poll+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89622002A8E4C1F0006EDD1 /* Poll+Network.swift */; };
+		B89A1E012A9F261800985789 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89A1E002A9F261800985789 /* WelcomeController.swift */; };
 		B8A66F142A93C62000EB6269 /* AddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A66F132A93C62000EB6269 /* AddChildViewController.swift */; };
 		B8A66F162A948FB000EB6269 /* ChildViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A66F152A948FB000EB6269 /* ChildViewPresenter.swift */; };
 		B8AAFDF02A95F6230066FB06 /* PINVerification+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAFDEF2A95F6230066FB06 /* PINVerification+Network.swift */; };
@@ -310,6 +311,7 @@
 		B875D5542A891DE700A5929F /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		B89621FE2A8E403B0006EDD1 /* PollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollModel.swift; sourceTree = "<group>"; };
 		B89622002A8E4C1F0006EDD1 /* Poll+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Poll+Network.swift"; sourceTree = "<group>"; };
+		B89A1E002A9F261800985789 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		B8A66F132A93C62000EB6269 /* AddChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildViewController.swift; sourceTree = "<group>"; };
 		B8A66F152A948FB000EB6269 /* ChildViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewPresenter.swift; sourceTree = "<group>"; };
 		B8AAFDEF2A95F6230066FB06 /* PINVerification+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINVerification+Network.swift"; sourceTree = "<group>"; };
@@ -793,6 +795,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B89A1DFF2A9F260000985789 /* Welcome Controller List */ = {
+			isa = PBXGroup;
+			children = (
+				B89A1E002A9F261800985789 /* WelcomeController.swift */,
+			);
+			path = "Welcome Controller List";
+			sourceTree = "<group>";
+		};
 		B8B0622A2A616FA70020339B = {
 			isa = PBXGroup;
 			children = (
@@ -865,6 +875,7 @@
 		B8B062672A61716A0020339B /* Controllers List */ = {
 			isa = PBXGroup;
 			children = (
+				B89A1DFF2A9F260000985789 /* Welcome Controller List */,
 				B86ACA772A6667B900D04485 /* BaseViewController.swift */,
 				B842F3032A90C067001F79BC /* Language List */,
 				349C9B212A73C50900BC953A /* ProfileViewController */,
@@ -1221,6 +1232,7 @@
 				34242D822A93D069003740D0 /* ChangePasswordPresenter.swift in Sources */,
 				B86ACA422A62EB9E00D04485 /* Textfield+Extension.swift in Sources */,
 				B842F3092A90C36C001F79BC /* LanguageViewCell.swift in Sources */,
+				B89A1E012A9F261800985789 /* WelcomeController.swift in Sources */,
 				B86ACA7B2A66E88D00D04485 /* MenuCell.swift in Sources */,
 				B86ACB632A74EDB500D04485 /* RecommendationsView.swift in Sources */,
 				B86ACAB92A6AD74700D04485 /* Date+Extension.swift in Sources */,

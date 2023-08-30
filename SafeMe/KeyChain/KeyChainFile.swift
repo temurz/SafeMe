@@ -15,6 +15,7 @@ class AuthApp {
     private let keyTokenRefresh = "keyTokenRefreshKey"
     private var keyAuth:String { "MyAutorizationKey"}
     private var keyAppEnterCode: String { "appEnterCodeKey" }
+    private let keyFirstEnter: String = "firstEnter"
     
     //MARK: Token
     var token:String? {
@@ -123,10 +124,21 @@ class AuthApp {
     //MARK: - Language
     var language: String {
         get {
-            return UserDefaults.standard.string(forKey: "LanguageTypeKey") ?? "uz"
+            return UserDefaults.standard.string(forKey: "LanguageTypeKey") ?? "en"
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "LanguageTypeKey")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    //MARK: - First Enter to App
+    var isFirstEnter: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: keyFirstEnter)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: keyFirstEnter)
             UserDefaults.standard.synchronize()
         }
     }

@@ -61,6 +61,16 @@ extension String {
             return text
         }
     }
+    func removeAllSpaces() -> String {
+        var text = Array(self)
+        var result: Array<String.Element> = []
+        for i in 0 ..< text.count {
+            if text[i] != " " {
+                result.append(text[i])
+            }
+        }
+        return String(result)
+    }
     //+998993771234
     func makeStarsInsteadNumbers() -> String {
         //["+", "9","9","8"]

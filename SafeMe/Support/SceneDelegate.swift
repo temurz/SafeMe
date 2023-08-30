@@ -21,13 +21,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        if AuthApp.shared.token != nil {
-            let vc = ApplicationCodeViewController(hasPin: true)
-            let navController = UINavigationController(rootViewController: vc)
+        if AuthApp.shared.isFirstEnter == 0 {
+            let navController = UINavigationController(rootViewController: WelcomeController())
             window.rootViewController = navController
         }else {
-            let navController = UINavigationController(rootViewController: LanguageViewController())
-            window.rootViewController = navController
+            if AuthApp.shared.token != nil {
+                let vc = ApplicationCodeViewController(hasPin: true)
+                let navController = UINavigationController(rootViewController: vc)
+                window.rootViewController = navController
+            }else {
+                let navController = UINavigationController(rootViewController: LanguageViewController())
+                window.rootViewController = navController
+            }
         }
         
         self.window = window

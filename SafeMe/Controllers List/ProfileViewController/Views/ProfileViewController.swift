@@ -114,7 +114,7 @@ class ProfileViewController: GradientViewController {
         firstButton.backgroundColor = .clear
         firstButton.layer.borderColor = UIColor.hexStringToUIColor(hex: "#1ACBAE").cgColor
         firstButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
-        firstButton.setTitle("Profilni tahrirlash".localizedString, for: .normal)
+        firstButton.setTitle("Edit profile".localizedString, for: .normal)
         firstButton.addTarget(self, action: #selector(updateProfileButtonAction), for: .touchUpInside)
         firstButton.layer.cornerRadius = 8
         firstButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#1ACBAE"), for: .normal)
@@ -123,7 +123,7 @@ class ProfileViewController: GradientViewController {
         secondButton.backgroundColor = .clear
         secondButton.layer.borderColor = UIColor.hexStringToUIColor(hex: "#1ACBAE").cgColor
         secondButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
-        secondButton.setTitle("Parolni o'zgartiring".localizedString, for: .normal)
+        secondButton.setTitle("Change password".localizedString, for: .normal)
         secondButton.layer.cornerRadius = 8
         secondButton.addTarget(self, action: #selector(secondButtonAction), for: .touchUpInside)
         secondButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#1ACBAE"), for: .normal)

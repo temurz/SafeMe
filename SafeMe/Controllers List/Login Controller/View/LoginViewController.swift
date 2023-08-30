@@ -27,7 +27,7 @@ class LoginViewController: GradientViewController {
     private let phoneTextField = UICustomTextField(title: "Username".localizedString,
                                                    star: true,
                                                    text: "+998",
-                                                   placeholder: "",
+                                                   placeholder: "Phone number".localizedString,
                                                    height: 60)
     private let passwordTextField = UICustomTextField(title: "Password".localizedString,
                                                       star: true,
@@ -38,7 +38,7 @@ class LoginViewController: GradientViewController {
     private let repeatPasswordTextField = UICustomTextField(title: "Repeat password".localizedString,
                                                             star: true,
                                                             text: nil,
-                                                            placeholder: "password",
+                                                            placeholder: "Password".localizedString,
                                                             height: 60,
                                                             type: .pass)
     
@@ -178,7 +178,8 @@ class LoginViewController: GradientViewController {
     @objc private func nextAction() {
         switch isLogin {
         case .login:
-            presenter.loginAction(username: phoneTextField.text, pass: passwordTextField.text)
+            let trimmedString = phoneTextField.text.removeAllSpaces()
+            presenter.loginAction(username: trimmedString, pass: passwordTextField.text)
         case .register:
             presenter.register(username: phoneTextField.text, pass: passwordTextField.text, repeatPassword: repeatPasswordTextField.text)
         case .forgetPassword:
