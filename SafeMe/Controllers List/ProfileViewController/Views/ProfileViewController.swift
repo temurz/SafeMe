@@ -32,6 +32,8 @@ class ProfileViewController: GradientViewController {
     private let streetLabel = UILabel()
     private let streetNameLabel = UILabel()
     
+    private let deleteAccountButton = UIButton(backgroundColor: .clear, textColor: UIColor.hexStringToUIColor(hex: "C63D2F"), text: "Delete account".localizedString, radius: 12)
+    
     var model: User?
     let presenter = ProfileViewPresenter()
     
@@ -53,7 +55,7 @@ class ProfileViewController: GradientViewController {
     }
     
     private func initialize() {
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [backgroundView, firstButton, secondButton, profilePhoto, fullnameLabel, parentLabel, birthLabel, childLabel, dateLabel, lineBorder, cityLabel, cityNameLabel, countryLabel, countryNameLabel, streetLabel, streetNameLabel])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: view, array: [backgroundView, firstButton, secondButton, profilePhoto, fullnameLabel, parentLabel, birthLabel, childLabel, dateLabel, lineBorder, cityLabel, cityNameLabel, countryLabel, countryNameLabel, streetLabel, streetNameLabel, deleteAccountButton])
         
         profilePhoto.image = UIImage(systemName: "person.crop.circle")
         profilePhoto.tintColor = .gray
@@ -75,7 +77,7 @@ class ProfileViewController: GradientViewController {
         parentLabel.textColor = .black
         parentLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        birthLabel.text = "Tug’ilgan sanasi:"
+        birthLabel.text = "Birthday:".localizedString
         birthLabel.textColor = .systemGray
         birthLabel.font = .systemFont(ofSize: 14)
         birthLabel.numberOfLines = 0
@@ -86,7 +88,7 @@ class ProfileViewController: GradientViewController {
         
         lineBorder.backgroundColor = .custom.lightGray
         
-        cityLabel.text = "Viloyat:"
+        cityLabel.text = "Viloyat:".localizedString
         cityLabel.textColor = .systemGray
         cityLabel.font = .systemFont(ofSize: 14)
         
@@ -94,7 +96,7 @@ class ProfileViewController: GradientViewController {
         cityNameLabel.textColor = .black
         cityNameLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        countryLabel.text = "Tuman:"
+        countryLabel.text = "Tuman:".localizedString
         countryLabel.textColor = .systemGray
         countryLabel.font = .systemFont(ofSize: 14)
         
@@ -102,7 +104,7 @@ class ProfileViewController: GradientViewController {
         countryNameLabel.textColor = .black
         countryNameLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
-        streetLabel.text = "Mahalla:"
+        streetLabel.text = "Mahalla:".localizedString
         streetLabel.textColor = .systemGray
         streetLabel.font = .systemFont(ofSize: 14)
         
@@ -113,7 +115,7 @@ class ProfileViewController: GradientViewController {
         firstButton.layer.borderWidth = 1
         firstButton.backgroundColor = .clear
         firstButton.layer.borderColor = UIColor.hexStringToUIColor(hex: "#1ACBAE").cgColor
-        firstButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        firstButton.titleLabel?.font = .robotoFont(ofSize: 14, weight: .medium)
         firstButton.setTitle("Edit profile".localizedString, for: .normal)
         firstButton.addTarget(self, action: #selector(updateProfileButtonAction), for: .touchUpInside)
         firstButton.layer.cornerRadius = 8
@@ -122,11 +124,17 @@ class ProfileViewController: GradientViewController {
         secondButton.layer.borderWidth = 1
         secondButton.backgroundColor = .clear
         secondButton.layer.borderColor = UIColor.hexStringToUIColor(hex: "#1ACBAE").cgColor
-        secondButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        secondButton.titleLabel?.font = .robotoFont(ofSize: 14, weight: .medium)
         secondButton.setTitle("Change password".localizedString, for: .normal)
         secondButton.layer.cornerRadius = 8
         secondButton.addTarget(self, action: #selector(secondButtonAction), for: .touchUpInside)
         secondButton.setTitleColor(UIColor.hexStringToUIColor(hex: "#1ACBAE"), for: .normal)
+        
+        deleteAccountButton.layer.borderWidth = 1
+        deleteAccountButton.layer.borderColor = UIColor.hexStringToUIColor(hex: "C63D2F").cgColor
+        deleteAccountButton.titleLabel?.font = .robotoFont(ofSize: 14, weight: .medium)
+        deleteAccountButton.layer.cornerRadius = 8
+        deleteAccountButton.addTarget(self, action: #selector(deleteButtonAction), for: .touchUpInside)
         
         backgroundView.layer.cornerRadius = 12
         
@@ -169,14 +177,6 @@ class ProfileViewController: GradientViewController {
             lineBorder.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             lineBorder.heightAnchor.constraint(equalToConstant: 2),
             
-//            eduLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 20),
-//            eduLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
-//            eduLabel.widthAnchor.constraint(equalToConstant: textWidth),
-//
-//            eduNameLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 16),
-//            eduNameLabel.leadingAnchor.constraint(equalTo: eduLabel.trailingAnchor, constant: 8),
-//            eduNameLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
-            
             cityLabel.topAnchor.constraint(equalTo: lineBorder.bottomAnchor, constant: 12),
             cityLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
             cityLabel.widthAnchor.constraint(equalToConstant: textWidth),
@@ -211,12 +211,15 @@ class ProfileViewController: GradientViewController {
             firstButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             firstButton.heightAnchor.constraint(equalTo: firstButton.widthAnchor, multiplier: 0.12),
             
-            secondButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -16),
+            secondButton.bottomAnchor.constraint(equalTo: deleteAccountButton.topAnchor, constant: -16),
             secondButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
             secondButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
             secondButton.heightAnchor.constraint(equalTo: secondButton.widthAnchor, multiplier: 0.12),
             
-            
+            deleteAccountButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -16),
+            deleteAccountButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
+            deleteAccountButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -16),
+            deleteAccountButton.heightAnchor.constraint(equalTo: deleteAccountButton.widthAnchor, multiplier: 0.12),
         ])
     }
     
@@ -230,6 +233,13 @@ class ProfileViewController: GradientViewController {
         let vc = ChangePasswordViewController(phoneNumber: model?.phone ?? "", isBackToLogin: false)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc private func deleteButtonAction() {
+        if let model = model {
+            presenter.deleteUser(userId: model.id)
+        }
+        
+    }
 }
 
 
@@ -242,5 +252,16 @@ extension ProfileViewController: ProfileViewPresenterProtocol {
         cityNameLabel.text = user.region
         countryNameLabel.text = user.district
         streetNameLabel.text = user.mahalla
+    }
+    
+    func successfullyDeleteUser() {
+        let vc = LoginViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        let keyWindow = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .compactMap({$0 as? UIWindowScene})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+        keyWindow?.rootViewController = navController
     }
 }

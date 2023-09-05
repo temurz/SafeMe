@@ -9,6 +9,7 @@ import Foundation
 
 protocol ProfileViewPresenterProtocol {
     func reloadUser(_ user: User)
+    func successfullyDeleteUser()
 }
 
 typealias ProfileViewPresenterDelegate = ProfileViewPresenterProtocol & ProfileViewController
@@ -30,6 +31,21 @@ class ProfileViewPresenter {
             self?.reloadUser(user)
         }
     }
+    
+    func deleteUser(userId: Int) {
+        delegate?.indicatorView.startAnimating()
+        Network.shared.deleteUser(userId: userId) { [weak self] statusCode in
+            guard let self else { return }
+            self.delegate?.indicatorView.stopAnimating()
+            
+            if statusCode.code != 0 || statusCode.code != 204 {
+                self.pushAlert(statusCode)
+                return
+            }
+            
+            self.finishDeletion()
+        }
+    }
 }
 
 extension ProfileViewPresenter {
@@ -45,6 +61,12 @@ extension ProfileViewPresenter {
     private func pushAlert(_ error:StatusCode) {
         DispatchQueue.main.async {
             self.delegate?.alert(error: error, action: nil)
+        }
+    }
+    
+    func finishDeletion() {
+        DispatchQueue.main.async {
+            self.delegate?.successfullyDeleteUser()
         }
     }
 }

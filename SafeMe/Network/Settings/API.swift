@@ -20,6 +20,7 @@ public enum HTTPMethod: String {
 }
 
 enum Api {
+    case deleteUser
     case requestSMSForPin
     case passwordUpdate
     case addChild
@@ -67,7 +68,7 @@ enum Api {
             return HTTPMethod.put.rawValue
         case .games, .inspectors, .news, .ageCategory, .recommendations, .getUser:
             return HTTPMethod.get.rawValue
-        case .gamesDelete:
+        case .gamesDelete, .deleteUser:
             return HTTPMethod.delete.rawValue
         default:
             return HTTPMethod.get.rawValue
@@ -83,7 +84,7 @@ enum Api {
             let languageUrl = lang == "uz-Cyrl" ? "/sr" : "/" + lang
             
             switch self {
-            
+            case .deleteUser: return baseURL + languageUrl + "/user/delete/"
             case .pinSmsCodeVerification: return baseURL + languageUrl + "/user/pin/verification"
             case .requestSMSForPin: return baseURL + languageUrl + "/user/pin/recover"
             case .passwordUpdate: return baseURL + languageUrl + "/user/password/update"

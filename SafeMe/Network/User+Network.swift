@@ -79,6 +79,21 @@ extension Network {
         }
     }
     
+    func deleteUser(userId: Int, completion: @escaping (StatusCode) -> ()) {
+        let api = Api.deleteUser
+        
+        let newUrl = api.path + "\(userId)"
+        
+        push(api: api, newUrl: URL(string: newUrl) ,body: nil, headers: nil, type: Parsing.self) { result in
+            switch result {
+            case .success(let model):
+                completion(StatusCode(code: 0, message: model.message))
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+    
     func addChild(name: String, gender: String, date_birthday: String, type_parent: String, completion: @escaping (StatusCode) -> ()) {
         let api = Api.addChild
         

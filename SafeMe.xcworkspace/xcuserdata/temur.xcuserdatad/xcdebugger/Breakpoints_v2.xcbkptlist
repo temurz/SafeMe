@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3FA76EF0-4DBA-4F05-A48B-B91E5ED20DAD"
+            uuid = "07CE797A-D618-408F-AE49-CF1F95537A2D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SafeMe/Network/Settings/Network.swift"
+            filePath = "SafeMe/Controllers List/ProfileViewController/Presenter/ProfileViewPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "push(_:api:newUrl:body:headers:type:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A52B31A2-8160-4D2A-AEC0-A96B94786032"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SafeMe/Network/Settings/Network.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "finishPush(_:api:body:headers:type:completion:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "deleteUser(userId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
