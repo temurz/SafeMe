@@ -33,7 +33,7 @@ class ProfileViewPresenter {
     }
     
     func deleteUser(userId: Int) {
-        delegate?.indicatorView.startAnimating()
+        delegate?.indicatorView.startAnimating(.update)
         Network.shared.deleteUser(userId: userId) { [weak self] statusCode in
             guard let self else { return }
             self.delegate?.indicatorView.stopAnimating()

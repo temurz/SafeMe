@@ -235,10 +235,17 @@ class ProfileViewController: GradientViewController {
     }
     
     @objc private func deleteButtonAction() {
-        if let model = model {
-            presenter.deleteUser(userId: model.id)
+        let alertController = UIAlertController(title: "Account deletion".localizedString, message: "Are sure that you want delete your account?".localizedString, preferredStyle: .alert)
+        let noAction = UIAlertAction(title: "No".localizedString, style: .cancel)
+        let yesAction = UIAlertAction(title: "Yes".localizedString, style: .default) { [weak self] _ in
+            guard let self else { return }
+            if let model = self.model {
+                self.presenter.deleteUser(userId: model.id)
+            }
         }
-        
+        alertController.addAction(noAction)
+        alertController.addAction(yesAction)
+        present(alertController, animated: true)
     }
 }
 
