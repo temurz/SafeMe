@@ -17,12 +17,12 @@ class Network {
     private init() {}
     func generateBoundaryString() -> String { return "Boundary-" + UUID().uuidString }
 
-    struct Parsing:Decodable {let success: Bool; let message:String?}
+    struct Parsing:Decodable {let success: Bool?; let message:String?}
     
     private func parsing(_ data:Data) -> String? {
         do {
             let object = try JSONDecoder().decode(Parsing.self, from: data)
-            return object.success ? nil :object.message
+            return object.success ?? true ? nil :object.message
         }
         catch {
             return nil
@@ -62,7 +62,7 @@ class Network {
                 return self.refreshAuthorization(api: api, body: body, headers: headers, type: type, completion: completion)
             }
             
-            if let object = try? JSONDecoder().decode(Parsing.self, from: data), !object.success {
+            if let object = try? JSONDecoder().decode(Parsing.self, from: data), !(object.success ?? true) {
                 let errorCode = code == 200 ? 400 : code
                 return completion(Result.failure(error: StatusCode(code: errorCode, message: object.message)))
             }

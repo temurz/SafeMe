@@ -179,7 +179,7 @@ class LoginViewController: GradientViewController {
         switch isLogin {
         case .login:
             let trimmedString = phoneTextField.text.removeAllSpaces()
-            presenter.loginAction(username: trimmedString, pass: passwordTextField.text)
+            presenter.loginAction(username: trimmedString.removePlusFromPhoneNumber(), pass: passwordTextField.text)
         case .register:
             presenter.register(username: phoneTextField.text, pass: passwordTextField.text, repeatPassword: repeatPasswordTextField.text)
         case .forgetPassword:
