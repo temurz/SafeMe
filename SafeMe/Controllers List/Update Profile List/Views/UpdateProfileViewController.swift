@@ -212,6 +212,17 @@ class UpdateProfileViewController: GradientViewController, UIGestureRecognizerDe
         birthdayTextField.text = sender.date.toString("dd-MM-yyyy")
         self.userEdit.birthday = sender.date.toString("yyyy-MM-dd")
         datePicker.endEditing(true)
+        enableButton()
+    }
+    
+    private func enableButton() {
+        if !fullNameTextField.text.isEmpty && !birthdayTextField.text.isEmpty {
+            nextButton.backgroundColor = .custom.buttonBackgroundColor
+            nextButton.isUserInteractionEnabled = true
+        }else {
+            nextButton.backgroundColor = .custom.lightGray
+            nextButton.isUserInteractionEnabled = false
+        }
     }
     
     @objc private func choosePhotoAction(_ sender: UIGestureRecognizer) {
@@ -341,12 +352,6 @@ extension UpdateProfileViewController: UIImagePickerControllerDelegate {
 
 extension UpdateProfileViewController: UICustomTextFieldDelegate {
     func customTextField(_ customTextField: UICustomTextField, changed text: String?) {
-        if !fullNameTextField.text.isEmpty && !birthdayTextField.text.isEmpty {
-            nextButton.backgroundColor = .custom.buttonBackgroundColor
-            nextButton.isUserInteractionEnabled = true
-        }else {
-            nextButton.backgroundColor = .custom.lightGray
-            nextButton.isUserInteractionEnabled = false
-        }
+        enableButton()
     }
 }

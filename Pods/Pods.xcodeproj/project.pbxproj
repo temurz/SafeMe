@@ -397,7 +397,7 @@
 		996B7E4501EEC2A81434965425CD7CFF /* SDImageCacheDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheDefine.h; path = SDWebImage/Core/SDImageCacheDefine.h; sourceTree = "<group>"; };
 		9B9A131D209EC8B9FD7A8873A8382E9F /* SideMenuAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuAnimationController.swift; path = Pod/Classes/SideMenuAnimationController.swift; sourceTree = "<group>"; };
 		9D6A80B87F95DA9E4410C9FDB4482315 /* Pods-SafeMe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SafeMe-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1A07D62EDC2E2A3D9AAE23B035D71BA /* Pods-SafeMe-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SafeMe-Info.plist"; sourceTree = "<group>"; };
 		A2C8D988C2BBC3D0D5D43B4863673AE6 /* SideMenuTransitionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuTransitionController.swift; path = Pod/Classes/SideMenuTransitionController.swift; sourceTree = "<group>"; };
 		A5F280707FD8BAE7DE83CD4A9E5AE2E0 /* UIView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCache.h"; path = "SDWebImage/Core/UIView+WebCache.h"; sourceTree = "<group>"; };
@@ -413,7 +413,7 @@
 		B3F08015F412697060DD49094307C465 /* Locksmith-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Locksmith-dummy.m"; sourceTree = "<group>"; };
 		B45BA81FD14EF73408514B8FD92FCC21 /* NSBezierPath+SDRoundedCorners.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath+SDRoundedCorners.m"; path = "SDWebImage/Private/NSBezierPath+SDRoundedCorners.m"; sourceTree = "<group>"; };
 		B4857A35CC60DD207B3F338D290A123A /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
-		B620A995E24E645764FCDE7231CE9015 /* Locksmith */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Locksmith; path = Locksmith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B620A995E24E645764FCDE7231CE9015 /* Locksmith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Locksmith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7222C8B6BE11AD58185473A34C8F8A9 /* SDDiskCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDDiskCache.m; path = SDWebImage/Core/SDDiskCache.m; sourceTree = "<group>"; };
 		B728BBE17C610C0F81EBB4BFB0030435 /* SDImageAssetManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageAssetManager.m; path = SDWebImage/Private/SDImageAssetManager.m; sourceTree = "<group>"; };
 		B9B82016787E38272B499D843A5A50C6 /* Locksmith.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Locksmith.release.xcconfig; sourceTree = "<group>"; };
@@ -541,7 +541,6 @@
 				EAAE0778FB99F843974EC7DE19F69A91 /* Core */,
 				555D14C83D67576483419E5E16316853 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -558,7 +557,6 @@
 				67772FEDAA560C08B15F56853ADDFA03 /* LocksmithSecurityClass.swift */,
 				88A2D71E8EDD0D9AAE85B6B4F454327D /* Support Files */,
 			);
-			name = Locksmith;
 			path = Locksmith;
 			sourceTree = "<group>";
 		};
@@ -670,7 +668,7 @@
 		C56505187FE9830834DCF081B575E638 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B620A995E24E645764FCDE7231CE9015 /* Locksmith */,
+				B620A995E24E645764FCDE7231CE9015 /* Locksmith.framework */,
 				8C895DF36FB077056EC85BCFE3E5DE5C /* Pods-SafeMe */,
 				D8DDBDC5627233A08756E9EB90969DA4 /* Pods-SafeMe-SafeMeUITests */,
 				FF2AF84CD3E5E4127780C2E2A13209EC /* Pods-SafeMeTests */,
@@ -730,7 +728,6 @@
 				6ED0DEFF5F2CE3057CD73B3781DF144E /* UITableViewVibrantCell.swift */,
 				7C31D4FD540E9F93AE26238C41580851 /* Support Files */,
 			);
-			name = SideMenu;
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
@@ -1126,7 +1123,7 @@
 			);
 			name = Locksmith;
 			productName = Locksmith;
-			productReference = B620A995E24E645764FCDE7231CE9015 /* Locksmith */;
+			productReference = B620A995E24E645764FCDE7231CE9015 /* Locksmith.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1409,7 +1406,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Locksmith/Locksmith-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Locksmith/Locksmith-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1482,7 +1479,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Locksmith/Locksmith-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Locksmith/Locksmith-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

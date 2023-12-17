@@ -9,6 +9,7 @@ import UIKit
 
 class AgeCategoriesView: UIView {
     private var collectionView: UICollectionView!
+    private let segmentControl = UISegmentedControl()
     private var items = [AgeCategory]()
     private var firstIsSelected = true
     
