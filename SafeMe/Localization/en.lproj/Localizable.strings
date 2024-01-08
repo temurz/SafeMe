@@ -142,3 +142,7 @@
 "Mahalla:" = "Mahalla:";
 "Viloyat:" = "Region:";
 "Tuman:" = "District:";
+"Success" = "Success";
+"Successfully sent!" = "Successfully sent!";
+"Error" = "Error";
+"Unknown error" = "Unknown error";

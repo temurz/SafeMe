@@ -142,3 +142,7 @@
 "Viloyat:" = "Viloyat:";
 "Tuman:" = "Tuman:";
 "Mahalla:" = "Mahalla:";
+"Success" = "Muvaffaqiyat";
+"Successfully sent!" = "Muvaffaqiyatli jo'natildi!";
+"Error" = "Xatolik";
+"Unknown error" = "Nomalum xatolik";

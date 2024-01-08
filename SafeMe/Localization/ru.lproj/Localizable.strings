@@ -142,3 +142,7 @@
 "Viloyat:" = "Область:";
 "Tuman:" = "Район:";
 "Mahalla:" = "Махалла:";
+"Success" = "Успешно";
+"Successfully sent!" = "Успешно отправлено!";
+"Error" = "Ошибка";
+"Unknown error" = "Неизвестная ошибка";
