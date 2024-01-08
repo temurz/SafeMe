@@ -24,7 +24,8 @@ class InspectorsPresenter {
         Network.shared.getInspectors(mahalla: mahalla) { [weak self] statusCode, inspectors in
             self?.delegate?.indicatorView.stopAnimating()
             guard let inspectors = inspectors else {
-                self?.pushAlert(statusCode)
+//                self?.pushAlert(statusCode)
+                self?.reloadInspectors([])
                 return
             }
             

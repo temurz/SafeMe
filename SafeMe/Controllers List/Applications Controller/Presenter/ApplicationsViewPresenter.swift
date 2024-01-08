@@ -23,9 +23,9 @@ class ApplicationsViewPresenter {
             self?.delegate?.indicatorView.stopAnimating()
             
             if statusCode.code != 0 {
-                self?.pushAlert(statusCode)
+                self?.pushAlert(title: "Error".localizedString, message: "Unknown error".localizedString)
             }else {
-                self?.pushAlert(statusCode)
+                self?.pushAlert(title: "Success".localizedString, message: "Successfully sent!".localizedString)
             }
             
         }
@@ -36,9 +36,9 @@ extension ApplicationsViewPresenter {
     
     //MARK: - Output
     
-    private func pushAlert(_ error:StatusCode) {
+    private func pushAlert(title: String, message: String) {
         DispatchQueue.main.async {
-            self.delegate?.alert(error: error, action: nil)
+            self.delegate?.alert(title: title, message: message, url: nil)
         }
 
     }

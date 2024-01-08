@@ -20,7 +20,8 @@ class NewsPresenter {
         Network.shared.getNews(page: page, size: size) { [weak self] statusCode, news, totalPages in
             self?.delegate?.indicatorView.stopAnimating()
             guard let news = news else {
-                self?.pushAlert(statusCode)
+//                self?.pushAlert(statusCode)
+                self?.reloadNews([], totalPages: totalPages ?? 1)
                 return
             }
             self?.reloadNews(news, totalPages: totalPages ?? 1)

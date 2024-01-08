@@ -22,7 +22,7 @@ class PollViewPresenter {
         Network.shared.getPolls(page: page, size: size, ageCategory: ageCategory?.id) { [weak self] statusCode, polls, totalPages in
             guard let self else { return }
             guard let polls else {
-                self.pushAlert(statusCode)
+//                self.pushAlert(statusCode)
                 self.updatePolls([], totalPages: 1)
                 return
             }
@@ -36,7 +36,8 @@ class PollViewPresenter {
         Network.shared.getAgeCategories { [weak self] statusCode, ageCategories in
             self?.delegate?.indicatorView.stopAnimating()
             guard let ageCategories else {
-                self?.pushAlert(statusCode)
+//                self?.pushAlert(statusCode)
+                self?.reloadAgeCategories([])
                 return
             }
             

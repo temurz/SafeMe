@@ -28,7 +28,7 @@ class ChatPresenter {
         Network.shared.getAgeCategories { [weak self] statusCode, ageCategories in
             self?.delegate?.indicatorView.stopAnimating()
             guard let ageCategories else {
-                self?.pushAlert(statusCode)
+//                self?.pushAlert(statusCode)
                 return
             }
             
@@ -61,7 +61,7 @@ class ChatPresenter {
             Network.shared.getGames(ageCategory: ageCategory?.id, category: category?.id, page: page, size: size) { [weak self] statusCode, games, totalPages in
                 self?.delegate?.indicatorView.stopAnimating()
                 guard let games else {
-                    self?.pushAlert(statusCode)
+//                    self?.pushAlert(statusCode)
                     self?.reloadGames([], totalPages: 1)
                     return
                 }
@@ -75,7 +75,7 @@ class ChatPresenter {
     func getGamesBookmarkView(isBookmark: Bool, ageCategory: Int?, category: Int?) {
         Network.shared.getGamesUnbookmarkView(isBookmark: isBookmark, ageCategory: ageCategory, category: category, page: 1, size: 10) { [weak self] statusCode, games in
             guard let games else {
-                self?.pushAlert(statusCode)
+//                self?.pushAlert(statusCode)
                 self?.reloadGames([], totalPages: 1)
                 return
             }
@@ -87,7 +87,7 @@ class ChatPresenter {
         Network.shared.saveOrDeleteGameBookmark(isSave: isSave, game: game) { statusCode in
             
             if statusCode.code != 0 {
-                self.pushAlert(statusCode)
+//                self.pushAlert(statusCode)
                 return
             }
             self.successSaveOrDeleteGame()

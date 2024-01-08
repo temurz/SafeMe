@@ -28,7 +28,7 @@ class SuggestionsPresenter {
         Network.shared.getAgeCategories { [weak self] statusCode, ageCategories in
             self?.delegate?.indicatorView.stopAnimating()
             guard let ageCategories else {
-                self?.pushAlert(statusCode)
+//                self?.pushAlert(statusCode)
                 return
             }
             
@@ -59,7 +59,7 @@ class SuggestionsPresenter {
         }else {
             Network.shared.getRecommendations(ageCategory: ageCategory?.id, category: category?.id, page: page, size: size) { [weak self] statusCode, recommendations, totalPages in
                 guard let recommendations else {
-                    self?.pushAlert(statusCode)
+//                    self?.pushAlert(statusCode)
                     self?.reloadRecommendations([], totalPages: 1)
                     return
                 }
