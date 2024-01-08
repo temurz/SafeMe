@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  SafeMe
+
+  Created by Temur on 08/01/2024.
+  
+*/
+
+"NSLocationWhenInUseUsageDescription" = "Нам необходима ваша локация для того чтобы отправить SOS сигнал";
+"PhotoLibraryUsageDescription" = "Доступ к галерее чтобы выбрать фото для аватара";
+"NSCameraUsageDescription" = "Доступ к камере чтобы выбрать фото для аватара";

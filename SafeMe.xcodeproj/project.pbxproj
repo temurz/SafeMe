@@ -24,6 +24,7 @@
 		B842F3092A90C36C001F79BC /* LanguageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3082A90C36C001F79BC /* LanguageViewCell.swift */; };
 		B842F30F2A9213D9001F79BC /* SosViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F30E2A9213D9001F79BC /* SosViewPresenter.swift */; };
 		B842F3112A92183A001F79BC /* Sos+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3102A92183A001F79BC /* Sos+Network.swift */; };
+		B842F3162B4CA16D00907F0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B842F3182B4CA16D00907F0C /* InfoPlist.strings */; };
 		B842F3372A934950001F79BC /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3362A934950001F79BC /* Int+Extension.swift */; };
 		B842F33A2A935EDF001F79BC /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842F3392A935EDF001F79BC /* ChangePasswordViewController.swift */; };
 		B86ACA172A62D65300D04485 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86ACA162A62D65300D04485 /* LoginViewController.swift */; };
@@ -207,6 +208,10 @@
 		B842F30B2A90D953001F79BC /* uz-Cyrl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "uz-Cyrl"; path = "uz-Cyrl.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B842F30E2A9213D9001F79BC /* SosViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SosViewPresenter.swift; sourceTree = "<group>"; };
 		B842F3102A92183A001F79BC /* Sos+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sos+Network.swift"; sourceTree = "<group>"; };
+		B842F3172B4CA16D00907F0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B842F3192B4CA17000907F0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B842F31A2B4CA17100907F0C /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B842F31B2B4CA17100907F0C /* uz-Cyrl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "uz-Cyrl"; path = "uz-Cyrl.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B842F3362A934950001F79BC /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		B842F3392A935EDF001F79BC /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		B86ACA162A62D65300D04485 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -828,6 +833,7 @@
 		B8B062352A616FA70020339B /* SafeMe */ = {
 			isa = PBXGroup;
 			children = (
+				B842F3182B4CA16D00907F0C /* InfoPlist.strings */,
 				B86ACA9C2A6AC24A00D04485 /* Localization */,
 				B86ACA992A6AC0DF00D04485 /* Network */,
 				B86ACA962A6ABF4800D04485 /* KeyChain */,
@@ -1066,6 +1072,7 @@
 				B86ACA3A2A62EA5D00D04485 /* Montserrat-Light.ttf in Resources */,
 				B86ACA342A62EA5D00D04485 /* Montserrat-SemiBold.ttf in Resources */,
 				B86ACAA02A6AC3B300D04485 /* Localizable.strings in Resources */,
+				B842F3162B4CA16D00907F0C /* InfoPlist.strings in Resources */,
 				B86ACA2E2A62EA5D00D04485 /* Montserrat-Regular.ttf in Resources */,
 				B86ACB4C2A74312B00D04485 /* Roboto-Bold.ttf in Resources */,
 				B86ACA312A62EA5D00D04485 /* Montserrat-Medium.ttf in Resources */,
@@ -1370,6 +1377,17 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B842F3182B4CA16D00907F0C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B842F3172B4CA16D00907F0C /* en */,
+				B842F3192B4CA17000907F0C /* ru */,
+				B842F31A2B4CA17100907F0C /* uz */,
+				B842F31B2B4CA17100907F0C /* uz-Cyrl */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		B86ACAA22A6AC3B300D04485 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1523,9 +1541,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeMe/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera use for profile";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to send a SOS signal";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Gallery use for profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1558,9 +1573,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeMe/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera use for profile";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to send a SOS signal";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Gallery use for profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

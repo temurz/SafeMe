@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  SafeMe
+
+  Created by Temur on 08/01/2024.
+  
+*/
+
+"NSLocationWhenInUseUsageDescription" = "We need your location to send a SOS signal";
+"PhotoLibraryUsageDescription" = "Gallery use for profile";
+"NSCameraUsageDescription" = "Camera use for profile";

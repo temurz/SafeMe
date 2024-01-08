@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  SafeMe
+
+  Created by Temur on 08/01/2024.
+  
+*/
+
+"NSLocationWhenInUseUsageDescription" = "SOS сигнал жўнатиш учун сизнинг локациянгиз керак";
+"PhotoLibraryUsageDescription" = "Профил расмини танлаш учун галереяга киришга рухсат керак";
+"NSCameraUsageDescription" = "Профил расмини танлаш учун камерага киришга рухсат керак";
