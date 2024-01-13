@@ -146,3 +146,10 @@
 "Successfully sent!" = "Успешно отправлено!";
 "Error" = "Ошибка";
 "Unknown error" = "Неизвестная ошибка";
+"Foydalanuvchi topilmadi" = "Пользователь не найден";
+"Foydalanuvchi paroli noto'g'ri" = "Неправильный пароль";
+"Bunday foydalanuvchi ro\'yxatdan o\'tmagan" = "Такой пользователь не зарегистрирован";
+"Telefon raqam «+998901234567» formatida va 13 ta raqamda iborat bo\'lishi kerak." = "Номер телефона должен быть  формате «+998901234567»";
+"Ikkala parol bir biriga mos emas" = "Два пароля должны совпадать";
+"Tasdiqlash kodi xato!" = "Неправильный код подтверждения!";
+"Kod amal qilish muddati o\'tgan!" = "Срок кода подтверждения истек!";

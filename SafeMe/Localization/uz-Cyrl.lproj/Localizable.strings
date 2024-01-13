@@ -154,3 +154,10 @@
 "Successfully sent!" = "Муваффақиятли жўнатилди!";
 "Error" = "Хатолик";
 "Unknown error" = "Номалум хатолик";
+"Foydalanuvchi topilmadi" = "Фойдаланувчи топилмади";
+"Foydalanuvchi paroli noto'g'ri" = "Фойдаланувчи пароли нотўғри";
+"Bunday foydalanuvchi ro\'yxatdan o\'tmagan" = "Бундай фойдаланувчи рўйхатдан ўтмаган";
+"Telefon raqam «+998901234567» formatida va 13 ta raqamda iborat bo\'lishi kerak." = "Телефон рақам «+998901234567» форматида ва 13 та рақамда иборат бо\ълиши керак.»";
+"Ikkala parol bir biriga mos emas" = "Иккала парол бир бирига мос эмас";
+"Tasdiqlash kodi xato!" = "Тасдиқлаш коди хато!";
+"Kod amal qilish muddati o\'tgan!" = "Код амал қилиш муддати оътган!";

@@ -59,7 +59,7 @@ class ChangePasswordPresenter {
 
 extension ChangePasswordPresenter {
     func pushAlert(_ statusCode: StatusCode) {
-        self.delegate?.alert(error: statusCode, action: nil)
+        self.delegate?.alert(title: nil, message: statusCode.message?.localizedString, url: nil)
     }
     
     func successRequest(_ sessionId: String) {

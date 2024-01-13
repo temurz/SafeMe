@@ -57,7 +57,7 @@ extension AppEnterCodePresenter {
     
     private func pushAlert(_ error:StatusCode) {
         DispatchQueue.main.async {
-            self.delegate?.alert(error: error, action: nil)
+            self.delegate?.alert(title: nil, message: error.message?.localizedString, url: nil)
         }
     }
     
