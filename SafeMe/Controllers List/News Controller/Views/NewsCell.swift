@@ -104,12 +104,12 @@ class NewsCell: UITableViewCell {
     }
     
     func updateModel(model: News, borderColor: UIColor) {
-        mainImageView.sd_setImage(with: URL(string: model.image))
+        mainImageView.sd_setImage(with: URL(string: model.image ?? ""))
         titleLabel.text = model.title
-        subtitleLabel.text = model.shortText
-        dateView.setTitle(model.createdDate.convertToDateUS(), for: .normal) 
-        eyeView.setTitle("\(model.views)", for: .normal)
-        if model.views > 100 {eyeView.leftImage()}
+        subtitleLabel.text = model.shorttext
+        dateView.setTitle(model.created_date?.convertToDateUS(), for: .normal) 
+        eyeView.setTitle("\(String(describing: model.views))", for: .normal)
+        if model.views ?? 0 > 100 {eyeView.leftImage()}
         bgView.layer.borderColor = borderColor.cgColor
     }
 }

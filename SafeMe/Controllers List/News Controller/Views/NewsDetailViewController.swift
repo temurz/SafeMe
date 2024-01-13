@@ -51,7 +51,7 @@ class NewsDetailViewController: GradientViewController {
         }
         
         
-        mainImageView.sd_setImage(with: URL(string: news.image))
+        mainImageView.sd_setImage(with: URL(string: news.image ?? ""))
         mainImageView.layer.cornerRadius = 12
         mainImageView.layer.masksToBounds = true
         
@@ -61,7 +61,7 @@ class NewsDetailViewController: GradientViewController {
         titleLabel.numberOfLines = 0
         
         let headerString = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></head>"
-        webView.loadHTMLString(headerString + news.content, baseURL: nil)
+        webView.loadHTMLString(headerString + (news.content ?? ""), baseURL: nil)
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
 //        webView.scrollView.minimumZoomScale = 1.0
@@ -69,7 +69,7 @@ class NewsDetailViewController: GradientViewController {
 //        webView.scrollView.zoomScale = 150
         
         dateView.setImage(UIImage(named: "calendar"), for: .normal)
-        dateView.setTitle(news.createdDate.convertToDateUS(), for: .normal)
+        dateView.setTitle(news.created_date?.convertToDateUS(), for: .normal)
         dateView.setTitleColor(.custom.grayDate, for: .normal)
         dateView.titleLabel?.font = .robotoFont(ofSize: 13, weight: .medium)
         dateView.leftImage()
@@ -78,7 +78,7 @@ class NewsDetailViewController: GradientViewController {
         
         eyeView.isUserInteractionEnabled = false
         eyeView.setImage(UIImage(named: "visibility"), for: .normal)
-        eyeView.setTitle("\(news.views)", for: .normal)
+        eyeView.setTitle("\(news.views ?? 0)", for: .normal)
         eyeView.setTitleColor(.custom.grayDate, for: .normal)
         eyeView.titleLabel?.font = .robotoFont(ofSize: 13, weight: .medium)
         eyeView.leftImage(left: 10, right: 10)

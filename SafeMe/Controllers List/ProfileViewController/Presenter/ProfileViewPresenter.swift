@@ -60,7 +60,7 @@ extension ProfileViewPresenter {
     
     private func pushAlert(_ error:StatusCode) {
         DispatchQueue.main.async {
-            self.delegate?.alert(error: error, action: nil)
+            self.delegate?.alert(title: error.title, message: error.message?.localizedString, url: nil)
         }
     }
     

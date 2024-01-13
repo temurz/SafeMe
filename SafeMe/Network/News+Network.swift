@@ -22,7 +22,7 @@ extension Network {
         push(api: api, newUrl: newUrl,body: nil, headers: nil, type: NewsModel.self) { result in
             switch result {
             case .success(let model):
-                completion(StatusCode(code: 200), model.body, model.totalPages)
+                completion(StatusCode(code: 200), model.body, model.total_pages)
             case .failure(let error):
                 completion(error, nil, nil)
             }
