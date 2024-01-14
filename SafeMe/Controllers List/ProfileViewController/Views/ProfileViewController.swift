@@ -63,7 +63,7 @@ class ProfileViewController: GradientViewController {
         profilePhoto.clipsToBounds = true
         profilePhoto.layer.cornerRadius = 4
         
-        fullnameLabel.text = "Mardon Shonazarov"
+        fullnameLabel.text = ""
         fullnameLabel.font = .systemFont(ofSize: 16, weight: .medium)
         fullnameLabel.textColor = .black
         fullnameLabel.numberOfLines = 0
@@ -82,7 +82,7 @@ class ProfileViewController: GradientViewController {
         birthLabel.font = .systemFont(ofSize: 14)
         birthLabel.numberOfLines = 0
 
-        dateLabel.text = "12.02.1993"
+        dateLabel.text = ""
         dateLabel.textColor = .black
         dateLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
@@ -92,7 +92,7 @@ class ProfileViewController: GradientViewController {
         cityLabel.textColor = .systemGray
         cityLabel.font = .systemFont(ofSize: 14)
         
-        cityNameLabel.text = "Toshkent shaxar"
+        cityNameLabel.text = ""
         cityNameLabel.textColor = .black
         cityNameLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
@@ -100,7 +100,7 @@ class ProfileViewController: GradientViewController {
         countryLabel.textColor = .systemGray
         countryLabel.font = .systemFont(ofSize: 14)
         
-        countryNameLabel.text = "Chilonzor"
+        countryNameLabel.text = ""
         countryNameLabel.textColor = .black
         countryNameLabel.font = .systemFont(ofSize: 14, weight: .medium)
         
@@ -108,7 +108,7 @@ class ProfileViewController: GradientViewController {
         streetLabel.textColor = .systemGray
         streetLabel.font = .systemFont(ofSize: 14)
         
-        streetNameLabel.text = "Obod MFY"
+        streetNameLabel.text = ""
         streetNameLabel.textColor = .black
         streetNameLabel.font = .systemFont(ofSize: 14, weight: .medium)
         

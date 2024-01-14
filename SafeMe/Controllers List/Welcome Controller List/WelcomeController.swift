@@ -30,7 +30,7 @@ final class WelcomeController: GradientViewController {
     
     private func initialize() {
         SetupViews.addViewEndRemoveAutoresizingMask(superView: view, view: bgView)
-        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [titleLabel, imageView, descriptionLabel, nextButton])
+        SetupViews.addViewEndRemoveAutoresizingMask(superView: bgView, array: [titleLabel, descriptionLabel, nextButton])
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .center
@@ -38,7 +38,7 @@ final class WelcomeController: GradientViewController {
         
         imageView.layer.cornerRadius = 12
         imageView.layer.masksToBounds = true
-        imageView.image = UIImage(named: "recommendations_image")
+//        imageView.image = UIImage(named: "recommendations_image")
         
         nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
     }
@@ -59,14 +59,15 @@ final class WelcomeController: GradientViewController {
             nextButton.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16),
             nextButton.heightAnchor.constraint(equalToConstant: 50),
             
-            descriptionLabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16),
+//            descriptionLabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16),
+            descriptionLabel.centerYAnchor.constraint(equalTo: bgView.centerYAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
             
-            imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            imageView.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 24),
-            imageView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -24),
-            imageView.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor,constant: -16),
+//            imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+//            imageView.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 24),
+//            imageView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -24),
+//            imageView.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor,constant: -16),
             
         ])
     }
@@ -75,10 +76,10 @@ final class WelcomeController: GradientViewController {
         descriptionState += 1
         switch descriptionState {
         case 1:
-            imageView.image = UIImage(named: "news_image")
+//            imageView.image = UIImage(named: "news_image")
             descriptionLabel.text = "Here you can find information about internet threats, how to be safe from them, recommendations for your children, and news in the world of internet".localizedString
         case 2:
-            imageView.image = UIImage(named: "sos_image")
+//            imageView.image = UIImage(named: "sos_image")
             descriptionLabel.text = "Also here you can make complaints and even send SOS signal.".localizedString
         case 3:
             AuthApp.shared.isFirstEnter = 1

@@ -108,7 +108,7 @@ class NewsCell: UITableViewCell {
         titleLabel.text = model.title
         subtitleLabel.text = model.shorttext
         dateView.setTitle(model.created_date?.convertToDateUS(), for: .normal) 
-        eyeView.setTitle("\(String(describing: model.views))", for: .normal)
+        eyeView.setTitle("\(model.views ?? 0)", for: .normal)
         if model.views ?? 0 > 100 {eyeView.leftImage()}
         bgView.layer.borderColor = borderColor.cgColor
     }
