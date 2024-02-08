@@ -11,7 +11,7 @@ class BaseViewController: GradientViewController {
     let leftMenuButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(named: "leftMenuIcon"))
     let navBarTitleLabel = UILabel()
     let searchButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(systemName: "magnifyingglass"))
-    let sosButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(named: "sosIcon"))
+//    let sosButton = UIButton(color: .white, backgroundColor: .clear, image: UIImage(named: "sosIcon"))
     let notificationsButton = UIButton(backgroundColor: .clear, image: UIImage(systemName: "bell.fill"))
     let profileButton = UIButton(backgroundColor: .clear, image: UIImage(named: "person"))
     let customNavBar = UIStackView()
@@ -51,10 +51,10 @@ class BaseViewController: GradientViewController {
         stackView.distribution = .fill
         stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(UIView())
-        stackView.addArrangedSubview(sosButton)
+//        stackView.addArrangedSubview(sosButton)
         stackView.addArrangedSubview(profileButton)
         
-        sosButton.addTarget(self, action: #selector(sosButtonAction), for: .touchUpInside)
+//        sosButton.addTarget(self, action: #selector(sosButtonAction), for: .touchUpInside)
         profileButton.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
         profileButton.tintColor = .white
         profileButton.contentMode = .scaleAspectFill
