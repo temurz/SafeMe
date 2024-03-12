@@ -79,9 +79,6 @@ final class WelcomeController: GradientViewController {
 //            imageView.image = UIImage(named: "news_image")
             descriptionLabel.text = "Here you can find information about internet threats, how to be safe from them, recommendations for your children, and news in the world of internet".localizedString
         case 2:
-//            imageView.image = UIImage(named: "sos_image")
-            descriptionLabel.text = "Also here you can make complaints and even send SOS signal.".localizedString
-        case 3:
             AuthApp.shared.isFirstEnter = 1
             let vc = LanguageViewController()
             let keyWindow = UIApplication.shared.connectedScenes
